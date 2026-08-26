@@ -1,0 +1,102 @@
+/*
+ * FLIPPCLUB — fonts
+ * ───────────────────────────────────────────────────────────────────────
+ * Self-hosted via @fontsource (bundled npm packages, no runtime request to
+ * Google Fonts). To change the typeface pairing later: swap these imports
+ * and the three --font-* values below — components never reference a
+ * font name directly, only font-display / font-body / font-mono.
+ */
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+@import "tailwindcss";
+
+/*
+ * FLIPPCLUB — design tokens (CSS side)
+ * ───────────────────────────────────────────────────────────────────────
+ * This is the source of truth Tailwind reads to generate utility classes
+ * (bg-primary, text-muted, font-display, rounded-pill, ...). Keep these
+ * hex values in sync with `src/config/theme.ts`, which exposes the same
+ * palette to plain TypeScript.
+ *
+ * To rebrand later: change the values in this block only — every
+ * component already uses the generated utility classes.
+ */
+:root {
+  /* Brand */
+  --color-primary: #ca61f1;
+  --color-accent: #f8ca1f;
+  --color-dark-gray: #292929;
+
+  /* Neutral surfaces — background is intentionally off-white, not pure white */
+  --color-background: #f8f4ee;
+  --color-surface: #ffffff;
+  --color-ink: #1c1420;
+
+  /* Text */
+  --color-text: #292929;
+  --color-muted: #6e6675;
+  --color-on-ink: #f8f4ee;
+
+  /* Borders */
+  --color-border: #e7e0d6;
+
+  /* Radii */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --radius-pill: 999px;
+
+  /* Fonts — see the @fontsource imports above */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-dark-gray: var(--color-dark-gray);
+
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+  --color-on-ink: var(--color-on-ink);
+
+  --color-border: var(--color-border);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Respect reduced-motion preferences site-wide. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
