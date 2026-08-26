@@ -26,7 +26,7 @@ export function KillerQueen() {
             A 10-player, 2-team arcade cabinet built for chaos — the centerpiece of the club and
             the reason regulars keep coming back. Full rules, photos and match nights coming soon.
           </p>
-          <Button href="#contact" variant="primary" className="mt-2">
+          <Button href="/contact" variant="primary" className="mt-2">
             Ask about Killer Queen nights
           </Button>
         </div>

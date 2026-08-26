@@ -17,7 +17,7 @@ export type Slide = {
   title: string;
   /** Short supporting copy, one or two sentences max. */
   description: string;
-  /** Route or in-page anchor the whole slide links to. */
+  /** Route the whole slide links to. */
   href: string;
   /** Path to the placeholder/real image in /public/images. */
   image: string;
@@ -33,7 +33,7 @@ export const slides: Slide[] = [
     title: "Pinball Zone",
     description:
       "A lineup of restored classic pinball machines from the golden era.",
-    href: "#zones",
+    href: "/zones",
     image: "/images/hero/pinball-zone.jpg",
     label: "Popular",
     accent: "12 machines",
@@ -42,7 +42,7 @@ export const slides: Slide[] = [
     id: "arcade-zone",
     title: "Arcade Zone",
     description: "Retro cabinets and modern arcade favorites, side by side.",
-    href: "#zones",
+    href: "/zones",
     image: "/images/hero/arcade-zone.jpg",
     accent: "20+ cabinets",
   },
@@ -50,7 +50,7 @@ export const slides: Slide[] = [
     id: "killer-queen",
     title: "Killer Queen",
     description: "Our signature 10-player arcade cabinet — the club's big draw.",
-    href: "#killer-queen",
+    href: "/killer-queen",
     image: "/images/hero/killer-queen.jpg",
     label: "New",
     accent: "10 players, 1 cabinet",
@@ -59,14 +59,14 @@ export const slides: Slide[] = [
     id: "excavator-zone",
     title: "Excavator Zone",
     description: "Claw and excavator games for a quick round with friends.",
-    href: "#zones",
+    href: "/zones",
     image: "/images/hero/excavator-zone.jpg",
   },
   {
     id: "events",
     title: "Events & Special Occasions",
     description: "Birthdays, tournaments and private parties, hosted at the club.",
-    href: "#contact",
+    href: "/contact",
     image: "/images/hero/events.jpg",
     accent: "Book your date",
   },
@@ -74,21 +74,21 @@ export const slides: Slide[] = [
     id: "bar",
     title: "Bar",
     description: "Cold drinks, coffee and snacks while you play.",
-    href: "#about",
+    href: "/about",
     image: "/images/hero/bar.jpg",
   },
   {
     id: "space",
     title: "300+ m² of Entertainment",
     description: "Plenty of room to play, hang out and explore every zone.",
-    href: "#zones",
+    href: "/zones",
     image: "/images/hero/space.jpg",
   },
   {
     id: "coming-soon",
     title: "Coming Soon",
     description: "New machines and zones are on the way — stay tuned.",
-    href: "#about",
+    href: "/about",
     image: "/images/hero/coming-soon.jpg",
     label: "Coming Soon",
   },

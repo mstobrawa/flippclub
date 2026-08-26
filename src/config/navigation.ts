@@ -10,21 +10,21 @@
 export type NavItem = {
   /** Text shown to the user. */
   label: string;
-  /** In-page anchor or route, e.g. "#zones" or "/contact". */
+  /** Internal route, e.g. "/zones" or "/contact". */
   href: string;
 };
 
 export const navItems: NavItem[] = [
-  { label: "Zones", href: "#zones" },
-  { label: "Killer Queen", href: "#killer-queen" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Opening Hours", href: "#opening-hours" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Zones", href: "/zones" },
+  { label: "Killer Queen", href: "/killer-queen" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Opening Hours", href: "/opening-hours" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const ctaItem: NavItem = {
   label: "Get in touch",
-  href: "#contact",
+  href: "/contact",
 };

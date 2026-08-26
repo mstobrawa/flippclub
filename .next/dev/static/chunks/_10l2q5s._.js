@@ -2948,36 +2948,36 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 const navItems = [
     {
         label: "Zones",
-        href: "#zones"
+        href: "/zones"
     },
     {
         label: "Killer Queen",
-        href: "#killer-queen"
+        href: "/killer-queen"
     },
     {
         label: "Pricing",
-        href: "#pricing"
+        href: "/pricing"
     },
     {
         label: "Gallery",
-        href: "#gallery"
+        href: "/gallery"
     },
     {
         label: "Opening Hours",
-        href: "#opening-hours"
+        href: "/opening-hours"
     },
     {
         label: "About",
-        href: "#about"
+        href: "/about"
     },
     {
         label: "Contact",
-        href: "#contact"
+        href: "/contact"
     }
 ];
 const ctaItem = {
     label: "Get in touch",
-    href: "#contact"
+    href: "/contact"
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);

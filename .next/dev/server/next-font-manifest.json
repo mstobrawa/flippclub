@@ -1,6 +1,13 @@
 {
   "app": {
-    "[project]/src/app/page": []
+    "[project]/src/app/about/page": [],
+    "[project]/src/app/contact/page": [],
+    "[project]/src/app/gallery/page": [],
+    "[project]/src/app/killer-queen/page": [],
+    "[project]/src/app/opening-hours/page": [],
+    "[project]/src/app/page": [],
+    "[project]/src/app/pricing/page": [],
+    "[project]/src/app/zones/page": []
   },
   "appUsingSizeAdjust": false,
   "pages": {},

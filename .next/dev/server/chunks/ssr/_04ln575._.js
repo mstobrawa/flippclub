@@ -461,36 +461,36 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$c
 const navItems = [
     {
         label: "Zones",
-        href: "#zones"
+        href: "/zones"
     },
     {
         label: "Killer Queen",
-        href: "#killer-queen"
+        href: "/killer-queen"
     },
     {
         label: "Pricing",
-        href: "#pricing"
+        href: "/pricing"
     },
     {
         label: "Gallery",
-        href: "#gallery"
+        href: "/gallery"
     },
     {
         label: "Opening Hours",
-        href: "#opening-hours"
+        href: "/opening-hours"
     },
     {
         label: "About",
-        href: "#about"
+        href: "/about"
     },
     {
         label: "Contact",
-        href: "#contact"
+        href: "/contact"
     }
 ];
 const ctaItem = {
     label: "Get in touch",
-    href: "#contact"
+    href: "/contact"
 };
 }),
 "[project]/src/config/theme.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
