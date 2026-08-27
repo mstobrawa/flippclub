@@ -445,22 +445,17 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$c
 "[project]/src/config/navigation.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * FLIPPCLUB — navigation configuration
- * ─────────────────────────────────────────────────────────────────────────
- * Single source of truth for site navigation. Both the desktop nav
- * (`Navigation.tsx`) and the mobile menu (`MobileMenu.tsx`) read from this
- * list, so adding, renaming or reordering a link only requires editing the
- * array below.
- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "ctaItem",
     ()=>ctaItem,
     "navItems",
-    ()=>navItems
+    ()=>navItems,
+    "socialLinks",
+    ()=>socialLinks
 ]);
 const navItems = [
     {
-        label: "Zones",
+        label: "Strefy",
         href: "/zones"
     },
     {
@@ -468,49 +463,45 @@ const navItems = [
         href: "/killer-queen"
     },
     {
-        label: "Pricing",
+        label: "Cennik",
         href: "/pricing"
     },
     {
-        label: "Gallery",
+        label: "Galeria",
         href: "/gallery"
     },
     {
-        label: "Opening Hours",
+        label: "Godziny otwarcia",
         href: "/opening-hours"
     },
     {
-        label: "About",
+        label: "O nas",
         href: "/about"
-    },
-    {
-        label: "Contact",
-        href: "/contact"
     }
 ];
 const ctaItem = {
-    label: "Get in touch",
+    label: "Odezwij sie do nas",
     href: "/contact"
 };
+const socialLinks = [
+    {
+        label: "Facebook",
+        href: "#"
+    },
+    {
+        label: "Instagram",
+        href: "#"
+    },
+    {
+        label: "TikTok",
+        href: "#"
+    }
+];
 }),
 "[project]/src/config/theme.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * FLIPPCLUB — design tokens
- * ─────────────────────────────────────────────────────────────────────────
- * Single source of truth for brand colors, typography and radii.
- *
- * These values MUST stay in sync with the CSS custom properties defined in
- * `src/app/globals.css` (`@theme` block). Tailwind utility classes such as
- * `bg-primary`, `text-muted` or `font-display` are generated from that CSS
- * block, while this file exposes the same values to plain TypeScript/JS
- * (e.g. for a `<meta name="theme-color">`, canvas drawing, charts, etc.).
- *
- * To change a brand color or font later: edit BOTH this file and the
- * matching variable in `globals.css`. Everything else in the app reads
- * from Tailwind classes, so components never need to change.
- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "colors",
     ()=>colors,
     "fonts",
@@ -521,20 +512,17 @@ const ctaItem = {
     ()=>siteConfig
 ]);
 const colors = {
-    // Brand
     purple: "#CA61F1",
     yellow: "#F8CA1F",
     darkGray: "#292929",
-    // Neutral surfaces (muted, never pure white)
-    background: "#F8F4EE",
-    surface: "#FFFFFF",
-    ink: "#1C1420",
-    // Text
+    background: "#ECE8DF",
+    surface: "#F4F1EB",
+    surfaceMuted: "#E3DED4",
+    ink: "#292929",
     text: "#292929",
-    muted: "#6E6675",
-    onInk: "#F8F4EE",
-    // Borders / dividers
-    border: "#E7E0D6"
+    muted: "#716C73",
+    onInk: "#F4F1EB",
+    border: "#D2CCC1"
 };
 const radii = {
     sm: "0.5rem",

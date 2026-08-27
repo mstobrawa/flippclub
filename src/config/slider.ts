@@ -1,95 +1,121 @@
-/**
- * FLIPPCLUB — featured slider configuration
- * ─────────────────────────────────────────────────────────────────────────
- * Single source of truth for the featured slider in
- * `src/components/sections/FeaturedSlider.tsx`.
- *
- * To add a new slide, append a new object to `slides`. Nothing else needs
- * to change — the component renders whatever is in this array.
- */
-
-export type SlideLabel = "New" | "Popular" | "Coming Soon";
+export type SlideLabel = "Nowość" | "Popularne" | "Wkrótce";
 
 export type Slide = {
-  /** Unique, stable id — used for React keys and aria control ids. */
   id: string;
-  /** Main slide title. */
   title: string;
-  /** Short supporting copy, one or two sentences max. */
   description: string;
-  /** Route the whole slide links to. */
   href: string;
-  /** Path to the placeholder/real image in /public/images. */
-  image: string;
-  /** Optional small pill label rendered over the image. */
+  imageDesktop: string;
+  imageMobile: string;
   label?: SlideLabel;
-  /** Optional short accent line (e.g. a stat or tagline fragment). */
   accent?: string;
+  titleColor: string;
+  accentColor: string;
+  labelColor: string;
 };
 
 export const slides: Slide[] = [
   {
     id: "pinball-zone",
-    title: "Pinball Zone",
+    title: "STREFA FLIPPERÓW",
     description:
-      "A lineup of restored classic pinball machines from the golden era.",
+      "Klasyczne i nowoczesne flippery, które możesz odkrywać i rozgrywać bez końca.",
     href: "/zones",
-    image: "/images/hero/pinball-zone.jpg",
-    label: "Popular",
-    accent: "12 machines",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    label: "Popularne",
+    accent: "12 maszyn",
+    titleColor: "text-primary",
+    accentColor: "text-accent",
+    labelColor: "bg-primary text-ink",
   },
   {
     id: "arcade-zone",
-    title: "Arcade Zone",
-    description: "Retro cabinets and modern arcade favorites, side by side.",
+    title: "STREFA ARCADE",
+    description: "Retro automaty i współczesne gry arcade w jednym miejscu.",
     href: "/zones",
-    image: "/images/hero/arcade-zone.jpg",
-    accent: "20+ cabinets",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    accent: "20+ automatów",
+    titleColor: "text-accent",
+    accentColor: "text-primary",
+    labelColor: "bg-accent text-ink",
   },
   {
     id: "killer-queen",
-    title: "Killer Queen",
-    description: "Our signature 10-player arcade cabinet — the club's big draw.",
+    title: "KILLER QUEEN",
+    description:
+      "Wyjątkowa, wieloosobowa maszyna arcade, przy której liczy się współpraca.",
     href: "/killer-queen",
-    image: "/images/hero/killer-queen.jpg",
-    label: "New",
-    accent: "10 players, 1 cabinet",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    label: "Nowość",
+    accent: "10 graczy",
+    titleColor: "text-primary",
+    accentColor: "text-accent",
+    labelColor: "bg-primary text-ink",
   },
   {
     id: "excavator-zone",
-    title: "Excavator Zone",
-    description: "Claw and excavator games for a quick round with friends.",
+    title: "STREFA KOPAREK",
+    description:
+      "Sprawdź swoją precyzję i spróbuj zdobyć nagrodę w automatach z chwytakami.",
     href: "/zones",
-    image: "/images/hero/excavator-zone.jpg",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    titleColor: "text-accent",
+    accentColor: "text-primary",
+    labelColor: "bg-accent text-ink",
   },
   {
     id: "events",
-    title: "Events & Special Occasions",
-    description: "Birthdays, tournaments and private parties, hosted at the club.",
+    title: "IMPREZY I WYDARZENIA",
+    description:
+      "Urodziny, spotkania ze znajomymi i prywatne wydarzenia w wyjątkowej atmosferze.",
     href: "/contact",
-    image: "/images/hero/events.jpg",
-    accent: "Book your date",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    accent: "Zarezerwuj termin",
+    titleColor: "text-primary",
+    accentColor: "text-accent",
+    labelColor: "bg-primary text-ink",
   },
   {
     id: "bar",
-    title: "Bar",
-    description: "Cold drinks, coffee and snacks while you play.",
+    title: "BAR",
+    description:
+      "Zrób przerwę od gry, napij się czegoś i złap chwilę oddechu między kolejnymi rozgrywkami.",
     href: "/about",
-    image: "/images/hero/bar.jpg",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    titleColor: "text-accent",
+    accentColor: "text-primary",
+    labelColor: "bg-accent text-ink",
   },
   {
     id: "space",
-    title: "300+ m² of Entertainment",
-    description: "Plenty of room to play, hang out and explore every zone.",
+    title: "PONAD 300 m² ROZRYWKI",
+    description:
+      "Dużo przestrzeni, różne strefy i atrakcje, które możesz odkrywać we własnym tempie.",
     href: "/zones",
-    image: "/images/hero/space.jpg",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    accent: "Jedno miejsce. Wiele atrakcji.",
+    titleColor: "text-primary",
+    accentColor: "text-accent",
+    labelColor: "bg-primary text-ink",
   },
   {
     id: "coming-soon",
-    title: "Coming Soon",
-    description: "New machines and zones are on the way — stay tuned.",
+    title: "WKRÓTCE WIĘCEJ",
+    description:
+      "Nowe maszyny, kolejne atrakcje i jeszcze więcej powodów, żeby do nas wracać.",
     href: "/about",
-    image: "/images/hero/coming-soon.jpg",
-    label: "Coming Soon",
+    imageDesktop: "/images/placeholders/placeholder.png",
+    imageMobile: "/images/placeholders/placeholder.png",
+    label: "Wkrótce",
+    titleColor: "text-primary",
+    accentColor: "text-accent",
+    labelColor: "bg-accent text-ink",
   },
 ];

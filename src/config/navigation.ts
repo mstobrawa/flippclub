@@ -1,30 +1,38 @@
-/**
- * FLIPPCLUB — navigation configuration
- * ─────────────────────────────────────────────────────────────────────────
- * Single source of truth for site navigation. Both the desktop nav
- * (`Navigation.tsx`) and the mobile menu (`MobileMenu.tsx`) read from this
- * list, so adding, renaming or reordering a link only requires editing the
- * array below.
- */
-
 export type NavItem = {
-  /** Text shown to the user. */
   label: string;
-  /** Internal route, e.g. "/zones" or "/contact". */
+  href: string;
+};
+
+export type SocialLink = {
+  label: string;
   href: string;
 };
 
 export const navItems: NavItem[] = [
-  { label: "Zones", href: "/zones" },
+  { label: "Strefy", href: "/zones" },
   { label: "Killer Queen", href: "/killer-queen" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Opening Hours", href: "/opening-hours" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Cennik", href: "/pricing" },
+  { label: "Galeria", href: "/gallery" },
+  { label: "Godziny otwarcia", href: "/opening-hours" },
+  { label: "O nas", href: "/about" },
 ];
 
 export const ctaItem: NavItem = {
-  label: "Get in touch",
+  label: "Odezwij sie do nas",
   href: "/contact",
 };
+
+export const socialLinks: SocialLink[] = [
+  {
+    label: "Facebook",
+    href: "#",
+  },
+  {
+    label: "Instagram",
+    href: "#",
+  },
+  {
+    label: "TikTok",
+    href: "#",
+  },
+];

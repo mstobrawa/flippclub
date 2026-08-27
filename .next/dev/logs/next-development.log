@@ -1,2 +1,80 @@
-{"timestamp":"00:00:00.538","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:01.803","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:00.560","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:01.388","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:01.412","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:01.473","source":"Browser","level":"WARN","message":"Image with src \"/images/placeholders/placeholder.png\" has \"fill\" prop and \"sizes\" prop of \"100vw\", but image is not rendered at full viewport width. Please adjust \"sizes\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:00:01.477","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/placeholders/placeholder.png\\\" has \\\"fill\\\" prop and \\\"sizes\\\" prop of \\\"100vw\\\", but image is not rendered at full viewport width. Please adjust \\\"sizes\\\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:00:01.489","source":"Browser","level":"WARN","message":"Image with src \"/images/placeholders/placeholder.png\" has \"fill\" prop and \"sizes\" prop of \"100vw\", but image is not rendered at full viewport width. Please adjust \"sizes\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:00:01.490","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/placeholders/placeholder.png\\\" has \\\"fill\\\" prop and \\\"sizes\\\" prop of \\\"100vw\\\", but image is not rendered at full viewport width. Please adjust \\\"sizes\\\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:00:01.490","source":"Browser","level":"WARN","message":"Image with src \"/images/placeholders/placeholder.png\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading"}
+{"timestamp":"00:00:01.491","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/placeholders/placeholder.png\\\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\\\"eager\\\"` property if this image is above the fold.\\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading\\u001b[39m\""}
+{"timestamp":"00:00:31.234","source":"Server","level":"LOG","message":"✓ Compiled in 87ms"}
+{"timestamp":"00:00:53.526","source":"Server","level":"LOG","message":"✓ Compiled in 62ms"}
+{"timestamp":"00:01:42.385","source":"Server","level":"LOG","message":"✓ Compiled in 40ms"}
+{"timestamp":"00:04:45.962","source":"Server","level":"LOG","message":"✓ Compiled in 38ms"}
+{"timestamp":"00:24:29.328","source":"Server","level":"LOG","message":"✓ Compiled in 85ms"}
+{"timestamp":"00:24:29.380","source":"Browser","level":"WARN","message":"Image with src \"/images/logo.png\" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: \"auto\"' or 'height: \"auto\"' to maintain the aspect ratio."}
+{"timestamp":"00:24:29.387","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/logo.png\\\" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: \\\"auto\\\"' or 'height: \\\"auto\\\"' to maintain the aspect ratio.\\u001b[39m\""}
+{"timestamp":"00:26:54.671","source":"Server","level":"LOG","message":"✓ Compiled in 43ms"}
+{"timestamp":"00:27:07.387","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"00:27:25.037","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"00:27:43.685","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:28:00.013","source":"Server","level":"LOG","message":"✓ Compiled in 31ms"}
+{"timestamp":"00:28:07.340","source":"Server","level":"LOG","message":"✓ Compiled in 20ms"}
+{"timestamp":"00:28:46.287","source":"Server","level":"LOG","message":"✓ Compiled in 38ms"}
+{"timestamp":"00:32:08.321","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:34:45.319","source":"Server","level":"LOG","message":"✓ Compiled in 26ms"}
+{"timestamp":"00:34:51.008","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"00:35:24.564","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:35:24.628","source":"Browser","level":"WARN","message":"Image with src \"/images/placeholders/placeholder.png\" has \"fill\" prop and \"sizes\" prop of \"100vw\", but image is not rendered at full viewport width. Please adjust \"sizes\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:35:24.637","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/placeholders/placeholder.png\\\" has \\\"fill\\\" prop and \\\"sizes\\\" prop of \\\"100vw\\\", but image is not rendered at full viewport width. Please adjust \\\"sizes\\\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:39:28.432","source":"Server","level":"LOG","message":"✓ Compiled in 37ms"}
+{"timestamp":"00:39:44.078","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
+{"timestamp":"00:40:05.606","source":"Server","level":"LOG","message":"✓ Compiled in 36ms"}
+{"timestamp":"00:45:47.326","source":"Server","level":"LOG","message":"✓ Compiled in 93ms"}
+{"timestamp":"00:49:10.687","source":"Server","level":"LOG","message":"✓ Compiled in 26ms"}
+{"timestamp":"00:51:02.931","source":"Server","level":"LOG","message":"✓ Compiled in 279ms"}
+{"timestamp":"00:56:34.706","source":"Server","level":"LOG","message":"✓ Compiled in 37ms"}
+{"timestamp":"00:56:34.772","source":"Browser","level":"ERROR","message":"./src/components/layout/Header.tsx:104:7\nError: Expression expected\n  102 |       </div>\n  103 |\n> 104 |       <MobileMenu\n      |       ^\n  105 |         open={menuOpen}\n  106 |         onClose={() => setMenuOpen(false)}\n  107 |         menuId={menuId}\n\nParsing ecmascript source code failed\n\nImport trace:\n  Server Component:\n    ./src/components/layout/Header.tsx\n    ./src/app/layout.tsx "}
+{"timestamp":"00:56:34.773","source":"Server","level":"ERROR","message":"[browser] \"./src/components/layout/Header.tsx:104:7\\nError: Expression expected\\n  102 |       </div>\\n  103 |\\n> 104 |       <MobileMenu\\n      |       ^\\n  105 |         open={menuOpen}\\n  106 |         onClose={() => setMenuOpen(false)}\\n  107 |         menuId={menuId}\\n\\nParsing ecmascript source code failed\\n\\nImport trace:\\n  Server Component:\\n    ./src/components/layout/Header.tsx\\n    ./src/app/layout.tsx\" \"\""}
+{"timestamp":"00:56:34.805","source":"Browser","level":"ERROR","message":"./src/components/layout/Header.tsx:104:7\nError: Expression expected\n  102 |       </div>\n  103 |\n> 104 |       <MobileMenu\n      |       ^\n  105 |         open={menuOpen}\n  106 |         onClose={() => setMenuOpen(false)}\n  107 |         menuId={menuId}\n\nParsing ecmascript source code failed\n\nImport trace:\n  Server Component:\n    ./src/components/layout/Header.tsx\n    ./src/app/layout.tsx "}
+{"timestamp":"00:56:34.805","source":"Server","level":"ERROR","message":"[browser] \"./src/components/layout/Header.tsx:104:7\\nError: Expression expected\\n  102 |       </div>\\n  103 |\\n> 104 |       <MobileMenu\\n      |       ^\\n  105 |         open={menuOpen}\\n  106 |         onClose={() => setMenuOpen(false)}\\n  107 |         menuId={menuId}\\n\\nParsing ecmascript source code failed\\n\\nImport trace:\\n  Server Component:\\n    ./src/components/layout/Header.tsx\\n    ./src/app/layout.tsx\" \"\""}
+{"timestamp":"00:58:15.262","source":"Server","level":"LOG","message":"✓ Compiled in 53ms"}
+{"timestamp":"01:00:16.812","source":"Server","level":"LOG","message":"✓ Compiled in 696ms"}
+{"timestamp":"01:00:16.824","source":"Browser","level":"ERROR","message":"./src/components/layout/Header.tsx:115:15\nError: Expected '</', got 'jsx text'\n  113 |             </span>\n  114 |           </button>\n> 115 |         </div>\n      |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n> 116 |       </div>\n      | ^^^^^^\n  117 |\n  118 |       <MobileMenu\n  119 |         open={menuOpen}\n\nParsing ecmascript source code failed\n\nImport trace:\n  Server Component:\n    ./src/components/layout/Header.tsx\n    ./src/app/layout.tsx "}
+{"timestamp":"01:00:16.825","source":"Server","level":"ERROR","message":"[browser] \"./src/components/layout/Header.tsx:115:15\\nError: Expected '</', got 'jsx text'\\n  113 |             </span>\\n  114 |           </button>\\n> 115 |         </div>\\n      |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n> 116 |       </div>\\n      | ^^^^^^\\n  117 |\\n  118 |       <MobileMenu\\n  119 |         open={menuOpen}\\n\\nParsing ecmascript source code failed\\n\\nImport trace:\\n  Server Component:\\n    ./src/components/layout/Header.tsx\\n    ./src/app/layout.tsx\" \"\""}
+{"timestamp":"01:02:37.797","source":"Server","level":"LOG","message":"✓ Compiled in 118ms"}
+{"timestamp":"01:03:59.274","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
+{"timestamp":"01:05:13.759","source":"Server","level":"LOG","message":"✓ Compiled in 36ms"}
+{"timestamp":"01:05:24.859","source":"Server","level":"LOG","message":"✓ Compiled in 38ms"}
+{"timestamp":"01:05:30.630","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:10:04.162","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"01:11:42.354","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"01:11:49.467","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:12:25.453","source":"Server","level":"LOG","message":"✓ Compiled in 121ms"}
+{"timestamp":"01:13:01.476","source":"Server","level":"LOG","message":"✓ Compiled in 35ms"}
+{"timestamp":"01:14:48.635","source":"Server","level":"LOG","message":"✓ Compiled in 51ms"}
+{"timestamp":"01:14:48.774","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"01:16:42.668","source":"Server","level":"LOG","message":"✓ Compiled in 28ms"}
+{"timestamp":"01:18:42.239","source":"Server","level":"LOG","message":"✓ Compiled in 59ms"}
+{"timestamp":"01:21:22.486","source":"Server","level":"LOG","message":"✓ Compiled in 37ms"}
+{"timestamp":"01:24:05.826","source":"Server","level":"LOG","message":"✓ Compiled in 66ms"}
+{"timestamp":"01:25:25.922","source":"Browser","level":"WARN","message":"Image with src \"/images/placeholders/placeholder.png\" has \"fill\" prop and \"sizes\" prop of \"100vw\", but image is not rendered at full viewport width. Please adjust \"sizes\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"01:25:25.993","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/placeholders/placeholder.png\\\" has \\\"fill\\\" prop and \\\"sizes\\\" prop of \\\"100vw\\\", but image is not rendered at full viewport width. Please adjust \\\"sizes\\\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"01:33:44.050","source":"Server","level":"LOG","message":"✓ Compiled in 43ms"}
+{"timestamp":"01:39:51.839","source":"Server","level":"LOG","message":"✓ Compiled in 45ms"}
+{"timestamp":"01:39:53.946","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:39:54.019","source":"Browser","level":"WARN","message":"Image with src \"/images/placeholders/placeholder.png\" has \"fill\" prop and \"sizes\" prop of \"100vw\", but image is not rendered at full viewport width. Please adjust \"sizes\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"01:39:54.020","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/placeholders/placeholder.png\\\" has \\\"fill\\\" prop and \\\"sizes\\\" prop of \\\"100vw\\\", but image is not rendered at full viewport width. Please adjust \\\"sizes\\\" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"01:41:46.186","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"01:45:02.627","source":"Server","level":"LOG","message":"✓ Compiled in 39ms"}
+{"timestamp":"01:46:24.118","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"01:47:26.296","source":"Server","level":"LOG","message":"✓ Compiled in 29ms"}
+{"timestamp":"01:49:44.811","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"01:50:11.056","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"01:50:30.052","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"01:50:48.864","source":"Server","level":"LOG","message":"✓ Compiled in 28ms"}
+{"timestamp":"01:51:36.615","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"01:52:53.039","source":"Server","level":"LOG","message":"✓ Compiled in 51ms"}
+{"timestamp":"01:53:27.232","source":"Server","level":"LOG","message":"✓ Compiled in 39ms"}
+{"timestamp":"01:53:55.713","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"01:56:12.390","source":"Server","level":"LOG","message":"✓ Compiled in 40ms"}

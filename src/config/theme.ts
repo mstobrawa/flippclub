@@ -1,37 +1,18 @@
-/**
- * FLIPPCLUB — design tokens
- * ─────────────────────────────────────────────────────────────────────────
- * Single source of truth for brand colors, typography and radii.
- *
- * These values MUST stay in sync with the CSS custom properties defined in
- * `src/app/globals.css` (`@theme` block). Tailwind utility classes such as
- * `bg-primary`, `text-muted` or `font-display` are generated from that CSS
- * block, while this file exposes the same values to plain TypeScript/JS
- * (e.g. for a `<meta name="theme-color">`, canvas drawing, charts, etc.).
- *
- * To change a brand color or font later: edit BOTH this file and the
- * matching variable in `globals.css`. Everything else in the app reads
- * from Tailwind classes, so components never need to change.
- */
-
 export const colors = {
-  // Brand
   purple: "#CA61F1",
   yellow: "#F8CA1F",
   darkGray: "#292929",
 
-  // Neutral surfaces (muted, never pure white)
-  background: "#F8F4EE",
-  surface: "#FFFFFF",
-  ink: "#1C1420", // near-black used for the slider panel & footer
+  background: "#ECE8DF",
+  surface: "#F4F1EB",
+  surfaceMuted: "#E3DED4",
+  ink: "#292929",
 
-  // Text
   text: "#292929",
-  muted: "#6E6675",
-  onInk: "#F8F4EE",
+  muted: "#716C73",
+  onInk: "#F4F1EB",
 
-  // Borders / dividers
-  border: "#E7E0D6",
+  border: "#D2CCC1",
 } as const;
 
 export const radii = {

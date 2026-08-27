@@ -1,25 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useState, type KeyboardEvent } from "react";
-import { slides } from "@/config/slider";
-import { Container } from "@/components/ui/Container";
+import { useCallback, useEffect, useState, type KeyboardEvent } from "react";
 
-/**
- * Featured slider directly below the header.
- *
- * - Exactly one slide is visible at a time (crossfade, not a carousel track).
- * - Every slide is a full-bleed link (`<Link>` wraps the slide content).
- * - Prev/Next buttons and dots live outside the link so they never create
- *   nested interactive elements.
- * - Arrow keys move to the previous/next slide when focus is anywhere
- *   inside the slider.
- *
- * Slide content comes entirely from `src/config/slider.ts` — add a slide
- * there and it appears here automatically.
- */
+import { slides } from "@/config/slider";
+
 export function FeaturedSlider() {
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const total = slides.length;
 
   const goTo = useCallback(
@@ -30,13 +20,26 @@ export function FeaturedSlider() {
   );
 
   const goPrev = useCallback(() => goTo(index - 1), [goTo, index]);
+
   const goNext = useCallback(() => goTo(index + 1), [goTo, index]);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setIndex((currentIndex) => (currentIndex + 1) % total);
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, total]);
 
   function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
       goPrev();
-    } else if (event.key === "ArrowRight") {
+    }
+
+    if (event.key === "ArrowRight") {
       event.preventDefault();
       goNext();
     }
@@ -45,91 +48,168 @@ export function FeaturedSlider() {
   return (
     <section
       aria-roledescription="carousel"
-      aria-label="Featured zones"
+      aria-label="Najważniejsze atrakcje"
       onKeyDown={handleKeyDown}
-      className="relative z-10 -mt-7 sm:-mt-9"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      className="relative z-10 overflow-hidden"
     >
-      <Container>
-        <div className="relative overflow-hidden rounded-lg bg-ink text-on-ink shadow-xl h-[440px] sm:h-[460px] lg:h-[500px]">
-          {/* Decorative organic cutout — purely visual, sits behind the
-             content and pokes toward the header. The sticky header (z-50)
-             always renders above this, so nav links stay fully clickable. */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-0 z-0 h-20 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent sm:h-28 sm:w-56 lg:h-32 lg:w-72"
-          />
+      <div className="relative h-[250px] overflow-hidden bg-background sm:h-[280px] lg:h-[300px]">
+        <div
+          aria-hidden="true"
+          className="absolute -left-8 top-10 z-20 hidden h-20 w-20 rounded-full border-[12px] border-primary lg:block"
+        />
 
-          {slides.map((slide, i) => {
-            const isActive = i === index;
-            return (
-              <Link
-                key={slide.id}
-                href={slide.href}
-                aria-hidden={!isActive}
-                aria-roledescription="slide"
-                aria-label={`${i + 1} of ${total}: ${slide.title}`}
-                tabIndex={isActive ? 0 : -1}
-                className={`absolute inset-0 z-[1] flex flex-col justify-end gap-3 p-6 transition-opacity duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary sm:p-10 lg:p-14 ${
-                  isActive ? "opacity-100" : "pointer-events-none opacity-0"
-                }`}
-              >
-                {/* Image placeholder — swap for next/image once real
-                   photography lands in /public/images/hero. */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 -z-10 bg-gradient-to-br from-ink via-ink to-primary/30"
+        <div
+          aria-hidden="true"
+          className="absolute left-[8%] top-8 z-20 hidden h-7 w-7 rounded-full bg-accent lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute bottom-6 left-[18%] z-20 hidden h-10 w-10 rounded-full border-[6px] border-primary lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute left-[43%] top-7 z-20 hidden h-8 w-8 rounded-full bg-primary lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute bottom-8 left-[47%] z-20 hidden h-5 w-5 rounded-full bg-accent lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute right-[39%] top-12 z-20 hidden h-12 w-12 rounded-full border-[7px] border-primary/70 lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute -right-10 top-6 z-20 hidden h-24 w-24 rounded-full bg-primary lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute right-[13%] top-7 z-20 hidden h-7 w-7 rounded-full bg-accent lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute bottom-5 right-[8%] z-20 hidden h-14 w-14 rounded-full border-[8px] border-accent lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute bottom-12 right-[27%] z-20 hidden h-6 w-6 rounded-full bg-primary lg:block"
+        />
+
+        {slides.map((slide, i) => {
+          const isActive = i === index;
+
+          return (
+            <Link
+              key={slide.id}
+              href={slide.href}
+              aria-hidden={!isActive}
+              aria-roledescription="slide"
+              aria-label={`${i + 1} z ${total}: ${slide.title}`}
+              tabIndex={isActive ? 0 : -1}
+              className={`absolute inset-0 transition-opacity duration-500 ease-out ${
+                isActive ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+            >
+              <div className="absolute inset-0 lg:hidden">
+                <Image
+                  src={slide.imageMobile}
+                  alt=""
+                  fill
+                  priority={i === 0}
+                  className="object-cover"
+                  sizes="100vw"
                 />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(248,202,31,0.25),transparent_55%)]"
-                />
 
-                {slide.label ? (
-                  <span className="mb-1 inline-flex w-fit items-center rounded-pill bg-accent px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-ink">
-                    {slide.label}
-                  </span>
-                ) : null}
-                <h2 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-                  {slide.title}
-                </h2>
-                <p className="max-w-md text-sm leading-relaxed text-on-ink/80 sm:text-base">
-                  {slide.description}
-                </p>
-                {slide.accent ? (
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-                    {slide.accent}
-                  </span>
-                ) : null}
-              </Link>
-            );
-          })}
+                <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25" />
+              </div>
 
-          {/* Controls sit above the slide links (higher z-index) as
-             independent buttons, so they never nest inside a <Link>. */}
-          <div className="absolute inset-x-0 bottom-0 z-[2] flex items-center justify-between gap-4 p-4 sm:p-6">
+              <div className="mx-auto grid h-full max-w-7xl lg:grid-cols-[0.9fr_1.1fr]">
+                <div className="relative z-10 flex flex-col justify-center px-5 pb-14 pt-14 sm:px-8 lg:px-12 lg:py-8">
+                  {slide.label ? (
+                    <span
+                      className={`mb-3 inline-flex w-fit rounded-full px-3 py-1 font-mono text-[9px] font-black uppercase tracking-[0.2em] ${slide.labelColor}`}
+                    >
+                      {slide.label}
+                    </span>
+                  ) : null}
+
+                  <h2
+                    className={`max-w-xl font-display text-4xl font-extrabold leading-[0.9] tracking-[-0.03em] sm:text-5xl lg:text-6xl ${slide.titleColor}`}
+                  >
+                    {slide.title}
+                  </h2>
+
+                  <p className="mt-3 max-w-lg text-sm font-semibold leading-relaxed tracking-[0.01em] text-on-ink/95 sm:text-base lg:text-base lg:text-text">
+                    {slide.description}
+                  </p>
+
+                  {slide.accent ? (
+                    <span
+                      className={`mt-4 font-mono text-[10px] font-black uppercase tracking-[0.22em] sm:text-xs ${slide.accentColor}`}
+                    >
+                      {slide.accent}
+                    </span>
+                  ) : null}
+                </div>
+
+                <div className="relative hidden h-full overflow-hidden lg:block">
+                  <div className="absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background via-background/75 to-transparent" />
+
+                  <Image
+                    src={slide.imageDesktop}
+                    alt=""
+                    fill
+                    priority={i === 0}
+                    className="object-cover object-center"
+                    sizes="55vw"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent" />
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+
+        <div className="absolute inset-x-0 bottom-0 z-40">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 pb-3 sm:px-6 lg:px-12 lg:pb-4">
             <button
               type="button"
               onClick={goPrev}
-              aria-label="Previous slide"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-on-ink/10 text-on-ink backdrop-blur transition-colors hover:bg-on-ink/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              aria-label="Poprzedni slajd"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-on-ink/25 bg-ink/50 text-on-ink backdrop-blur transition hover:scale-105 hover:bg-primary hover:text-ink lg:border-primary/30 lg:bg-surface lg:text-ink"
             >
               <ArrowIcon direction="left" />
             </button>
 
-            <div className="flex items-center gap-2 rounded-pill bg-on-ink/10 px-3 py-1.5 backdrop-blur">
-              <span className="font-mono text-xs text-on-ink/80">
-                <span className="text-on-ink">{index + 1}</span> / {total}
+            <div className="flex items-center gap-2 rounded-full border border-primary/30 bg-ink/55 px-3 py-1.5 text-on-ink backdrop-blur lg:bg-surface lg:text-ink">
+              <span className="font-mono text-[10px] font-bold">
+                {String(index + 1).padStart(2, "0")} /{" "}
+                {String(total).padStart(2, "0")}
               </span>
-              <div className="ml-1 hidden items-center gap-1.5 sm:flex">
+
+              <div className="hidden items-center gap-1.5 sm:flex">
                 {slides.map((slide, i) => (
                   <button
                     key={slide.id}
                     type="button"
                     onClick={() => goTo(i)}
-                    aria-label={`Go to slide ${i + 1}: ${slide.title}`}
+                    aria-label={`Przejdź do slajdu ${i + 1}: ${slide.title}`}
                     aria-current={i === index}
-                    className={`h-1.5 rounded-pill transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-                      i === index ? "w-5 bg-primary" : "w-1.5 bg-on-ink/30 hover:bg-on-ink/50"
+                    className={`h-1.5 rounded-full transition-all ${
+                      i === index
+                        ? "w-7 bg-primary"
+                        : "w-1.5 bg-on-ink/40 hover:bg-accent lg:bg-border"
                     }`}
                   />
                 ))}
@@ -139,14 +219,14 @@ export function FeaturedSlider() {
             <button
               type="button"
               onClick={goNext}
-              aria-label="Next slide"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-on-ink/10 text-on-ink backdrop-blur transition-colors hover:bg-on-ink/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              aria-label="Następny slajd"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-on-ink/25 bg-ink/50 text-on-ink backdrop-blur transition hover:scale-105 hover:bg-primary hover:text-ink lg:border-primary/30 lg:bg-surface lg:text-ink"
             >
               <ArrowIcon direction="right" />
             </button>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
@@ -157,7 +237,7 @@ function ArrowIcon({ direction }: { direction: "left" | "right" }) {
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
-      className={`h-5 w-5 ${direction === "left" ? "" : "rotate-180"}`}
+      className={`h-4 w-4 ${direction === "left" ? "" : "rotate-180"}`}
     >
       <path
         d="M15 5l-7 7 7 7"
