@@ -12,8 +12,10 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #ca61f1;
-  --color-accent: #f8ca1f;
+  --color-primary: #520dbc;
+  --color-accent: #fdc302;
+  --color-pink: #f00651;
+  --color-blue: #007ff7;
 
   --color-dark-gray: #292929;
 
@@ -49,6 +51,8 @@
   --color-muted: var(--color-muted);
   --color-on-ink: var(--color-on-ink);
   --color-border: var(--color-border);
+  --color-pink: var(--color-pink);
+  --color-blue: var(--color-blue);
 
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);

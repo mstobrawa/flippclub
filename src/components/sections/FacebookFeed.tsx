@@ -1,52 +1,117 @@
-import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+"use client";
 
-export type FeedPost = {
-  id: string;
-  title: string;
-  date: string;
-};
+import Image from "next/image";
+import { useEffect } from "react";
 
-// Static placeholder posts. Frontend-only — no Facebook API integration yet.
-// A future data source can replace this array with fetched posts as long
-// as it matches the `FeedPost` shape.
-const placeholderPosts: FeedPost[] = [
-  { id: "1", title: "News from the club will appear here.", date: "Coming soon" },
-  { id: "2", title: "Upcoming tournaments and events.", date: "Coming soon" },
-  { id: "3", title: "New machines and zone updates.", date: "Coming soon" },
-];
-
-/**
- * Placeholder for a future Facebook/news feed. Intentionally static —
- * do not wire up the Facebook API here, this only establishes the
- * component structure and expected data shape (`FeedPost`).
- */
 export function FacebookFeed() {
+  useEffect(() => {
+    const existingScript = document.querySelector(
+      'script[src^="https://connect.facebook.net/pl_PL/sdk.js"]',
+    );
+
+    if (!existingScript) {
+      const script = document.createElement("script");
+
+      script.src =
+        "https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v25.0";
+
+      script.async = true;
+      script.defer = true;
+      script.crossOrigin = "anonymous";
+
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
-    <Section id="news" tone="surface">
-      <SectionHeading
-        eyebrow="Stay in the loop"
-        title="Latest from Facebook"
-        description="This section will sync with our Facebook page. For now, it's a static placeholder."
+    <section
+      id="news"
+      className="relative overflow-hidden bg-background py-16 sm:py-20"
+    >
+      {/* Decorative background elements */}
+      <div
+        aria-hidden="true"
+        className="absolute left-[5%] top-32 hidden h-8 w-8 rotate-12 bg-pink lg:block"
       />
 
-      <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        {placeholderPosts.map((post) => (
-          <li
-            key={post.id}
-            className="flex flex-col gap-3 rounded-lg border border-border bg-background p-5"
-          >
-            <div
-              aria-hidden="true"
-              className="aspect-video w-full rounded-md bg-gradient-to-br from-primary/15 via-background to-accent/15"
-            />
-            <span className="font-mono text-xs uppercase tracking-[0.15em] text-muted">
-              {post.date}
-            </span>
-            <p className="text-sm leading-relaxed text-text">{post.title}</p>
-          </li>
-        ))}
-      </ul>
-    </Section>
+      <div
+        aria-hidden="true"
+        className="absolute right-[7%] top-52 hidden h-12 w-12 rounded-full border-8 border-primary lg:block"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute bottom-24 left-[10%] hidden h-5 w-5 bg-accent lg:block"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute bottom-40 right-[10%] hidden h-7 w-7 rotate-45 bg-blue lg:block"
+      />
+
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-text sm:text-5xl lg:text-6xl">
+            AKTUALNOŚCI
+          </h2>
+
+          <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            Sprawdź, co dzieje się na naszym Facebooku. Nowe wydarzenia,
+            aktualności i wszystko, co warto wiedzieć przed kolejną rozgrywką.
+          </p>
+        </div>
+
+        {/* Desktop arcade cabinet */}
+        <div className="relative mx-auto mt-8 hidden w-full max-w-[880px] lg:block">
+          <Image
+            src="/images/facebook-frame.png"
+            alt=""
+            width={1024}
+            height={1536}
+            priority={false}
+            className="pointer-events-none relative z-10 h-auto w-full"
+          />
+
+          {/* Facebook screen */}
+          <div className="absolute left-[20.8%] top-[16.55%] z-20 h-[58.2%] w-[58.5%] overflow-hidden rounded-[2%] bg-black">
+            <div className="flex min-h-full justify-center">
+              <div className="min-w-0">
+                <div
+                  className="fb-page"
+                  data-href="https://www.facebook.com/flippclub"
+                  data-tabs="timeline"
+                  data-width="500"
+                  data-height="900"
+                  data-small-header="false"
+                  data-adapt-container-width="false"
+                  data-hide-cover="true"
+                  data-show-facepile="false"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile / tablet */}
+        <div className="mx-auto mt-8 w-full max-w-[520px] lg:hidden">
+          <div className="rounded-[28px] border-4 border-text bg-dark-gray p-2 shadow-[6px_8px_0_var(--color-primary)]">
+            <div className="overflow-hidden rounded-[20px] border-4 border-accent bg-background">
+              <div
+                className="fb-page w-full"
+                data-href="https://www.facebook.com/flippclub"
+                data-tabs="timeline"
+                data-width="500"
+                data-height="750"
+                data-small-header="false"
+                data-adapt-container-width="true"
+                data-hide-cover="false"
+                data-show-facepile="false"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
