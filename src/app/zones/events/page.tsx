@@ -1,0 +1,396 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+
+export default function EventsPage() {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  const images = [1, 2, 3, 4, 5, 6];
+
+  return (
+    <section className="relative overflow-hidden bg-background">
+      {/* ================================================== */}
+      {/* DECORATIONS */}
+      {/* ================================================== */}
+
+      {/* Large purple ring */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-16 top-[8%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary lg:block"
+      />
+
+      {/* Large yellow ring */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 top-[15%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent lg:block"
+      />
+
+      {/* Pink square */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[7%] top-[27%] z-0 hidden h-12 w-12 rotate-12 bg-pink lg:block"
+      />
+
+      {/* Blue diamond */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[8%] top-[34%] z-0 hidden h-14 w-14 rotate-45 bg-blue lg:block"
+      />
+
+      {/* Large yellow diamond */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-5 top-[52%] z-0 hidden h-24 w-24 rotate-45 bg-accent lg:block"
+      />
+
+      {/* Large purple square */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-5 top-[61%] z-0 hidden h-28 w-28 -rotate-12 bg-primary lg:block"
+      />
+
+      {/* Bottom ring */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[7%] bottom-[8%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue lg:block"
+      />
+
+      {/* Bottom yellow pixel */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[12%] bottom-[10%] z-0 hidden h-8 w-8 rotate-45 bg-accent lg:block"
+      />
+
+      {/* Arcade pixels */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[20%] top-[18%] z-0 hidden h-4 w-4 rotate-45 bg-accent lg:block"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[21%] top-[24%] z-0 hidden h-4 w-4 bg-pink lg:block"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[17%] bottom-[25%] z-0 hidden h-3 w-3 bg-primary lg:block"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[18%] bottom-[20%] z-0 hidden h-3 w-3 rotate-45 bg-blue lg:block"
+      />
+
+      {/* ================================================== */}
+      {/* CONTENT */}
+      {/* ================================================== */}
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+        {/* ================================================== */}
+        {/* HEADER */}
+        {/* ================================================== */}
+
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
+            EVENT MODE
+          </p>
+
+          <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
+            IMPREZY
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
+            Urodziny? Integracja? Wieczór kawalerski?{" "}
+            <span className="font-bold text-text">Say no more.</span> Wiemy,
+            czego Ci trzeba, a sala już czeka. Prywatny room z wygodnymi
+            kanapami dla Ciebie i Twojej ekipy — idealna baza na wspólny
+            wieczór.
+          </p>
+        </div>
+
+        {/* ================================================== */}
+        {/* HERO ROOM */}
+        {/* ================================================== */}
+
+        <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16 sm:mt-20">
+          {/* Image */}
+          <div className="relative">
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl bg-primary"
+            />
+
+            <div className="relative overflow-hidden rounded-3xl border-2 border-accent bg-surface">
+              <Image
+                src="/images/placeholders/placeholder.png"
+                alt="Prywatny room FlippClub"
+                width={1000}
+                height={750}
+                className="h-auto w-full -rotate-2 object-cover transition duration-300 hover:rotate-0"
+              />
+            </div>
+          </div>
+
+          {/* Text */}
+          <div className="max-w-xl">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              YOUR PARTY BASE
+            </p>
+
+            <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+              Twój room.
+              <br />
+              Twoja ekipa.
+            </h2>
+
+            <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
+              Zamykasz drzwi i zaczyna się Wasza impreza. Prywatna przestrzeń,
+              wygodne kanapy i miejsce tylko dla Was. Możecie pogadać, odpocząć,
+              coś przekąsić i po prostu dobrze spędzić czas.
+            </p>
+
+            <p className="mt-5 font-mono text-sm font-bold uppercase tracking-[0.12em] text-primary">
+              PRIVATE ROOM • YOUR CREW • YOUR RULES
+            </p>
+          </div>
+        </div>
+
+        {/* ================================================== */}
+        {/* RESPAWN POINT */}
+        {/* ================================================== */}
+
+        <div className="relative mx-auto mt-24 max-w-5xl sm:mt-28">
+          {/* Large background decoration */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border-[20px] border-accent/20 lg:block"
+          />
+
+          <div className="relative mx-auto max-w-3xl text-center">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-primary sm:text-sm">
+              CHECKPOINT
+            </p>
+
+            <div className="mt-3 inline-block">
+              <h2 className="font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+                <span className="text-primary">RESPAWN</span>{" "}
+                <span className="text-accent">POINT</span>
+              </h2>
+            </div>
+
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              Tu zaczynacie. Tu wracacie. Tu łapiecie oddech między kolejnymi
+              rundami. Room jest Waszą bazą, a kiedy przyjdzie ochota na grę —
+              po prostu wychodzicie i ruszacie do stref.
+            </p>
+
+            {/* Player status */}
+            {/* Player status */}
+            <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+              {["PLAYER 1", "PLAYER 2", "PLAYER 3", "PLAYER 4"].map(
+                (player) => (
+                  <div
+                    key={player}
+                    className="group border-2 border-primary/20 bg-surface px-3 py-3 text-center font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-primary shadow-[3px_4px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent hover:bg-primary hover:text-on-ink hover:shadow-[4px_5px_0_var(--color-accent)]"
+                  >
+                    <span className="transition-opacity duration-200 group-hover:hidden">
+                      {player}
+                    </span>
+
+                    <span className="hidden transition-opacity duration-200 group-hover:inline">
+                      INSERT COIN
+                    </span>
+                  </div>
+                ),
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* ================================================== */}
+        {/* GALLERY */}
+        {/* ================================================== */}
+
+        <div className="mx-auto mt-24 max-w-5xl sm:mt-28">
+          <div className="mb-8 text-center">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
+              TWOJA BAZA
+            </p>
+
+            <h2 className="mt-3 font-display text-3xl font-extrabold uppercase sm:text-4xl">
+              Zobacz, gdzie się spotkacie
+            </h2>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {images.map((item) => (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setSelectedImage(item)}
+                aria-label={`Powiększ zdjęcie ${item}`}
+                className={`group relative overflow-hidden rounded-2xl border-2 border-primary/30 bg-dark-gray text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+                  item === 1
+                    ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
+                    : ""
+                }`}
+              >
+                <div
+                  className={`relative overflow-hidden ${
+                    item === 1 ? "aspect-[4/3]" : "aspect-square"
+                  }`}
+                >
+                  <Image
+                    src="/images/placeholders/placeholder.png"
+                    alt={`Imprezy FlippClub ${item}`}
+                    fill
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
+                    <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
+                      Powiększ
+                    </span>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ================================================== */}
+        {/* PARTY TYPES */}
+        {/* ================================================== */}
+
+        <div className="mx-auto mt-24 max-w-5xl sm:mt-28">
+          <div className="text-center">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
+              GAME MODE SELECT
+            </p>
+
+            <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+              Wybierz swój tryb
+            </h2>
+          </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="border-2 border-accent bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
+              <p className="font-mono text-xs font-bold text-accent">01</p>
+              <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                Urodziny
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Zbierz ekipę i zróbcie urodzinową rundę, której nie zapomnicie.
+              </p>
+            </div>
+
+            <div className="border-2 border-primary bg-surface p-6 shadow-[5px_6px_0_var(--color-accent)]">
+              <p className="font-mono text-xs font-bold text-primary">02</p>
+              <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                Integracja
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Oderwijcie się od biurek i spędźcie razem trochę czasu poza
+                pracą.
+              </p>
+            </div>
+
+            <div className="border-2 border-pink bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
+              <p className="font-mono text-xs font-bold text-pink">03</p>
+              <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                Wieczór
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Kawalerski, panieński albo po prostu wieczór ze znajomymi.
+              </p>
+            </div>
+
+            <div className="border-2 border-blue bg-surface p-6 shadow-[5px_6px_0_var(--color-blue)]">
+              <p className="font-mono text-xs font-bold text-blue">04</p>
+              <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                Wasz tryb
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Nie ma na liście? Tym lepiej. Powiedzcie nam, co planujecie.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ================================================== */}
+        {/* READY */}
+        {/* ================================================== */}
+
+        <div className="mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
+          <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-accent">
+            READY?
+          </p>
+
+          <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+            GAME ON.
+          </h2>
+
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            Zbierz ekipę, wybierz termin i daj nam znać. Resztę ogarniemy razem.
+          </p>
+
+          <Link
+            href="/contact"
+            className="group mt-8 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          >
+            <span className="text-xl transition-transform duration-200 group-hover:scale-125">
+              ●
+            </span>
+            ZAREZERWUJ IMPREZĘ
+          </Link>
+
+          <Link
+            href="/zones"
+            className="mt-6 font-mono text-xs font-bold uppercase tracking-[0.2em] text-muted transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          >
+            ← POWRÓT DO STREF
+          </Link>
+        </div>
+      </div>
+
+      {/* ================================================== */}
+      {/* LIGHTBOX */}
+      {/* ================================================== */}
+
+      {selectedImage !== null ? (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
+          onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Podgląd zdjęcia"
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Zamknij podgląd"
+            className="absolute right-5 top-5 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl font-bold text-ink transition hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            ×
+          </button>
+
+          <div
+            className="relative max-h-[90vh] w-full max-w-5xl cursor-pointer overflow-hidden rounded-2xl border-4 border-accent bg-dark-gray shadow-[8px_10px_0_var(--color-primary)]"
+            onClick={() => setSelectedImage(null)}
+          >
+            <Image
+              src="/images/placeholders/placeholder.png"
+              alt={`Imprezy FlippClub ${selectedImage}`}
+              width={1600}
+              height={1200}
+              className="h-auto max-h-[85vh] w-full object-contain"
+            />
+          </div>
+        </div>
+      ) : null}
+    </section>
+  );
+}

@@ -15,11 +15,11 @@ export const navItems: NavItem[] = [
     href: "/zones",
     children: [
       { label: "Flippery", href: "/zones/flippers" },
-      { label: "Arcade", href: "/zones/arcade" },
+      { label: "Arcade", href: "/zones/arcades" },
       { label: "Koparki", href: "/excavators" },
       { label: "Killer Queen", href: "/killer-queen" },
       { label: "Bar", href: "/zones/bar" },
-      { label: "Imprezy okolicznościowe", href: "/imprezy" },
+      { label: "Imprezy okolicznościowe", href: "/zones/events" },
     ],
   },
   {
@@ -32,7 +32,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: "Imprezy",
-    href: "/imprezy",
+    href: "/zones/events",
   },
   {
     label: "Cennik",

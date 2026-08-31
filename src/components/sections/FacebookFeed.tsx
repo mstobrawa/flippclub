@@ -52,7 +52,7 @@ export function FacebookFeed() {
             className="pointer-events-none absolute -right-16 -top-1 hidden h-5 w-5 -rotate-12 bg-primary lg:block"
           />
 
-          <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-text sm:text-5xl lg:text-6xl">
+          <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl lg:text-6xl">
             AKTUALNOŚCI
           </h2>
 
