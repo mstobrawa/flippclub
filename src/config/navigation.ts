@@ -1,7 +1,6 @@
 export type NavItem = {
   label: string;
   href: string;
-  children?: NavItem[];
 };
 
 export type SocialLink = {
@@ -11,16 +10,12 @@ export type SocialLink = {
 
 export const navItems: NavItem[] = [
   {
-    label: "Strefy",
-    href: "/zones",
-    children: [
-      { label: "Flippery", href: "/zones/flippers" },
-      { label: "Arcade", href: "/zones/arcades" },
-      { label: "Koparki", href: "/excavators" },
-      { label: "Killer Queen", href: "/killer-queen" },
-      { label: "Bar", href: "/zones/bar" },
-      { label: "Imprezy okolicznościowe", href: "/zones/events" },
-    ],
+    label: "Flippery",
+    href: "/zones/flippers",
+  },
+  {
+    label: "Arcade",
+    href: "/zones/arcades",
   },
   {
     label: "Koparki",
@@ -29,6 +24,10 @@ export const navItems: NavItem[] = [
   {
     label: "Killer Queen",
     href: "/killer-queen",
+  },
+  {
+    label: "Bar",
+    href: "/zones/bar",
   },
   {
     label: "Imprezy",
@@ -41,14 +40,6 @@ export const navItems: NavItem[] = [
   {
     label: "O nas",
     href: "/about",
-    children: [
-      { label: "O FlippClub", href: "/about" },
-      { label: "Aktualności", href: "/news" },
-      { label: "Godziny otwarcia", href: "/opening-hours" },
-      { label: "FAQ", href: "/faq" },
-      { label: "300 m²", href: "/about#space" },
-      { label: "Dostępność", href: "/about#accessibility" },
-    ],
   },
   {
     label: "Galeria",

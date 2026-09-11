@@ -10,8 +10,10 @@ export default function FlippersPage() {
   const images = [1, 2, 3, 4];
 
   return (
-    <section className="relative overflow-hidden bg-background">
-      {/* Decorative elements */}
+    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+      {/* ================================================== */}
+      {/* DECORATIONS */}
+      {/* ================================================== */}
 
       {/* Left ring */}
       <div
@@ -68,7 +70,7 @@ export default function FlippersPage() {
         width={160}
         height={160}
         aria-hidden="true"
-        className="pointer-events-none absolute left-[9%] top-[25%] hidden w-[90px] rotate-12 lg:block xl:w-[110px]"
+        className="pointer-events-none absolute left-[9%] top-[25%] z-20 hidden w-[90px] rotate-12 lg:block xl:w-[110px]"
       />
 
       <Image
@@ -77,26 +79,38 @@ export default function FlippersPage() {
         width={160}
         height={160}
         aria-hidden="true"
-        className="pointer-events-none absolute right-[10%] top-[34%] hidden w-[70px] -rotate-12 lg:block xl:w-[90px]"
+        className="pointer-events-none absolute right-[10%] top-[34%] z-20 hidden w-[70px] -rotate-12 lg:block xl:w-[90px]"
       />
 
       <Image
         src="/images/flipper-ball.png"
         alt=""
-        width={160}
-        height={160}
+        width={200}
+        height={200}
         aria-hidden="true"
-        className="pointer-events-none absolute left-[10%] top-[72%] hidden w-[60px] rotate-45 lg:block xl:w-[75px]"
+        className="pointer-events-none absolute right-[20%] top-[68%] z-20 hidden w-18 rotate-45 lg:block xl:w-28"
       />
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        {/* Heading */}
+      {/* ================================================== */}
+      {/* NEON GLOW */}
+      {/* ================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 bottom-[-35px] w-full max-w-7xl -translate-x-1/2 rounded-b-[36px] bg-[#0d0b54] opacity-100 blur-[55px] shadow-[0_0_100px_35px_rgba(13,11,84,0.95),0_0_160px_55px_rgba(1,5,59,0.9)] sm:blur-[65px] sm:shadow-[0_0_120px_40px_rgba(13,11,84,0.98),0_0_190px_65px_rgba(1,5,59,0.95)]"
+      />
+
+      {/* ================================================== */}
+      {/* MAIN LIGHT SURFACE */}
+      {/* ================================================== */}
+
+      <div className="relative mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+        {/* ================================================== */}
+        {/* HEADING */}
+        {/* ================================================== */}
+
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
-            STREFA FLIPPERÓW
-          </p>
-
-          <h1 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-6xl lg:text-8xl">
+          <h1 className="font-display text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-6xl lg:text-8xl">
             FLIPPERY
           </h1>
 
@@ -106,7 +120,10 @@ export default function FlippersPage() {
           </p>
         </div>
 
-        {/* Gallery */}
+        {/* ================================================== */}
+        {/* GALLERY */}
+        {/* ================================================== */}
+
         <div className="mx-auto mt-12 max-w-5xl sm:mt-16">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {images.map((item) => (
@@ -144,7 +161,10 @@ export default function FlippersPage() {
           </div>
         </div>
 
+        {/* ================================================== */}
         {/* CTA */}
+        {/* ================================================== */}
+
         <div className="mt-14 flex flex-col items-center gap-6 sm:mt-16">
           <Link
             href="/contact"
@@ -155,17 +175,13 @@ export default function FlippersPage() {
             </span>
             INSERT COIN
           </Link>
-
-          <Link
-            href="/zones"
-            className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-muted transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-          >
-            ← POWRÓT DO STREF
-          </Link>
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* ================================================== */}
+      {/* LIGHTBOX */}
+      {/* ================================================== */}
+
       {selectedImage !== null ? (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"

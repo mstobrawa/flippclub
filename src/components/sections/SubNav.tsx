@@ -57,8 +57,10 @@ export function SubNav() {
   const slide = slides[index];
 
   return (
-    <section className="relative overflow-hidden bg-background py-5 sm:py-6">
+    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pt-5 sm:pt-6 lg:pt-8">
+      {/* ================================================== */}
       {/* OZDOBNIKI */}
+      {/* ================================================== */}
 
       {/* Lewy pierścień */}
       <div
@@ -72,7 +74,7 @@ export function SubNav() {
         className="absolute left-[4%] top-2 h-3 w-3 rounded-full bg-accent sm:left-[5%] sm:h-5 sm:w-5"
       />
 
-      {/* Lewa plama / jajko */}
+      {/* Lewa plama */}
       <div
         aria-hidden="true"
         className="absolute -bottom-2 -left-5 h-10 w-16 rounded-t-full bg-primary/20 sm:-left-6 sm:h-16 sm:w-28"
@@ -96,42 +98,65 @@ export function SubNav() {
         className="absolute bottom-2 right-[10%] h-7 w-7 rounded-full border-[4px] border-primary/60 sm:bottom-3 sm:right-[12%] sm:h-10 sm:w-10 sm:border-[6px]"
       />
 
+      {/* ================================================== */}
+      {/* CONTENT CARD */}
+      {/* ================================================== */}
+
       <Container className="relative z-10">
         <div
-          key={slide.id}
-          className="grid grid-cols-2 gap-3 animate-[subnav-in_500ms_ease-out] lg:grid-cols-4"
+          className="
+            relative
+            mx-auto
+            w-full
+            max-w-6xl
+            rounded-t-4xl
+            rounded-b-none
+            bg-background
+            px-5
+            py-8
+            shadow-[0_0_0_2px_rgba(255,255,255,0.45),0_0_18px_rgba(255,255,255,0.35),0_0_40px_rgba(13,11,84,0.95),0_0_80px_rgba(13,11,84,0.85),0_0_140px_rgba(1,5,59,0.9)]
+            sm:px-8
+            sm:py-10
+            lg:px-10
+            lg:py-12
+          "
         >
-          {slide.blocks.map((block, blockIndex) => {
-            const isPurple = blockIndex % 2 === 0;
-            const isFirstBlock = blockIndex === 0;
+          <div
+            key={slide.id}
+            className="grid grid-cols-2 gap-3 animate-[subnav-in_500ms_ease-out] lg:grid-cols-4"
+          >
+            {slide.blocks.map((block, blockIndex) => {
+              const isPurple = blockIndex % 2 === 0;
+              const isFirstBlock = blockIndex === 0;
 
-            return (
-              <div
-                key={`${slide.id}-${block.top}`}
-                className={`flex h-24 flex-col items-center justify-center rounded-2xl border px-3 py-3 text-center transition-colors duration-500 sm:h-28 sm:px-5 ${
-                  isPurple
-                    ? "border-primary/35 bg-primary/15"
-                    : "border-accent/50 bg-accent/25"
-                }`}
-              >
-                <span
-                  className={`font-mono font-bold uppercase leading-none tracking-[0.08em] text-text ${
-                    isFirstBlock
-                      ? "text-3xl sm:text-4xl"
-                      : "text-2xl sm:text-3xl"
+              return (
+                <div
+                  key={`${slide.id}-${block.top}`}
+                  className={`flex h-24 flex-col items-center justify-center rounded-2xl border px-3 py-3 text-center transition-colors duration-500 sm:h-28 sm:px-5 ${
+                    isPurple
+                      ? "border-primary/35 bg-primary/15"
+                      : "border-accent/50 bg-accent/25"
                   }`}
                 >
-                  {block.top}
-                </span>
+                  <span
+                    className={`font-mono font-bold uppercase leading-none tracking-[0.08em] text-text ${
+                      isFirstBlock
+                        ? "text-3xl sm:text-4xl"
+                        : "text-2xl sm:text-3xl"
+                    }`}
+                  >
+                    {block.top}
+                  </span>
 
-                {!isFirstBlock && (
-                  <strong className="mt-2 font-display text-xl font-extrabold leading-none tracking-tight text-text sm:text-2xl">
-                    {block.bottom}
-                  </strong>
-                )}
-              </div>
-            );
-          })}
+                  {!isFirstBlock && (
+                    <strong className="mt-2 font-display text-xl font-extrabold leading-none tracking-tight text-text sm:text-2xl">
+                      {block.bottom}
+                    </strong>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>

@@ -17,21 +17,21 @@ export type Slide = {
 export const slides: Slide[] = [
   {
     id: "pinball-zone",
-    title: "STREFA FLIPPERÓW",
+    title: "FLIPPERY",
     description:
       "Klasyczne i nowoczesne flippery, które możesz odkrywać i rozgrywać bez końca.",
     href: "/zones",
     imageDesktop: "/images/placeholders/placeholder.png",
     imageMobile: "/images/placeholders/placeholder.png",
     label: "Popularne",
-    accent: "12 maszyn",
+    accent: "",
     titleColor: "text-primary",
     accentColor: "text-accent",
     labelColor: "bg-primary text-ink",
   },
   {
     id: "arcade-zone",
-    title: "STREFA ARCADE",
+    title: "ARCADE",
     description: "Retro automaty i współczesne gry arcade w jednym miejscu.",
     href: "/zones",
     imageDesktop: "/images/placeholders/placeholder.png",
@@ -57,7 +57,7 @@ export const slides: Slide[] = [
   },
   {
     id: "excavator-zone",
-    title: "STREFA KOPAREK",
+    title: "KOPARKI RC",
     description:
       "Sprawdź swoją precyzję i spróbuj zdobyć nagrodę w automatach z chwytakami.",
     href: "/zones",
