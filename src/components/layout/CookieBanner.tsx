@@ -1,47 +1,57 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const storageKey = "flippclub-cookie-notice-accepted";
+import {
+  type ExternalContentConsent,
+  cookieSettingsOpenEvent,
+  getExternalContentConsent,
+  setExternalContentConsent,
+} from "@/lib/externalContentConsent";
 
 /**
- * Acknowledges the site notice about strictly necessary browser storage.
+ * Lets visitors opt in to the Facebook feed without delaying the server render.
  * The initial null state keeps server and first client render identical.
  */
 export function CookieBanner() {
-  const [accepted, setAccepted] = useState<boolean | null>(null);
-  const acknowledgeButtonRef = useRef<HTMLButtonElement>(null);
+  const [consent, setConsent] = useState<ExternalContentConsent | null>(null);
+  const [isReady, setIsReady] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const necessaryButtonRef = useRef<HTMLButtonElement>(null);
+  const acceptButtonRef = useRef<HTMLButtonElement>(null);
+  const declineButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
-      try {
-        setAccepted(window.localStorage.getItem(storageKey) === "true");
-      } catch {
-        // If browser storage is unavailable, show the notice for this visit.
-        setAccepted(false);
-      }
+      setConsent(getExternalContentConsent());
+      setIsReady(true);
     }, 0);
 
     return () => window.clearTimeout(timeoutId);
   }, []);
 
   useEffect(() => {
-    if (!accepted) {
-      acknowledgeButtonRef.current?.focus();
-    }
-  }, [accepted]);
-
-  function acknowledge() {
-    try {
-      window.localStorage.setItem(storageKey, "true");
-    } catch {
-      // The notice can still be dismissed for the current visit.
+    function showSettings() {
+      setSettingsOpen(true);
     }
 
-    setAccepted(true);
+    window.addEventListener(cookieSettingsOpenEvent, showSettings);
+
+    return () => window.removeEventListener(cookieSettingsOpenEvent, showSettings);
+  }, []);
+
+  useEffect(() => {
+    if (isReady && (consent === null || settingsOpen)) {
+      necessaryButtonRef.current?.focus();
+    }
+  }, [consent, isReady, settingsOpen]);
+
+  function chooseConsent(choice: ExternalContentConsent) {
+    setExternalContentConsent(choice);
+    setConsent(choice);
+    setSettingsOpen(false);
   }
 
-  if (accepted !== false) {
+  if (!isReady || (consent !== null && !settingsOpen)) {
     return null;
   }
 
@@ -54,7 +64,19 @@ export function CookieBanner() {
       onKeyDown={(event) => {
         if (event.key === "Tab") {
           event.preventDefault();
-          acknowledgeButtonRef.current?.focus();
+          const buttons = [
+            necessaryButtonRef.current,
+            declineButtonRef.current,
+            acceptButtonRef.current,
+          ].filter((button): button is HTMLButtonElement => button !== null);
+          const currentIndex = buttons.indexOf(
+            document.activeElement as HTMLButtonElement,
+          );
+          const direction = event.shiftKey ? -1 : 1;
+          const nextIndex =
+            (currentIndex + direction + buttons.length) % buttons.length;
+
+          buttons[nextIndex]?.focus();
         }
       }}
       className="fixed inset-x-0 bottom-0 z-[60] p-4 sm:p-6 lg:p-8"
@@ -84,27 +106,45 @@ export function CookieBanner() {
               id="cookie-banner-description"
               className="mt-3 text-sm leading-relaxed text-muted sm:text-base"
             >
-              FlippClub korzysta wyłącznie z plików cookies i lokalnego
-              zapisu niezbędnych do prawidłowego działania strony. Nie
-              śledzimy użytkowników ani nie używamy reklam, analityki czy
-              marketingu.
+              Ta strona korzysta z niezbędnych plików potrzebnych do jej
+              prawidłowego działania. Korzystamy również z osadzonego
+              Facebook Feed, który może wykorzystywać pliki cookies podmiotów
+              trzecich.
             </p>
           </div>
 
-          <button
-            ref={acknowledgeButtonRef}
-            type="button"
-            onClick={acknowledge}
-            className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-pill bg-accent px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.1em] text-ink transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-          >
-            Rozumiem
-            <span
-              aria-hidden="true"
-              className="text-lg leading-none transition-transform group-hover:rotate-12"
+          <div className="flex shrink-0 flex-col gap-3 sm:items-end">
+            <button
+              ref={necessaryButtonRef}
+              type="button"
+              onClick={() => chooseConsent("necessary")}
+              className="inline-flex items-center justify-center rounded-pill border-2 border-primary px-6 py-3 font-display text-sm font-extrabold uppercase tracking-[0.1em] text-primary transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
-              +
-            </span>
-          </button>
+              Tylko niezbędne
+            </button>
+            <button
+              ref={declineButtonRef}
+              type="button"
+              onClick={() => chooseConsent("declined")}
+              className="inline-flex items-center justify-center rounded-pill border-2 border-border px-6 py-3 font-display text-sm font-extrabold uppercase tracking-[0.1em] text-text transition hover:-translate-y-0.5 hover:border-primary hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            >
+              Nie zgadzam się
+            </button>
+            <button
+              ref={acceptButtonRef}
+              type="button"
+              onClick={() => chooseConsent("accepted")}
+              className="group inline-flex items-center justify-center gap-2 rounded-pill bg-accent px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.1em] text-ink transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            >
+              Akceptuję
+              <span
+                aria-hidden="true"
+                className="text-lg leading-none transition-transform group-hover:rotate-12"
+              >
+                +
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </aside>

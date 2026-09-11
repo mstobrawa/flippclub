@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {
@@ -185,6 +186,8 @@ export function Footer() {
         <div className="mt-12 border-t border-white/10 pt-7">
           <div className="flex flex-col gap-5 text-xs text-on-ink/45 sm:flex-row sm:items-center sm:justify-between">
             <p>© {year} FLIPPCLUB. Wszystkie prawa zastrzeżone.</p>
+
+            <CookieSettingsButton />
 
             <p>
               Crafted by{" "}

@@ -2,6 +2,27 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import {
+  type ExternalContentConsent,
+  externalContentConsentChangedEvent,
+  externalContentConsentStorageKey,
+  getExternalContentConsent,
+  setExternalContentConsent,
+} from "@/lib/externalContentConsent";
+
+const facebookSdkId = "facebook-jssdk";
+const facebookSdkUrl =
+  "https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v25.0";
+
+declare global {
+  interface Window {
+    FB?: {
+      XFBML?: {
+        parse: () => void;
+      };
+    };
+  }
+}
 
 const slides = [
   {
@@ -42,26 +63,122 @@ const slides = [
   },
 ];
 
-export function FacebookFeed() {
-  const [index, setIndex] = useState(0);
+function loadFacebookSdk(): Promise<void> {
+  const existingScript = document.getElementById(
+    facebookSdkId,
+  ) as HTMLScriptElement | null;
 
-  useEffect(() => {
-    const existingScript = document.querySelector(
-      'script[src^="https://connect.facebook.net/pl_PL/sdk.js"]',
-    );
+  if (window.FB?.XFBML) {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve, reject) => {
+    const script = existingScript ?? document.createElement("script");
+
+    function handleLoad() {
+      resolve();
+    }
+
+    function handleError() {
+      reject(new Error("Nie udało się załadować Facebook SDK."));
+    }
+
+    script.addEventListener("load", handleLoad, { once: true });
+    script.addEventListener("error", handleError, { once: true });
 
     if (!existingScript) {
-      const script = document.createElement("script");
-
-      script.src =
-        "https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v25.0";
+      script.id = facebookSdkId;
+      script.src = facebookSdkUrl;
       script.async = true;
       script.defer = true;
       script.crossOrigin = "anonymous";
-
       document.body.appendChild(script);
     }
+  });
+}
+
+function FacebookConsentPlaceholder({ className = "" }: { className?: string }) {
+  function acceptFacebookContent() {
+    setExternalContentConsent("accepted");
+  }
+
+  return (
+    <div
+      className={`flex h-full min-h-[360px] flex-col items-center justify-center bg-surface px-6 py-10 text-center ${className}`}
+    >
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+        Aktualności z Facebooka
+      </p>
+      <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
+        Zaakceptuj zewnętrzne treści, aby wyświetlić Facebook Feed.
+      </p>
+      <button
+        type="button"
+        onClick={acceptFacebookContent}
+        className="mt-5 inline-flex items-center justify-center rounded-pill bg-accent px-5 py-3 font-display text-xs font-extrabold uppercase tracking-[0.1em] text-ink transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+      >
+        Akceptuj Facebook
+      </button>
+    </div>
+  );
+}
+
+export function FacebookFeed() {
+  const [index, setIndex] = useState(0);
+  const [consent, setConsent] = useState<ExternalContentConsent | null>(null);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setConsent(getExternalContentConsent());
+    }, 0);
+
+    function handleConsentChange(event: Event) {
+      setConsent((event as CustomEvent<ExternalContentConsent>).detail);
+    }
+
+    function handleStorageChange(event: StorageEvent) {
+      if (event.key === externalContentConsentStorageKey) {
+        setConsent(getExternalContentConsent());
+      }
+    }
+
+    window.addEventListener(
+      externalContentConsentChangedEvent,
+      handleConsentChange,
+    );
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      window.removeEventListener(
+        externalContentConsentChangedEvent,
+        handleConsentChange,
+      );
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
+
+  useEffect(() => {
+    if (consent !== "accepted") {
+      return;
+    }
+
+    let cancelled = false;
+
+    loadFacebookSdk()
+      .then(() => {
+        if (!cancelled) {
+          window.FB?.XFBML?.parse();
+        }
+      })
+      .catch(() => {
+        // The placeholder is intentionally not replaced with an external fallback.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [consent]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -359,21 +476,25 @@ export function FacebookFeed() {
               />
 
               <div className="absolute left-[20.8%] top-[16.55%] z-20 h-[58.2%] w-[58.5%] overflow-hidden rounded-[2%] bg-black">
-                <div className="flex min-h-full justify-center">
-                  <div className="min-w-0">
-                    <div
-                      className="fb-page"
-                      data-href="https://www.facebook.com/flippclub"
-                      data-show-posts="true"
-                      data-width="500"
-                      data-height="900"
-                      data-small-header="true"
-                      data-adapt-container-width="true"
-                      data-hide-cover="true"
-                      data-show-facepile="false"
-                    />
+                {consent === "accepted" ? (
+                  <div className="flex min-h-full justify-center">
+                    <div className="min-w-0">
+                      <div
+                        className="fb-page"
+                        data-href="https://www.facebook.com/flippclub"
+                        data-show-posts="true"
+                        data-width="500"
+                        data-height="900"
+                        data-small-header="true"
+                        data-adapt-container-width="true"
+                        data-hide-cover="true"
+                        data-show-facepile="false"
+                      />
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <FacebookConsentPlaceholder className="min-h-full" />
+                )}
               </div>
             </div>
           </div>
@@ -385,17 +506,21 @@ export function FacebookFeed() {
           <div className="mx-auto mt-3 w-full max-w-[520px] lg:hidden">
             <div className="rounded-[28px] border-4 border-text bg-dark-gray p-2 shadow-[6px_8px_0_var(--color-primary)]">
               <div className="overflow-hidden rounded-[20px] border-4 border-accent bg-background">
-                <div
-                  className="fb-page w-full"
-                  data-href="https://www.facebook.com/flippclub"
-                  data-show-posts="true"
-                  data-width="500"
-                  data-height="750"
-                  data-small-header="false"
-                  data-adapt-container-width="true"
-                  data-hide-cover="false"
-                  data-show-facepile="false"
-                />
+                {consent === "accepted" ? (
+                  <div
+                    className="fb-page w-full"
+                    data-href="https://www.facebook.com/flippclub"
+                    data-show-posts="true"
+                    data-width="500"
+                    data-height="750"
+                    data-small-header="false"
+                    data-adapt-container-width="true"
+                    data-hide-cover="false"
+                    data-show-facepile="false"
+                  />
+                ) : (
+                  <FacebookConsentPlaceholder />
+                )}
               </div>
             </div>
           </div>
