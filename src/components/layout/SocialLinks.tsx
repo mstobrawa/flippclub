@@ -10,6 +10,8 @@ export function SocialLinks() {
           key={social.label}
           href={social.href}
           aria-label={social.label}
+          target="_blank"
+          rel="noopener noreferrer"
           className={getSocialClassName(social.label)}
         >
           <SocialIcon name={social.label} />

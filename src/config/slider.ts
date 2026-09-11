@@ -20,7 +20,7 @@ export const slides: Slide[] = [
     title: "FLIPPERY",
     description:
       "Klasyczne i nowoczesne flippery, które możesz odkrywać i rozgrywać bez końca.",
-    href: "/zones",
+    href: "/zones/flippers",
     imageDesktop: "/images/placeholders/placeholder.png",
     imageMobile: "/images/placeholders/placeholder.png",
     label: "Popularne",
@@ -33,7 +33,7 @@ export const slides: Slide[] = [
     id: "arcade-zone",
     title: "ARCADE",
     description: "Retro automaty i współczesne gry arcade w jednym miejscu.",
-    href: "/zones",
+    href: "/zones/arcades",
     imageDesktop: "/images/placeholders/placeholder.png",
     imageMobile: "/images/placeholders/placeholder.png",
     accent: "20+ automatów",
@@ -60,7 +60,7 @@ export const slides: Slide[] = [
     title: "KOPARKI RC",
     description:
       "Sprawdź swoją precyzję i spróbuj zdobyć nagrodę w automatach z chwytakami.",
-    href: "/zones",
+    href: "/excavators",
     imageDesktop: "/images/placeholders/placeholder.png",
     imageMobile: "/images/placeholders/placeholder.png",
     titleColor: "text-accent",
@@ -72,7 +72,7 @@ export const slides: Slide[] = [
     title: "IMPREZY I WYDARZENIA",
     description:
       "Urodziny, spotkania ze znajomymi i prywatne wydarzenia w wyjątkowej atmosferze.",
-    href: "/contact",
+    href: "/events",
     imageDesktop: "/images/placeholders/placeholder.png",
     imageMobile: "/images/placeholders/placeholder.png",
     accent: "Zarezerwuj termin",
@@ -85,26 +85,14 @@ export const slides: Slide[] = [
     title: "BAR",
     description:
       "Zrób przerwę od gry, napij się czegoś i złap chwilę oddechu między kolejnymi rozgrywkami.",
-    href: "/about",
+    href: "/zones/bar",
     imageDesktop: "/images/placeholders/placeholder.png",
     imageMobile: "/images/placeholders/placeholder.png",
     titleColor: "text-accent",
     accentColor: "text-primary",
     labelColor: "bg-accent text-ink",
   },
-  {
-    id: "space",
-    title: "PONAD 300 m² ROZRYWKI",
-    description:
-      "Dużo przestrzeni, różne strefy i atrakcje, które możesz odkrywać we własnym tempie.",
-    href: "/zones",
-    imageDesktop: "/images/placeholders/placeholder.png",
-    imageMobile: "/images/placeholders/placeholder.png",
-    accent: "Jedno miejsce. Wiele atrakcji.",
-    titleColor: "text-primary",
-    accentColor: "text-accent",
-    labelColor: "bg-primary text-ink",
-  },
+
   {
     id: "coming-soon",
     title: "WKRÓTCE WIĘCEJ",

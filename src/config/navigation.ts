@@ -63,10 +63,10 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/flippclub.pl",
   },
   {
     label: "TikTok",
-    href: "#",
+    href: "https://www.tiktok.com/@flippclubsiemianowice",
   },
 ];
