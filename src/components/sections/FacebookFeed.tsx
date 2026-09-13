@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   type ExternalContentConsent,
   externalContentConsentChangedEvent,
@@ -63,6 +63,52 @@ const slides = [
   },
 ];
 
+type RevealProps = {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+};
+
+function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(element);
+        }
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px",
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 function loadFacebookSdk(): Promise<void> {
   const existingScript = document.getElementById(
     facebookSdkId,
@@ -97,7 +143,11 @@ function loadFacebookSdk(): Promise<void> {
   });
 }
 
-function FacebookConsentPlaceholder({ className = "" }: { className?: string }) {
+function FacebookConsentPlaceholder({
+  className = "",
+}: {
+  className?: string;
+}) {
   function acceptFacebookContent() {
     setExternalContentConsent("accepted");
   }
@@ -109,9 +159,11 @@ function FacebookConsentPlaceholder({ className = "" }: { className?: string }) 
       <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
         Aktualności z Facebooka
       </p>
+
       <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
         Zaakceptuj zewnętrzne treści, aby wyświetlić Facebook Feed.
       </p>
+
       <button
         type="button"
         onClick={acceptFacebookContent}
@@ -146,14 +198,17 @@ export function FacebookFeed() {
       externalContentConsentChangedEvent,
       handleConsentChange,
     );
+
     window.addEventListener("storage", handleStorageChange);
 
     return () => {
       window.clearTimeout(timeoutId);
+
       window.removeEventListener(
         externalContentConsentChangedEvent,
         handleConsentChange,
       );
+
       window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
@@ -195,15 +250,8 @@ export function FacebookFeed() {
       id="news"
       className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pt-0 pb-6 sm:pb-8 lg:pb-10"
     >
-      {/* ================================================== */}
-      {/* GŁÓWNY WRAPPER */}
-      {/* ================================================== */}
-
       <div className="relative mx-auto w-full max-w-7xl">
-        {/* ================================================== */}
         {/* MOCNY NEONOWY GLOW */}
-        {/* ================================================== */}
-
         <div
           aria-hidden="true"
           className="
@@ -228,10 +276,7 @@ export function FacebookFeed() {
           "
         />
 
-        {/* ================================================== */}
         {/* GŁÓWNA JASNA POWIERZCHNIA */}
-        {/* ================================================== */}
-
         <div
           className="
             relative
@@ -245,266 +290,595 @@ export function FacebookFeed() {
             lg:pb-12
           "
         >
-          {/* ================================================== */}
-          {/* SUBNAV */}
-          {/* ================================================== */}
-
+          {/* SUBNAV / CENNIK */}
           <div className="relative -mx-5 px-5 pt-6 sm:-mx-8 sm:px-8 sm:pt-8 lg:-mx-10 lg:px-10 lg:pt-10">
-            {/* Dekoracje SubNav */}
-
+            {/* FIOLETOWE KOŁO */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -left-6 top-1/2 h-16 w-16 -translate-y-1/2 rounded-full border-[7px] border-primary/70 sm:-left-10 sm:h-28 sm:w-28 sm:border-[10px]"
+              className="
+                pointer-events-none
+                absolute
+                left-[1%]
+                top-1/2
+                z-0
+                h-16
+                w-16
+                -translate-y-1/2
+                rounded-full
+                border-[7px]
+                border-primary/70
+                animate-[decor-float_11s_ease-in-out_infinite]
+                sm:left-[1.5%]
+                sm:h-28
+                sm:w-28
+                sm:border-[10px]
+              "
             />
 
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute left-[4%] top-2 h-3 w-3 rounded-full bg-accent sm:left-[5%] sm:h-5 sm:w-5"
+              className="
+                pointer-events-none
+                absolute
+                left-[4%]
+                top-2
+                z-0
+                h-3
+                w-3
+                rounded-full
+                bg-accent
+                animate-[decor-float-small_9s_ease-in-out_infinite]
+                sm:left-[5%]
+                sm:h-5
+                sm:w-5
+              "
+            />
+
+            {/* <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                -bottom-2
+                -left-5
+                z-0
+                h-10
+                w-16
+                rounded-t-full
+                bg-primary/20
+                animate-[decor-float-small_10s_ease-in-out_infinite]
+                sm:-left-6
+                sm:h-16
+                sm:w-28
+              "
+            /> */}
+
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                right-[4%]
+                top-3
+                z-0
+                h-4
+                w-4
+                rounded-full
+                bg-primary
+                animate-[decor-float_10s_ease-in-out_infinite]
+                sm:right-[5%]
+                sm:top-4
+                sm:h-6
+                sm:w-6
+              "
             />
 
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -bottom-2 -left-5 h-10 w-16 rounded-t-full bg-primary/20 sm:-left-6 sm:h-16 sm:w-28"
+              className="
+                pointer-events-none
+                absolute
+                -right-5
+                top-1/2
+                z-0
+                h-16
+                w-16
+                -translate-y-1/2
+                rounded-full
+                bg-accent/40
+                animate-[decor-drift-reverse_12s_ease-in-out_infinite]
+                sm:-right-8
+                sm:h-24
+                sm:w-24
+              "
             />
 
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute right-[4%] top-3 h-4 w-4 rounded-full bg-primary sm:right-[5%] sm:top-4 sm:h-6 sm:w-6"
+              className="
+                pointer-events-none
+                absolute
+                bottom-2
+                right-[10%]
+                z-0
+                h-7
+                w-7
+                rounded-full
+                border-4
+                border-primary/60
+                animate-[decor-float_11s_ease-in-out_infinite]
+                sm:bottom-3
+                sm:right-[12%]
+                sm:h-10
+                sm:w-10
+                sm:border-[6px]
+              "
             />
 
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-5 top-1/2 h-16 w-16 -translate-y-1/2 rounded-full bg-accent/40 sm:-right-8 sm:h-24 sm:w-24"
-            />
+            <Reveal className="relative z-10" delay={0}>
+              <div
+                key={slide.id}
+                className="grid grid-cols-2 gap-3 animate-[subnav-in_500ms_ease-out] lg:grid-cols-4"
+              >
+                {slide.blocks.map((block, blockIndex) => {
+                  const isPurple = blockIndex % 2 === 0;
+                  const isFirstBlock = blockIndex === 0;
 
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute bottom-2 right-[10%] h-7 w-7 rounded-full border-[4px] border-primary/60 sm:bottom-3 sm:right-[12%] sm:h-10 sm:w-10 sm:border-[6px]"
-            />
-
-            {/* Karty */}
-
-            <div
-              key={slide.id}
-              className="relative z-10 grid grid-cols-2 gap-3 animate-[subnav-in_500ms_ease-out] lg:grid-cols-4"
-            >
-              {slide.blocks.map((block, blockIndex) => {
-                const isPurple = blockIndex % 2 === 0;
-                const isFirstBlock = blockIndex === 0;
-
-                return (
-                  <div
-                    key={`${slide.id}-${block.top}`}
-                    className={`flex h-24 flex-col items-center justify-center rounded-2xl border px-3 py-3 text-center transition-colors duration-500 sm:h-28 sm:px-5 ${
-                      isPurple
-                        ? "border-primary/35 bg-primary/15"
-                        : "border-accent/50 bg-accent/25"
-                    }`}
-                  >
-                    <span
-                      className={`font-mono font-bold uppercase leading-none tracking-[0.08em] text-text ${
-                        isFirstBlock
-                          ? "text-3xl sm:text-4xl"
-                          : "text-2xl sm:text-3xl"
+                  return (
+                    <div
+                      key={`${slide.id}-${block.top}`}
+                      className={`flex h-24 flex-col items-center justify-center rounded-2xl border px-3 py-3 text-center transition-colors duration-500 sm:h-28 sm:px-5 ${
+                        isPurple
+                          ? "border-primary/35 bg-primary/15"
+                          : "border-accent/50 bg-accent/25"
                       }`}
                     >
-                      {block.top}
-                    </span>
+                      <span
+                        className={`font-mono font-bold uppercase leading-none tracking-[0.08em] text-text ${
+                          isFirstBlock
+                            ? "text-3xl sm:text-4xl"
+                            : "text-2xl sm:text-3xl"
+                        }`}
+                      >
+                        {block.top}
+                      </span>
 
-                    {!isFirstBlock && (
-                      <strong className="mt-2 font-display text-xl font-extrabold leading-none tracking-tight text-text sm:text-2xl">
-                        {block.bottom}
-                      </strong>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+                      {!isFirstBlock && (
+                        <strong className="mt-2 font-display text-xl font-extrabold leading-none tracking-tight text-text sm:text-2xl">
+                          {block.bottom}
+                        </strong>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </Reveal>
           </div>
 
-          {/* ================================================== */}
-          {/* ODSTĘP PRZED AKTUALNOŚCIAMI */}
-          {/* ================================================== */}
-
+          {/* ODSTĘP */}
           <div className="h-8 sm:h-10 lg:h-12" />
 
-          {/* ================================================== */}
           {/* HEADING */}
-          {/* ================================================== */}
-
-          <div className="relative mx-auto max-w-2xl text-center">
-            {/* Dekoracje */}
-
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -left-32 top-1/2 hidden h-14 w-14 -translate-y-1/2 rounded-full border-[6px] border-primary lg:block xl:h-16 xl:w-16"
-            />
-
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -left-16 -top-2 hidden h-5 w-5 rotate-12 bg-accent lg:block"
-            />
-
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-32 top-1/2 hidden h-16 w-16 -translate-y-1/2 rounded-full border-[6px] border-accent lg:block xl:h-20 xl:w-20"
-            />
-
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-16 -top-1 hidden h-5 w-5 -rotate-12 bg-primary lg:block"
-            />
-
-            <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl lg:text-6xl">
-              AKTUALNOŚCI
-            </h2>
-
-            <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-              Sprawdź, co dzieje się na naszym Facebooku. Nowe wydarzenia,
-              aktualności i wszystko, co warto wiedzieć przed kolejną rozgrywką.
-            </p>
-          </div>
-
-          {/* ================================================== */}
-          {/* DESKTOP ARCADE CABINET */}
-          {/* ================================================== */}
-
-          <div className="relative mx-[calc(50%-50vw)] mt-2 hidden w-screen lg:block">
-            {/* ================================================== */}
-            {/* LEWA STRONA */}
-            {/* ================================================== */}
-
-            <Image
-              src="/images/heart.png"
-              alt=""
-              width={180}
-              height={180}
-              aria-hidden="true"
-              className="pointer-events-none absolute left-[9%] top-[22%] z-0 w-[115px] -rotate-12 xl:w-[140px]"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute left-[2%] top-[43%] z-0 h-20 w-20 rounded-full border-[7px] border-primary xl:h-24 xl:w-24"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute left-[10%] top-[10%] z-0 h-6 w-6 rounded-full bg-accent xl:h-7 xl:w-7"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute left-[15%] top-[61%] z-0 h-12 w-12 rounded-full border-[5px] border-accent xl:h-14 xl:w-14"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute left-[5%] top-[76%] z-0 h-16 w-16 rounded-full border-[6px] border-primary xl:h-20 xl:w-20"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute left-[10%] top-[70%] z-0 h-5 w-5 rotate-12 bg-accent xl:h-6 xl:w-6"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute left-[24%] top-[38%] z-0 h-4 w-4 rotate-45 bg-primary"
-            />
-
-            {/* ================================================== */}
-            {/* PRAWA STRONA */}
-            {/* ================================================== */}
-
-            <Image
-              src="/images/like.png"
-              alt=""
-              width={180}
-              height={180}
-              aria-hidden="true"
-              className="pointer-events-none absolute right-[8%] top-[43%] z-0 w-[115px] rotate-12 xl:w-[140px]"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute right-[2%] top-[58%] z-0 h-20 w-20 rounded-full border-[7px] border-accent xl:h-24 xl:w-24"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute right-[12%] top-[12%] z-0 h-12 w-12 rounded-full border-[5px] border-primary xl:h-14 xl:w-14"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute right-[9%] top-[20%] z-0 h-5 w-5 rotate-12 bg-accent xl:h-6 xl:w-6"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute right-[15%] top-[68%] z-0 h-12 w-12 rounded-full border-[5px] border-accent xl:h-14 xl:w-14"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute right-[5%] top-[76%] z-0 h-16 w-16 rounded-full border-[6px] border-primary xl:h-20 xl:w-20"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute right-[23%] top-[74%] z-0 h-5 w-5 rotate-45 bg-primary xl:h-6 xl:w-6"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute right-[25%] top-[38%] z-0 h-4 w-4 rotate-45 bg-accent"
-            />
-
-            {/* ================================================== */}
-            {/* ARCADE CABINET */}
-            {/* ================================================== */}
-
-            <div className="relative z-10 mx-auto w-full max-w-220">
-              <Image
-                src="/images/facebook-frame.png"
-                alt=""
-                width={1024}
-                height={1536}
-                priority={false}
-                className="pointer-events-none relative z-10 h-auto w-full"
+          <Reveal delay={100}>
+            <div className="relative mx-auto max-w-2xl text-center">
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  -left-32
+                  top-1/2
+                  hidden
+                  h-14
+                  w-14
+                  -translate-y-1/2
+                  rounded-full
+                  border-[6px]
+                  border-primary
+                  animate-[decor-float_12s_ease-in-out_infinite]
+                  lg:block
+                  xl:h-16
+                  xl:w-16
+                "
               />
 
-              <div className="absolute left-[20.8%] top-[16.55%] z-20 h-[58.2%] w-[58.5%] overflow-hidden rounded-[2%] bg-black">
-                {consent === "accepted" ? (
-                  <div className="flex min-h-full justify-center">
-                    <div className="min-w-0">
-                      <div
-                        className="fb-page"
-                        data-href="https://www.facebook.com/flippclub"
-                        data-show-posts="true"
-                        data-width="500"
-                        data-height="900"
-                        data-small-header="true"
-                        data-adapt-container-width="true"
-                        data-hide-cover="true"
-                        data-show-facepile="false"
-                      />
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  -left-16
+                  -top-2
+                  hidden
+                  h-5
+                  w-5
+                  rotate-12
+                  bg-accent
+                  animate-[decor-drift_10s_ease-in-out_infinite]
+                  lg:block
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-32
+                  top-1/2
+                  hidden
+                  h-16
+                  w-16
+                  -translate-y-1/2
+                  rounded-full
+                  border-[6px]
+                  border-accent
+                  animate-[decor-float_13s_ease-in-out_infinite]
+                  lg:block
+                  xl:h-20
+                  xl:w-20
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-16
+                  -top-1
+                  hidden
+                  h-5
+                  w-5
+                  -rotate-12
+                  bg-primary
+                  animate-[decor-drift-reverse_11s_ease-in-out_infinite]
+                  lg:block
+                "
+              />
+
+              <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl lg:text-6xl">
+                AKTUALNOŚCI
+              </h2>
+
+              <p className="relative z-10 mt-4 text-base leading-relaxed text-muted sm:text-lg">
+                Sprawdź, co dzieje się na naszym Facebooku. Nowe wydarzenia,
+                aktualności i wszystko, co warto wiedzieć przed kolejną
+                rozgrywką.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* DESKTOP ARCADE CABINET */}
+          <Reveal delay={180}>
+            <div className="relative mx-[calc(50%-50vw)] mt-2 hidden w-screen lg:block">
+              {/* LEWA STRONA */}
+              <Image
+                src="/images/heart.png"
+                alt=""
+                width={180}
+                height={180}
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[9%]
+                  top-[22%]
+                  z-0
+                  w-28.75
+                  -rotate-12
+                  animate-[decor-drift-reverse_13s_ease-in-out_infinite]
+                  xl:w-35
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-[2%]
+                  top-[43%]
+                  z-0
+                  h-20
+                  w-20
+                  rounded-full
+                  border-[7px]
+                  border-primary
+                  animate-[decor-float_14s_ease-in-out_infinite]
+                  xl:h-24
+                  xl:w-24
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-[10%]
+                  top-[10%]
+                  z-0
+                  h-6
+                  w-6
+                  rounded-full
+                  bg-accent
+                  animate-[decor-float-small_9s_ease-in-out_infinite]
+                  xl:h-7
+                  xl:w-7
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-[15%]
+                  top-[61%]
+                  z-0
+                  h-12
+                  w-12
+                  rounded-full
+                  border-[5px]
+                  border-accent
+                  animate-[decor-drift_12s_ease-in-out_infinite]
+                  xl:h-14
+                  xl:w-14
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-[5%]
+                  top-[76%]
+                  z-0
+                  h-16
+                  w-16
+                  rounded-full
+                  border-[6px]
+                  border-primary
+                  animate-[decor-float_15s_ease-in-out_infinite]
+                  xl:h-20
+                  xl:w-20
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-[10%]
+                  top-[70%]
+                  z-0
+                  h-5
+                  w-5
+                  rotate-12
+                  bg-accent
+                  animate-[decor-drift-reverse_11s_ease-in-out_infinite]
+                  xl:h-6
+                  xl:w-6
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-[24%]
+                  top-[38%]
+                  z-0
+                  h-4
+                  w-4
+                  rotate-45
+                  bg-primary
+                  animate-[decor-spin-float_13s_ease-in-out_infinite]
+                "
+              />
+
+              {/* PRAWA STRONA */}
+              <Image
+                src="/images/like.png"
+                alt=""
+                width={180}
+                height={180}
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[8%]
+                  top-[43%]
+                  z-0
+                  w-[115px]
+                  rotate-12
+                  animate-[decor-drift_14s_ease-in-out_infinite]
+                  xl:w-[140px]
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[2%]
+                  top-[58%]
+                  z-0
+                  h-20
+                  w-20
+                  rounded-full
+                  border-[7px]
+                  border-accent
+                  animate-[decor-float_13s_ease-in-out_infinite]
+                  xl:h-24
+                  xl:w-24
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[12%]
+                  top-[12%]
+                  z-0
+                  h-12
+                  w-12
+                  rounded-full
+                  border-[5px]
+                  border-primary
+                  animate-[decor-drift-reverse_12s_ease-in-out_infinite]
+                  xl:h-14
+                  xl:w-14
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[9%]
+                  top-[20%]
+                  z-0
+                  h-5
+                  w-5
+                  rotate-12
+                  bg-accent
+                  animate-[decor-float-small_10s_ease-in-out_infinite]
+                  xl:h-6
+                  xl:w-6
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[15%]
+                  top-[68%]
+                  z-0
+                  h-12
+                  w-12
+                  rounded-full
+                  border-[5px]
+                  border-accent
+                  animate-[decor-float_15s_ease-in-out_infinite]
+                  xl:h-14
+                  xl:w-14
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[5%]
+                  top-[76%]
+                  z-0
+                  h-16
+                  w-16
+                  rounded-full
+                  border-[6px]
+                  border-primary
+                  animate-[decor-drift_13s_ease-in-out_infinite]
+                  xl:h-20
+                  xl:w-20
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[23%]
+                  top-[74%]
+                  z-0
+                  h-5
+                  w-5
+                  rotate-45
+                  bg-primary
+                  animate-[decor-spin-float_14s_ease-in-out_infinite]
+                  xl:h-6
+                  xl:w-6
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[25%]
+                  top-[38%]
+                  z-0
+                  h-4
+                  w-4
+                  rotate-45
+                  bg-accent
+                  animate-[decor-spin-float_12s_ease-in-out_infinite]
+                "
+              />
+
+              {/* ARCADE CABINET */}
+              <div className="relative z-10 mx-auto w-full max-w-220">
+                <div
+                  aria-hidden="true"
+                  className="facebook-glow-primary pointer-events-none absolute -inset-16 rounded-[64px]"
+                />
+
+                <div
+                  aria-hidden="true"
+                  className="facebook-glow-secondary pointer-events-none absolute -inset-8 rounded-[56px]"
+                />
+
+                <Image
+                  src="/images/facebook-frame.png"
+                  alt=""
+                  width={1024}
+                  height={1536}
+                  priority={false}
+                  className="pointer-events-none relative z-10 h-auto w-full"
+                />
+
+                <div className="absolute left-[20.8%] top-[16.55%] z-20 h-[58.2%] w-[58.5%] overflow-hidden rounded-[2%] bg-black">
+                  {consent === "accepted" ? (
+                    <div className="flex min-h-full justify-center">
+                      <div className="min-w-0">
+                        <div
+                          className="fb-page"
+                          data-href="https://www.facebook.com/flippclub"
+                          data-show-posts="true"
+                          data-width="500"
+                          data-height="900"
+                          data-small-header="true"
+                          data-adapt-container-width="true"
+                          data-hide-cover="true"
+                          data-show-facepile="false"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <FacebookConsentPlaceholder className="min-h-full" />
-                )}
+                  ) : (
+                    <FacebookConsentPlaceholder className="min-h-full" />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* ================================================== */}
           {/* MOBILE / TABLET */}
-          {/* ================================================== */}
+          <Reveal
+            delay={180}
+            className="relative mx-auto mt-3 w-full max-w-[520px] lg:hidden"
+          >
+            {/* MOBILE / TABLET NEON */}
+            <div
+              aria-hidden="true"
+              className="facebook-glow-primary pointer-events-none absolute -inset-8 rounded-[38px]"
+            />
 
-          <div className="mx-auto mt-3 w-full max-w-[520px] lg:hidden">
-            <div className="rounded-[28px] border-4 border-text bg-dark-gray p-2 shadow-[6px_8px_0_var(--color-primary)]">
+            <div
+              aria-hidden="true"
+              className="facebook-glow-secondary pointer-events-none absolute -inset-4 rounded-[34px]"
+            />
+
+            <div className="relative z-10 rounded-[28px] border-4 border-text bg-dark-gray p-2 shadow-[6px_8px_0_var(--color-primary)]">
               <div className="overflow-hidden rounded-[20px] border-4 border-accent bg-background">
                 {consent === "accepted" ? (
                   <div
@@ -523,7 +897,7 @@ export function FacebookFeed() {
                 )}
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

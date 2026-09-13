@@ -96,24 +96,6 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               <li>
                 <Link
-                  href="/about"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary"
-                >
-                  O FlippClub
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary"
-                >
-                  Aktualności
-                </Link>
-              </li>
-
-              <li>
-                <Link
                   href="/opening"
                   className="text-sm text-on-ink/70 transition-colors hover:text-primary"
                 >
@@ -127,15 +109,6 @@ export function Footer() {
                   className="text-sm text-on-ink/70 transition-colors hover:text-primary"
                 >
                   FAQ
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/pricing"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary"
-                >
-                  Cennik
                 </Link>
               </li>
 

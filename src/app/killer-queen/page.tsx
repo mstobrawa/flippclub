@@ -18,7 +18,20 @@ export default function KillerQueenPage() {
       {/* Large yellow hex - top left */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-15 top-[10%] z-20 hidden h-36 w-36 rotate-12 bg-accent lg:block"
+        className="
+          pointer-events-none
+          absolute
+          left-15
+          top-[10%]
+          z-20
+          hidden
+          h-36
+          w-36
+          rotate-12
+          bg-accent
+          animate-[decor-float_13s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -28,7 +41,20 @@ export default function KillerQueenPage() {
       {/* Purple inner hex */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-18 top-[11.5%] z-20 hidden h-28 w-28 rotate-12 bg-background lg:block"
+        className="
+          pointer-events-none
+          absolute
+          left-18
+          top-[11.5%]
+          z-20
+          hidden
+          h-28
+          w-28
+          rotate-12
+          bg-background
+          animate-[decor-float-small_10s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -38,7 +64,20 @@ export default function KillerQueenPage() {
       {/* Large blue hex - top right */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-22 top-[17%] z-20 hidden h-32 w-32 -rotate-12 bg-blue lg:block"
+        className="
+          pointer-events-none
+          absolute
+          right-22
+          top-[17%]
+          z-20
+          hidden
+          h-32
+          w-32
+          -rotate-12
+          bg-blue
+          animate-[decor-drift-reverse_14s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -48,7 +87,20 @@ export default function KillerQueenPage() {
       {/* Small yellow hex - upper right */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[9%] top-[8%] z-20 hidden h-10 w-10 rotate-12 bg-accent lg:block"
+        className="
+          pointer-events-none
+          absolute
+          right-[9%]
+          top-[8%]
+          z-20
+          hidden
+          h-10
+          w-10
+          rotate-12
+          bg-accent
+          animate-[decor-spin-float_9s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -58,7 +110,20 @@ export default function KillerQueenPage() {
       {/* Large purple hex - left of gallery */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-45 top-[46%] z-20 hidden h-28 w-28 -rotate-12 bg-primary lg:block"
+        className="
+          pointer-events-none
+          absolute
+          left-45
+          top-[46%]
+          z-20
+          hidden
+          h-28
+          w-28
+          -rotate-12
+          bg-primary
+          animate-[decor-drift_15s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -68,7 +133,20 @@ export default function KillerQueenPage() {
       {/* Large yellow hex - right of gallery */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-16 top-[55%] z-20 hidden h-36 w-36 rotate-12 bg-accent lg:block"
+        className="
+          pointer-events-none
+          absolute
+          right-16
+          top-[55%]
+          z-20
+          hidden
+          h-36
+          w-36
+          rotate-12
+          bg-accent
+          animate-[decor-float_16s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -78,7 +156,20 @@ export default function KillerQueenPage() {
       {/* Small blue hex - lower left */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[14%] left-[10%] z-20 hidden h-8 w-8 rotate-12 bg-blue lg:block"
+        className="
+          pointer-events-none
+          absolute
+          bottom-[14%]
+          left-[10%]
+          z-20
+          hidden
+          h-8
+          w-8
+          rotate-12
+          bg-blue
+          animate-[decor-float-small_8s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -88,7 +179,20 @@ export default function KillerQueenPage() {
       {/* Small purple hex - lower right */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[10%] right-[12%] z-20 hidden h-7 w-7 -rotate-12 bg-primary lg:block"
+        className="
+          pointer-events-none
+          absolute
+          bottom-[10%]
+          right-[12%]
+          z-20
+          hidden
+          h-7
+          w-7
+          -rotate-12
+          bg-primary
+          animate-[decor-drift-reverse_11s_ease-in-out_infinite]
+          lg:block
+        "
         style={{
           clipPath:
             "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
@@ -101,7 +205,23 @@ export default function KillerQueenPage() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-35px] left-1/2 z-0 w-full max-w-7xl -translate-x-1/2 rounded-b-[36px] bg-[#0d0b54] opacity-100 blur-[55px] shadow-[0_0_100px_35px_rgba(13,11,84,0.95),0_0_160px_55px_rgba(1,5,59,0.9)] sm:blur-[65px] sm:shadow-[0_0_120px_40px_rgba(13,11,84,0.98),0_0_190px_65px_rgba(1,5,59,0.95)]"
+        className="
+          pointer-events-none
+          absolute
+          bottom-[-35px]
+          left-1/2
+          z-0
+          w-full
+          max-w-7xl
+          -translate-x-1/2
+          rounded-b-[36px]
+          bg-[#0d0b54]
+          opacity-100
+          blur-[55px]
+          shadow-[0_0_100px_35px_rgba(13,11,84,0.95),0_0_160px_55px_rgba(1,5,59,0.9)]
+          sm:blur-[65px]
+          sm:shadow-[0_0_120px_40px_rgba(13,11,84,0.98),0_0_190px_65px_rgba(1,5,59,0.95)]
+        "
       />
 
       {/* ================================================== */}
@@ -115,7 +235,10 @@ export default function KillerQueenPage() {
           {/* ================================================== */}
 
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mx-auto max-w-4xl">
+            <div
+              className="page-image-reveal mx-auto max-w-4xl"
+              style={{ animationDelay: "100ms" }}
+            >
               <Image
                 src="/images/killer_queen/logo-kq.png"
                 alt="Killer Queen"
@@ -126,7 +249,10 @@ export default function KillerQueenPage() {
               />
             </div>
 
-            <p className="mx-auto mt-7 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
+            <p
+              className="page-reveal-up mx-auto mt-7 max-w-3xl text-base leading-relaxed text-muted sm:text-lg"
+              style={{ animationDelay: "300ms" }}
+            >
               Jedyna taka atrakcja w Europie. Dziesięciu graczy, dwie drużyny i
               jedna arena. Killer Queen to szybka, pełna chaosu gra 5 vs 5, w
               której liczy się refleks, współpraca i dobra strategia.
@@ -144,7 +270,10 @@ export default function KillerQueenPage() {
           <div className="mx-auto mt-14 max-w-5xl sm:mt-16">
             <div className="grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
               {/* Gold Team */}
-              <div className="group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-surface p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent">
+              <div
+                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-surface p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent"
+                style={{ animationDelay: "450ms" }}
+              >
                 <Image
                   src="/images/killer_queen/gteam.png"
                   alt="The Gold Team"
@@ -157,13 +286,17 @@ export default function KillerQueenPage() {
               {/* VS */}
               <div
                 aria-hidden="true"
-                className="relative flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-ink font-display text-xl font-extrabold uppercase text-accent shadow-[5px_6px_0_var(--color-primary)]"
+                className="page-reveal relative flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-ink font-display text-xl font-extrabold uppercase text-accent shadow-[5px_6px_0_var(--color-primary)]"
+                style={{ animationDelay: "550ms" }}
               >
                 VS
               </div>
 
               {/* Blue Team */}
-              <div className="group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-surface p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue">
+              <div
+                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-surface p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue"
+                style={{ animationDelay: "650ms" }}
+              >
                 <Image
                   src="/images/killer_queen/bteam.png"
                   alt="The Blue Team"
@@ -180,20 +313,26 @@ export default function KillerQueenPage() {
           {/* ================================================== */}
 
           <div className="mx-auto mt-16 max-w-5xl sm:mt-20">
-            <div className="mb-7 text-center">
+            <div
+              className="page-reveal-up mb-7 text-center"
+              style={{ animationDelay: "750ms" }}
+            >
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
                 ZOBACZ AKCJĘ
               </p>
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {images.map((item) => (
+              {images.map((item, imageIndex) => (
                 <button
                   key={item}
                   type="button"
                   onClick={() => setSelectedImage(item)}
                   aria-label={`Powiększ zdjęcie ${item}`}
-                  className={`group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-dark-gray text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+                  style={{
+                    animationDelay: `${850 + imageIndex * 110}ms`,
+                  }}
+                  className={`page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-dark-gray text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
                     item === 1
                       ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
                       : ""
@@ -226,7 +365,10 @@ export default function KillerQueenPage() {
           {/* CTA */}
           {/* ================================================== */}
 
-          <div className="mt-14 flex flex-col items-center gap-6 sm:mt-16">
+          <div
+            className="page-reveal-up mt-14 flex flex-col items-center gap-6 sm:mt-16"
+            style={{ animationDelay: "1350ms" }}
+          >
             <Link
               href="/contact"
               className="group inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
@@ -253,6 +395,7 @@ export default function KillerQueenPage() {
           aria-label="Podgląd zdjęcia"
         >
           {/* Close */}
+
           <button
             type="button"
             onClick={() => setSelectedImage(null)}
@@ -263,6 +406,7 @@ export default function KillerQueenPage() {
           </button>
 
           {/* Enlarged image */}
+
           <div
             className="relative max-h-[90vh] w-full max-w-5xl cursor-pointer overflow-hidden rounded-2xl border-4 border-accent bg-dark-gray shadow-[8px_10px_0_var(--color-primary)]"
             onClick={() => setSelectedImage(null)}

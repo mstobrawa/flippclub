@@ -1,9 +1,58 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 type FaqItem = {
   question: string;
   answer: string;
 };
+
+type RevealProps = {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+};
+
+function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(element);
+        }
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px",
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`${
+        visible ? "page-reveal-visible" : "page-reveal-hidden"
+      } ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 const faqItems: FaqItem[] = [
   {
@@ -58,67 +107,67 @@ export default function FaqPage() {
       {/* Large purple ring */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-[10%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary lg:block"
+        className="pointer-events-none absolute -left-16 top-[10%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary animate-[decor-float_14s_ease-in-out_infinite] lg:block"
       />
 
       {/* Large yellow ring */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[18%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent lg:block"
+        className="pointer-events-none absolute -right-16 top-[18%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent animate-[decor-drift-reverse_16s_ease-in-out_infinite] lg:block"
       />
 
       {/* Pink square */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[7%] top-[36%] z-0 hidden h-12 w-12 rotate-12 bg-pink lg:block"
+        className="pointer-events-none absolute left-[7%] top-[36%] z-0 hidden h-12 w-12 rotate-12 bg-pink animate-[decor-spin-float_11s_ease-in-out_infinite] lg:block"
       />
 
       {/* Blue diamond */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[8%] top-[44%] z-0 hidden h-14 w-14 rotate-45 bg-blue lg:block"
+        className="pointer-events-none absolute right-[8%] top-[44%] z-0 hidden h-14 w-14 rotate-45 bg-blue animate-[decor-drift_13s_ease-in-out_infinite] lg:block"
       />
 
       {/* Yellow diamond */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-5 top-[64%] z-0 hidden h-24 w-24 rotate-45 bg-accent lg:block"
+        className="pointer-events-none absolute -left-5 top-[64%] z-0 hidden h-24 w-24 rotate-45 bg-accent animate-[decor-float_17s_ease-in-out_infinite] lg:block"
       />
 
       {/* Purple square */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-5 top-[73%] z-0 hidden h-28 w-28 -rotate-12 bg-primary lg:block"
+        className="pointer-events-none absolute -right-5 top-[73%] z-0 hidden h-28 w-28 -rotate-12 bg-primary animate-[decor-drift-reverse_15s_ease-in-out_infinite] lg:block"
       />
 
       {/* Bottom blue ring */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[8%] bottom-[8%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue lg:block"
+        className="pointer-events-none absolute bottom-[8%] left-[8%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue animate-[decor-float-small_10s_ease-in-out_infinite] lg:block"
       />
 
       {/* Small yellow pixel */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[20%] top-[19%] z-0 hidden h-4 w-4 rotate-45 bg-accent lg:block"
+        className="pointer-events-none absolute left-[20%] top-[19%] z-0 hidden h-4 w-4 rotate-45 bg-accent animate-[decor-float-small_8s_ease-in-out_infinite] lg:block"
       />
 
       {/* Small pink pixel */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[21%] top-[27%] z-0 hidden h-4 w-4 bg-pink lg:block"
+        className="pointer-events-none absolute right-[21%] top-[27%] z-0 hidden h-4 w-4 bg-pink animate-[decor-drift_9s_ease-in-out_infinite] lg:block"
       />
 
       {/* Small purple pixel */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[17%] bottom-[25%] z-0 hidden h-3 w-3 bg-primary lg:block"
+        className="pointer-events-none absolute left-[17%] bottom-[25%] z-0 hidden h-3 w-3 bg-primary animate-[decor-float-small_7s_ease-in-out_infinite] lg:block"
       />
 
       {/* Small blue pixel */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[18%] bottom-[20%] z-0 hidden h-3 w-3 rotate-45 bg-blue lg:block"
+        className="pointer-events-none absolute right-[18%] bottom-[20%] z-0 hidden h-3 w-3 rotate-45 bg-blue animate-[decor-drift-reverse_8s_ease-in-out_infinite] lg:block"
       />
 
       {/* ================================================== */}
@@ -132,18 +181,24 @@ export default function FaqPage() {
           {/* ================================================== */}
 
           <div className="mx-auto max-w-4xl text-center">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
-              PLAYER HELP
-            </p>
+            <Reveal>
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
+                PLAYER HELP
+              </p>
+            </Reveal>
 
-            <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
-              FAQ
-            </h1>
+            <Reveal delay={100}>
+              <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
+                FAQ
+              </h1>
+            </Reveal>
 
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-              Masz pytanie? Tu znajdziesz odpowiedzi na najczęstsze pytania
-              dotyczące wizyty w FlippClub.
-            </p>
+            <Reveal delay={180}>
+              <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
+                Masz pytanie? Tu znajdziesz odpowiedzi na najczęstsze pytania
+                dotyczące wizyty w FlippClub.
+              </p>
+            </Reveal>
           </div>
 
           {/* ================================================== */}
@@ -152,32 +207,36 @@ export default function FaqPage() {
 
           <div className="relative z-30 mx-auto mt-16 max-w-4xl sm:mt-20">
             <div className="grid gap-5">
-              {faqItems.map((item, index) => (
-                <details
-                  key={item.question}
-                  className={`group relative border-2 bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 ${
-                    index % 3 === 0
-                      ? "border-primary"
-                      : index % 3 === 1
-                        ? "border-accent"
-                        : "border-pink"
-                  }`}
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-xl font-extrabold uppercase tracking-tight sm:text-2xl [&::-webkit-details-marker]:hidden">
-                    <span>{item.question}</span>
+              {faqItems.map((item, index) => {
+                const borderClass =
+                  index % 3 === 0
+                    ? "border-primary"
+                    : index % 3 === 1
+                      ? "border-accent"
+                      : "border-pink";
 
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-mono text-xl font-bold text-ink transition-transform duration-200 group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
+                return (
+                  <Reveal key={item.question} delay={(index % 4) * 100}>
+                    <details
+                      className={`group relative border-2 bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 ${borderClass}`}
+                    >
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-xl font-extrabold uppercase tracking-tight sm:text-2xl [&::-webkit-details-marker]:hidden">
+                        <span>{item.question}</span>
 
-                  <div className="mt-5 border-t-2 border-border pt-5">
-                    <p className="max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-                      {item.answer}
-                    </p>
-                  </div>
-                </details>
-              ))}
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-mono text-xl font-bold text-ink transition-transform duration-200 group-open:rotate-45">
+                          +
+                        </span>
+                      </summary>
+
+                      <div className="mt-5 border-t-2 border-border pt-5">
+                        <p className="max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </details>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
 
@@ -185,30 +244,32 @@ export default function FaqPage() {
           {/* CONTACT CTA */}
           {/* ================================================== */}
 
-          <div className="relative z-30 mx-auto mt-24 max-w-3xl text-center sm:mt-28">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
-              STILL CONFUSED?
-            </p>
+          <Reveal>
+            <div className="relative z-30 mx-auto mt-24 max-w-3xl text-center sm:mt-28">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
+                STILL CONFUSED?
+              </p>
 
-            <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
-              NIE ZNALAZŁEŚ ODPOWIEDZI?
-            </h2>
+              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                NIE ZNALAZŁEŚ ODPOWIEDZI?
+              </h2>
 
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              Nic nie szkodzi. Napisz do nas — chętnie odpowiemy na Twoje
-              pytanie.
-            </p>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+                Nic nie szkodzi. Napisz do nas — chętnie odpowiemy na Twoje
+                pytanie.
+              </p>
 
-            <Link
-              href="/contact"
-              className="group mt-8 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-            >
-              <span className="text-xl transition-transform duration-200 group-hover:scale-125">
-                ●
-              </span>
-              NAPISZ DO NAS
-            </Link>
-          </div>
+              <Link
+                href="/contact"
+                className="group mt-8 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                <span className="text-xl transition-transform duration-200 group-hover:scale-125">
+                  ●
+                </span>
+                NAPISZ DO NAS
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

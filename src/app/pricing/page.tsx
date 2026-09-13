@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 type PriceBlock = {
   top: string;
@@ -11,6 +14,52 @@ type PriceCard = {
   blocks: PriceBlock[];
   accent: "primary" | "accent" | "pink";
 };
+
+type RevealProps = {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+};
+
+function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(element);
+        }
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px",
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`${
+        visible ? "page-reveal-visible" : "page-reveal-hidden"
+      } ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 const prices: PriceCard[] = [
   {
@@ -73,43 +122,136 @@ export default function PricingPage() {
       {/* Large purple ring */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-[14%] z-0 hidden h-36 w-36 rounded-full border-[10px] border-primary lg:block"
+        className="
+          pointer-events-none
+          absolute
+          -left-16
+          top-[14%]
+          z-0
+          hidden
+          h-36
+          w-36
+          rounded-full
+          border-[10px]
+          border-primary
+          animate-[decor-float_14s_ease-in-out_infinite]
+          lg:block
+        "
       />
 
       {/* Large yellow ring */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[27%] z-0 hidden h-44 w-44 rounded-full border-[10px] border-accent lg:block"
+        className="
+          pointer-events-none
+          absolute
+          -right-16
+          top-[27%]
+          z-0
+          hidden
+          h-44
+          w-44
+          rounded-full
+          border-[10px]
+          border-accent
+          animate-[decor-drift-reverse_16s_ease-in-out_infinite]
+          lg:block
+        "
       />
 
       {/* Pink square */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[8%] top-[48%] z-0 hidden h-10 w-10 rotate-12 bg-pink lg:block"
+        className="
+          pointer-events-none
+          absolute
+          left-[8%]
+          top-[48%]
+          z-0
+          hidden
+          h-10
+          w-10
+          rotate-12
+          bg-pink
+          animate-[decor-spin-float_11s_ease-in-out_infinite]
+          lg:block
+        "
       />
 
       {/* Blue diamond */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[8%] top-[58%] z-0 hidden h-12 w-12 rotate-45 bg-blue lg:block"
+        className="
+          pointer-events-none
+          absolute
+          right-[8%]
+          top-[58%]
+          z-0
+          hidden
+          h-12
+          w-12
+          rotate-45
+          bg-blue
+          animate-[decor-drift_13s_ease-in-out_infinite]
+          lg:block
+        "
       />
 
       {/* Small yellow pixel */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[19%] top-[21%] z-0 hidden h-4 w-4 rotate-45 bg-accent lg:block"
+        className="
+          pointer-events-none
+          absolute
+          left-[19%]
+          top-[21%]
+          z-0
+          hidden
+          h-4
+          w-4
+          rotate-45
+          bg-accent
+          animate-[decor-float-small_8s_ease-in-out_infinite]
+          lg:block
+        "
       />
 
       {/* Small purple pixel */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[20%] top-[18%] z-0 hidden h-4 w-4 bg-primary lg:block"
+        className="
+          pointer-events-none
+          absolute
+          right-[20%]
+          top-[18%]
+          z-0
+          hidden
+          h-4
+          w-4
+          bg-primary
+          animate-[decor-drift-reverse_10s_ease-in-out_infinite]
+          lg:block
+        "
       />
 
       {/* Bottom ring */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-8 bottom-[10%] z-0 hidden h-28 w-28 rounded-full border-[8px] border-primary lg:block"
+        className="
+          pointer-events-none
+          absolute
+          -right-8
+          bottom-[10%]
+          z-0
+          hidden
+          h-28
+          w-28
+          rounded-full
+          border-[8px]
+          border-primary
+          animate-[decor-float_15s_ease-in-out_infinite]
+          lg:block
+        "
       />
 
       {/* ================================================== */}
@@ -117,28 +259,30 @@ export default function PricingPage() {
       {/* ================================================== */}
 
       <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        {/* ================================================== */}
-        {/* CONTENT */}
-        {/* ================================================== */}
-
         <div className="relative z-30">
           {/* ================================================== */}
           {/* HEADER */}
           {/* ================================================== */}
 
           <div className="mx-auto max-w-3xl text-center">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
-              INSERT COIN
-            </p>
+            <Reveal>
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
+                INSERT COIN
+              </p>
+            </Reveal>
 
-            <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
-              CENNIK
-            </h1>
+            <Reveal delay={100}>
+              <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
+                CENNIK
+              </h1>
+            </Reveal>
 
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              Wybierz swój czas gry, wrzuć monetę i baw się ile chcesz. Prosto,
-              bez kombinowania.
-            </p>
+            <Reveal delay={180}>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+                Wybierz swój czas gry, wrzuć monetę i baw się ile chcesz.
+                Prosto, bez kombinowania.
+              </p>
+            </Reveal>
           </div>
 
           {/* ================================================== */}
@@ -149,7 +293,18 @@ export default function PricingPage() {
             {/* Coins decoration */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -right-8 -top-20 z-0 hidden w-44 rotate-6 lg:block"
+              className="
+                pointer-events-none
+                absolute
+                -right-8
+                -top-20
+                z-0
+                hidden
+                w-44
+                rotate-6
+                animate-[decor-float-small_10s_ease-in-out_infinite]
+                lg:block
+              "
             >
               <Image
                 src="/images/coins.png"
@@ -161,56 +316,57 @@ export default function PricingPage() {
             </div>
 
             <div className="relative z-10 grid gap-7 md:grid-cols-3">
-              {prices.map((price) => {
+              {prices.map((price, index) => {
                 const styles = accentStyles[price.accent];
 
                 return (
-                  <article
-                    key={price.label}
-                    className={`group relative overflow-hidden rounded-3xl border-2 bg-surface p-6 transition duration-200 hover:-translate-y-1 ${styles.border} ${styles.shadow}`}
-                  >
-                    {/* Card header */}
-                    <div className="border-b-2 border-border pb-5">
-                      <p
-                        className={`font-display ${
-                          price.label === "SPECJALNY"
-                            ? "text-4xl sm:text-5xl"
-                            : "text-5xl sm:text-6xl"
-                        } font-extrabold uppercase tracking-tight ${styles.label}`}
-                      >
-                        {price.label}
-                      </p>
-
-                      <p className="mt-1 font-mono text-sm font-bold uppercase tracking-[0.2em] text-muted sm:text-base">
-                        {price.blocks[0].top}
-                      </p>
-                    </div>
-
-                    {/* Prices */}
-                    <div className="mt-2">
-                      {price.blocks.slice(1).map((block) => (
-                        <div
-                          key={block.top}
-                          className="flex items-end justify-between border-b border-border py-5 last:border-b-0"
+                  <Reveal key={price.label} delay={index * 120}>
+                    <article
+                      className={`group relative h-full overflow-hidden rounded-3xl border-2 bg-surface p-6 transition duration-200 hover:-translate-y-1 ${styles.border} ${styles.shadow}`}
+                    >
+                      {/* Card header */}
+                      <div className="border-b-2 border-border pb-5">
+                        <p
+                          className={`font-display ${
+                            price.label === "SPECJALNY"
+                              ? "text-4xl sm:text-5xl"
+                              : "text-5xl sm:text-6xl"
+                          } font-extrabold uppercase tracking-tight ${styles.label}`}
                         >
-                          <span className="font-mono text-sm font-bold uppercase tracking-[0.12em] text-muted sm:text-base">
-                            {block.top}
-                          </span>
+                          {price.label}
+                        </p>
 
-                          <span
-                            className={`font-display text-3xl font-extrabold ${styles.label} sm:text-4xl`}
+                        <p className="mt-1 font-mono text-sm font-bold uppercase tracking-[0.2em] text-muted sm:text-base">
+                          {price.blocks[0].top}
+                        </p>
+                      </div>
+
+                      {/* Prices */}
+                      <div className="mt-2">
+                        {price.blocks.slice(1).map((block) => (
+                          <div
+                            key={block.top}
+                            className="flex items-end justify-between border-b border-border py-5 last:border-b-0"
                           >
-                            {block.bottom}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                            <span className="font-mono text-sm font-bold uppercase tracking-[0.12em] text-muted sm:text-base">
+                              {block.top}
+                            </span>
 
-                    {/* Hover detail */}
-                    <div className="mt-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted opacity-0 transition duration-200 group-hover:opacity-100">
-                      INSERT COIN • PLAY
-                    </div>
-                  </article>
+                            <span
+                              className={`font-display text-3xl font-extrabold ${styles.label} sm:text-4xl`}
+                            >
+                              {block.bottom}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Hover detail */}
+                      <div className="mt-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted opacity-0 transition duration-200 group-hover:opacity-100">
+                        INSERT COIN • PLAY
+                      </div>
+                    </article>
+                  </Reveal>
                 );
               })}
             </div>
@@ -220,49 +376,53 @@ export default function PricingPage() {
           {/* COINS */}
           {/* ================================================== */}
 
-          <div className="mx-auto mt-20 flex max-w-3xl items-center justify-center gap-6 sm:mt-24">
-            <div className="hidden h-px flex-1 bg-border sm:block" />
+          <Reveal>
+            <div className="mx-auto mt-20 flex max-w-3xl items-center justify-center gap-6 sm:mt-24">
+              <div className="hidden h-px flex-1 bg-border sm:block" />
 
-            <div className="relative w-28 shrink-0 sm:w-36">
-              <Image
-                src="/images/coins.png"
-                alt="Monety FlippClub"
-                width={500}
-                height={300}
-                className="h-auto w-full"
-              />
+              <div className="relative w-28 shrink-0 sm:w-36">
+                <Image
+                  src="/images/coins.png"
+                  alt="Monety FlippClub"
+                  width={500}
+                  height={300}
+                  className="h-auto w-full"
+                />
+              </div>
+
+              <div className="hidden h-px flex-1 bg-border sm:block" />
             </div>
-
-            <div className="hidden h-px flex-1 bg-border sm:block" />
-          </div>
+          </Reveal>
 
           {/* ================================================== */}
           {/* CTA */}
           {/* ================================================== */}
 
-          <div className="mx-auto mt-16 flex max-w-2xl flex-col items-center text-center sm:mt-20">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
-              READY?
-            </p>
+          <Reveal>
+            <div className="mx-auto mt-16 flex max-w-2xl flex-col items-center text-center sm:mt-20">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
+                READY?
+              </p>
 
-            <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
-              Wrzuć monetę.
-            </h2>
+              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                Wrzuć monetę.
+              </h2>
 
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
-              Wybierz termin i wpadaj na partyjkę. Czekamy na Ciebie.
-            </p>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+                Wybierz termin i wpadaj na partyjkę. Czekamy na Ciebie.
+              </p>
 
-            <Link
-              href="/contact"
-              className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-            >
-              <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
-                ●
-              </span>
-              ODEZWIJ SIĘ DO NAS
-            </Link>
-          </div>
+              <Link
+                href="/contact"
+                className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
+                  ●
+                </span>
+                ODEZWIJ SIĘ DO NAS
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

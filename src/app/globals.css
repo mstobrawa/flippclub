@@ -91,3 +91,446 @@ body {
     transform: translateY(0);
   }
 }
+/* ========================================================= */
+/* FACEBOOK NEON GLOW */
+/* ========================================================= */
+
+.facebook-glow-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 45%,
+    var(--color-primary) 70%,
+    var(--color-accent) 100%
+  );
+  background-size: 220% 220%;
+  opacity: 0.48;
+  filter: blur(55px);
+  transform: scale(0.97);
+  animation: facebook-glow-color 11s ease-in-out infinite;
+}
+
+.facebook-glow-secondary {
+  background: linear-gradient(
+    225deg,
+    var(--color-accent) 0%,
+    var(--color-primary) 50%,
+    var(--color-accent) 100%
+  );
+  background-size: 220% 220%;
+  opacity: 0.28;
+  filter: blur(35px);
+  transform: scale(0.98);
+  animation: facebook-glow-color-secondary 14s ease-in-out infinite;
+}
+
+@keyframes facebook-glow-color {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.97);
+    background-position: 0% 50%;
+    filter: blur(55px);
+  }
+
+  50% {
+    opacity: 0.68;
+    transform: scale(1.015);
+    background-position: 100% 50%;
+    filter: blur(62px);
+  }
+}
+
+@keyframes facebook-glow-color-secondary {
+  0%,
+  100% {
+    opacity: 0.24;
+    transform: scale(0.98);
+    background-position: 100% 50%;
+    filter: blur(35px);
+  }
+
+  50% {
+    opacity: 0.42;
+    transform: scale(1.025);
+    background-position: 0% 50%;
+    filter: blur(42px);
+  }
+}
+
+/* ========================================================= */
+/* REUSABLE DECORATION ANIMATIONS */
+/* ========================================================= */
+
+@keyframes decor-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate3d(5px, -6px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -11px, 0);
+  }
+
+  75% {
+    transform: translate3d(-5px, -5px, 0);
+  }
+}
+
+@keyframes decor-float-small {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(4px, -7px, 0);
+  }
+}
+
+@keyframes decor-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(4px, -4px, 0) rotate(2deg);
+  }
+
+  50% {
+    transform: translate3d(8px, -8px, 0) rotate(5deg);
+  }
+
+  75% {
+    transform: translate3d(4px, -4px, 0) rotate(2deg);
+  }
+}
+
+@keyframes decor-drift-reverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(-4px, -4px, 0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translate3d(-8px, -8px, 0) rotate(-5deg);
+  }
+
+  75% {
+    transform: translate3d(-4px, -4px, 0) rotate(-2deg);
+  }
+}
+
+@keyframes decor-spin-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+
+  25% {
+    transform: translate3d(3px, -3px, 0) rotate(58deg);
+  }
+
+  50% {
+    transform: translate3d(6px, -7px, 0) rotate(75deg);
+  }
+
+  75% {
+    transform: translate3d(3px, -3px, 0) rotate(58deg);
+  }
+}
+
+/* ========================================================= */
+/* REDUCED MOTION */
+/* ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .facebook-glow-primary,
+  .facebook-glow-secondary,
+  .animate-\[decor-float_8s_ease-in-out_infinite\],
+  .animate-\[decor-float_9s_ease-in-out_infinite\],
+  .animate-\[decor-float_10s_ease-in-out_infinite\],
+  .animate-\[decor-float_11s_ease-in-out_infinite\],
+  .animate-\[decor-float_12s_ease-in-out_infinite\],
+  .animate-\[decor-float_13s_ease-in-out_infinite\],
+  .animate-\[decor-float_14s_ease-in-out_infinite\],
+  .animate-\[decor-float_15s_ease-in-out_infinite\],
+  .animate-\[decor-float-small_6s_ease-in-out_infinite\],
+  .animate-\[decor-float-small_7s_ease-in-out_infinite\],
+  .animate-\[decor-float-small_8s_ease-in-out_infinite\],
+  .animate-\[decor-float-small_9s_ease-in-out_infinite\],
+  .animate-\[decor-float-small_10s_ease-in-out_infinite\],
+  .animate-\[decor-drift_7s_ease-in-out_infinite\],
+  .animate-\[decor-drift_8s_ease-in-out_infinite\],
+  .animate-\[decor-drift_9s_ease-in-out_infinite\],
+  .animate-\[decor-drift_10s_ease-in-out_infinite\],
+  .animate-\[decor-drift_11s_ease-in-out_infinite\],
+  .animate-\[decor-drift_12s_ease-in-out_infinite\],
+  .animate-\[decor-drift_13s_ease-in-out_infinite\],
+  .animate-\[decor-drift_14s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_7s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_8s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_9s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_10s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_11s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_12s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_13s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_8s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_9s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_10s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_11s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_12s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_13s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_14s_ease-in-out_infinite\] {
+    animation: none;
+  }
+}
+
+/* ========================================================= */
+/* REUSABLE PAGE ENTRY ANIMATIONS */
+/* ========================================================= */
+
+@keyframes page-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes page-reveal-up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes page-image-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 38px, 0) scale(0.97);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.page-reveal {
+  opacity: 0;
+  animation: page-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-reveal-up {
+  opacity: 0;
+  animation: page-reveal-up 650ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-image-reveal {
+  opacity: 0;
+  animation: page-image-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ========================================================= */
+/* REUSABLE DECORATION ANIMATIONS */
+/* ========================================================= */
+
+@keyframes decor-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate3d(5px, -6px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -11px, 0);
+  }
+
+  75% {
+    transform: translate3d(-5px, -5px, 0);
+  }
+}
+
+@keyframes decor-float-small {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(4px, -7px, 0);
+  }
+}
+
+@keyframes decor-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(4px, -4px, 0) rotate(2deg);
+  }
+
+  50% {
+    transform: translate3d(8px, -8px, 0) rotate(5deg);
+  }
+
+  75% {
+    transform: translate3d(4px, -4px, 0) rotate(2deg);
+  }
+}
+
+@keyframes decor-drift-reverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(-4px, -4px, 0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translate3d(-8px, -8px, 0) rotate(-5deg);
+  }
+
+  75% {
+    transform: translate3d(-4px, -4px, 0) rotate(-2deg);
+  }
+}
+
+@keyframes decor-spin-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+
+  25% {
+    transform: translate3d(3px, -3px, 0) rotate(58deg);
+  }
+
+  50% {
+    transform: translate3d(6px, -7px, 0) rotate(75deg);
+  }
+
+  75% {
+    transform: translate3d(3px, -3px, 0) rotate(58deg);
+  }
+}
+
+/* ========================================================= */
+/* REDUCED MOTION */
+/* ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .page-reveal,
+  .page-reveal-up,
+  .page-image-reveal {
+    opacity: 1;
+    animation: none;
+  }
+
+  .animate-\[decor-float_11s_ease-in-out_infinite\],
+  .animate-\[decor-float_14s_ease-in-out_infinite\],
+  .animate-\[decor-float-small_8s_ease-in-out_infinite\],
+  .animate-\[decor-drift_11s_ease-in-out_infinite\],
+  .animate-\[decor-drift_12s_ease-in-out_infinite\],
+  .animate-\[decor-drift_14s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_12s_ease-in-out_infinite\],
+  .animate-\[decor-drift-reverse_13s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_10s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_12s_ease-in-out_infinite\],
+  .animate-\[decor-spin-float_15s_ease-in-out_infinite\] {
+    animation: none;
+  }
+}
+
+/* ========================================================= */
+/* CONSTRUCTION TAPE ANIMATIONS */
+/* ========================================================= */
+
+@keyframes tape-float-left {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(7px, 3px, 0) rotate(0.6deg);
+  }
+}
+
+@keyframes tape-float-right {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(-7px, 3px, 0) rotate(-0.6deg);
+  }
+}
+
+@keyframes tape-diagonal-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-15deg);
+  }
+
+  50% {
+    transform: translate3d(8px, -4px, 0) rotate(-14.6deg);
+  }
+}
+
+@keyframes tape-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.tape-reveal {
+  opacity: 0;
+  animation: tape-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-reveal-hidden {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+}
+
+.page-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
