@@ -59,55 +59,46 @@ export default function EventsPage() {
       {/* BACKGROUND DECORATIONS */}
       {/* ================================================== */}
 
-      {/* Large purple ring */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-16 top-[8%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary animate-[decor-float_14s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Large yellow ring */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-16 top-[15%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent animate-[decor-drift-reverse_16s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Pink square */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-[7%] top-[27%] z-0 hidden h-12 w-12 rotate-12 bg-pink animate-[decor-spin-float_11s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Blue diamond */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute right-[8%] top-[34%] z-0 hidden h-14 w-14 rotate-45 bg-blue animate-[decor-drift_13s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Large yellow diamond */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-5 top-[52%] z-0 hidden h-24 w-24 rotate-45 bg-accent animate-[decor-float_15s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Large purple square */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-5 top-[61%] z-0 hidden h-28 w-28 -rotate-12 bg-primary animate-[decor-drift-reverse_17s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Bottom blue ring */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-[8%] left-[7%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue animate-[decor-float-small_10s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Bottom yellow pixel */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-[10%] right-[12%] z-0 hidden h-8 w-8 rotate-45 bg-accent animate-[decor-spin-float_9s_ease-in-out_infinite] lg:block"
       />
 
-      {/* Arcade pixel */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-[20%] top-[18%] z-0 hidden h-4 w-4 rotate-45 bg-accent animate-[decor-float-small_8s_ease-in-out_infinite] lg:block"
@@ -138,10 +129,32 @@ export default function EventsPage() {
       />
 
       {/* ================================================== */}
-      {/* MAIN LIGHT SURFACE */}
+      {/* MAIN CONTENT SURFACE */}
       {/* ================================================== */}
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          w-full
+          max-w-7xl
+          overflow-hidden
+          rounded-b-[32px]
+          bg-[length:100%_100%]
+          bg-center
+          bg-no-repeat
+          px-5
+          py-14
+          sm:px-8
+          sm:py-16
+          lg:px-10
+          lg:py-20
+        "
+        style={{
+          backgroundImage: "url('/images/bgv2.png')",
+        }}
+      >
         <div className="relative z-30">
           {/* ================================================== */}
           {/* HEADER */}
@@ -155,19 +168,30 @@ export default function EventsPage() {
             </Reveal>
 
             <Reveal delay={100}>
-              <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
+              <h1 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-7xl lg:text-9xl">
                 IMPREZY
               </h1>
             </Reveal>
 
             <Reveal delay={180}>
-              <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-                Urodziny? Integracja? Wieczór kawalerski?{" "}
-                <span className="font-bold text-text">Say no more.</span> Wiemy,
-                czego Ci trzeba, a sala już czeka. Prywatny room z wygodnymi
-                kanapami dla Ciebie i Twojej ekipy — idealna baza na wspólny
-                wieczór.
-              </p>
+              <div className="relative mx-auto mt-7 max-w-3xl">
+                {/* purple offset */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                {/* rhomboid text box */}
+                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                    Urodziny? Integracja? Wieczór kawalerski?{" "}
+                    <span className="font-bold text-primary">Say no more.</span>{" "}
+                    Wiemy, czego Ci trzeba, a sala już czeka. Prywatny room z
+                    wygodnymi kanapami dla Ciebie i Twojej ekipy — idealna baza
+                    na wspólny wieczór.
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
 
@@ -201,20 +225,31 @@ export default function EventsPage() {
                   YOUR PARTY BASE
                 </p>
 
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-5xl">
                   Twój room.
                   <br />
                   Twoja ekipa.
                 </h2>
 
-                <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-                  Zamykasz drzwi i zaczyna się Wasza impreza. Prywatna
-                  przestrzeń, wygodne kanapy i miejsce tylko dla Was. Możecie
-                  pogadać, odpocząć, coś przekąsić i po prostu dobrze spędzić
-                  czas.
-                </p>
+                <div className="relative mt-6">
+                  {/* purple offset */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                  />
 
-                <p className="mt-5 font-mono text-sm font-bold uppercase tracking-[0.12em] text-primary">
+                  {/* rhomboid text box */}
+                  <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-7 sm:py-6">
+                    <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                      Zamykasz drzwi i zaczyna się Wasza impreza. Prywatna
+                      przestrzeń, wygodne kanapy i miejsce tylko dla Was.
+                      Możecie pogadać, odpocząć, coś przekąsić i po prostu
+                      dobrze spędzić czas.
+                    </p>
+                  </div>
+                </div>
+
+                <p className="mt-7 font-mono text-sm font-bold uppercase tracking-[0.12em] text-primary">
                   PRIVATE ROOM • YOUR CREW • YOUR RULES
                 </p>
               </div>
@@ -239,22 +274,35 @@ export default function EventsPage() {
               </Reveal>
 
               <Reveal delay={100}>
-                <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+                <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight drop-shadow-[2px_2px_0_#f1f1ee] sm:text-6xl lg:text-7xl">
                   <span className="text-primary">RESPAWN</span>{" "}
-                  <span className="text-accent">POINT</span>
+                  <span className="text-accent drop-shadow-[2px_2px_0_#010522]">
+                    POINT
+                  </span>
                 </h2>
               </Reveal>
 
               <Reveal delay={180}>
-                <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-                  Tu zaczynacie. Tu wracacie. Tu łapiecie oddech między
-                  kolejnymi rundami. Room jest Waszą bazą, a kiedy przyjdzie
-                  ochota na grę — po prostu wychodzicie i ruszacie do stref.
-                </p>
+                <div className="relative mx-auto mt-7 max-w-2xl">
+                  {/* blue offset */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 translate-x-2 translate-y-2 bg-blue [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]"
+                  />
+
+                  {/* rhomboid text box */}
+                  <div className="relative bg-[#f1f1ee] px-6 py-5 text-left shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-6">
+                    <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                      Tu zaczynacie. Tu wracacie. Tu łapiecie oddech między
+                      kolejnymi rundami. Room jest Waszą bazą, a kiedy przyjdzie
+                      ochota na grę — po prostu wychodzicie i ruszacie do stref.
+                    </p>
+                  </div>
+                </div>
               </Reveal>
 
               <Reveal delay={280}>
-                <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+                <div className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
                   {["PLAYER 1", "PLAYER 2", "PLAYER 3", "PLAYER 4"].map(
                     (player) => (
                       <div
@@ -285,7 +333,7 @@ export default function EventsPage() {
                   TWOJA BAZA
                 </p>
 
-                <h2 className="mt-3 font-display text-3xl font-extrabold uppercase sm:text-4xl">
+                <h2 className="mt-3 font-display text-3xl font-extrabold uppercase text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-4xl">
                   Zobacz, gdzie się spotkacie
                 </h2>
               </div>
@@ -339,7 +387,7 @@ export default function EventsPage() {
                   GAME MODE SELECT
                 </p>
 
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-5xl">
                   Wybierz swój tryb
                 </h2>
               </div>
@@ -350,11 +398,11 @@ export default function EventsPage() {
                 <div className="h-full border-2 border-accent bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
                   <p className="font-mono text-xs font-bold text-accent">01</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
                     Urodziny
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
                     Zbierz ekipę i zróbcie urodzinową rundę, której nie
                     zapomnicie.
                   </p>
@@ -365,11 +413,11 @@ export default function EventsPage() {
                 <div className="h-full border-2 border-primary bg-surface p-6 shadow-[5px_6px_0_var(--color-accent)]">
                   <p className="font-mono text-xs font-bold text-primary">02</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
                     Integracja
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
                     Oderwijcie się od biurek i spędźcie razem trochę czasu poza
                     pracą.
                   </p>
@@ -380,11 +428,11 @@ export default function EventsPage() {
                 <div className="h-full border-2 border-pink bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
                   <p className="font-mono text-xs font-bold text-pink">03</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
                     Wieczór
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
                     Kawalerski, panieński albo po prostu wieczór ze znajomymi.
                   </p>
                 </div>
@@ -394,11 +442,11 @@ export default function EventsPage() {
                 <div className="h-full border-2 border-blue bg-surface p-6 shadow-[5px_6px_0_var(--color-blue)]">
                   <p className="font-mono text-xs font-bold text-blue">04</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
                     Wasz tryb
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
                     Nie ma na liście? Tym lepiej. Powiedzcie nam, co planujecie.
                   </p>
                 </div>
@@ -416,18 +464,27 @@ export default function EventsPage() {
                 READY?
               </p>
 
-              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-6xl lg:text-7xl">
                 GAME ON.
               </h2>
 
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-                Zbierz ekipę, wybierz termin i daj nam znać. Resztę ogarniemy
-                razem.
-              </p>
+              <div className="relative mt-6 max-w-xl">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]"
+                />
+
+                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-6">
+                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                    Zbierz ekipę, wybierz termin i daj nam znać. Resztę
+                    ogarniemy razem.
+                  </p>
+                </div>
+              </div>
 
               <Link
                 href="/contact"
-                className="group mt-8 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                className="group mt-10 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
                 <span className="text-xl transition-transform duration-200 group-hover:scale-125">
                   ●

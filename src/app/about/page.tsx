@@ -118,10 +118,32 @@ export default function AboutPage() {
       />
 
       {/* ================================================== */}
-      {/* LIGHT CONTENT SURFACE */}
+      {/* CONTENT SURFACE — CUSTOM BACKGROUND */}
       {/* ================================================== */}
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          w-full
+          max-w-7xl
+          overflow-hidden
+          rounded-b-[32px]
+          bg-cover
+          bg-center
+          bg-no-repeat
+          px-5
+          py-14
+          sm:px-8
+          sm:py-16
+          lg:px-10
+          lg:py-20
+        "
+        style={{
+          backgroundImage: "url('/bg.png')",
+        }}
+      >
         {/* ================================================== */}
         {/* CONTENT */}
         {/* ================================================== */}
@@ -145,7 +167,7 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={180}>
-              <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mx-auto mt-6 max-w-3xl rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
                 FlippClub to miejsce stworzone dla ludzi, którzy lubią dobrą
                 zabawę, rywalizację i powrót do klasyki. Wchodzisz, wybierasz
                 swoją grę i po prostu grasz.
@@ -186,19 +208,19 @@ export default function AboutPage() {
                   WHO WE ARE
                 </p>
 
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl">
                   Więcej niż
                   <br />
                   salon gier.
                 </h2>
 
-                <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
+                <p className="mt-5 rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
                   Chcieliśmy stworzyć miejsce, do którego samemu wpada się na
                   szybką rundę, ale równie dobrze można przyjść z całą ekipą i
                   zostać na dłużej.
                 </p>
 
-                <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
+                <p className="mt-5 rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
                   Dlatego połączyliśmy klimat klasycznych salonów gier z
                   nowoczesną przestrzenią, w której można spotkać się ze
                   znajomymi, rywalizować i po prostu dobrze spędzić czas.
@@ -222,7 +244,7 @@ export default function AboutPage() {
                   GAME RULES
                 </p>
 
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-pink sm:text-5xl">
                   Jak gramy?
                 </h2>
               </div>
@@ -238,7 +260,7 @@ export default function AboutPage() {
                     Dobra zabawa
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-3 rounded-lg bg-[#f1f1ee] px-4 py-4 text-sm leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]">
                     Bez napinki. Liczy się atmosfera, wspólna gra i dobra
                     zabawa.
                   </p>
@@ -254,7 +276,7 @@ export default function AboutPage() {
                     Zdrowa rywalizacja
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-3 rounded-lg bg-[#f1f1ee] px-4 py-4 text-sm leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]">
                     Wynik ma znaczenie. Ale jeszcze ważniejsze jest to, z kim
                     grasz.
                   </p>
@@ -270,7 +292,7 @@ export default function AboutPage() {
                     Zero nudy
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-3 rounded-lg bg-[#f1f1ee] px-4 py-4 text-sm leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]">
                     Klasyczne automaty, różne strefy i ciągle coś nowego do
                     odkrycia.
                   </p>
@@ -289,7 +311,7 @@ export default function AboutPage() {
                 PLAYER EXPERIENCE
               </p>
 
-              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-blue sm:text-6xl lg:text-7xl">
                 Wpadasz.
                 <br />
                 <span className="text-primary">Grasz.</span>
@@ -297,7 +319,7 @@ export default function AboutPage() {
                 Wracasz.
               </h2>
 
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mx-auto mt-6 max-w-2xl rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
                 Niezależnie od tego, czy przychodzisz na chwilę, organizujesz
                 imprezę dla ekipy, czy chcesz po prostu sprawdzić, kto ma
                 najlepszy wynik — u nas zawsze znajdziesz powód, żeby wrócić.
@@ -315,17 +337,17 @@ export default function AboutPage() {
                 READY PLAYER ONE?
               </p>
 
-              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-pink sm:text-6xl lg:text-7xl">
                 GAME ON.
               </h2>
 
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mt-5 max-w-xl rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
                 Zbierz ekipę, wybierz strefę i wpadaj pograć.
               </p>
 
               <Link
                 href="/contact"
-                className="mt-6 font-mono text-xs font-bold uppercase tracking-[0.2em] text-muted transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                className="mt-6 rounded-lg bg-[#f1f1ee] px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#45454d] transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
                 MASZ PYTANIA? NAPISZ DO NAS →
               </Link>
