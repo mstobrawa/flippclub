@@ -251,7 +251,10 @@ export function FacebookFeed() {
       className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pt-0 pb-6 sm:pb-8 lg:pb-10"
     >
       <div className="relative mx-auto w-full max-w-7xl">
+        {/* ================================================== */}
         {/* MOCNY NEONOWY GLOW */}
+        {/* ================================================== */}
+
         <div
           aria-hidden="true"
           className="
@@ -276,7 +279,10 @@ export function FacebookFeed() {
           "
         />
 
+        {/* ================================================== */}
         {/* GŁÓWNA JASNA POWIERZCHNIA */}
+        {/* ================================================== */}
+
         <div
           className="
             relative
@@ -290,9 +296,12 @@ export function FacebookFeed() {
             lg:pb-12
           "
         >
+          {/* ================================================== */}
           {/* SUBNAV / CENNIK */}
+          {/* ================================================== */}
+
           <div className="relative -mx-5 px-5 pt-6 sm:-mx-8 sm:px-8 sm:pt-8 lg:-mx-10 lg:px-10 lg:pt-10">
-            {/* FIOLETOWE KOŁO */}
+            {/* DEKOR 1 — DUŻE FIOLETOWE KOŁO — LEWA GÓRA */}
             <div
               aria-hidden="true"
               className="
@@ -315,6 +324,7 @@ export function FacebookFeed() {
               "
             />
 
+            {/* DEKOR 2 — MAŁA ŻÓŁTA KROPKA — LEWA GÓRA */}
             <div
               aria-hidden="true"
               className="
@@ -334,25 +344,7 @@ export function FacebookFeed() {
               "
             />
 
-            {/* <div
-              aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                -bottom-2
-                -left-5
-                z-0
-                h-10
-                w-16
-                rounded-t-full
-                bg-primary/20
-                animate-[decor-float-small_10s_ease-in-out_infinite]
-                sm:-left-6
-                sm:h-16
-                sm:w-28
-              "
-            /> */}
-
+            {/* DEKOR 4 — MAŁA FIOLETOWA KROPKA — PRAWA GÓRA */}
             <div
               aria-hidden="true"
               className="
@@ -373,6 +365,7 @@ export function FacebookFeed() {
               "
             />
 
+            {/* DEKOR 5 — DUŻE ŻÓŁTE KOŁO — PRAWA ŚRODKOWA */}
             <div
               aria-hidden="true"
               className="
@@ -393,6 +386,7 @@ export function FacebookFeed() {
               "
             />
 
+            {/* DEKOR 6 — MAŁE FIOLETOWE KOŁO — PRAWY DÓŁ */}
             <div
               aria-hidden="true"
               className="
@@ -418,7 +412,7 @@ export function FacebookFeed() {
             <Reveal className="relative z-10" delay={0}>
               <div
                 key={slide.id}
-                className="grid grid-cols-2 gap-3 animate-[subnav-in_500ms_ease-out] lg:grid-cols-4"
+                className="grid grid-cols-1 gap-3 animate-[subnav-in_500ms_ease-out] lg:grid-cols-4"
               >
                 {slide.blocks.map((block, blockIndex) => {
                   const isPurple = blockIndex % 2 === 0;
@@ -427,7 +421,7 @@ export function FacebookFeed() {
                   return (
                     <div
                       key={`${slide.id}-${block.top}`}
-                      className={`flex h-24 flex-col items-center justify-center rounded-2xl border px-3 py-3 text-center transition-colors duration-500 sm:h-28 sm:px-5 ${
+                      className={`flex h-20 flex-col items-center justify-center rounded-2xl border px-3 py-2 text-center transition-colors duration-500 sm:h-24 sm:px-5 sm:py-3 ${
                         isPurple
                           ? "border-primary/35 bg-primary/15"
                           : "border-accent/50 bg-accent/25"
@@ -436,15 +430,15 @@ export function FacebookFeed() {
                       <span
                         className={`font-mono font-bold uppercase leading-none tracking-[0.08em] text-text ${
                           isFirstBlock
-                            ? "text-3xl sm:text-4xl"
-                            : "text-2xl sm:text-3xl"
+                            ? "text-2xl sm:text-4xl"
+                            : "text-xl sm:text-3xl"
                         }`}
                       >
                         {block.top}
                       </span>
 
                       {!isFirstBlock && (
-                        <strong className="mt-2 font-display text-xl font-extrabold leading-none tracking-tight text-text sm:text-2xl">
+                        <strong className="mt-2 font-display text-lg font-extrabold leading-none tracking-tight text-text sm:text-2xl">
                           {block.bottom}
                         </strong>
                       )}
@@ -455,12 +449,19 @@ export function FacebookFeed() {
             </Reveal>
           </div>
 
+          {/* ================================================== */}
           {/* ODSTĘP */}
+          {/* ================================================== */}
+
           <div className="h-8 sm:h-10 lg:h-12" />
 
+          {/* ================================================== */}
           {/* HEADING */}
+          {/* ================================================== */}
+
           <Reveal delay={100}>
             <div className="relative mx-auto max-w-2xl text-center">
+              {/* DEKOR 7 — DUŻE FIOLETOWE KOŁO — LEWO OD NAGŁÓWKA */}
               <div
                 aria-hidden="true"
                 className="
@@ -482,6 +483,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 8 — MAŁY ŻÓŁTY KWADRAT — LEWY GÓRNY RÓG */}
               <div
                 aria-hidden="true"
                 className="
@@ -499,6 +501,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 9 — DUŻE ŻÓŁTE KOŁO — PRAWO OD NAGŁÓWKA */}
               <div
                 aria-hidden="true"
                 className="
@@ -520,6 +523,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 10 — MAŁY FIOLETOWY KWADRAT — PRAWY GÓRNY RÓG */}
               <div
                 aria-hidden="true"
                 className="
@@ -549,10 +553,17 @@ export function FacebookFeed() {
             </div>
           </Reveal>
 
+          {/* ================================================== */}
           {/* DESKTOP ARCADE CABINET */}
+          {/* ================================================== */}
+
           <Reveal delay={180}>
             <div className="relative mx-[calc(50%-50vw)] mt-2 hidden w-screen lg:block">
-              {/* LEWA STRONA */}
+              {/* ================================================== */}
+              {/* LEWA STRONA DEKORACJI */}
+              {/* ================================================== */}
+
+              {/* DEKOR 11 — SERDUSZKO — LEWA GÓRA */}
               <Image
                 src="/images/heart.png"
                 alt=""
@@ -572,6 +583,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 12 — DUŻE FIOLETOWE KOŁO — LEWA ŚRODKOWA */}
               <div
                 aria-hidden="true"
                 className="
@@ -590,6 +602,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 13 — MAŁA ŻÓŁTA KROPKA — LEWA GÓRA */}
               <div
                 aria-hidden="true"
                 className="
@@ -607,6 +620,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 14 — ŚREDNIE ŻÓŁTE KOŁO — LEWA ŚRODKOWA/DÓŁ */}
               <div
                 aria-hidden="true"
                 className="
@@ -625,6 +639,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 15 — DUŻE FIOLETOWE KOŁO — LEWY DÓŁ */}
               <div
                 aria-hidden="true"
                 className="
@@ -643,6 +658,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 16 — MAŁY ŻÓŁTY KWADRAT — LEWY DÓŁ */}
               <div
                 aria-hidden="true"
                 className="
@@ -660,6 +676,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 17 — MAŁY FIOLETOWY DIAMENT — LEWA ŚRODKOWA */}
               <div
                 aria-hidden="true"
                 className="
@@ -675,7 +692,11 @@ export function FacebookFeed() {
                 "
               />
 
-              {/* PRAWA STRONA */}
+              {/* ================================================== */}
+              {/* PRAWA STRONA DEKORACJI */}
+              {/* ================================================== */}
+
+              {/* DEKOR 18 — LIKE — PRAWA ŚRODKOWA */}
               <Image
                 src="/images/like.png"
                 alt=""
@@ -695,6 +716,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 19 — DUŻE ŻÓŁTE KOŁO — PRAWA ŚRODKOWA */}
               <div
                 aria-hidden="true"
                 className="
@@ -713,6 +735,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 20 — ŚREDNIE FIOLETOWE KOŁO — PRAWA GÓRA */}
               <div
                 aria-hidden="true"
                 className="
@@ -731,6 +754,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 21 — MAŁY ŻÓŁTY KWADRAT — PRAWA GÓRA */}
               <div
                 aria-hidden="true"
                 className="
@@ -748,6 +772,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 22 — ŚREDNIE ŻÓŁTE KOŁO — PRAWY DÓŁ */}
               <div
                 aria-hidden="true"
                 className="
@@ -766,6 +791,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 23 — DUŻE FIOLETOWE KOŁO — PRAWY DÓŁ */}
               <div
                 aria-hidden="true"
                 className="
@@ -784,6 +810,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 24 — MAŁY FIOLETOWY DIAMENT — PRAWY DÓŁ */}
               <div
                 aria-hidden="true"
                 className="
@@ -801,6 +828,7 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* DEKOR 25 — MAŁY ŻÓŁTY DIAMENT — PRAWA ŚRODKOWA */}
               <div
                 aria-hidden="true"
                 className="
@@ -816,7 +844,10 @@ export function FacebookFeed() {
                 "
               />
 
+              {/* ================================================== */}
               {/* ARCADE CABINET */}
+              {/* ================================================== */}
+
               <div className="relative z-10 mx-auto w-full max-w-220">
                 <div
                   aria-hidden="true"
@@ -862,12 +893,16 @@ export function FacebookFeed() {
             </div>
           </Reveal>
 
+          {/* ================================================== */}
           {/* MOBILE / TABLET */}
+          {/* ================================================== */}
+
           <Reveal
             delay={180}
             className="relative mx-auto mt-3 w-full max-w-[520px] lg:hidden"
           >
             {/* MOBILE / TABLET NEON */}
+
             <div
               aria-hidden="true"
               className="facebook-glow-primary pointer-events-none absolute -inset-8 rounded-[38px]"

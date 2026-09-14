@@ -119,7 +119,7 @@ export default function PricingPage() {
       {/* BACKGROUND DECORATIONS */}
       {/* ================================================== */}
 
-      {/* Large purple ring */}
+      {/* DEKOR 1 — DUŻE FIOLETOWE KOŁO — LEWA GÓRA */}
       <div
         aria-hidden="true"
         className="
@@ -139,7 +139,7 @@ export default function PricingPage() {
         "
       />
 
-      {/* Large yellow ring */}
+      {/* DEKOR 2 — DUŻE ŻÓŁTE KOŁO — PRAWA GÓRA/ŚRODEK */}
       <div
         aria-hidden="true"
         className="
@@ -159,7 +159,7 @@ export default function PricingPage() {
         "
       />
 
-      {/* Pink square */}
+      {/* DEKOR 3 — RÓŻOWY KWADRAT — LEWA ŚRODKOWA */}
       <div
         aria-hidden="true"
         className="
@@ -178,7 +178,7 @@ export default function PricingPage() {
         "
       />
 
-      {/* Blue diamond */}
+      {/* DEKOR 4 — NIEBIESKI DIAMENT — PRAWA ŚRODKOWA */}
       <div
         aria-hidden="true"
         className="
@@ -197,7 +197,7 @@ export default function PricingPage() {
         "
       />
 
-      {/* Small yellow pixel */}
+      {/* DEKOR 5 — MAŁY ŻÓŁTY PIXEL — LEWA GÓRA */}
       <div
         aria-hidden="true"
         className="
@@ -216,7 +216,7 @@ export default function PricingPage() {
         "
       />
 
-      {/* Small purple pixel */}
+      {/* DEKOR 6 — MAŁY FIOLETOWY PIXEL — PRAWA GÓRA */}
       <div
         aria-hidden="true"
         className="
@@ -234,7 +234,7 @@ export default function PricingPage() {
         "
       />
 
-      {/* Bottom ring */}
+      {/* DEKOR 7 — DOLNE FIOLETOWE KOŁO */}
       <div
         aria-hidden="true"
         className="
@@ -258,7 +258,7 @@ export default function PricingPage() {
       {/* LIGHT CONTENT SURFACE */}
       {/* ================================================== */}
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 shadow-[inset_110px_0_95px_-20px_rgba(1,5,34,0.88),inset_-110px_0_95px_-20px_rgba(1,5,34,0.88),inset_0_85px_85px_-45px_rgba(1,5,34,0.78),inset_0_-85px_85px_-45px_rgba(1,5,34,0.78),inset_65px_65px_80px_-55px_rgba(1,5,34,0.72),inset_-65px_65px_80px_-55px_rgba(1,5,34,0.72),inset_65px_-65px_80px_-55px_rgba(1,5,34,0.72),inset_-65px_-65px_80px_-55px_rgba(1,5,34,0.72)] sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         <div className="relative z-30">
           {/* ================================================== */}
           {/* HEADER */}
@@ -290,7 +290,7 @@ export default function PricingPage() {
           {/* ================================================== */}
 
           <div className="relative mx-auto mt-16 max-w-6xl sm:mt-20">
-            {/* Coins decoration */}
+            {/* DEKOR — MONETY NAD KARTAMI */}
             <div
               aria-hidden="true"
               className="
@@ -298,7 +298,7 @@ export default function PricingPage() {
                 absolute
                 -right-8
                 -top-20
-                z-0
+                z-20
                 hidden
                 w-44
                 rotate-6
@@ -322,10 +322,10 @@ export default function PricingPage() {
                 return (
                   <Reveal key={price.label} delay={index * 120}>
                     <article
-                      className={`group relative h-full overflow-hidden rounded-3xl border-2 bg-surface p-6 transition duration-200 hover:-translate-y-1 ${styles.border} ${styles.shadow}`}
+                      className={`group relative h-full overflow-hidden rounded-3xl border-2 bg-[#010522] p-6 transition duration-200 hover:-translate-y-1 ${styles.border} ${styles.shadow}`}
                     >
                       {/* Card header */}
-                      <div className="border-b-2 border-border pb-5">
+                      <div className="border-b-2 border-white/15 pb-5">
                         <p
                           className={`font-display ${
                             price.label === "SPECJALNY"
@@ -336,7 +336,7 @@ export default function PricingPage() {
                           {price.label}
                         </p>
 
-                        <p className="mt-1 font-mono text-sm font-bold uppercase tracking-[0.2em] text-muted sm:text-base">
+                        <p className="mt-1 font-mono text-sm font-bold uppercase tracking-[0.2em] text-white/60 sm:text-base">
                           {price.blocks[0].top}
                         </p>
                       </div>
@@ -346,9 +346,9 @@ export default function PricingPage() {
                         {price.blocks.slice(1).map((block) => (
                           <div
                             key={block.top}
-                            className="flex items-end justify-between border-b border-border py-5 last:border-b-0"
+                            className="flex items-end justify-between border-b border-white/15 py-5 last:border-b-0"
                           >
-                            <span className="font-mono text-sm font-bold uppercase tracking-[0.12em] text-muted sm:text-base">
+                            <span className="font-mono text-sm font-bold uppercase tracking-[0.12em] text-white/60 sm:text-base">
                               {block.top}
                             </span>
 
@@ -362,7 +362,7 @@ export default function PricingPage() {
                       </div>
 
                       {/* Hover detail */}
-                      <div className="mt-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted opacity-0 transition duration-200 group-hover:opacity-100">
+                      <div className="mt-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 opacity-0 transition duration-200 group-hover:opacity-100">
                         INSERT COIN • PLAY
                       </div>
                     </article>
