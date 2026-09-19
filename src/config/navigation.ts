@@ -11,51 +11,52 @@ export type SocialLink = {
 
 export const navItems: NavItem[] = [
   {
-    label: "Flippery",
-    href: "/zones/flippers",
+    label: "Nasze atrakcje",
+    href: "#",
+    children: [
+      {
+        label: "Flippery",
+        href: "/zones/flippers",
+      },
+      {
+        label: "Arcade",
+        href: "/zones/arcades",
+      },
+      {
+        label: "Koparki",
+        href: "/excavators",
+      },
+      {
+        label: "Killer Queen",
+        href: "/killer-queen",
+      },
+    ],
   },
   {
-    label: "Arcade",
-    href: "/zones/arcades",
-  },
-  {
-    label: "Koparki",
-    href: "/excavators",
-  },
-  {
-    label: "Killer Queen",
-    href: "/killer-queen",
-  },
-  {
-    label: "Bar",
+    label: "Mini bar",
     href: "/zones/bar",
-  },
-  {
-    label: "Imprezy",
-    href: "/zones/events",
   },
   {
     label: "Cennik",
     href: "/pricing",
   },
   {
-    label: "O nas",
-    href: "/about",
+    label: "Imprezy",
+    href: "/zones/events",
   },
   {
-    label: "Galeria",
-    href: "/gallery",
+    label: "Wypożyczalnia",
+    href: "/wypozyczalnia",
+  },
+  {
+    label: "Kup/Wymień",
+    href: "/kup-wymien",
   },
   {
     label: "Kontakt",
     href: "/contact",
   },
 ];
-
-export const ctaItem: NavItem = {
-  label: "Odezwij się do nas",
-  href: "/contact",
-};
 
 export const socialLinks: SocialLink[] = [
   {

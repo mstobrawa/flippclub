@@ -7,7 +7,6 @@ import { useEffect, useId, useState } from "react";
 import { Navigation } from "./Navigation";
 import { MobileMenu } from "./MobileMenu";
 import { SocialLinks } from "./SocialLinks";
-import { ctaItem } from "@/config/navigation";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,89 +33,141 @@ export function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-50">
-      {/* Header background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,#010522_0%,#010533_45%,#00053b_75%,#0d0b54_100%)]"
-      />
+    <header className="relative z-50">
+      {/* Yellow header */}
+      <div className="relative h-16 bg-accent lg:h-20">
+        {/* Subtle bottom edge */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-ink/15"
+        />
 
-      {/* Subtle bottom glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-px bg-white/10 shadow-[0_0_18px_rgba(255,255,255,0.18)]"
-      />
-
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-20 lg:px-10">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="relative z-10 flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-        >
-          <Image
-            src="/images/logo.png"
-            alt="FLIPPCLUB"
-            width={220}
-            height={100}
-            priority
-            className="h-14 w-auto object-contain lg:h-[4.25rem]"
-          />
-        </Link>
-
-        {/* Desktop navigation */}
-        <Navigation />
-
-        {/* Right side */}
-        <div className="flex items-center gap-3 lg:gap-4">
-          {/* Social media */}
-          <div className="hidden lg:block">
-            <SocialLinks />
-          </div>
-
-          {/* CTA */}
+        <div className="mx-auto flex h-full w-full max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+          {/* Logo */}
           <Link
-            href={ctaItem.href}
-            className="hidden items-center rounded-pill bg-accent px-5 py-2.5 font-display text-sm font-extrabold uppercase tracking-[0.08em] text-ink transition hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(255,193,7,0.45)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex"
+            href="/"
+            onClick={() => setMenuOpen(false)}
+            aria-label="FLIPPCLUB - strona główna"
+            className="
+  absolute
+  left-4
+  top-20
+  z-30
+  hidden
+  h-29
+  w-29
+  -translate-y-1/2
+  items-center
+  justify-center
+  rounded-full
+  border-4
+  border-ink
+  bg-ink
+  p-2
+  shadow-[6px_7px_0_var(--color-primary)]
+  transition-transform
+  duration-200
+  hover:-translate-y-[calc(50%+3px)]
+  focus-visible:outline
+  focus-visible:outline-2
+  focus-visible:outline-offset-4
+  focus-visible:outline-primary
+
+  lg:left-8
+  lg:flex
+  lg:h-28
+  lg:w-28
+  lg:border-4
+  lg:p-2
+
+  xl:left-10
+  xl:h-38
+  xl:w-38
+  xl:border-[5px]
+  xl:p-3
+"
           >
-            {ctaItem.label}
+            <Image
+              src="/images/logo.png"
+              alt="FLIPPCLUB"
+              width={320}
+              height={160}
+              priority
+              className="h-auto w-full object-contain"
+            />
           </Link>
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            aria-expanded={menuOpen}
-            aria-controls={menuId}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMenuOpen((value) => !value)}
-            className="relative z-20 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-white/60 text-white transition hover:border-primary hover:bg-primary hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:hidden"
-          >
-            <span className="sr-only">
-              {menuOpen ? "Close menu" : "Open menu"}
-            </span>
+          {/* Desktop navigation */}
+          <div className="ml-[8.5rem] flex flex-1 lg:ml-[10rem]">
+            <Navigation />
+          </div>
 
-            <span className="relative block h-4 w-5" aria-hidden="true">
-              <span
-                className={`absolute left-0 top-0 h-0.5 w-5 bg-current transition-transform duration-200 ${
-                  menuOpen ? "translate-y-[7px] rotate-45" : ""
-                }`}
-              />
+          {/* Right side */}
+          <div className="ml-auto flex shrink-0 items-center gap-3 lg:gap-4">
+            {/* Social media */}
+            <div className="hidden lg:block">
+              <SocialLinks />
+            </div>
 
-              <span
-                className={`absolute left-0 top-[7px] h-0.5 w-5 bg-current transition-opacity duration-200 ${
-                  menuOpen ? "opacity-0" : "opacity-100"
-                }`}
-              />
+            {/* Mobile menu */}
+            <button
+              type="button"
+              aria-expanded={menuOpen}
+              aria-controls={menuId}
+              aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
+              onClick={() => setMenuOpen((value) => !value)}
+              className="
+                relative
+                z-40
+                flex
+                h-11
+                w-11
+                shrink-0
+                items-center
+                justify-center
+                border-2
+                border-ink
+                bg-accent
+                text-ink
+                transition
+                hover:bg-ink
+                hover:text-accent
+                focus-visible:outline
+                focus-visible:outline-2
+                focus-visible:outline-offset-2
+                focus-visible:outline-primary
+                lg:hidden
+              "
+            >
+              <span className="sr-only">
+                {menuOpen ? "Zamknij menu" : "Otwórz menu"}
+              </span>
 
-              <span
-                className={`absolute left-0 top-[14px] h-0.5 w-5 bg-current transition-transform duration-200 ${
-                  menuOpen ? "-translate-y-[7px] -rotate-45" : ""
-                }`}
-              />
-            </span>
-          </button>
+              <span className="relative block h-4 w-5" aria-hidden="true">
+                <span
+                  className={`absolute left-0 top-0 h-0.5 w-5 bg-current transition-transform duration-200 ${
+                    menuOpen ? "translate-y-[7px] rotate-45" : ""
+                  }`}
+                />
+
+                <span
+                  className={`absolute left-0 top-[7px] h-0.5 w-5 bg-current transition-opacity duration-200 ${
+                    menuOpen ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+
+                <span
+                  className={`absolute left-0 top-[14px] h-0.5 w-5 bg-current transition-transform duration-200 ${
+                    menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                  }`}
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
+      {/* Mobile menu */}
       <MobileMenu
         open={menuOpen}
         onClose={() => setMenuOpen(false)}

@@ -10,7 +10,7 @@ export default function ExcavatorsPage() {
   const images = [1, 2, 3, 4];
 
   return (
-    <section className="relative z-0 overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+    <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
       {/* ================================================== */}
       {/* DECORATIVE TAPE */}
       {/* ================================================== */}
@@ -24,7 +24,7 @@ export default function ExcavatorsPage() {
           absolute
           left-[-2%]
           top-[3.7%]
-          z-20
+          z-10
           hidden
           w-[40%]
           lg:block
@@ -49,7 +49,7 @@ export default function ExcavatorsPage() {
           absolute
           right-[-2%]
           top-[3.7%]
-          z-20
+          z-10
           hidden
           w-[40%]
           lg:block
@@ -74,7 +74,7 @@ export default function ExcavatorsPage() {
           absolute
           -left-[12%]
           top-[27%]
-          z-20
+          z-10
           hidden
           w-[125%]
           -rotate-[15deg]
@@ -92,114 +92,11 @@ export default function ExcavatorsPage() {
       </div>
 
       {/* ================================================== */}
-      {/* SMALL CONSTRUCTION DECORATIONS */}
+      {/* MAIN CONTENT */}
       {/* ================================================== */}
 
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[12%]
-          top-[4%]
-          z-20
-          hidden
-          h-12
-          w-12
-          rotate-12
-          bg-accent
-          animate-[decor-drift_11s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[12%]
-          top-[9%]
-          z-20
-          hidden
-          h-8
-          w-8
-          rounded-full
-          bg-primary
-          animate-[decor-float-small_9s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[7%]
-          top-[40%]
-          z-20
-          hidden
-          h-32
-          w-32
-          rounded-full
-          border-[16px]
-          border-accent
-          animate-[decor-float_14s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[9%]
-          top-[67%]
-          z-20
-          hidden
-          h-16
-          w-16
-          rotate-45
-          bg-primary
-          animate-[decor-spin-float_13s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* ================================================== */}
-      {/* NEON GLOW */}
-      {/* ================================================== */}
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-35px]
-          left-1/2
-          top-0
-          z-0
-          w-full
-          max-w-7xl
-          -translate-x-1/2
-          rounded-b-[36px]
-          bg-[#0d0b54]
-          opacity-100
-          blur-[55px]
-          shadow-[0_0_100px_35px_rgba(13,11,84,0.95),0_0_160px_55px_rgba(1,5,59,0.9)]
-          sm:blur-[65px]
-          sm:shadow-[0_0_120px_40px_rgba(13,11,84,0.98),0_0_190px_65px_rgba(1,5,59,0.95)]
-        "
-      />
-
-      {/* ================================================== */}
-      {/* MAIN LIGHT SURFACE */}
-      {/* ================================================== */}
-
-      <div className="relative mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        <div className="relative z-30">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
+        <div className="relative z-20">
           {/* ================================================== */}
           {/* HEADING */}
           {/* ================================================== */}
@@ -225,48 +122,49 @@ export default function ExcavatorsPage() {
                 page-reveal
                 mt-3
                 font-display
-                text-5xl
+                text-[clamp(3.5rem,14vw,9rem)]
                 font-extrabold
                 uppercase
+                leading-[0.85]
                 tracking-tight
-                sm:text-6xl
-                lg:text-8xl
               "
               style={{ animationDelay: "100ms" }}
             >
               <span className="text-accent">K</span>
-              <span className="text-text">O</span>
+              <span className="text-white">O</span>
               <span className="text-accent">P</span>
-              <span className="text-text">A</span>
+              <span className="text-white">A</span>
               <span className="text-accent">R</span>
-              <span className="text-text">K</span>
+              <span className="text-white">K</span>
               <span className="text-accent">I</span>
             </h1>
 
-            <p
-              className="
-                page-reveal-up
-                mx-auto
-                mt-5
-                max-w-2xl
-                text-base
-                leading-relaxed
-                text-muted
-                sm:text-lg
-              "
+            <div
+              className="page-reveal-up mx-auto mt-7 max-w-3xl"
               style={{ animationDelay: "220ms" }}
             >
-              Mały plac budowy, wielka frajda. Steruj zdalnie koparkami,
-              spychaczami i ciężarówkami i sprawdź, kto najlepiej poradzi sobie
-              na naszym placu budowy.
-            </p>
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                    Mały plac budowy, wielka frajda. Steruj zdalnie koparkami,
+                    spychaczami i ciężarówkami i sprawdź, kto najlepiej poradzi
+                    sobie na naszym placu budowy.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* ================================================== */}
           {/* GALLERY */}
           {/* ================================================== */}
 
-          <div className="relative z-30 mx-auto mt-12 max-w-5xl sm:mt-16">
+          <div className="mx-auto mt-14 max-w-6xl sm:mt-18 lg:mt-20">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {images.map((item, imageIndex) => (
                 <button
@@ -281,12 +179,11 @@ export default function ExcavatorsPage() {
                     page-image-reveal
                     group
                     relative
-                    z-30
                     overflow-hidden
                     rounded-2xl
                     border-2
-                    border-accent/40
-                    bg-dark-gray
+                    border-accent/50
+                    bg-[#010522]
                     text-left
                     shadow-[6px_7px_0_var(--color-primary)]
                     transition
@@ -342,11 +239,34 @@ export default function ExcavatorsPage() {
               gap-6
               sm:mt-16
             "
-            style={{ animationDelay: "800ms" }}
+            style={{ animationDelay: "850ms" }}
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-3
+                rounded-pill
+                bg-accent
+                px-8
+                py-4
+                font-display
+                text-base
+                font-extrabold
+                uppercase
+                tracking-[0.12em]
+                text-ink
+                transition
+                hover:-translate-y-1
+                hover:bg-primary
+                hover:text-on-ink
+                focus-visible:outline
+                focus-visible:outline-2
+                focus-visible:outline-offset-4
+                focus-visible:outline-primary
+              "
             >
               <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
                 ●
@@ -370,20 +290,52 @@ export default function ExcavatorsPage() {
           aria-label="Podgląd zdjęcia"
         >
           {/* Close */}
-
           <button
             type="button"
             onClick={() => setSelectedImage(null)}
             aria-label="Zamknij podgląd"
-            className="absolute right-5 top-5 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl font-bold text-ink transition hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="
+              absolute
+              right-5
+              top-5
+              z-10
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              bg-accent
+              text-2xl
+              font-bold
+              text-ink
+              transition
+              hover:bg-primary
+              hover:text-on-ink
+              focus-visible:outline
+              focus-visible:outline-2
+              focus-visible:outline-offset-2
+              focus-visible:outline-accent
+            "
           >
             ×
           </button>
 
           {/* Enlarged image */}
-
           <div
-            className="relative max-h-[90vh] w-full max-w-5xl cursor-pointer overflow-hidden rounded-2xl border-4 border-accent bg-dark-gray shadow-[8px_10px_0_var(--color-primary)]"
+            className="
+              relative
+              max-h-[90vh]
+              w-full
+              max-w-5xl
+              cursor-pointer
+              overflow-hidden
+              rounded-2xl
+              border-4
+              border-accent
+              bg-dark-gray
+              shadow-[8px_10px_0_var(--color-primary)]
+            "
             onClick={() => setSelectedImage(null)}
           >
             <Image

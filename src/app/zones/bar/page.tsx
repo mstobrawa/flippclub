@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+
 export default function BarPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
@@ -14,179 +16,25 @@ export default function BarPage() {
       className="
         relative
         z-0
+        min-h-screen
         overflow-hidden
-        bg-[length:100%_100%]
-        bg-center
-        bg-no-repeat
+        bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)]
         pb-16
         sm:pb-20
         lg:pb-24
       "
-      style={{
-        backgroundImage: "url('/images/bgv2.png')",
-      }}
     >
       {/* ================================================== */}
-      {/* BAR DECORATIONS */}
+      {/* TETRIS DECORATIONS */}
       {/* ================================================== */}
 
-      {/* Large purple ring - top left */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -left-14
-          top-[10%]
-          z-20
-          hidden
-          h-36
-          w-36
-          rounded-full
-          border-[12px]
-          border-primary
-          animate-[decor-float_14s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* Large yellow ring - top right */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-16
-          top-[14%]
-          z-20
-          hidden
-          h-40
-          w-40
-          rounded-full
-          border-[12px]
-          border-accent
-          animate-[decor-float_17s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* Pink square */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[13%]
-          top-[28%]
-          z-20
-          hidden
-          h-7
-          w-7
-          rotate-12
-          bg-pink
-          animate-[decor-drift_10s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* Blue square */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[12%]
-          top-[40%]
-          z-20
-          hidden
-          h-6
-          w-6
-          -rotate-12
-          bg-blue
-          animate-[decor-drift-reverse_12s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* Small yellow pixel */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[22%]
-          top-[18%]
-          z-20
-          hidden
-          h-4
-          w-4
-          rotate-45
-          bg-accent
-          animate-[decor-float-small_8s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* Small pink pixel */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[21%]
-          top-[24%]
-          z-20
-          hidden
-          h-4
-          w-4
-          bg-pink
-          animate-[decor-drift-reverse_10s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* Small purple pixel */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[25%]
-          left-[17%]
-          z-20
-          hidden
-          h-3
-          w-3
-          bg-primary
-          animate-[decor-float-small_7s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* Small blue diamond */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[20%]
-          right-[18%]
-          z-20
-          hidden
-          h-3
-          w-3
-          rotate-45
-          bg-blue
-          animate-[decor-spin-float_9s_ease-in-out_infinite]
-          lg:block
-        "
-      />
+      <TetrisDecorations />
 
       {/* ================================================== */}
       {/* CONTENT */}
       {/* ================================================== */}
 
-      <div className="relative z-30 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         {/* ================================================== */}
         {/* HEADER */}
         {/* ================================================== */}
@@ -200,7 +48,7 @@ export default function BarPage() {
           </p>
 
           <h1
-            className="page-reveal mt-3 font-display text-6xl font-extrabold uppercase tracking-tight sm:text-7xl lg:text-9xl"
+            className="page-reveal mt-3 font-display text-[clamp(3.5rem,16vw,9rem)] font-extrabold uppercase leading-[0.85] tracking-tight"
             style={{ animationDelay: "100ms" }}
           >
             <span className="text-primary">B</span>
@@ -228,7 +76,7 @@ export default function BarPage() {
               className="
                 relative
                 bg-[#f1f1ee]
-                px-6
+                px-5
                 py-5
                 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
                 [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
@@ -280,7 +128,7 @@ export default function BarPage() {
               POWER UP
             </p>
 
-            <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
               Złap coś na ząb
             </h2>
 
@@ -301,7 +149,7 @@ export default function BarPage() {
                 className="
                   relative
                   bg-[#f1f1ee]
-                  px-6
+                  px-5
                   py-5
                   shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
                   [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
@@ -317,7 +165,7 @@ export default function BarPage() {
               </div>
             </div>
 
-            <p className="mt-5 font-mono text-sm font-bold uppercase tracking-[0.12em] text-primary">
+            <p className="mt-5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-primary sm:text-sm">
               TURBO • ORANŻADA • PRZEKĄSKI • I WIELE WIĘCEJ
             </p>
           </div>
@@ -347,7 +195,26 @@ export default function BarPage() {
                 style={{
                   animationDelay: `${750 + imageIndex * 110}ms`,
                 }}
-                className="page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-dark-gray text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                className="
+                  page-image-reveal
+                  group
+                  relative
+                  z-30
+                  overflow-hidden
+                  rounded-2xl
+                  border-2
+                  border-primary/30
+                  bg-dark-gray
+                  text-left
+                  shadow-[6px_7px_0_var(--color-primary)]
+                  transition
+                  duration-200
+                  hover:-translate-y-1
+                  hover:border-accent
+                  focus-visible:outline
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-accent
+                "
               >
                 <div className="relative aspect-square overflow-hidden">
                   <Image
@@ -372,7 +239,7 @@ export default function BarPage() {
         {/* BAR SECTION 2 */}
         {/* ================================================== */}
 
-        <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16 sm:mt-24">
+        <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 sm:mt-24 md:grid-cols-2 md:gap-16">
           {/* Text */}
           <div
             className="page-reveal-up order-2 max-w-xl md:order-1"
@@ -382,7 +249,7 @@ export default function BarPage() {
               INSERT COIN
             </p>
 
-            <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
               Klasyki, które znasz
             </h2>
 
@@ -403,7 +270,7 @@ export default function BarPage() {
                 className="
                   relative
                   bg-[#f1f1ee]
-                  px-6
+                  px-5
                   py-5
                   shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
                   [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
@@ -454,7 +321,7 @@ export default function BarPage() {
             GAME ON
           </p>
 
-          <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+          <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
             Gotowy na kolejną rundę?
           </h2>
 
@@ -485,7 +352,6 @@ export default function BarPage() {
               hover:-translate-y-1
               hover:shadow-[7px_8px_0_var(--color-accent)]
               focus-visible:outline
-              focus-visible:outline-2
               focus-visible:outline-offset-4
               focus-visible:outline-accent
             "
@@ -501,7 +367,7 @@ export default function BarPage() {
 
       {selectedImage !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-ink/90 p-5"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"
@@ -529,7 +395,6 @@ export default function BarPage() {
               transition
               hover:scale-105
               focus-visible:outline
-              focus-visible:outline-2
               focus-visible:outline-offset-4
               focus-visible:outline-accent
             "

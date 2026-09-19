@@ -69,6 +69,11 @@ body {
   color: var(--color-text);
 }
 
+html,
+body {
+  min-width: 360px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -158,141 +163,22 @@ body {
   }
 }
 
-/* ========================================================= */
-/* REUSABLE DECORATION ANIMATIONS */
-/* ========================================================= */
-
-@keyframes decor-float {
+@keyframes tetris-float {
   0%,
   100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  25% {
-    transform: translate3d(5px, -6px, 0);
+    translate: 0 0;
   }
 
   50% {
-    transform: translate3d(0, -11px, 0);
-  }
-
-  75% {
-    transform: translate3d(-5px, -5px, 0);
+    translate: 0 -12px;
   }
 }
 
-@keyframes decor-float-small {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: translate3d(4px, -7px, 0);
-  }
-}
-
-@keyframes decor-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  25% {
-    transform: translate3d(4px, -4px, 0) rotate(2deg);
-  }
-
-  50% {
-    transform: translate3d(8px, -8px, 0) rotate(5deg);
-  }
-
-  75% {
-    transform: translate3d(4px, -4px, 0) rotate(2deg);
-  }
-}
-
-@keyframes decor-drift-reverse {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  25% {
-    transform: translate3d(-4px, -4px, 0) rotate(-2deg);
-  }
-
-  50% {
-    transform: translate3d(-8px, -8px, 0) rotate(-5deg);
-  }
-
-  75% {
-    transform: translate3d(-4px, -4px, 0) rotate(-2deg);
-  }
-}
-
-@keyframes decor-spin-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(45deg);
-  }
-
-  25% {
-    transform: translate3d(3px, -3px, 0) rotate(58deg);
-  }
-
-  50% {
-    transform: translate3d(6px, -7px, 0) rotate(75deg);
-  }
-
-  75% {
-    transform: translate3d(3px, -3px, 0) rotate(58deg);
-  }
-}
-
-/* ========================================================= */
-/* REDUCED MOTION */
-/* ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .facebook-glow-primary,
-  .facebook-glow-secondary,
-  .animate-\[decor-float_8s_ease-in-out_infinite\],
-  .animate-\[decor-float_9s_ease-in-out_infinite\],
-  .animate-\[decor-float_10s_ease-in-out_infinite\],
-  .animate-\[decor-float_11s_ease-in-out_infinite\],
-  .animate-\[decor-float_12s_ease-in-out_infinite\],
-  .animate-\[decor-float_13s_ease-in-out_infinite\],
-  .animate-\[decor-float_14s_ease-in-out_infinite\],
-  .animate-\[decor-float_15s_ease-in-out_infinite\],
-  .animate-\[decor-float-small_6s_ease-in-out_infinite\],
-  .animate-\[decor-float-small_7s_ease-in-out_infinite\],
-  .animate-\[decor-float-small_8s_ease-in-out_infinite\],
-  .animate-\[decor-float-small_9s_ease-in-out_infinite\],
-  .animate-\[decor-float-small_10s_ease-in-out_infinite\],
-  .animate-\[decor-drift_7s_ease-in-out_infinite\],
-  .animate-\[decor-drift_8s_ease-in-out_infinite\],
-  .animate-\[decor-drift_9s_ease-in-out_infinite\],
-  .animate-\[decor-drift_10s_ease-in-out_infinite\],
-  .animate-\[decor-drift_11s_ease-in-out_infinite\],
-  .animate-\[decor-drift_12s_ease-in-out_infinite\],
-  .animate-\[decor-drift_13s_ease-in-out_infinite\],
-  .animate-\[decor-drift_14s_ease-in-out_infinite\],
-  .animate-\[decor-drift-reverse_7s_ease-in-out_infinite\],
-  .animate-\[decor-drift-reverse_8s_ease-in-out_infinite\],
-  .animate-\[decor-drift-reverse_9s_ease-in-out_infinite\],
-  .animate-\[decor-drift-reverse_10s_ease-in-out_infinite\],
-  .animate-\[decor-drift-reverse_11s_ease-in-out_infinite\],
-  .animate-\[decor-drift-reverse_12s_ease-in-out_infinite\],
-  .animate-\[decor-drift-reverse_13s_ease-in-out_infinite\],
-  .animate-\[decor-spin-float_8s_ease-in-out_infinite\],
-  .animate-\[decor-spin-float_9s_ease-in-out_infinite\],
-  .animate-\[decor-spin-float_10s_ease-in-out_infinite\],
-  .animate-\[decor-spin-float_11s_ease-in-out_infinite\],
-  .animate-\[decor-spin-float_12s_ease-in-out_infinite\],
-  .animate-\[decor-spin-float_13s_ease-in-out_infinite\],
-  .animate-\[decor-spin-float_14s_ease-in-out_infinite\] {
-    animation: none;
-  }
+.tetris-piece {
+  animation-name: tetris-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: translate;
 }
 
 /* ========================================================= */

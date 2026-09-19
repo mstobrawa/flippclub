@@ -10,226 +10,13 @@ export default function KillerQueenPage() {
   const images = [1, 2, 3, 4];
 
   return (
-    <section className="relative z-0 overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+    <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
       {/* ================================================== */}
-      {/* KILLER QUEEN DECORATIONS */}
-      {/* ================================================== */}
-
-      {/* Large yellow hex - top left */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-15
-          top-[10%]
-          z-20
-          hidden
-          h-36
-          w-36
-          rotate-12
-          bg-accent
-          animate-[decor-float_13s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* Purple inner hex */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-18
-          top-[11.5%]
-          z-20
-          hidden
-          h-28
-          w-28
-          rotate-12
-          bg-background
-          animate-[decor-float-small_10s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* Large blue hex - top right */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-22
-          top-[17%]
-          z-20
-          hidden
-          h-32
-          w-32
-          -rotate-12
-          bg-blue
-          animate-[decor-drift-reverse_14s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* Small yellow hex - upper right */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[9%]
-          top-[8%]
-          z-20
-          hidden
-          h-10
-          w-10
-          rotate-12
-          bg-accent
-          animate-[decor-spin-float_9s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* Large purple hex - left of gallery */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-45
-          top-[46%]
-          z-20
-          hidden
-          h-28
-          w-28
-          -rotate-12
-          bg-primary
-          animate-[decor-drift_15s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* Large yellow hex - right of gallery */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-16
-          top-[55%]
-          z-20
-          hidden
-          h-36
-          w-36
-          rotate-12
-          bg-accent
-          animate-[decor-float_16s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* Small blue hex - lower left */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[14%]
-          left-[10%]
-          z-20
-          hidden
-          h-8
-          w-8
-          rotate-12
-          bg-blue
-          animate-[decor-float-small_8s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* Small purple hex - lower right */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[10%]
-          right-[12%]
-          z-20
-          hidden
-          h-7
-          w-7
-          -rotate-12
-          bg-primary
-          animate-[decor-drift-reverse_11s_ease-in-out_infinite]
-          lg:block
-        "
-        style={{
-          clipPath:
-            "polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%)",
-        }}
-      />
-
-      {/* ================================================== */}
-      {/* NEON GLOW */}
+      {/* MAIN CONTENT */}
       {/* ================================================== */}
 
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-35px]
-          left-1/2
-          z-0
-          w-full
-          max-w-7xl
-          -translate-x-1/2
-          rounded-b-[36px]
-          bg-[#0d0b54]
-          opacity-100
-          blur-[55px]
-          shadow-[0_0_100px_35px_rgba(13,11,84,0.95),0_0_160px_55px_rgba(1,5,59,0.9)]
-          sm:blur-[65px]
-          sm:shadow-[0_0_120px_40px_rgba(13,11,84,0.98),0_0_190px_65px_rgba(1,5,59,0.95)]
-        "
-      />
-
-      {/* ================================================== */}
-      {/* MAIN LIGHT SURFACE */}
-      {/* ================================================== */}
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        <div className="relative z-30">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
+        <div className="relative z-20">
           {/* ================================================== */}
           {/* LOGO + INTRO */}
           {/* ================================================== */}
@@ -249,18 +36,30 @@ export default function KillerQueenPage() {
               />
             </div>
 
-            <p
-              className="page-reveal-up mx-auto mt-7 max-w-3xl text-base leading-relaxed text-muted sm:text-lg"
+            <div
+              className="page-reveal-up mx-auto mt-7 max-w-3xl"
               style={{ animationDelay: "300ms" }}
             >
-              Jedyna taka atrakcja w Europie. Dziesięciu graczy, dwie drużyny i
-              jedna arena. Killer Queen to szybka, pełna chaosu gra 5 vs 5, w
-              której liczy się refleks, współpraca i dobra strategia.
-              <span className="font-semibold text-text">
-                {" "}
-                5 na 5. Szał pał. Zero taryfy ulgowej.
-              </span>
-            </p>
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                    Jedyna taka atrakcja w Europie. Dziesięciu graczy, dwie
+                    drużyny i jedna arena. Killer Queen to szybka, pełna chaosu
+                    gra 5 vs 5, w której liczy się refleks, współpraca i dobra
+                    strategia.
+                    <span className="font-semibold text-[#1c1420]">
+                      {" "}
+                      5 na 5. Szał pał. Zero taryfy ulgowej.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* ================================================== */}
@@ -271,7 +70,7 @@ export default function KillerQueenPage() {
             <div className="grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
               {/* Gold Team */}
               <div
-                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-surface p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent"
+                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent"
                 style={{ animationDelay: "450ms" }}
               >
                 <Image
@@ -294,7 +93,7 @@ export default function KillerQueenPage() {
 
               {/* Blue Team */}
               <div
-                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-surface p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue"
+                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue"
                 style={{ animationDelay: "650ms" }}
               >
                 <Image
@@ -332,7 +131,7 @@ export default function KillerQueenPage() {
                   style={{
                     animationDelay: `${850 + imageIndex * 110}ms`,
                   }}
-                  className={`page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-dark-gray text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+                  className={`page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
                     item === 1
                       ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
                       : ""
@@ -371,7 +170,7 @@ export default function KillerQueenPage() {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              className="group inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
               <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
                 ●
@@ -394,8 +193,6 @@ export default function KillerQueenPage() {
           aria-modal="true"
           aria-label="Podgląd zdjęcia"
         >
-          {/* Close */}
-
           <button
             type="button"
             onClick={() => setSelectedImage(null)}
@@ -404,8 +201,6 @@ export default function KillerQueenPage() {
           >
             ×
           </button>
-
-          {/* Enlarged image */}
 
           <div
             className="relative max-h-[90vh] w-full max-w-5xl cursor-pointer overflow-hidden rounded-2xl border-4 border-accent bg-dark-gray shadow-[8px_10px_0_var(--color-primary)]"

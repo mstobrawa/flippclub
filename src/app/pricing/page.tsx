@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
 type PriceBlock = {
   top: string;
@@ -63,7 +64,7 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 
 const prices: PriceCard[] = [
   {
-    label: "18+",
+    label: "18+ lat",
     accent: "primary",
     blocks: [
       { top: "DOROŚLI", bottom: "" },
@@ -73,7 +74,7 @@ const prices: PriceCard[] = [
     ],
   },
   {
-    label: "-18",
+    label: "-18 lat",
     accent: "accent",
     blocks: [
       { top: "MŁODSI", bottom: "" },
@@ -114,152 +115,11 @@ const accentStyles = {
 
 export default function PricingPage() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
-      {/* ================================================== */}
-      {/* BACKGROUND DECORATIONS */}
-      {/* ================================================== */}
+    <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+      <TetrisDecorations />
 
-      {/* DEKOR 1 — DUŻE FIOLETOWE KOŁO — LEWA GÓRA */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -left-16
-          top-[14%]
-          z-0
-          hidden
-          h-36
-          w-36
-          rounded-full
-          border-[10px]
-          border-primary
-          animate-[decor-float_14s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* DEKOR 2 — DUŻE ŻÓŁTE KOŁO — PRAWA GÓRA/ŚRODEK */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-16
-          top-[27%]
-          z-0
-          hidden
-          h-44
-          w-44
-          rounded-full
-          border-[10px]
-          border-accent
-          animate-[decor-drift-reverse_16s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* DEKOR 3 — RÓŻOWY KWADRAT — LEWA ŚRODKOWA */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[8%]
-          top-[48%]
-          z-0
-          hidden
-          h-10
-          w-10
-          rotate-12
-          bg-pink
-          animate-[decor-spin-float_11s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* DEKOR 4 — NIEBIESKI DIAMENT — PRAWA ŚRODKOWA */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[8%]
-          top-[58%]
-          z-0
-          hidden
-          h-12
-          w-12
-          rotate-45
-          bg-blue
-          animate-[decor-drift_13s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* DEKOR 5 — MAŁY ŻÓŁTY PIXEL — LEWA GÓRA */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[19%]
-          top-[21%]
-          z-0
-          hidden
-          h-4
-          w-4
-          rotate-45
-          bg-accent
-          animate-[decor-float-small_8s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* DEKOR 6 — MAŁY FIOLETOWY PIXEL — PRAWA GÓRA */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[20%]
-          top-[18%]
-          z-0
-          hidden
-          h-4
-          w-4
-          bg-primary
-          animate-[decor-drift-reverse_10s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* DEKOR 7 — DOLNE FIOLETOWE KOŁO */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-8
-          bottom-[10%]
-          z-0
-          hidden
-          h-28
-          w-28
-          rounded-full
-          border-[8px]
-          border-primary
-          animate-[decor-float_15s_ease-in-out_infinite]
-          lg:block
-        "
-      />
-
-      {/* ================================================== */}
-      {/* LIGHT CONTENT SURFACE */}
-      {/* ================================================== */}
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 shadow-[inset_110px_0_95px_-20px_rgba(1,5,34,0.88),inset_-110px_0_95px_-20px_rgba(1,5,34,0.88),inset_0_85px_85px_-45px_rgba(1,5,34,0.78),inset_0_-85px_85px_-45px_rgba(1,5,34,0.78),inset_65px_65px_80px_-55px_rgba(1,5,34,0.72),inset_-65px_65px_80px_-55px_rgba(1,5,34,0.72),inset_65px_-65px_80px_-55px_rgba(1,5,34,0.72),inset_-65px_-65px_80px_-55px_rgba(1,5,34,0.72)] sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        <div className="relative z-30">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
+        <div className="relative z-20">
           {/* ================================================== */}
           {/* HEADER */}
           {/* ================================================== */}
@@ -278,10 +138,19 @@ export default function PricingPage() {
             </Reveal>
 
             <Reveal delay={180}>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-                Wybierz swój czas gry, wrzuć monetę i baw się ile chcesz.
-                Prosto, bez kombinowania.
-              </p>
+              <div className="relative mx-auto mt-6 max-w-2xl">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                    Wybierz swój czas gry, wrzuć monetę i baw się ile chcesz.
+                    Prosto, bez kombinowania.
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
 
@@ -290,31 +159,6 @@ export default function PricingPage() {
           {/* ================================================== */}
 
           <div className="relative mx-auto mt-16 max-w-6xl sm:mt-20">
-            {/* DEKOR — MONETY NAD KARTAMI */}
-            <div
-              aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                -right-8
-                -top-20
-                z-20
-                hidden
-                w-44
-                rotate-6
-                animate-[decor-float-small_10s_ease-in-out_infinite]
-                lg:block
-              "
-            >
-              <Image
-                src="/images/coins.png"
-                alt=""
-                width={500}
-                height={300}
-                className="h-auto w-full"
-              />
-            </div>
-
             <div className="relative z-10 grid gap-7 md:grid-cols-3">
               {prices.map((price, index) => {
                 const styles = accentStyles[price.accent];
@@ -376,9 +220,9 @@ export default function PricingPage() {
           {/* COINS */}
           {/* ================================================== */}
 
-          <Reveal>
+          <Reveal delay={250}>
             <div className="mx-auto mt-20 flex max-w-3xl items-center justify-center gap-6 sm:mt-24">
-              <div className="hidden h-px flex-1 bg-border sm:block" />
+              <div className="hidden h-px flex-1 bg-white/15 sm:block" />
 
               <div className="relative w-28 shrink-0 sm:w-36">
                 <Image
@@ -390,7 +234,7 @@ export default function PricingPage() {
                 />
               </div>
 
-              <div className="hidden h-px flex-1 bg-border sm:block" />
+              <div className="hidden h-px flex-1 bg-white/15 sm:block" />
             </div>
           </Reveal>
 
@@ -398,23 +242,23 @@ export default function PricingPage() {
           {/* CTA */}
           {/* ================================================== */}
 
-          <Reveal>
+          <Reveal delay={350}>
             <div className="mx-auto mt-16 flex max-w-2xl flex-col items-center text-center sm:mt-20">
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
                 READY?
               </p>
 
-              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
                 Wrzuć monetę.
               </h2>
 
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
                 Wybierz termin i wpadaj na partyjkę. Czekamy na Ciebie.
               </p>
 
               <Link
                 href="/contact"
-                className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
                 <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
                   ●
