@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
   children: React.ReactNode;
@@ -51,83 +52,11 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 
 export default function RentalPage() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
-      {/* ================================================== */}
-      {/* BACKGROUND DECORATIONS */}
-      {/* ================================================== */}
+    <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+      <TetrisDecorations />
 
-      {/* Large purple ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-[9%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary animate-[decor-float_14s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Large yellow ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[18%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent animate-[decor-drift-reverse_16s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Pink square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[8%] top-[34%] z-0 hidden h-12 w-12 rotate-12 bg-pink animate-[decor-spin-float_11s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Blue diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[8%] top-[43%] z-0 hidden h-14 w-14 rotate-45 bg-blue animate-[decor-drift_13s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Yellow diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-6 top-[61%] z-0 hidden h-24 w-24 rotate-45 bg-accent animate-[decor-float_17s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Purple square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-6 top-[70%] z-0 hidden h-28 w-28 -rotate-12 bg-primary animate-[decor-drift-reverse_15s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Bottom blue ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[8%] bottom-[7%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue animate-[decor-float-small_10s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small yellow pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[20%] top-[16%] z-0 hidden h-4 w-4 rotate-45 bg-accent animate-[decor-float-small_8s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small pink pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[21%] top-[28%] z-0 hidden h-4 w-4 bg-pink animate-[decor-drift_9s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small purple pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[17%] bottom-[24%] z-0 hidden h-3 w-3 bg-primary animate-[decor-float-small_7s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small blue pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[18%] bottom-[17%] z-0 hidden h-3 w-3 rotate-45 bg-blue animate-[decor-drift-reverse_8s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* ================================================== */}
-      {/* LIGHT CONTENT SURFACE */}
-      {/* ================================================== */}
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        <div className="relative z-30">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
+        <div className="relative z-20">
           {/* ================================================== */}
           {/* HEADER */}
           {/* ================================================== */}
@@ -140,42 +69,50 @@ export default function RentalPage() {
             </Reveal>
 
             <Reveal delay={100}>
-              <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-7xl">
+              <h1 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-8xl">
                 WYPOŻYCZALNIA
               </h1>
             </Reveal>
 
             <Reveal delay={180}>
-              <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-                Chcesz pograć we własnym domu? Wypożycz wybrany sprzęt i zabierz
-                klimat FlippClub ze sobą.
-              </p>
+              <div className="relative mx-auto mt-7 max-w-3xl">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                    Chcesz pograć we własnym domu? Wypożycz wybrany sprzęt i
+                    zabierz klimat FlippClub ze sobą.
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
 
           {/* ================================================== */}
-          {/* CONTENT PLACEHOLDER */}
+          {/* CONTENT */}
           {/* ================================================== */}
 
-          <Reveal className="mx-auto mt-16 max-w-5xl sm:mt-20">
+          <Reveal className="mx-auto mt-16 max-w-5xl sm:mt-20" delay={280}>
             <div className="relative">
-              {/* Offset shadow */}
               <div
                 aria-hidden="true"
                 className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl bg-primary"
               />
 
-              <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-accent bg-surface p-8 sm:p-12 lg:p-16">
+              <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-accent bg-[#010522] p-8 sm:p-12 lg:p-16">
                 <div className="mx-auto max-w-3xl text-center">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
                     COMING SOON
                   </p>
 
-                  <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                  <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
                     Gra poza klubem.
                   </h2>
 
-                  <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
+                  <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
                     Tutaj znajdziesz informacje o sprzęcie dostępnym w naszej
                     wypożyczalni, zasadach wypożyczenia oraz dostępności.
                   </p>
@@ -188,24 +125,24 @@ export default function RentalPage() {
           {/* CTA */}
           {/* ================================================== */}
 
-          <Reveal>
+          <Reveal delay={150}>
             <div className="mx-auto mt-20 flex max-w-2xl flex-col items-center text-center sm:mt-24">
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
                 NEED MORE INFO?
               </p>
 
-              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
                 Zapytaj nas.
               </h2>
 
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
                 Jeśli chcesz dowiedzieć się więcej o wypożyczeniu, skontaktuj
                 się z nami.
               </p>
 
               <Link
                 href="/contact"
-                className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
                 <span className="text-xl transition-transform duration-200 group-hover:scale-125">
                   ●

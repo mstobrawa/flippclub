@@ -1,7 +1,10 @@
 "use client";
 
-import { SocialLinks } from "@/components/layout/SocialLinks";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+
+import { SocialLinks } from "@/components/layout/SocialLinks";
+import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
   children: React.ReactNode;
@@ -15,7 +18,6 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 
   useEffect(() => {
     const element = ref.current;
-
     if (!element) return;
 
     const observer = new IntersectionObserver(
@@ -51,208 +53,99 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 
 export default function ContactPage() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
-      {/* ================================================== */}
-      {/* BACKGROUND DECORATIONS */}
-      {/* ================================================== */}
+    <main className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)]">
+      <TetrisDecorations />
 
-      {/* Large purple ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-[10%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary animate-[decor-float_14s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Large yellow ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[18%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent animate-[decor-drift-reverse_16s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Pink square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[7%] top-[34%] z-0 hidden h-12 w-12 rotate-12 bg-pink animate-[decor-spin-float_11s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Blue diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[8%] top-[42%] z-0 hidden h-14 w-14 rotate-45 bg-blue animate-[decor-drift_13s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Yellow diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-5 top-[60%] z-0 hidden h-24 w-24 rotate-45 bg-accent animate-[decor-float_17s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Purple square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-5 top-[68%] z-0 hidden h-28 w-28 -rotate-12 bg-primary animate-[decor-drift-reverse_15s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Bottom blue ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[8%] left-[8%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue animate-[decor-float-small_10s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small yellow pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[20%] top-[20%] z-0 hidden h-4 w-4 rotate-45 bg-accent animate-[decor-float-small_8s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small pink pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[21%] top-[28%] z-0 hidden h-4 w-4 bg-pink animate-[decor-drift_9s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small purple pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[24%] left-[17%] z-0 hidden h-3 w-3 bg-primary animate-[decor-float-small_7s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small blue pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[18%] right-[18%] z-0 hidden h-3 w-3 rotate-45 bg-blue animate-[decor-drift-reverse_8s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* ================================================== */}
-      {/* LIGHT CONTENT SURFACE */}
-      {/* ================================================== */}
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        <div className="relative z-30">
-          {/* ================================================== */}
+      <section className="relative z-20 px-4 pb-20 pt-24 sm:px-6 sm:pb-24 sm:pt-28 lg:px-8 lg:pb-32 lg:pt-32">
+        <div className="mx-auto max-w-7xl">
           {/* HEADER */}
-          {/* ================================================== */}
+          <Reveal className="flex flex-col items-center text-center">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.22em] text-accent sm:text-base">
+              PLAYER SUPPORT
+            </p>
 
-          <div className="mx-auto max-w-4xl text-center">
-            <Reveal>
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
-                PLAYER SUPPORT
-              </p>
-            </Reveal>
+            <h1 className="mt-3 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-6xl lg:text-8xl">
+              Kontakt
+            </h1>
 
+            <div className="relative mt-8 w-full max-w-3xl text-left">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+              />
+
+              <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                  Masz pytania? Chcesz zarezerwować miejsce na imprezę albo
+                  dowiedzieć się więcej o naszym klubie? Napisz, zadzwoń lub
+                  odwiedź nas na miejscu.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* CONTACT + MAP */}
+          <div className="mx-auto mt-14 grid max-w-6xl gap-8 lg:grid-cols-2 lg:gap-10">
+            {/* CONTACT DATA */}
             <Reveal delay={100}>
-              <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
-                KONTAKT
-              </h1>
-            </Reveal>
+              <div className="h-full border-2 border-accent bg-[#010522] p-6 text-center shadow-[8px_8px_0_var(--color-primary)] sm:p-8">
+                <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-accent">
+                  ZNAJDŹ NAS
+                </p>
 
-            <Reveal delay={180}>
-              <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-                Masz pytanie, chcesz zarezerwować imprezę albo po prostu chcesz
-                wiedzieć, co aktualnie gramy? Odezwij się. Jesteśmy tutaj.
-              </p>
-            </Reveal>
-          </div>
+                <h2 className="mt-3 font-display text-3xl font-black uppercase text-white sm:text-4xl">
+                  FLIPPCLUB
+                </h2>
 
-          {/* ================================================== */}
-          {/* CONTACT INFO + MAP */}
-          {/* ================================================== */}
-
-          <div className="mx-auto mt-16 grid max-w-6xl items-stretch gap-10 sm:mt-20 lg:grid-cols-[0.85fr_1.15fr]">
-            {/* ================================================== */}
-            {/* CONTACT CARD */}
-            {/* ================================================== */}
-
-            <Reveal className="h-full">
-              <div className="relative h-full">
-                {/* Offset shadow */}
-                <div
-                  aria-hidden="true"
-                  className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl bg-primary"
-                />
-
-                <div className="relative z-10 h-full rounded-3xl border-2 border-accent bg-surface p-7 sm:p-8">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
-                    GET IN TOUCH
-                  </p>
-
-                  <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
-                    Odezwij się.
-                  </h2>
-
-                  <p className="mt-5 text-base leading-relaxed text-muted">
-                    Najszybciej złapiesz nas telefonicznie albo przez social
-                    media. Możesz też po prostu wpaść na miejsce.
-                  </p>
-
-                  {/* ================================================== */}
+                <div className="mt-8 space-y-6">
                   {/* ADDRESS */}
-                  {/* ================================================== */}
-
-                  <div className="mt-8 border-t-2 border-border pt-6">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                      LOCATION
+                  <div>
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+                      ADRES
                     </p>
 
-                    <p className="mt-3 text-base font-bold leading-relaxed">
+                    <p className="mt-2 text-lg font-semibold leading-relaxed text-white sm:text-xl">
                       Orzeszkowej 2B
                       <br />
                       41-103 Siemianowice Śląskie
                     </p>
-
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=FlippClub%20Klub%20Flipperowy%20Siemianowice%20%C5%9Al%C4%85skie"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.15em] text-primary transition-colors hover:text-accent"
-                    >
-                      OTWÓRZ W GOOGLE MAPS →
-                    </a>
                   </div>
 
-                  {/* ================================================== */}
                   {/* PHONE */}
-                  {/* ================================================== */}
-
-                  <div className="mt-7 border-t border-border pt-6">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
-                      PHONE
+                  <div>
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+                      TELEFON
                     </p>
 
                     <a
                       href="tel:+48508465061"
-                      className="mt-3 block font-display text-2xl font-extrabold text-text transition-colors hover:text-primary sm:text-3xl"
+                      className="mt-2 inline-block text-lg font-bold text-accent transition-colors hover:text-primary sm:text-xl"
                     >
                       508 465 061
                     </a>
                   </div>
 
-                  {/* ================================================== */}
                   {/* EMAIL */}
-                  {/* ================================================== */}
-
-                  <div className="mt-7 border-t border-border pt-6">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  <div>
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
                       E-MAIL
                     </p>
 
                     <a
                       href="mailto:flippclubsiemianowice@gmail.com"
-                      className="mt-3 block break-all text-sm font-bold text-text transition-colors hover:text-primary sm:text-base"
+                      className="mt-2 inline-block break-all text-base font-bold text-accent transition-colors hover:text-primary sm:text-lg"
                     >
                       flippclubsiemianowice@gmail.com
                     </a>
                   </div>
 
-                  {/* ================================================== */}
-                  {/* SOCIALS */}
-                  {/* ================================================== */}
-
-                  <div className="mt-7 border-t border-border pt-6">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-pink">
-                      SOCIAL
+                  {/* SOCIAL */}
+                  <div>
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+                      SOCIAL MEDIA
                     </p>
 
-                    <div className="mt-4">
+                    <div className="mt-4 flex justify-center">
                       <SocialLinks />
                     </div>
                   </div>
@@ -260,81 +153,137 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            {/* ================================================== */}
             {/* MAP */}
-            {/* ================================================== */}
-
-            <Reveal delay={140} className="h-full">
-              <div className="relative h-full">
-                {/* Offset shadow */}
-                <div
-                  aria-hidden="true"
-                  className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl bg-primary"
+            <Reveal delay={180}>
+              <div className="h-full min-h-[420px] overflow-hidden border-2 border-accent bg-[#010522] shadow-[8px_8px_0_var(--color-primary)] sm:min-h-[500px]">
+                <iframe
+                  title="Lokalizacja FlippClub"
+                  src="https://www.google.com/maps?q=Orzeszkowej%202B,%2041-103%20Siemianowice%20Śląskie&output=embed"
+                  className="h-full min-h-[420px] w-full border-0 sm:min-h-[500px]"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
-
-                {/* ONE MAP CARD */}
-                <div className="relative z-10 flex h-full min-h-[560px] flex-col overflow-hidden rounded-3xl border-2 border-primary">
-                  {/* Map header */}
-                  <div className="shrink-0 border-b-2 border-primary bg-surface px-6 py-5 sm:px-7">
-                    <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                      PLAYER MAP
-                    </p>
-
-                    <h2 className="mt-2 font-display text-3xl font-extrabold uppercase sm:text-4xl">
-                      Znajdź nas
-                    </h2>
-
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      Orzeszkowej 2B, Siemianowice Śląskie
-                    </p>
-                  </div>
-
-                  {/* Map fills all remaining space */}
-                  <div className="relative min-h-0 flex-1">
-                    <iframe
-                      title="FlippClub - mapa dojazdu"
-                      src="https://www.google.com/maps?q=FlippClub%20Klub%20Flipperowy%20Siemianowice%20%C5%9Al%C4%85skie&output=embed"
-                      className="absolute inset-0 block h-full w-full border-0"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                  </div>
-                </div>
               </div>
             </Reveal>
           </div>
 
-          {/* ================================================== */}
+          {/* CLUB PHOTO */}
+          <Reveal
+            className="mx-auto mt-14 w-full max-w-5xl sm:mt-18 lg:mt-20"
+            delay={260}
+          >
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-3
+                  translate-y-3
+                  rounded-3xl
+                  bg-accent
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  z-10
+                  overflow-hidden
+                  rounded-3xl
+                  border-4
+                  border-accent
+                  bg-[#010522]
+                "
+              >
+                <Image
+                  src="/images/club.webp"
+                  alt="FlippClub - klub flipperowy w Siemianowicach Śląskich"
+                  width={1600}
+                  height={1000}
+                  className="block h-auto w-full object-contain"
+                />
+              </div>
+            </div>
+          </Reveal>
+
           {/* CTA */}
-          {/* ================================================== */}
+          <Reveal
+            className="mt-16 flex flex-col items-center text-center sm:mt-20"
+            delay={320}
+          >
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.18em] text-white/60">
+              MASZ PYTANIE?
+            </p>
 
-          <Reveal>
-            <div className="relative z-30 mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
-              <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-primary">
-                READY?
-              </p>
+            <h2 className="mt-3 font-display text-3xl font-black uppercase text-white sm:text-4xl lg:text-5xl">
+              Odezwij się do nas
+            </h2>
 
-              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
-                GAME ON.
-              </h2>
-
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-                Zbierz ekipę, wybierz termin i odezwij się do nas.
-              </p>
-
+            <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="tel:+48508465061"
-                className="group mt-8 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                className="
+                  inline-flex
+                  min-h-14
+                  items-center
+                  justify-center
+                  border-2
+                  border-ink
+                  bg-accent
+                  px-8
+                  py-3
+                  font-display
+                  text-lg
+                  font-black
+                  uppercase
+                  tracking-tight
+                  text-ink
+                  transition
+                  hover:bg-primary
+                  hover:text-white
+                  focus-visible:outline
+                  focus-visible:outline-2
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-primary
+                "
               >
-                <span className="text-xl transition-transform duration-200 group-hover:scale-125">
-                  ●
-                </span>
-                ZADZWOŃ DO NAS
+                Zadzwoń
+              </a>
+
+              <a
+                href="mailto:flippclubsiemianowice@gmail.com"
+                className="
+                  inline-flex
+                  min-h-14
+                  items-center
+                  justify-center
+                  border-2
+                  border-accent
+                  bg-transparent
+                  px-8
+                  py-3
+                  font-display
+                  text-lg
+                  font-black
+                  uppercase
+                  tracking-tight
+                  text-accent
+                  transition
+                  hover:bg-accent
+                  hover:text-ink
+                  focus-visible:outline
+                  focus-visible:outline-2
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-primary
+                "
+              >
+                Napisz e-mail
               </a>
             </div>
           </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

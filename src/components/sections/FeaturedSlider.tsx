@@ -9,7 +9,6 @@ import { slides } from "@/config/slider";
 export function FeaturedSlider() {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
   const total = slides.length;
 
   const goTo = useCallback(
@@ -20,7 +19,6 @@ export function FeaturedSlider() {
   );
 
   const goPrev = useCallback(() => goTo(index - 1), [goTo, index]);
-
   const goNext = useCallback(() => goTo(index + 1), [goTo, index]);
 
   useEffect(() => {
@@ -52,59 +50,9 @@ export function FeaturedSlider() {
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative z-10 overflow-hidden"
+      className="relative z-10 overflow-hidden bg-transparent"
     >
-      <div className="relative h-[250px] overflow-hidden bg-background sm:h-[280px] lg:h-[300px]">
-        <div
-          aria-hidden="true"
-          className="absolute -left-8 top-10 z-20 hidden h-20 w-20 rounded-full border-[12px] border-primary lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute left-[8%] top-8 z-20 hidden h-7 w-7 rounded-full bg-accent lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute bottom-6 left-[18%] z-20 hidden h-10 w-10 rounded-full border-[6px] border-primary lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute left-[43%] top-7 z-20 hidden h-8 w-8 rounded-full bg-primary lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute bottom-8 left-[47%] z-20 hidden h-5 w-5 rounded-full bg-accent lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute right-[39%] top-12 z-20 hidden h-12 w-12 rounded-full border-[7px] border-primary/70 lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute -right-10 top-6 z-20 hidden h-24 w-24 rounded-full bg-primary lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute right-[13%] top-7 z-20 hidden h-7 w-7 rounded-full bg-accent lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute bottom-5 right-[8%] z-20 hidden h-14 w-14 rounded-full border-[8px] border-accent lg:block"
-        />
-
-        <div
-          aria-hidden="true"
-          className="absolute bottom-12 right-[27%] z-20 hidden h-6 w-6 rounded-full bg-primary lg:block"
-        />
-
+      <div className="relative h-[250px] overflow-hidden bg-transparent sm:h-[280px] lg:h-[300px]">
         {slides.map((slide, i) => {
           const isActive = i === index;
 
@@ -120,6 +68,7 @@ export function FeaturedSlider() {
                 isActive ? "opacity-100" : "pointer-events-none opacity-0"
               }`}
             >
+              {/* MOBILE IMAGE */}
               <div className="absolute inset-0 lg:hidden">
                 <Image
                   src={slide.imageMobile}
@@ -130,14 +79,15 @@ export function FeaturedSlider() {
                   sizes="100vw"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#010522]/95 via-[#010522]/75 to-[#010522]/25" />
               </div>
 
               <div className="mx-auto grid h-full max-w-7xl lg:grid-cols-[0.9fr_1.1fr]">
-                <div className="relative z-10 flex flex-col justify-center px-5 pb-14 pt-14 sm:px-8 lg:px-12 lg:py-8">
+                {/* TEXT */}
+                <div className="relative z-20 flex flex-col justify-center px-5 pb-14 pt-14 sm:px-8 lg:px-12 lg:py-8">
                   {slide.label ? (
                     <span
-                      className={`mb-3 inline-flex w-fit rounded-full px-3 py-1 font-mono text-[9px] font-black uppercase tracking-[0.2em] ${slide.labelColor}`}
+                      className={`mb-3 inline-flex w-fit border border-accent/60 bg-[#010522]/80 px-3 py-1 font-mono text-[9px] font-black uppercase tracking-[0.2em] text-accent backdrop-blur-sm ${slide.labelColor}`}
                     >
                       {slide.label}
                     </span>
@@ -149,7 +99,7 @@ export function FeaturedSlider() {
                     {slide.title}
                   </h2>
 
-                  <p className="mt-3 max-w-lg text-sm font-semibold leading-relaxed tracking-[0.01em] text-on-ink/95 sm:text-base lg:text-base lg:text-text">
+                  <p className="mt-3 max-w-lg text-sm font-semibold leading-relaxed tracking-[0.01em] text-white/90 sm:text-base lg:text-base">
                     {slide.description}
                   </p>
 
@@ -162,37 +112,53 @@ export function FeaturedSlider() {
                   ) : null}
                 </div>
 
+                {/* DESKTOP IMAGE */}
                 <div className="relative hidden h-full overflow-hidden lg:block">
-                  <div className="absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background via-background/75 to-transparent" />
-
                   <Image
                     src={slide.imageDesktop}
                     alt=""
                     fill
                     priority={i === 0}
-                    className="object-cover object-center"
+                    className="scale-[1.03] object-cover object-center"
                     sizes="55vw"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-[#010522]/10" />
                 </div>
               </div>
             </Link>
           );
         })}
 
+        {/* CONTROLS */}
         <div className="absolute inset-x-0 bottom-0 z-40">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 pb-3 sm:px-6 lg:px-12 lg:pb-4">
             <button
               type="button"
               onClick={goPrev}
               aria-label="Poprzedni slajd"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-on-ink/25 bg-ink/50 text-on-ink backdrop-blur transition hover:scale-105 hover:bg-primary hover:text-ink lg:border-primary/30 lg:bg-surface lg:text-ink"
+              className="
+                flex
+                h-9
+                w-9
+                items-center
+                justify-center
+                border-2
+                border-accent
+                bg-[#010522]/80
+                text-accent
+                backdrop-blur
+                transition
+                hover:bg-accent
+                hover:text-ink
+                lg:h-10
+                lg:w-10
+              "
             >
               <ArrowIcon direction="left" />
             </button>
 
-            <div className="flex items-center gap-2 rounded-full border border-primary/30 bg-ink/55 px-3 py-1.5 text-on-ink backdrop-blur lg:bg-surface lg:text-ink">
+            <div className="flex items-center gap-2 border-2 border-accent/50 bg-[#010522]/85 px-3 py-1.5 text-white backdrop-blur">
               <span className="font-mono text-[10px] font-bold">
                 {String(index + 1).padStart(2, "0")} /{" "}
                 {String(total).padStart(2, "0")}
@@ -208,8 +174,8 @@ export function FeaturedSlider() {
                     aria-current={i === index}
                     className={`h-1.5 rounded-full transition-all ${
                       i === index
-                        ? "w-7 bg-primary"
-                        : "w-1.5 bg-on-ink/40 hover:bg-accent lg:bg-border"
+                        ? "w-7 bg-accent"
+                        : "w-1.5 bg-white/40 hover:bg-primary"
                     }`}
                   />
                 ))}
@@ -220,7 +186,23 @@ export function FeaturedSlider() {
               type="button"
               onClick={goNext}
               aria-label="Następny slajd"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-on-ink/25 bg-ink/50 text-on-ink backdrop-blur transition hover:scale-105 hover:bg-primary hover:text-ink lg:border-primary/30 lg:bg-surface lg:text-ink"
+              className="
+                flex
+                h-9
+                w-9
+                items-center
+                justify-center
+                border-2
+                border-accent
+                bg-[#010522]/80
+                text-accent
+                backdrop-blur
+                transition
+                hover:bg-accent
+                hover:text-ink
+                lg:h-10
+                lg:w-10
+              "
             >
               <ArrowIcon direction="right" />
             </button>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
   children: React.ReactNode;
@@ -55,106 +56,13 @@ export default function EventsPage() {
 
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
-      {/* ================================================== */}
-      {/* BACKGROUND DECORATIONS */}
-      {/* ================================================== */}
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-[8%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary animate-[decor-float_14s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[15%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent animate-[decor-drift-reverse_16s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[7%] top-[27%] z-0 hidden h-12 w-12 rotate-12 bg-pink animate-[decor-spin-float_11s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[8%] top-[34%] z-0 hidden h-14 w-14 rotate-45 bg-blue animate-[decor-drift_13s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-5 top-[52%] z-0 hidden h-24 w-24 rotate-45 bg-accent animate-[decor-float_15s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-5 top-[61%] z-0 hidden h-28 w-28 -rotate-12 bg-primary animate-[decor-drift-reverse_17s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[8%] left-[7%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue animate-[decor-float-small_10s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[10%] right-[12%] z-0 hidden h-8 w-8 rotate-45 bg-accent animate-[decor-spin-float_9s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[20%] top-[18%] z-0 hidden h-4 w-4 rotate-45 bg-accent animate-[decor-float-small_8s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[21%] top-[24%] z-0 hidden h-4 w-4 bg-pink animate-[decor-drift-reverse_10s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[25%] left-[17%] z-0 hidden h-3 w-3 bg-primary animate-[decor-float-small_7s_ease-in-out_infinite] lg:block"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[20%] right-[18%] z-0 hidden h-3 w-3 rotate-45 bg-blue animate-[decor-spin-float_9s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* ================================================== */}
-      {/* NEON GLOW */}
-      {/* ================================================== */}
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-35px] left-1/2 top-0 z-0 w-full max-w-7xl -translate-x-1/2 rounded-b-[36px] bg-[#0d0b54] opacity-100 blur-[55px] shadow-[0_0_100px_35px_rgba(13,11,84,0.95),0_0_160px_55px_rgba(1,5,59,0.9)] sm:blur-[65px] sm:shadow-[0_0_120px_40px_rgba(13,11,84,0.98),0_0_190px_65px_rgba(1,5,59,0.95)]"
-      />
+      <TetrisDecorations />
 
       {/* ================================================== */}
       {/* MAIN CONTENT SURFACE */}
       {/* ================================================== */}
 
-      <div
-        className="
-          relative
-          z-10
-          mx-auto
-          w-full
-          max-w-7xl
-          overflow-hidden
-          rounded-b-[32px]
-          bg-[length:100%_100%]
-          bg-center
-          bg-no-repeat
-          px-5
-          py-14
-          sm:px-8
-          sm:py-16
-          lg:px-10
-          lg:py-20
-        "
-        style={{
-          backgroundImage: "url('/images/bgv2.png')",
-        }}
-      >
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-30">
           {/* ================================================== */}
           {/* HEADER */}
@@ -168,7 +76,7 @@ export default function EventsPage() {
             </Reveal>
 
             <Reveal delay={100}>
-              <h1 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-7xl lg:text-9xl">
+              <h1 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
                 IMPREZY
               </h1>
             </Reveal>
@@ -207,7 +115,7 @@ export default function EventsPage() {
                   className="absolute -bottom-4 -right-4 z-0 h-full w-full rounded-3xl bg-primary"
                 />
 
-                <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-accent bg-surface">
+                <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-accent bg-[#010522]">
                   <Image
                     src="/images/placeholders/placeholder.png"
                     alt="Prywatny room FlippClub"
@@ -225,7 +133,7 @@ export default function EventsPage() {
                   YOUR PARTY BASE
                 </p>
 
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-5xl">
+                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl">
                   Twój room.
                   <br />
                   Twoja ekipa.
@@ -333,7 +241,7 @@ export default function EventsPage() {
                   TWOJA BAZA
                 </p>
 
-                <h2 className="mt-3 font-display text-3xl font-extrabold uppercase text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-4xl">
+                <h2 className="mt-3 font-display text-3xl font-extrabold uppercase text-primary sm:text-4xl">
                   Zobacz, gdzie się spotkacie
                 </h2>
               </div>
@@ -387,7 +295,7 @@ export default function EventsPage() {
                   GAME MODE SELECT
                 </p>
 
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-5xl">
+                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl">
                   Wybierz swój tryb
                 </h2>
               </div>
@@ -395,10 +303,10 @@ export default function EventsPage() {
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               <Reveal delay={0}>
-                <div className="h-full border-2 border-accent bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
+                <div className="h-full border-2 border-accent bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-primary)]">
                   <p className="font-mono text-xs font-bold text-accent">01</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
                     Urodziny
                   </h3>
 
@@ -410,10 +318,10 @@ export default function EventsPage() {
               </Reveal>
 
               <Reveal delay={90}>
-                <div className="h-full border-2 border-primary bg-surface p-6 shadow-[5px_6px_0_var(--color-accent)]">
+                <div className="h-full border-2 border-primary bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-accent)]">
                   <p className="font-mono text-xs font-bold text-primary">02</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
                     Integracja
                   </h3>
 
@@ -425,10 +333,10 @@ export default function EventsPage() {
               </Reveal>
 
               <Reveal delay={180}>
-                <div className="h-full border-2 border-pink bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
+                <div className="h-full border-2 border-pink bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-primary)]">
                   <p className="font-mono text-xs font-bold text-pink">03</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
                     Wieczór
                   </h3>
 
@@ -439,10 +347,10 @@ export default function EventsPage() {
               </Reveal>
 
               <Reveal delay={270}>
-                <div className="h-full border-2 border-blue bg-surface p-6 shadow-[5px_6px_0_var(--color-blue)]">
+                <div className="h-full border-2 border-blue bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-blue)]">
                   <p className="font-mono text-xs font-bold text-blue">04</p>
 
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-[#010522]">
+                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
                     Wasz tryb
                   </h3>
 
@@ -464,7 +372,7 @@ export default function EventsPage() {
                 READY?
               </p>
 
-              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary drop-shadow-[2px_2px_0_#f1f1ee] sm:text-6xl lg:text-7xl">
+              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-6xl lg:text-7xl">
                 GAME ON.
               </h2>
 
