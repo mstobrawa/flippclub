@@ -234,38 +234,42 @@ export default function FlippersPage() {
           "
           style={{ animationDelay: "750ms" }}
         >
-          <Link
-            href="/contact"
-            className="
-              group
-              inline-flex
-              items-center
-              gap-3
-              rounded-pill
-              bg-accent
-              px-8
-              py-4
-              font-display
-              text-base
-              font-extrabold
-              uppercase
-              tracking-[0.12em]
-              text-ink
-              transition
-              hover:-translate-y-1
-              hover:bg-primary
-              hover:text-on-ink
-              focus-visible:outline
-              focus-visible:outline-2
-              focus-visible:outline-offset-4
-              focus-visible:outline-primary
-            "
-          >
-            <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
-              ●
-            </span>
-            INSERT COIN
-          </Link>
+          <div className="relative inline-flex">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+            />
+
+            <Link
+              href="/contact"
+              className="
+                relative
+                inline-flex
+                min-h-14
+                items-center
+                justify-center
+                bg-primary
+                px-7
+                py-4
+                font-mono
+                text-sm
+                font-bold
+                uppercase
+                tracking-[0.12em]
+                text-white
+                transition
+                duration-200
+                hover:-translate-y-1
+                focus-visible:outline
+                focus-visible:outline-2
+                focus-visible:outline-offset-4
+                focus-visible:outline-accent
+                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+              "
+            >
+              NAPISZ DO NAS →
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -281,8 +285,6 @@ export default function FlippersPage() {
           aria-modal="true"
           aria-label="Podgląd zdjęcia"
         >
-          {/* Close button */}
-
           <button
             type="button"
             onClick={() => setSelectedImage(null)}
@@ -313,8 +315,6 @@ export default function FlippersPage() {
           >
             ×
           </button>
-
-          {/* Enlarged image */}
 
           <div
             className="

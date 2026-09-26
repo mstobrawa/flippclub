@@ -10,7 +10,17 @@ export default function ExcavatorsPage() {
   const images = [1, 2, 3, 4];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+    <section
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)]
+        pb-16
+        sm:pb-20
+        lg:pb-24
+      "
+    >
       {/* ================================================== */}
       {/* DECORATIVE TAPE */}
       {/* ================================================== */}
@@ -146,10 +156,28 @@ export default function ExcavatorsPage() {
               <div className="relative">
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                  className="
+                    absolute
+                    inset-0
+                    translate-x-2
+                    translate-y-2
+                    bg-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
                 />
 
-                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                <div
+                  className="
+                    relative
+                    bg-[#f1f1ee]
+                    px-6
+                    py-5
+                    shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                    sm:px-8
+                    sm:py-6
+                  "
+                >
                   <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
                     Mały plac budowy, wielka frajda. Steruj zdalnie koparkami,
                     spychaczami i ciężarówkami i sprawdź, kto najlepiej poradzi
@@ -241,38 +269,49 @@ export default function ExcavatorsPage() {
             "
             style={{ animationDelay: "850ms" }}
           >
-            <Link
-              href="/contact"
-              className="
-                group
-                inline-flex
-                items-center
-                gap-3
-                rounded-pill
-                bg-accent
-                px-8
-                py-4
-                font-display
-                text-base
-                font-extrabold
-                uppercase
-                tracking-[0.12em]
-                text-ink
-                transition
-                hover:-translate-y-1
-                hover:bg-primary
-                hover:text-on-ink
-                focus-visible:outline
-                focus-visible:outline-2
-                focus-visible:outline-offset-4
-                focus-visible:outline-primary
-              "
-            >
-              <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
-                ●
-              </span>
-              INSERT COIN
-            </Link>
+            <div className="relative inline-flex">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-2
+                  translate-y-2
+                  bg-accent
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              />
+
+              <Link
+                href="/contact"
+                className="
+                  relative
+                  inline-flex
+                  min-h-14
+                  items-center
+                  justify-center
+                  bg-primary
+                  px-7
+                  py-4
+                  font-mono
+                  text-sm
+                  font-bold
+                  uppercase
+                  tracking-[0.12em]
+                  text-white
+                  transition
+                  duration-200
+                  hover:-translate-y-1
+                  focus-visible:outline
+                  focus-visible:outline-2
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-accent
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              >
+                NAPISZ DO NAS →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -283,7 +322,18 @@ export default function ExcavatorsPage() {
 
       {selectedImage !== null ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
+          className="
+            fixed
+            inset-0
+            z-[100]
+            flex
+            items-center
+            justify-center
+            bg-ink/90
+            p-5
+            backdrop-blur-sm
+            sm:p-8
+          "
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"

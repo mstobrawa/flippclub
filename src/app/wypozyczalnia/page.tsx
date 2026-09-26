@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
@@ -125,7 +126,7 @@ export default function RentalPage() {
           {/* CTA */}
           {/* ================================================== */}
 
-          <Reveal delay={150}>
+          <Reveal delay={400}>
             <div className="mx-auto mt-20 flex max-w-2xl flex-col items-center text-center sm:mt-24">
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
                 NEED MORE INFO?
@@ -140,15 +141,42 @@ export default function RentalPage() {
                 się z nami.
               </p>
 
-              <Link
-                href="/contact"
-                className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-              >
-                <span className="text-xl transition-transform duration-200 group-hover:scale-125">
-                  ●
-                </span>
-                ODEZWIJ SIĘ DO NAS
-              </Link>
+              <div className="relative mt-8 inline-flex">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <Link
+                  href="/contact"
+                  className="
+                    relative
+                    inline-flex
+                    min-h-14
+                    items-center
+                    justify-center
+                    bg-primary
+                    px-7
+                    py-4
+                    font-mono
+                    text-sm
+                    font-bold
+                    uppercase
+                    tracking-[0.12em]
+                    text-white
+                    transition
+                    duration-200
+                    hover:-translate-y-1
+                    focus-visible:outline
+                    focus-visible:outline-2
+                    focus-visible:outline-offset-4
+                    focus-visible:outline-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                >
+                  NAPISZ DO NAS →
+                </Link>
+              </div>
             </div>
           </Reveal>
         </div>

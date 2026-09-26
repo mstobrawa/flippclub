@@ -522,14 +522,14 @@ export function FacebookFeed() {
                           top-0
                           w-[138%]
                           origin-top-left
-                          scale-[0.72]
+                          scale-[0.77]
                         "
                       >
                         <div
                           className="fb-page"
                           data-href="https://www.facebook.com/flippclub"
                           data-show-posts="true"
-                          data-width="520"
+                          data-width="550"
                           data-height="900"
                           data-small-header="true"
                           data-adapt-container-width="true"
@@ -554,7 +554,7 @@ export function FacebookFeed() {
 
               {/* HEADING IN RHOMBUS */}
 
-              <h3 className="font-display text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-[#1c1420] sm:text-4xl">
+              <h3 className="font-display text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-accent sm:text-4xl">
                 Zostań z nami w kontakcie
               </h3>
 

@@ -121,7 +121,7 @@ export default function BarPage() {
 
           {/* Text */}
           <div
-            className="page-reveal-up max-w-xl"
+            className="page-reveal-up mx-auto max-w-xl md:mx-0"
             style={{ animationDelay: "500ms" }}
           >
             <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -242,7 +242,7 @@ export default function BarPage() {
         <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 sm:mt-24 md:grid-cols-2 md:gap-16">
           {/* Text */}
           <div
-            className="page-reveal-up order-2 max-w-xl md:order-1"
+            className="page-reveal-up order-2 mx-auto max-w-xl md:order-1 md:mx-0"
             style={{ animationDelay: "1200ms" }}
           >
             <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
@@ -330,34 +330,49 @@ export default function BarPage() {
             partię.
           </p>
 
-          <Link
-            href="/contact"
-            className="
-              mt-7
-              inline-flex
-              items-center
-              justify-center
-              bg-primary
-              px-7
-              py-4
-              font-mono
-              text-sm
-              font-bold
-              uppercase
-              tracking-[0.12em]
-              text-on-ink
-              shadow-[5px_6px_0_var(--color-accent)]
-              transition
-              duration-200
-              hover:-translate-y-1
-              hover:shadow-[7px_8px_0_var(--color-accent)]
-              focus-visible:outline
-              focus-visible:outline-offset-4
-              focus-visible:outline-accent
-            "
-          >
-            Napisz do nas →
-          </Link>
+          <div className="relative mt-7 inline-flex">
+            <div
+              aria-hidden="true"
+              className="
+                absolute
+                inset-0
+                translate-x-2
+                translate-y-2
+                bg-accent
+                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+              "
+            />
+
+            <Link
+              href="/contact"
+              className="
+                relative
+                inline-flex
+                min-h-14
+                items-center
+                justify-center
+                bg-primary
+                px-7
+                py-4
+                font-mono
+                text-sm
+                font-bold
+                uppercase
+                tracking-[0.12em]
+                text-white
+                transition
+                duration-200
+                hover:-translate-y-1
+                focus-visible:outline
+                focus-visible:outline-2
+                focus-visible:outline-offset-4
+                focus-visible:outline-accent
+                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+              "
+            >
+              NAPISZ DO NAS →
+            </Link>
+          </div>
         </div>
       </div>
 

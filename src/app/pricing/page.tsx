@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
 type PriceBlock = {
@@ -169,6 +170,7 @@ export default function PricingPage() {
                       className={`group relative h-full overflow-hidden rounded-3xl border-2 bg-[#010522] p-6 transition duration-200 hover:-translate-y-1 ${styles.border} ${styles.shadow}`}
                     >
                       {/* Card header */}
+
                       <div className="border-b-2 border-white/15 pb-5">
                         <p
                           className={`font-display ${
@@ -186,6 +188,7 @@ export default function PricingPage() {
                       </div>
 
                       {/* Prices */}
+
                       <div className="mt-2">
                         {price.blocks.slice(1).map((block) => (
                           <div
@@ -206,6 +209,7 @@ export default function PricingPage() {
                       </div>
 
                       {/* Hover detail */}
+
                       <div className="mt-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 opacity-0 transition duration-200 group-hover:opacity-100">
                         INSERT COIN • PLAY
                       </div>
@@ -244,7 +248,7 @@ export default function PricingPage() {
 
           <Reveal delay={350}>
             <div className="mx-auto mt-16 flex max-w-2xl flex-col items-center text-center sm:mt-20">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
                 READY?
               </p>
 
@@ -256,15 +260,42 @@ export default function PricingPage() {
                 Wybierz termin i wpadaj na partyjkę. Czekamy na Ciebie.
               </p>
 
-              <Link
-                href="/contact"
-                className="group mt-7 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-              >
-                <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
-                  ●
-                </span>
-                ODEZWIJ SIĘ DO NAS
-              </Link>
+              <div className="relative mt-8 inline-flex">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <Link
+                  href="/contact"
+                  className="
+                    relative
+                    inline-flex
+                    min-h-14
+                    items-center
+                    justify-center
+                    bg-primary
+                    px-7
+                    py-4
+                    font-mono
+                    text-sm
+                    font-bold
+                    uppercase
+                    tracking-[0.12em]
+                    text-white
+                    transition
+                    duration-200
+                    hover:-translate-y-1
+                    focus-visible:outline
+                    focus-visible:outline-2
+                    focus-visible:outline-offset-4
+                    focus-visible:outline-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                >
+                  NAPISZ DO NAS →
+                </Link>
+              </div>
             </div>
           </Reveal>
         </div>

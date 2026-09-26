@@ -89,6 +89,7 @@ export default function ArcadesPage() {
 
                 <div className="flex items-center gap-2">
                   <span className="h-3 w-3 animate-pulse rounded-full bg-accent" />
+
                   <span className="font-mono text-xs font-bold uppercase tracking-[0.15em] text-white/70">
                     READY
                   </span>
@@ -207,43 +208,46 @@ export default function ArcadesPage() {
             flex
             flex-col
             items-center
-            gap-6
             sm:mt-16
           "
           style={{ animationDelay: "800ms" }}
         >
-          <Link
-            href="/contact"
-            className="
-              group
-              inline-flex
-              items-center
-              gap-3
-              rounded-pill
-              bg-accent
-              px-8
-              py-4
-              font-display
-              text-base
-              font-extrabold
-              uppercase
-              tracking-[0.12em]
-              text-ink
-              transition
-              hover:-translate-y-1
-              hover:bg-primary
-              hover:text-on-ink
-              focus-visible:outline
-              focus-visible:outline-2
-              focus-visible:outline-offset-4
-              focus-visible:outline-primary
-            "
-          >
-            <span className="font-mono text-lg transition-transform duration-200 group-hover:translate-x-1">
-              &gt;_
-            </span>
-            INSERT COIN
-          </Link>
+          <div className="relative inline-flex">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+            />
+
+            <Link
+              href="/contact"
+              className="
+                relative
+                inline-flex
+                min-h-14
+                items-center
+                justify-center
+                bg-primary
+                px-7
+                py-4
+                font-mono
+                text-sm
+                font-bold
+                uppercase
+                tracking-[0.12em]
+                text-white
+                transition
+                duration-200
+                hover:-translate-y-1
+                focus-visible:outline
+                focus-visible:outline-2
+                focus-visible:outline-offset-4
+                focus-visible:outline-accent
+                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+              "
+            >
+              NAPISZ DO NAS →
+            </Link>
+          </div>
         </div>
       </div>
 

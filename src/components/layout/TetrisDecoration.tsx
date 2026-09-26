@@ -197,14 +197,14 @@ export function TetrisDecorations() {
     <div
       aria-hidden="true"
       className="
-        pointer-events-none
-        absolute
-        left-0
-        top-0
-        z-0
-        w-full
-        overflow-hidden
-      "
+    pointer-events-none
+    absolute
+    left-0
+    top-0
+    z-0
+    w-full
+    overflow-hidden
+  "
       style={{
         height: `${viewportCount * 100}svh`,
       }}

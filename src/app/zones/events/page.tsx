@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
@@ -41,7 +42,9 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
+      className={`${
+        visible ? "page-reveal-visible" : "page-reveal-hidden"
+      } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -59,7 +62,7 @@ export default function EventsPage() {
       <TetrisDecorations />
 
       {/* ================================================== */}
-      {/* MAIN CONTENT SURFACE */}
+      {/* MAIN CONTENT */}
       {/* ================================================== */}
 
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
@@ -69,7 +72,7 @@ export default function EventsPage() {
           {/* ================================================== */}
 
           <div className="mx-auto max-w-4xl text-center">
-            <Reveal delay={0}>
+            <Reveal>
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
                 EVENT MODE
               </p>
@@ -83,13 +86,11 @@ export default function EventsPage() {
 
             <Reveal delay={180}>
               <div className="relative mx-auto mt-7 max-w-3xl">
-                {/* purple offset */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
                 />
 
-                {/* rhomboid text box */}
                 <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
                   <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
                     Urodziny? Integracja? Wieczór kawalerski?{" "}
@@ -107,8 +108,8 @@ export default function EventsPage() {
           {/* HERO ROOM */}
           {/* ================================================== */}
 
-          <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16 sm:mt-20">
-            <Reveal delay={0}>
+          <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 sm:mt-20 md:grid-cols-2 md:gap-16">
+            <Reveal>
               <div className="relative">
                 <div
                   aria-hidden="true"
@@ -140,13 +141,11 @@ export default function EventsPage() {
                 </h2>
 
                 <div className="relative mt-6">
-                  {/* purple offset */}
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
                   />
 
-                  {/* rhomboid text box */}
                   <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-7 sm:py-6">
                     <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
                       Zamykasz drzwi i zaczyna się Wasza impreza. Prywatna
@@ -169,11 +168,6 @@ export default function EventsPage() {
           {/* ================================================== */}
 
           <div className="relative mx-auto mt-24 max-w-5xl sm:mt-28">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-1/2 z-0 hidden h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border-[20px] border-accent/20 animate-[decor-float_18s_ease-in-out_infinite] lg:block"
-            />
-
             <div className="relative z-10 mx-auto max-w-3xl text-center">
               <Reveal>
                 <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-primary sm:text-sm">
@@ -192,13 +186,11 @@ export default function EventsPage() {
 
               <Reveal delay={180}>
                 <div className="relative mx-auto mt-7 max-w-2xl">
-                  {/* blue offset */}
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 translate-x-2 translate-y-2 bg-blue [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]"
                   />
 
-                  {/* rhomboid text box */}
                   <div className="relative bg-[#f1f1ee] px-6 py-5 text-left shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-6">
                     <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
                       Tu zaczynacie. Tu wracacie. Tu łapiecie oddech między
@@ -215,7 +207,7 @@ export default function EventsPage() {
                     (player) => (
                       <div
                         key={player}
-                        className="group border-2 border-primary/20 bg-surface px-3 py-3 text-center font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-primary shadow-[3px_4px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent hover:bg-primary hover:text-on-ink hover:shadow-[4px_5px_0_var(--color-accent)]"
+                        className="group border-2 border-primary/20 bg-[#010522] px-3 py-3 text-center font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-primary shadow-[3px_4px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent hover:bg-primary hover:text-white hover:shadow-[4px_5px_0_var(--color-accent)]"
                       >
                         <span className="group-hover:hidden">{player}</span>
 
@@ -302,7 +294,7 @@ export default function EventsPage() {
             </Reveal>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              <Reveal delay={0}>
+              <Reveal>
                 <div className="h-full border-2 border-accent bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-primary)]">
                   <p className="font-mono text-xs font-bold text-accent">01</p>
 
@@ -310,7 +302,7 @@ export default function EventsPage() {
                     Urodziny
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">
                     Zbierz ekipę i zróbcie urodzinową rundę, której nie
                     zapomnicie.
                   </p>
@@ -325,7 +317,7 @@ export default function EventsPage() {
                     Integracja
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">
                     Oderwijcie się od biurek i spędźcie razem trochę czasu poza
                     pracą.
                   </p>
@@ -340,7 +332,7 @@ export default function EventsPage() {
                     Wieczór
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">
                     Kawalerski, panieński albo po prostu wieczór ze znajomymi.
                   </p>
                 </div>
@@ -354,7 +346,7 @@ export default function EventsPage() {
                     Wasz tryb
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-[#45454d]">
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">
                     Nie ma na liście? Tym lepiej. Powiedzcie nam, co planujecie.
                   </p>
                 </div>
@@ -390,15 +382,42 @@ export default function EventsPage() {
                 </div>
               </div>
 
-              <Link
-                href="/contact"
-                className="group mt-10 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-              >
-                <span className="text-xl transition-transform duration-200 group-hover:scale-125">
-                  ●
-                </span>
-                ZAREZERWUJ IMPREZĘ
-              </Link>
+              <div className="relative mt-10 inline-flex">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <Link
+                  href="/contact"
+                  className="
+                    relative
+                    inline-flex
+                    min-h-14
+                    items-center
+                    justify-center
+                    bg-primary
+                    px-7
+                    py-4
+                    font-mono
+                    text-sm
+                    font-bold
+                    uppercase
+                    tracking-[0.12em]
+                    text-white
+                    transition
+                    duration-200
+                    hover:-translate-y-1
+                    focus-visible:outline
+                    focus-visible:outline-2
+                    focus-visible:outline-offset-4
+                    focus-visible:outline-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                >
+                  NAPISZ DO NAS →
+                </Link>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -420,13 +439,47 @@ export default function EventsPage() {
             type="button"
             onClick={() => setSelectedImage(null)}
             aria-label="Zamknij podgląd"
-            className="absolute right-5 top-5 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl font-bold text-ink transition hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="
+              absolute
+              right-5
+              top-5
+              z-10
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              bg-accent
+              text-2xl
+              font-bold
+              text-ink
+              transition
+              hover:bg-primary
+              hover:text-white
+              focus-visible:outline
+              focus-visible:outline-2
+              focus-visible:outline-offset-2
+              focus-visible:outline-accent
+            "
           >
             ×
           </button>
 
           <div
-            className="relative max-h-[90vh] w-full max-w-5xl cursor-pointer overflow-hidden rounded-2xl border-4 border-accent bg-dark-gray shadow-[8px_10px_0_var(--color-primary)]"
+            className="
+              relative
+              max-h-[90vh]
+              w-full
+              max-w-5xl
+              cursor-pointer
+              overflow-hidden
+              rounded-2xl
+              border-4
+              border-accent
+              bg-dark-gray
+              shadow-[8px_10px_0_var(--color-primary)]
+            "
             onClick={() => setSelectedImage(null)}
           >
             <Image

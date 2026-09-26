@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+
 type RevealProps = {
   children: React.ReactNode;
   className?: string;
@@ -52,308 +54,535 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 
 export default function AboutPage() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+    <section
+      className="
+        relative
+        z-0
+        min-h-screen
+        overflow-hidden
+        bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)]
+        pb-16
+        sm:pb-20
+        lg:pb-24
+      "
+    >
       {/* ================================================== */}
-      {/* BACKGROUND DECORATIONS */}
-      {/* ================================================== */}
-
-      {/* Large purple ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-[10%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary animate-[decor-float_14s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Large yellow ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[20%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent animate-[decor-drift-reverse_16s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Pink square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[7%] top-[38%] z-0 hidden h-12 w-12 rotate-12 bg-pink animate-[decor-spin-float_11s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Blue diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[8%] top-[45%] z-0 hidden h-14 w-14 rotate-45 bg-blue animate-[decor-drift_13s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Yellow diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-5 top-[65%] z-0 hidden h-24 w-24 rotate-45 bg-accent animate-[decor-float_17s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Purple square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-5 top-[72%] z-0 hidden h-28 w-28 -rotate-12 bg-primary animate-[decor-drift-reverse_15s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Bottom ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[8%] left-[8%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue animate-[decor-float-small_10s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small yellow pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[20%] top-[18%] z-0 hidden h-4 w-4 rotate-45 bg-accent animate-[decor-float-small_8s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small pink pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[21%] top-[30%] z-0 hidden h-4 w-4 bg-pink animate-[decor-drift_9s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small purple pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[25%] left-[17%] z-0 hidden h-3 w-3 bg-primary animate-[decor-float-small_7s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* ================================================== */}
-      {/* CONTENT SURFACE — CUSTOM BACKGROUND */}
+      {/* TETRIS DECORATIONS */}
       {/* ================================================== */}
 
-      <div
-        className="
-          relative
-          z-10
-          mx-auto
-          w-full
-          max-w-7xl
-          overflow-hidden
-          rounded-b-[32px]
-          bg-cover
-          bg-center
-          bg-no-repeat
-          px-5
-          py-14
-          sm:px-8
-          sm:py-16
-          lg:px-10
-          lg:py-20
-        "
-        style={{
-          backgroundImage: "url('/bg.png')",
-        }}
-      >
+      <TetrisDecorations />
+
+      {/* ================================================== */}
+      {/* CONTENT */}
+      {/* ================================================== */}
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         {/* ================================================== */}
-        {/* CONTENT */}
+        {/* HEADER */}
         {/* ================================================== */}
 
-        <div className="relative z-30">
-          {/* ================================================== */}
-          {/* HEADER */}
-          {/* ================================================== */}
+        <div className="mx-auto max-w-4xl text-center">
+          <Reveal>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
+              PLAYER PROFILE
+            </p>
+          </Reveal>
 
-          <div className="mx-auto max-w-4xl text-center">
-            <Reveal>
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
-                PLAYER PROFILE
+          <Reveal delay={100}>
+            <h1 className="mt-3 font-display text-[clamp(3.5rem,16vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-tight text-primary">
+              O NAS
+            </h1>
+          </Reveal>
+
+          <Reveal delay={180}>
+            <div className="relative mx-auto mt-7 max-w-3xl">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-2
+                  translate-y-2
+                  bg-primary
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  bg-[#f1f1ee]
+                  px-5
+                  py-5
+                  shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  sm:px-8
+                  sm:py-6
+                "
+              >
+                <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                  FlippClub to miejsce stworzone dla ludzi, którzy lubią dobrą
+                  zabawę, rywalizację i powrót do klasyki. Wchodzisz, wybierasz
+                  swoją grę i po prostu grasz.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* ================================================== */}
+        {/* INTRO */}
+        {/* ================================================== */}
+
+        <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 sm:mt-20 md:grid-cols-2 md:gap-16">
+          {/* Image */}
+          <Reveal>
+            <div className="relative mx-auto w-full max-w-xl">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  -bottom-4
+                  -right-4
+                  h-full
+                  w-full
+                  rounded-3xl
+                  bg-primary
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  z-10
+                  overflow-hidden
+                  rounded-3xl
+                  border-2
+                  border-accent
+                  bg-[#010522]
+                "
+              >
+                <div className="relative aspect-[4/3] bg-dark-gray">
+                  <Image
+                    src="/images/placeholders/placeholder.png"
+                    alt="FlippClub"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Text */}
+          <Reveal
+            delay={140}
+            className="mx-auto w-full max-w-xl text-center md:mx-0 md:text-left"
+          >
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              WHO WE ARE
+            </p>
+
+            <h2 className="mt-3 font-display text-[clamp(2rem,6vw,3rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
+              Więcej niż
+              <br />
+              salon gier.
+            </h2>
+
+            <div className="relative mt-6">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-2
+                  translate-y-2
+                  bg-accent
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  bg-[#f1f1ee]
+                  px-5
+                  py-5
+                  text-left
+                  shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  sm:px-8
+                  sm:py-6
+                "
+              >
+                <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                  Chcieliśmy stworzyć miejsce, do którego samemu wpada się na
+                  szybką rundę, ale równie dobrze można przyjść z całą ekipą i
+                  zostać na dłużej.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative mt-5">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-2
+                  translate-y-2
+                  bg-primary
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  bg-[#f1f1ee]
+                  px-5
+                  py-5
+                  text-left
+                  shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  sm:px-8
+                  sm:py-6
+                "
+              >
+                <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                  Dlatego połączyliśmy klimat klasycznych salonów gier z
+                  nowoczesną przestrzenią, w której można spotkać się ze
+                  znajomymi, rywalizować i po prostu dobrze spędzić czas.
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-primary sm:text-sm">
+              PLAY • COMPETE • REPEAT
+            </p>
+          </Reveal>
+        </div>
+
+        {/* ================================================== */}
+        {/* VALUES */}
+        {/* ================================================== */}
+
+        <div className="mx-auto mt-24 max-w-5xl sm:mt-28">
+          <Reveal>
+            <div className="text-center">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary sm:text-sm">
+                GAME RULES
               </p>
-            </Reveal>
 
-            <Reveal delay={100}>
-              <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
-                O NAS
-              </h1>
-            </Reveal>
+              <h2 className="mt-3 font-display text-[clamp(2.3rem,7vw,3.5rem)] font-extrabold uppercase leading-tight tracking-tight text-pink">
+                Jak gramy?
+              </h2>
+            </div>
+          </Reveal>
 
-            <Reveal delay={180}>
-              <p className="mx-auto mt-6 max-w-3xl rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
-                FlippClub to miejsce stworzone dla ludzi, którzy lubią dobrą
-                zabawę, rywalizację i powrót do klasyki. Wchodzisz, wybierasz
-                swoją grę i po prostu grasz.
-              </p>
-            </Reveal>
-          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {/* Card 01 */}
+            <Reveal delay={0} className="h-full">
+              <div
+                className="
+                  relative
+                  h-full
+                  border-2
+                  border-primary
+                  bg-[#010522]
+                  p-6
+                  shadow-[5px_6px_0_var(--color-accent)]
+                "
+              >
+                <p className="font-mono text-xs font-bold text-primary">01</p>
 
-          {/* ================================================== */}
-          {/* INTRO */}
-          {/* ================================================== */}
+                <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
+                  Dobra zabawa
+                </h3>
 
-          <div className="relative z-30 mx-auto mt-16 grid max-w-5xl items-center gap-10 sm:mt-20 md:grid-cols-2 md:gap-16">
-            {/* Image */}
-            <Reveal>
-              <div className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute -bottom-4 -right-4 z-0 h-full w-full rounded-3xl bg-primary"
-                />
+                <div className="relative mt-4">
+                  <div
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      inset-0
+                      translate-x-1
+                      translate-y-1
+                      bg-primary
+                      [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]
+                    "
+                  />
 
-                <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-accent bg-surface">
-                  <div className="relative aspect-[4/3] bg-dark-gray">
-                    <Image
-                      src="/images/placeholders/placeholder.png"
-                      alt="FlippClub"
-                      fill
-                      className="object-cover"
-                    />
+                  <div
+                    className="
+                      relative
+                      bg-[#f1f1ee]
+                      px-4
+                      py-4
+                      text-left
+                      shadow-[inset_4px_4px_8px_0px_rgba(0,0,0,0.5)]
+                      [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]
+                    "
+                  >
+                    <p className="text-sm leading-relaxed text-[#45454d]">
+                      Bez napinki. Liczy się atmosfera, wspólna gra i dobra
+                      zabawa.
+                    </p>
                   </div>
                 </div>
               </div>
             </Reveal>
 
-            {/* Text */}
-            <Reveal delay={140}>
-              <div className="relative z-30 max-w-xl">
-                <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
-                  WHO WE ARE
-                </p>
+            {/* Card 02 */}
+            <Reveal delay={120} className="h-full">
+              <div
+                className="
+                  relative
+                  h-full
+                  border-2
+                  border-accent
+                  bg-[#010522]
+                  p-6
+                  shadow-[5px_6px_0_var(--color-primary)]
+                "
+              >
+                <p className="font-mono text-xs font-bold text-accent">02</p>
 
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl">
-                  Więcej niż
-                  <br />
-                  salon gier.
-                </h2>
+                <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
+                  Zdrowa rywalizacja
+                </h3>
 
-                <p className="mt-5 rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
-                  Chcieliśmy stworzyć miejsce, do którego samemu wpada się na
-                  szybką rundę, ale równie dobrze można przyjść z całą ekipą i
-                  zostać na dłużej.
-                </p>
+                <div className="relative mt-4">
+                  <div
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      inset-0
+                      translate-x-1
+                      translate-y-1
+                      bg-accent
+                      [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]
+                    "
+                  />
 
-                <p className="mt-5 rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
-                  Dlatego połączyliśmy klimat klasycznych salonów gier z
-                  nowoczesną przestrzenią, w której można spotkać się ze
-                  znajomymi, rywalizować i po prostu dobrze spędzić czas.
-                </p>
+                  <div
+                    className="
+                      relative
+                      bg-[#f1f1ee]
+                      px-4
+                      py-4
+                      text-left
+                      shadow-[inset_4px_4px_8px_0px_rgba(0,0,0,0.5)]
+                      [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]
+                    "
+                  >
+                    <p className="text-sm leading-relaxed text-[#45454d]">
+                      Wynik ma znaczenie. Ale jeszcze ważniejsze jest to, z kim
+                      grasz.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
 
-                <p className="mt-5 font-mono text-sm font-bold uppercase tracking-[0.12em] text-primary">
-                  PLAY • COMPETE • REPEAT
-                </p>
+            {/* Card 03 */}
+            <Reveal delay={240} className="h-full">
+              <div
+                className="
+                  relative
+                  h-full
+                  border-2
+                  border-pink
+                  bg-[#010522]
+                  p-6
+                  shadow-[5px_6px_0_var(--color-primary)]
+                "
+              >
+                <p className="font-mono text-xs font-bold text-pink">03</p>
+
+                <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
+                  Zero nudy
+                </h3>
+
+                <div className="relative mt-4">
+                  <div
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      inset-0
+                      translate-x-1
+                      translate-y-1
+                      bg-pink
+                      [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]
+                    "
+                  />
+
+                  <div
+                    className="
+                      relative
+                      bg-[#f1f1ee]
+                      px-4
+                      py-4
+                      text-left
+                      shadow-[inset_4px_4px_8px_0px_rgba(0,0,0,0.5)]
+                      [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]
+                    "
+                  >
+                    <p className="text-sm leading-relaxed text-[#45454d]">
+                      Klasyczne automaty, różne strefy i ciągle coś nowego do
+                      odkrycia.
+                    </p>
+                  </div>
+                </div>
               </div>
             </Reveal>
           </div>
+        </div>
 
-          {/* ================================================== */}
-          {/* VALUES */}
-          {/* ================================================== */}
+        {/* ================================================== */}
+        {/* EXPERIENCE */}
+        {/* ================================================== */}
 
-          <div className="relative z-30 mx-auto mt-24 max-w-5xl sm:mt-28">
-            <Reveal>
-              <div className="text-center">
-                <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary sm:text-sm">
-                  GAME RULES
+        <Reveal>
+          <div className="mx-auto mt-24 max-w-4xl text-center sm:mt-28">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
+              PLAYER EXPERIENCE
+            </p>
+
+            <h2 className="mt-3 font-display text-[clamp(3rem,10vw,5.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-blue">
+              Wpadasz.
+              <br />
+              <span className="text-primary">Grasz.</span>
+              <br />
+              Wracasz.
+            </h2>
+
+            <div className="relative mx-auto mt-7 max-w-2xl">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-2
+                  translate-y-2
+                  bg-blue
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  bg-[#f1f1ee]
+                  px-5
+                  py-5
+                  text-left
+                  shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  sm:px-8
+                  sm:py-6
+                "
+              >
+                <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                  Niezależnie od tego, czy przychodzisz na chwilę, organizujesz
+                  imprezę dla ekipy, czy chcesz po prostu sprawdzić, kto ma
+                  najlepszy wynik — u nas zawsze znajdziesz powód, żeby wrócić.
                 </p>
-
-                <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-pink sm:text-5xl">
-                  Jak gramy?
-                </h2>
               </div>
-            </Reveal>
-
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {/* Card 01 */}
-              <Reveal delay={0} className="h-full">
-                <div className="relative z-10 h-full border-2 border-primary bg-surface p-6 shadow-[5px_6px_0_var(--color-accent)]">
-                  <p className="font-mono text-xs font-bold text-primary">01</p>
-
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
-                    Dobra zabawa
-                  </h3>
-
-                  <p className="mt-3 rounded-lg bg-[#f1f1ee] px-4 py-4 text-sm leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]">
-                    Bez napinki. Liczy się atmosfera, wspólna gra i dobra
-                    zabawa.
-                  </p>
-                </div>
-              </Reveal>
-
-              {/* Card 02 */}
-              <Reveal delay={120} className="h-full">
-                <div className="relative z-10 h-full border-2 border-accent bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
-                  <p className="font-mono text-xs font-bold text-accent">02</p>
-
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
-                    Zdrowa rywalizacja
-                  </h3>
-
-                  <p className="mt-3 rounded-lg bg-[#f1f1ee] px-4 py-4 text-sm leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]">
-                    Wynik ma znaczenie. Ale jeszcze ważniejsze jest to, z kim
-                    grasz.
-                  </p>
-                </div>
-              </Reveal>
-
-              {/* Card 03 */}
-              <Reveal delay={240} className="h-full">
-                <div className="relative z-10 h-full border-2 border-pink bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)]">
-                  <p className="font-mono text-xs font-bold text-pink">03</p>
-
-                  <h3 className="mt-3 font-display text-xl font-extrabold uppercase">
-                    Zero nudy
-                  </h3>
-
-                  <p className="mt-3 rounded-lg bg-[#f1f1ee] px-4 py-4 text-sm leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]">
-                    Klasyczne automaty, różne strefy i ciągle coś nowego do
-                    odkrycia.
-                  </p>
-                </div>
-              </Reveal>
             </div>
           </div>
+        </Reveal>
 
-          {/* ================================================== */}
-          {/* EXPERIENCE */}
-          {/* ================================================== */}
+        {/* ================================================== */}
+        {/* CTA */}
+        {/* ================================================== */}
 
-          <Reveal>
-            <div className="relative z-30 mx-auto mt-24 max-w-4xl text-center sm:mt-28">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
-                PLAYER EXPERIENCE
-              </p>
+        <Reveal>
+          <div className="mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-primary">
+              READY PLAYER ONE?
+            </p>
 
-              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-blue sm:text-6xl lg:text-7xl">
-                Wpadasz.
-                <br />
-                <span className="text-primary">Grasz.</span>
-                <br />
-                Wracasz.
-              </h2>
+            <h2 className="mt-3 font-display text-[clamp(3rem,10vw,5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-pink">
+              GAME ON.
+            </h2>
 
-              <p className="mx-auto mt-6 max-w-2xl rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
-                Niezależnie od tego, czy przychodzisz na chwilę, organizujesz
-                imprezę dla ekipy, czy chcesz po prostu sprawdzić, kto ma
-                najlepszy wynik — u nas zawsze znajdziesz powód, żeby wrócić.
-              </p>
+            <div className="relative mt-7 max-w-xl">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-2
+                  translate-y-2
+                  bg-primary
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  bg-[#f1f1ee]
+                  px-5
+                  py-5
+                  shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  sm:px-8
+                  sm:py-6
+                "
+              >
+                <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                  Zbierz ekipę, wybierz strefę i wpadaj pograć.
+                </p>
+              </div>
             </div>
-          </Reveal>
 
-          {/* ================================================== */}
-          {/* CTA */}
-          {/* ================================================== */}
-
-          <Reveal>
-            <div className="relative z-30 mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
-              <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-primary">
-                READY PLAYER ONE?
-              </p>
-
-              <h2 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-pink sm:text-6xl lg:text-7xl">
-                GAME ON.
-              </h2>
-
-              <p className="mt-5 max-w-xl rounded-xl bg-[#f1f1ee] px-6 py-5 text-base leading-relaxed text-[#45454d] shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] sm:text-lg">
-                Zbierz ekipę, wybierz strefę i wpadaj pograć.
-              </p>
+            <div className="relative mt-8 inline-flex">
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  translate-x-2
+                  translate-y-2
+                  bg-accent
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              />
 
               <Link
                 href="/contact"
-                className="mt-6 rounded-lg bg-[#f1f1ee] px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#45454d] transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                className="
+                  relative
+                  inline-flex
+                  min-h-14
+                  items-center
+                  justify-center
+                  bg-primary
+                  px-7
+                  py-4
+                  font-mono
+                  text-sm
+                  font-bold
+                  uppercase
+                  tracking-[0.12em]
+                  text-white
+                  transition
+                  duration-200
+                  hover:-translate-y-1
+                  focus-visible:outline
+                  focus-visible:outline-2
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-accent
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
               >
-                MASZ PYTANIA? NAPISZ DO NAS →
+                NAPISZ DO NAS →
               </Link>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

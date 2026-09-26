@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+
 type FaqItem = {
   question: string;
   answer: string;
@@ -97,84 +99,49 @@ const faqItems: FaqItem[] = [
   },
 ];
 
+const accentStyles = [
+  {
+    border: "border-primary",
+    offset: "bg-primary",
+    number: "text-primary",
+  },
+  {
+    border: "border-accent",
+    offset: "bg-accent",
+    number: "text-accent",
+  },
+  {
+    border: "border-pink",
+    offset: "bg-pink",
+    number: "text-pink",
+  },
+];
+
 export default function FaqPage() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+    <section
+      className="
+        relative
+        z-0
+        min-h-screen
+        overflow-hidden
+        bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)]
+        pb-16
+        sm:pb-20
+        lg:pb-24
+      "
+    >
       {/* ================================================== */}
-      {/* BACKGROUND DECORATIONS */}
-      {/* ================================================== */}
-
-      {/* Large purple ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-[10%] z-0 hidden h-40 w-40 rounded-full border-[12px] border-primary animate-[decor-float_14s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Large yellow ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[18%] z-0 hidden h-48 w-48 rounded-full border-[12px] border-accent animate-[decor-drift-reverse_16s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Pink square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[7%] top-[36%] z-0 hidden h-12 w-12 rotate-12 bg-pink animate-[decor-spin-float_11s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Blue diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[8%] top-[44%] z-0 hidden h-14 w-14 rotate-45 bg-blue animate-[decor-drift_13s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Yellow diamond */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-5 top-[64%] z-0 hidden h-24 w-24 rotate-45 bg-accent animate-[decor-float_17s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Purple square */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-5 top-[73%] z-0 hidden h-28 w-28 -rotate-12 bg-primary animate-[decor-drift-reverse_15s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Bottom blue ring */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[8%] left-[8%] z-0 hidden h-28 w-28 rounded-full border-[9px] border-blue animate-[decor-float-small_10s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small yellow pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[20%] top-[19%] z-0 hidden h-4 w-4 rotate-45 bg-accent animate-[decor-float-small_8s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small pink pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[21%] top-[27%] z-0 hidden h-4 w-4 bg-pink animate-[decor-drift_9s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small purple pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[17%] bottom-[25%] z-0 hidden h-3 w-3 bg-primary animate-[decor-float-small_7s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* Small blue pixel */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[18%] bottom-[20%] z-0 hidden h-3 w-3 rotate-45 bg-blue animate-[decor-drift-reverse_8s_ease-in-out_infinite] lg:block"
-      />
-
-      {/* ================================================== */}
-      {/* LIGHT CONTENT SURFACE */}
+      {/* TETRIS DECORATIONS */}
       {/* ================================================== */}
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl rounded-b-[32px] bg-background px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+      <TetrisDecorations />
+
+      {/* ================================================== */}
+      {/* CONTENT */}
+      {/* ================================================== */}
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         <div className="relative z-30">
           {/* ================================================== */}
           {/* HEADER */}
@@ -188,16 +155,43 @@ export default function FaqPage() {
             </Reveal>
 
             <Reveal delay={100}>
-              <h1 className="mt-3 font-display text-6xl font-extrabold uppercase tracking-tight text-primary sm:text-7xl lg:text-9xl">
+              <h1 className="mt-3 font-display text-[clamp(3.5rem,16vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-tight text-primary">
                 FAQ
               </h1>
             </Reveal>
 
             <Reveal delay={180}>
-              <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-                Masz pytanie? Tu znajdziesz odpowiedzi na najczęstsze pytania
-                dotyczące wizyty w FlippClub.
-              </p>
+              <div className="relative mx-auto mt-7 max-w-3xl">
+                <div
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    inset-0
+                    translate-x-2
+                    translate-y-2
+                    bg-primary
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                />
+
+                <div
+                  className="
+                    relative
+                    bg-[#f1f1ee]
+                    px-5
+                    py-5
+                    shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                    sm:px-8
+                    sm:py-6
+                  "
+                >
+                  <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                    Masz pytanie? Tu znajdziesz odpowiedzi na najczęstsze
+                    pytania dotyczące wizyty w FlippClub.
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
 
@@ -205,33 +199,101 @@ export default function FaqPage() {
           {/* FAQ */}
           {/* ================================================== */}
 
-          <div className="relative z-30 mx-auto mt-16 max-w-4xl sm:mt-20">
+          <div className="mx-auto mt-16 max-w-4xl sm:mt-20">
             <div className="grid gap-5">
               {faqItems.map((item, index) => {
-                const borderClass =
-                  index % 3 === 0
-                    ? "border-primary"
-                    : index % 3 === 1
-                      ? "border-accent"
-                      : "border-pink";
+                const styles = accentStyles[index % accentStyles.length];
 
                 return (
                   <Reveal key={item.question} delay={(index % 4) * 100}>
                     <details
-                      className={`group relative border-2 bg-surface p-6 shadow-[5px_6px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 ${borderClass}`}
+                      className={`
+                        group
+                        relative
+                        border-2
+                        bg-[#010522]
+                        p-5
+                        text-center
+                        transition
+                        duration-200
+                        hover:-translate-y-1
+                        sm:p-6
+                        ${styles.border}
+                        shadow-[5px_6px_0_var(--color-primary)]
+                      `}
                     >
-                      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-xl font-extrabold uppercase tracking-tight sm:text-2xl [&::-webkit-details-marker]:hidden">
+                      <summary
+                        className="
+                          flex
+                          cursor-pointer
+                          list-none
+                          items-center
+                          justify-center
+                          gap-5
+                          font-display
+                          text-lg
+                          font-extrabold
+                          uppercase
+                          tracking-tight
+                          text-white
+                          sm:text-xl
+                          [&::-webkit-details-marker]:hidden
+                        "
+                      >
                         <span>{item.question}</span>
 
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-mono text-xl font-bold text-ink transition-transform duration-200 group-open:rotate-45">
+                        <span
+                          className="
+                            flex
+                            h-9
+                            w-9
+                            shrink-0
+                            items-center
+                            justify-center
+                            bg-accent
+                            font-mono
+                            text-xl
+                            font-bold
+                            text-ink
+                            transition-transform
+                            duration-200
+                            group-open:rotate-45
+                          "
+                        >
                           +
                         </span>
                       </summary>
 
-                      <div className="mt-5 border-t-2 border-border pt-5">
-                        <p className="max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-                          {item.answer}
-                        </p>
+                      <div className="relative mx-auto mt-6 max-w-3xl">
+                        <div
+                          aria-hidden="true"
+                          className={`
+                            absolute
+                            inset-0
+                            translate-x-2
+                            translate-y-2
+                            ${styles.offset}
+                            [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                          `}
+                        />
+
+                        <div
+                          className="
+                            relative
+                            bg-[#f1f1ee]
+                            px-5
+                            py-5
+                            text-left
+                            shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                            [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                            sm:px-7
+                            sm:py-6
+                          "
+                        >
+                          <p className="text-sm leading-relaxed text-[#45454d] sm:text-base">
+                            {item.answer}
+                          </p>
+                        </div>
                       </div>
                     </details>
                   </Reveal>
@@ -245,29 +307,90 @@ export default function FaqPage() {
           {/* ================================================== */}
 
           <Reveal>
-            <div className="relative z-30 mx-auto mt-24 max-w-3xl text-center sm:mt-28">
+            <div className="mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
               <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
                 STILL CONFUSED?
               </p>
 
-              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+              <h2 className="mt-3 font-display text-[clamp(2.5rem,8vw,4rem)] font-extrabold uppercase leading-tight tracking-tight text-white">
                 NIE ZNALAZŁEŚ ODPOWIEDZI?
               </h2>
 
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-                Nic nie szkodzi. Napisz do nas — chętnie odpowiemy na Twoje
-                pytanie.
-              </p>
+              <div className="relative mt-6 max-w-xl">
+                <div
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    inset-0
+                    translate-x-2
+                    translate-y-2
+                    bg-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                />
 
-              <Link
-                href="/contact"
-                className="group mt-8 inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-              >
-                <span className="text-xl transition-transform duration-200 group-hover:scale-125">
-                  ●
-                </span>
-                NAPISZ DO NAS
-              </Link>
+                <div
+                  className="
+                    relative
+                    bg-[#f1f1ee]
+                    px-5
+                    py-5
+                    shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                    sm:px-8
+                    sm:py-6
+                  "
+                >
+                  <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                    Nic nie szkodzi. Napisz do nas — chętnie odpowiemy na Twoje
+                    pytanie.
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative mt-8 inline-flex">
+                <div
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    inset-0
+                    translate-x-2
+                    translate-y-2
+                    bg-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                />
+
+                <Link
+                  href="/contact"
+                  className="
+                    relative
+                    inline-flex
+                    min-h-14
+                    items-center
+                    justify-center
+                    bg-primary
+                    px-7
+                    py-4
+                    font-mono
+                    text-sm
+                    font-bold
+                    uppercase
+                    tracking-[0.12em]
+                    text-white
+                    transition
+                    duration-200
+                    hover:-translate-y-1
+                    focus-visible:outline
+                    focus-visible:outline-2
+                    focus-visible:outline-offset-4
+                    focus-visible:outline-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                >
+                  NAPISZ DO NAS →
+                </Link>
+              </div>
             </div>
           </Reveal>
         </div>

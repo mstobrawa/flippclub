@@ -51,35 +51,36 @@ export function Header() {
             className="
   absolute
   left-4
-  top-20
+  top-8
   z-30
-  hidden
-  h-29
-  w-29
+  flex
+  h-14
+  w-14
   -translate-y-1/2
   items-center
   justify-center
   rounded-full
-  border-4
+  border-2
   border-ink
   bg-ink
-  p-2
-  shadow-[6px_7px_0_var(--color-primary)]
+  p-1.5
+  shadow-[4px_4px_0_var(--color-primary)]
   transition-transform
   duration-200
-  hover:-translate-y-[calc(50%+3px)]
+  hover:-translate-y-[calc(50%+2px)]
   focus-visible:outline
   focus-visible:outline-2
   focus-visible:outline-offset-4
   focus-visible:outline-primary
-
+  sm:left-6
+  sm:h-16
+  sm:w-16
   lg:left-8
-  lg:flex
+  lg:top-20
   lg:h-28
   lg:w-28
   lg:border-4
   lg:p-2
-
   xl:left-10
   xl:h-38
   xl:w-38

@@ -69,6 +69,7 @@ export default function KillerQueenPage() {
           <div className="mx-auto mt-14 max-w-5xl sm:mt-16">
             <div className="grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
               {/* Gold Team */}
+
               <div
                 className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent"
                 style={{ animationDelay: "450ms" }}
@@ -83,6 +84,7 @@ export default function KillerQueenPage() {
               </div>
 
               {/* VS */}
+
               <div
                 aria-hidden="true"
                 className="page-reveal relative flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-ink font-display text-xl font-extrabold uppercase text-accent shadow-[5px_6px_0_var(--color-primary)]"
@@ -92,6 +94,7 @@ export default function KillerQueenPage() {
               </div>
 
               {/* Blue Team */}
+
               <div
                 className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue"
                 style={{ animationDelay: "650ms" }}
@@ -165,18 +168,45 @@ export default function KillerQueenPage() {
           {/* ================================================== */}
 
           <div
-            className="page-reveal-up mt-14 flex flex-col items-center gap-6 sm:mt-16"
+            className="page-reveal-up mt-16 flex flex-col items-center text-center sm:mt-20"
             style={{ animationDelay: "1350ms" }}
           >
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-3 rounded-pill bg-accent px-8 py-4 font-display text-base font-extrabold uppercase tracking-[0.12em] text-ink transition hover:-translate-y-1 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-            >
-              <span className="text-xl transition-transform duration-200 group-hover:rotate-12">
-                ●
-              </span>
-              WEJDŹ DO EPICKIEJ ROZGRYWKI
-            </Link>
+            <div className="relative inline-flex">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+              />
+
+              <Link
+                href="/contact"
+                className="
+                  relative
+                  inline-flex
+                  min-h-14
+                  items-center
+                  justify-center
+                  bg-primary
+                  px-7
+                  py-4
+                  font-mono
+                  text-sm
+                  font-bold
+                  uppercase
+                  tracking-[0.12em]
+                  text-white
+                  transition
+                  duration-200
+                  hover:-translate-y-1
+                  focus-visible:outline
+                  focus-visible:outline-2
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-accent
+                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                "
+              >
+                NAPISZ DO NAS →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -197,7 +227,31 @@ export default function KillerQueenPage() {
             type="button"
             onClick={() => setSelectedImage(null)}
             aria-label="Zamknij podgląd"
-            className="absolute right-5 top-5 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl font-bold text-ink transition hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="
+              absolute
+              right-5
+              top-5
+              z-10
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              bg-accent
+              text-2xl
+              font-bold
+              text-ink
+              transition
+              hover:bg-primary
+              hover:text-white
+              focus-visible:outline
+              focus-visible:outline-2
+              focus-visible:outline-offset-2
+              focus-visible:outline-accent
+              sm:right-8
+              sm:top-8
+            "
           >
             ×
           </button>
