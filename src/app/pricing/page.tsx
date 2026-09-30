@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
@@ -218,13 +217,55 @@ export default function PricingPage() {
                 );
               })}
             </div>
+
+            {/* ================================================== */}
+            {/* KARNET */}
+            {/* ================================================== */}
+
+            <Reveal delay={250} className="mt-8">
+              <article
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-3xl
+                  border-2
+                  border-[#007ff7]
+                  bg-[#010522]
+                  p-6
+                  shadow-[7px_8px_0_#007ff7]
+                  transition
+                  duration-200
+                  hover:-translate-y-1
+                  sm:p-7
+                "
+              >
+                <div className="text-center">
+                  <p className="font-display text-3xl font-extrabold uppercase tracking-tight text-[#007ff7] sm:text-4xl">
+                    KARNET
+                  </p>
+
+                  <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.14em] text-white/75 sm:text-sm">
+                    3 X WEJŚCIE BEZ LIMITU NA CAŁY DZIEŃ
+                  </p>
+
+                  <p className="mt-2 font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
+                    3 WEJŚCIA – 250,00 ZŁ
+                  </p>
+
+                  <div className="mt-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 opacity-0 transition duration-200 group-hover:opacity-100">
+                    INSERT COIN • PLAY
+                  </div>
+                </div>
+              </article>
+            </Reveal>
           </div>
 
           {/* ================================================== */}
           {/* COINS */}
           {/* ================================================== */}
 
-          <Reveal delay={250}>
+          <Reveal delay={350}>
             <div className="mx-auto mt-20 flex max-w-3xl items-center justify-center gap-6 sm:mt-24">
               <div className="hidden h-px flex-1 bg-white/15 sm:block" />
 
@@ -239,63 +280,6 @@ export default function PricingPage() {
               </div>
 
               <div className="hidden h-px flex-1 bg-white/15 sm:block" />
-            </div>
-          </Reveal>
-
-          {/* ================================================== */}
-          {/* CTA */}
-          {/* ================================================== */}
-
-          <Reveal delay={350}>
-            <div className="mx-auto mt-16 flex max-w-2xl flex-col items-center text-center sm:mt-20">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
-                READY?
-              </p>
-
-              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
-                Wrzuć monetę.
-              </h2>
-
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
-                Wybierz termin i wpadaj na partyjkę. Czekamy na Ciebie.
-              </p>
-
-              <div className="relative mt-8 inline-flex">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-                />
-
-                <Link
-                  href="/contact"
-                  className="
-                    relative
-                    inline-flex
-                    min-h-14
-                    items-center
-                    justify-center
-                    bg-primary
-                    px-7
-                    py-4
-                    font-mono
-                    text-sm
-                    font-bold
-                    uppercase
-                    tracking-[0.12em]
-                    text-white
-                    transition
-                    duration-200
-                    hover:-translate-y-1
-                    focus-visible:outline
-                    focus-visible:outline-2
-                    focus-visible:outline-offset-4
-                    focus-visible:outline-accent
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  "
-                >
-                  NAPISZ DO NAS →
-                </Link>
-              </div>
             </div>
           </Reveal>
         </div>

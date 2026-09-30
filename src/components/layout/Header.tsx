@@ -69,7 +69,6 @@ export function Header() {
   duration-200
   hover:-translate-y-[calc(50%+2px)]
   focus-visible:outline
-  focus-visible:outline-2
   focus-visible:outline-offset-4
   focus-visible:outline-primary
   sm:left-6
@@ -89,7 +88,7 @@ export function Header() {
 "
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="FLIPPCLUB"
               width={320}
               height={160}

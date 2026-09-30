@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
 
@@ -17,7 +16,6 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 
   useEffect(() => {
     const element = ref.current;
-
     if (!element) return;
 
     const observer = new IntersectionObserver(
@@ -41,9 +39,7 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`${
-        visible ? "page-reveal-visible" : "page-reveal-hidden"
-      } ${className}`}
+      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -58,124 +54,31 @@ export default function BuyExchangePage() {
 
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-20">
-          {/* ================================================== */}
           {/* HEADER */}
-          {/* ================================================== */}
-
           <div className="mx-auto max-w-4xl text-center">
-            <Reveal>
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
-                LEVEL UP YOUR COLLECTION
-              </p>
-            </Reveal>
-
             <Reveal delay={100}>
               <h1 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-6xl lg:text-8xl">
                 KUP / WYMIEN
               </h1>
             </Reveal>
-
-            <Reveal delay={180}>
-              <div className="relative mx-auto mt-7 max-w-3xl">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-                />
-
-                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
-                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                    Szukasz konkretnego sprzętu albo chcesz wymienić coś ze
-                    swojej kolekcji? Sprawdź, co mamy aktualnie dostępne.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
           </div>
 
-          {/* ================================================== */}
-          {/* CONTENT PLACEHOLDER */}
-          {/* ================================================== */}
-
-          <Reveal className="mx-auto mt-16 max-w-5xl sm:mt-20" delay={280}>
+          {/* COMING SOON */}
+          <Reveal className="mx-auto mt-16 max-w-4xl sm:mt-20" delay={200}>
             <div className="relative">
               <div
                 aria-hidden="true"
-                className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl bg-primary"
+                className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
               />
 
-              <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-accent bg-[#010522] p-8 sm:p-12 lg:p-16">
-                <div className="mx-auto max-w-3xl text-center">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
-                    COMING SOON
-                  </p>
+              <div className="relative bg-[#f1f1ee] px-8 py-16 text-center shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-12 sm:py-20 lg:py-24">
+                <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-[#45454d] sm:text-base">
+                  COMING SOON
+                </p>
 
-                  <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
-                    Zbuduj swoją kolekcję.
-                  </h2>
-
-                  <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
-                    Tutaj znajdziesz informacje o sprzęcie dostępnym na sprzedaż
-                    oraz możliwościach wymiany.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* ================================================== */}
-          {/* CTA */}
-          {/* ================================================== */}
-
-          <Reveal delay={400}>
-            <div className="mx-auto mt-20 flex max-w-2xl flex-col items-center text-center sm:mt-24">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
-                LOOKING FOR SOMETHING?
-              </p>
-
-              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
-                Zapytaj nas.
-              </h2>
-
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
-                Jeśli szukasz konkretnego sprzętu albo masz coś na wymianę —
-                odezwij się do nas.
-              </p>
-
-              <div className="relative mt-8 inline-flex">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-                />
-
-                <Link
-                  href="/contact"
-                  className="
-                    relative
-                    inline-flex
-                    min-h-14
-                    items-center
-                    justify-center
-                    bg-primary
-                    px-7
-                    py-4
-                    font-mono
-                    text-sm
-                    font-bold
-                    uppercase
-                    tracking-[0.12em]
-                    text-white
-                    transition
-                    duration-200
-                    hover:-translate-y-1
-                    focus-visible:outline
-                    focus-visible:outline-2
-                    focus-visible:outline-offset-4
-                    focus-visible:outline-accent
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  "
-                >
-                  NAPISZ DO NAS →
-                </Link>
+                <h2 className="mt-4 font-display text-4xl font-extrabold uppercase tracking-tight text-[#1c1420] sm:text-5xl lg:text-6xl">
+                  Wkrótce
+                </h2>
               </div>
             </div>
           </Reveal>

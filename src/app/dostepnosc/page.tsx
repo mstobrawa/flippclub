@@ -417,66 +417,6 @@ export default function AccessibilityPage() {
         {/* ================================================== */}
         {/* CTA */}
         {/* ================================================== */}
-
-        <Reveal>
-          <div className="mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-primary">
-              NEED MORE INFO?
-            </p>
-
-            <h2 className="mt-3 font-display text-[clamp(3rem,10vw,5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-pink">
-              NAPISZ DO NAS.
-            </h2>
-
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              Masz pytanie dotyczące dostępności? Odezwij się — pomożemy.
-            </p>
-
-            <div className="relative mt-8 inline-flex">
-              <div
-                aria-hidden="true"
-                className="
-                  absolute
-                  inset-0
-                  translate-x-2
-                  translate-y-2
-                  bg-accent
-                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                "
-              />
-
-              <Link
-                href="/contact"
-                className="
-                  relative
-                  inline-flex
-                  min-h-14
-                  items-center
-                  justify-center
-                  bg-primary
-                  px-7
-                  py-4
-                  font-mono
-                  text-sm
-                  font-bold
-                  uppercase
-                  tracking-[0.12em]
-                  text-white
-                  transition
-                  duration-200
-                  hover:-translate-y-1
-                  focus-visible:outline
-                  focus-visible:outline-2
-                  focus-visible:outline-offset-4
-                  focus-visible:outline-accent
-                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                "
-              >
-                NAPISZ DO NAS →
-              </Link>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 export default function KillerQueenPage() {
@@ -11,6 +10,24 @@ export default function KillerQueenPage() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
+      {/* ================================================== */}
+      {/* UFO DECORATION */}
+      {/* ================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed left-30 top-1/2 z-10 -translate-y-1/2"
+      >
+        <Image
+          src="/images/arcade/flippclub_ufok_skrzydla_60ms.webp"
+          alt=""
+          width={168}
+          height={152}
+          priority
+          className="h-auto w-[95px] sm:w-[120px] lg:w-[145px]"
+        />
+      </div>
+
       {/* ================================================== */}
       {/* MAIN CONTENT */}
       {/* ================================================== */}
@@ -160,52 +177,6 @@ export default function KillerQueenPage() {
                   </div>
                 </button>
               ))}
-            </div>
-          </div>
-
-          {/* ================================================== */}
-          {/* CTA */}
-          {/* ================================================== */}
-
-          <div
-            className="page-reveal-up mt-16 flex flex-col items-center text-center sm:mt-20"
-            style={{ animationDelay: "1350ms" }}
-          >
-            <div className="relative inline-flex">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-              />
-
-              <Link
-                href="/contact"
-                className="
-                  relative
-                  inline-flex
-                  min-h-14
-                  items-center
-                  justify-center
-                  bg-primary
-                  px-7
-                  py-4
-                  font-mono
-                  text-sm
-                  font-bold
-                  uppercase
-                  tracking-[0.12em]
-                  text-white
-                  transition
-                  duration-200
-                  hover:-translate-y-1
-                  focus-visible:outline
-                  focus-visible:outline-2
-                  focus-visible:outline-offset-4
-                  focus-visible:outline-accent
-                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                "
-              >
-                NAPISZ DO NAS →
-              </Link>
             </div>
           </div>
         </div>

@@ -33,12 +33,16 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Mini bar",
-    href: "/zones/bar",
-  },
-  {
     label: "Cennik",
     href: "/pricing",
+  },
+  {
+    label: "Godziny otwarcia",
+    href: "/opening",
+  },
+  {
+    label: "Mini bar",
+    href: "/zones/bar",
   },
   {
     label: "Imprezy",

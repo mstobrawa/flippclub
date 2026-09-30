@@ -22,7 +22,7 @@ export function Footer() {
               className="inline-flex w-fit"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="FlippClub"
                 width={100}
                 height={100}
@@ -31,8 +31,8 @@ export function Footer() {
             </Link>
 
             <p className="max-w-xs text-sm leading-relaxed text-on-ink/65">
-              Flippery, arcade, retro gry i dobra zabawa. Ponad 300 m² rozrywki
-              w Siemianowicach Śląskich.
+              Flippery, arcade, retro gry i dobra zabawa. 300 m² rozrywki w
+              Siemianowicach Śląskich.
             </p>
 
             <SocialLinks />
@@ -87,10 +87,27 @@ export function Footer() {
 
               <li>
                 <Link
-                  href="/opening"
+                  href="/regulamin"
                   className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
-                  Godziny otwarcia
+                  Regulamin
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/machine-list"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                >
+                  Lista maszyn
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/polityka-prywatnosci"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                >
+                  Polityka prywatności
                 </Link>
               </li>
             </ul>

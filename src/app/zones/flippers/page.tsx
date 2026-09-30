@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
@@ -33,14 +32,14 @@ export default function FlippersPage() {
           pointer-events-none
           absolute
           left-[6%]
-          top-[24%]
+          top-[45%]
           z-10
           hidden
-          w-[90px]
+          w-22.5
           rotate-12
           animate-[decor-drift_12s_ease-in-out_infinite]
           lg:block
-          xl:w-[110px]
+          xl:w-27.5
         "
       />
 
@@ -57,11 +56,11 @@ export default function FlippersPage() {
           top-[35%]
           z-10
           hidden
-          w-[70px]
+          w-17.5
           -rotate-12
           animate-[decor-drift-reverse_14s_ease-in-out_infinite]
           lg:block
-          xl:w-[90px]
+          xl:w-22.5
         "
       />
 
@@ -160,7 +159,6 @@ export default function FlippersPage() {
                   hover:border-primary
                   hover:shadow-[8px_10px_0_var(--color-primary)]
                   focus-visible:outline
-                  focus-visible:outline-2
                   focus-visible:outline-offset-4
                   focus-visible:outline-primary
                   ${
@@ -172,7 +170,7 @@ export default function FlippersPage() {
               >
                 <div
                   className={`relative overflow-hidden ${
-                    item === 1 ? "aspect-[4/3]" : "aspect-square"
+                    item === 1 ? "aspect-4/3" : "aspect-square"
                   }`}
                 >
                   <Image
@@ -239,36 +237,6 @@ export default function FlippersPage() {
               aria-hidden="true"
               className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
             />
-
-            <Link
-              href="/contact"
-              className="
-                relative
-                inline-flex
-                min-h-14
-                items-center
-                justify-center
-                bg-primary
-                px-7
-                py-4
-                font-mono
-                text-sm
-                font-bold
-                uppercase
-                tracking-[0.12em]
-                text-white
-                transition
-                duration-200
-                hover:-translate-y-1
-                focus-visible:outline
-                focus-visible:outline-2
-                focus-visible:outline-offset-4
-                focus-visible:outline-accent
-                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-              "
-            >
-              NAPISZ DO NAS →
-            </Link>
           </div>
         </div>
       </div>
@@ -279,7 +247,7 @@ export default function FlippersPage() {
 
       {selectedImage !== null ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"
@@ -308,7 +276,6 @@ export default function FlippersPage() {
               hover:bg-primary
               hover:text-on-ink
               focus-visible:outline
-              focus-visible:outline-2
               focus-visible:outline-offset-2
               focus-visible:outline-accent
             "

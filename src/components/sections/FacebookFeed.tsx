@@ -31,7 +31,11 @@ const slides = [
   {
     id: "adult",
     blocks: [
-      { top: "18+", bottom: "DOROŚLI" },
+      {
+        label: "CENNIK",
+        top: "18+ lat",
+        bottom: "DOROŚLI",
+      },
       { top: "1 godzina", bottom: "29 ZŁ" },
       { top: "2 godziny", bottom: "49 ZŁ" },
       { top: "3 godziny", bottom: "59 ZŁ" },
@@ -40,7 +44,11 @@ const slides = [
   {
     id: "youth",
     blocks: [
-      { top: "-18", bottom: "MŁODSI" },
+      {
+        label: "CENNIK",
+        top: "-18 lat",
+        bottom: "MŁODSI",
+      },
       { top: "1 godzina", bottom: "25 ZŁ" },
       { top: "2 godziny", bottom: "45 ZŁ" },
       { top: "3 godziny", bottom: "55 ZŁ" },
@@ -49,7 +57,11 @@ const slides = [
   {
     id: "special",
     blocks: [
-      { top: "SPECJALNY", bottom: "" },
+      {
+        label: "CENNIK",
+        top: "SPECJALNY",
+        bottom: "",
+      },
       { top: "1 godzina", bottom: "22 ZŁ" },
       { top: "2 godziny", bottom: "40 ZŁ" },
       { top: "3 godziny", bottom: "50 ZŁ" },
@@ -421,7 +433,10 @@ export function FacebookFeed() {
         {/* PRICING / OPENING HOURS */}
 
         <Reveal className="relative z-10 pt-6 sm:pt-8 lg:pt-10">
-          <div key={slide.id} className="grid grid-cols-1 gap-3 lg:grid-cols-4">
+          <div
+            key={slide.id}
+            className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          >
             {slide.blocks.map((block, blockIndex) => {
               const isPurple = blockIndex % 2 === 0;
               const isFirstBlock = blockIndex === 0;
@@ -429,51 +444,72 @@ export function FacebookFeed() {
               return (
                 <div
                   key={`${slide.id}-${block.top}`}
-                  className={`
-                    flex
-                    h-20
-                    flex-col
-                    items-center
-                    justify-center
-                    border-2
-                    px-3
-                    py-2
-                    text-center
-                    transition-colors
-                    duration-500
-                    sm:h-24
-                    sm:px-5
-                    sm:py-3
-                    ${
-                      isPurple
-                        ? "border-primary/60 bg-[#0d0b54]/80"
-                        : "border-accent/70 bg-[#010522]/85"
-                    }
-                  `}
+                  className="relative min-h-24"
                 >
-                  <span
-                    className={`
-                      font-mono
-                      font-bold
-                      uppercase
-                      leading-none
-                      tracking-[0.08em]
-                      ${isPurple ? "text-primary" : "text-accent"}
-                      ${
-                        isFirstBlock
-                          ? "text-2xl sm:text-4xl"
-                          : "text-xl sm:text-3xl"
-                      }
-                    `}
-                  >
-                    {block.top}
-                  </span>
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]"
+                  />
 
-                  {!isFirstBlock && (
-                    <strong className="mt-2 font-display text-lg font-extrabold leading-none tracking-tight text-white sm:text-2xl">
-                      {block.bottom}
-                    </strong>
-                  )}
+                  <div
+                    className="
+                      relative
+                      flex
+                      min-h-24
+                      flex-col
+                      items-center
+                      justify-center
+                      bg-[#f1f1ee]
+                      px-4
+                      py-4
+                      text-center
+                      shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                      [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]
+                      sm:px-5
+                      sm:py-5
+                    "
+                  >
+                    {block.label && (
+                      <span className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#45454d] sm:text-sm">
+                        {block.label}
+                      </span>
+                    )}
+
+                    <span
+                      className={`
+                        font-mono
+                        font-bold
+                        uppercase
+                        leading-none
+                        tracking-[0.08em]
+                        ${isPurple ? "text-primary" : "text-accent"}
+                        ${
+                          isFirstBlock
+                            ? "text-2xl sm:text-4xl"
+                            : "text-xl sm:text-3xl"
+                        }
+                      `}
+                    >
+                      {block.top}
+                    </span>
+
+                    {!isFirstBlock && (
+                      <strong
+                        className="
+                          mt-2
+                          font-display
+                          text-lg
+                          font-extrabold
+                          leading-none
+                          tracking-tight
+                          text-[#1c1420]
+                          sm:text-2xl
+                        "
+                      >
+                        {block.bottom}
+                      </strong>
+                    )}
+                  </div>
                 </div>
               );
             })}
@@ -552,13 +588,9 @@ export function FacebookFeed() {
                 ZNAJDŹ NAS ONLINE
               </p>
 
-              {/* HEADING IN RHOMBUS */}
-
               <h3 className="font-display text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-accent sm:text-4xl">
                 Zostań z nami w kontakcie
               </h3>
-
-              {/* DESCRIPTION IN RHOMBUS */}
 
               <RhombusText className="mt-5 w-full">
                 <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
@@ -567,8 +599,6 @@ export function FacebookFeed() {
                   social media i zobacz, co gramy.
                 </p>
               </RhombusText>
-
-              {/* SOCIAL LINKS */}
 
               <div className="mt-7 flex w-full flex-col gap-3">
                 <SocialLink
@@ -628,13 +658,9 @@ export function FacebookFeed() {
               ZNAJDŹ NAS ONLINE
             </p>
 
-            {/* MOBILE HEADING RHOMBUS */}
-
-            <h3 className="font-display text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-[#1c1420] sm:text-4xl">
+            <h3 className="font-display text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-accent sm:text-4xl">
               Zostań z nami w kontakcie
             </h3>
-
-            {/* MOBILE DESCRIPTION RHOMBUS */}
 
             <RhombusText className="mt-5 w-full">
               <p className="text-left text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
@@ -643,8 +669,6 @@ export function FacebookFeed() {
                 media i zobacz, co gramy.
               </p>
             </RhombusText>
-
-            {/* MOBILE SOCIAL LINKS */}
 
             <div className="mt-7 flex flex-col gap-3">
               <SocialLink

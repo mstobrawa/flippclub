@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
@@ -288,8 +287,11 @@ export default function BarPage() {
           </div>
 
           {/* Image */}
-          <div
-            className="page-image-reveal relative order-1 md:order-2"
+          <button
+            type="button"
+            onClick={() => setSelectedImage(5)}
+            aria-label="Powiększ zdjęcie przekąsek i napojów"
+            className="page-image-reveal group relative order-1 w-full text-left md:order-2"
             style={{ animationDelay: "1100ms" }}
           >
             <div
@@ -299,80 +301,20 @@ export default function BarPage() {
 
             <div className="relative overflow-hidden rounded-3xl border-2 border-primary bg-surface">
               <Image
-                src="/images/bar/bar2.png"
+                src="/images/placeholders/placeholder.png"
                 alt="Przekąski i napoje w barze FlippClub"
                 width={900}
                 height={700}
-                className="mx-auto h-auto w-full rotate-2 object-contain transition duration-300 hover:rotate-0"
+                className="mx-auto h-auto w-full object-cover"
               />
+
+              <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
+                <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
+                  Powiększ
+                </span>
+              </div>
             </div>
-          </div>
-        </div>
-
-        {/* ================================================== */}
-        {/* CTA */}
-        {/* ================================================== */}
-
-        <div
-          className="page-reveal-up mx-auto mt-20 max-w-3xl text-center sm:mt-24"
-          style={{ animationDelay: "1450ms" }}
-        >
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
-            GAME ON
-          </p>
-
-          <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
-            Gotowy na kolejną rundę?
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Wpadnij do FlippClub, złap coś dobrego i zostań na jeszcze jedną
-            partię.
-          </p>
-
-          <div className="relative mt-7 inline-flex">
-            <div
-              aria-hidden="true"
-              className="
-                absolute
-                inset-0
-                translate-x-2
-                translate-y-2
-                bg-accent
-                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-              "
-            />
-
-            <Link
-              href="/contact"
-              className="
-                relative
-                inline-flex
-                min-h-14
-                items-center
-                justify-center
-                bg-primary
-                px-7
-                py-4
-                font-mono
-                text-sm
-                font-bold
-                uppercase
-                tracking-[0.12em]
-                text-white
-                transition
-                duration-200
-                hover:-translate-y-1
-                focus-visible:outline
-                focus-visible:outline-2
-                focus-visible:outline-offset-4
-                focus-visible:outline-accent
-                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-              "
-            >
-              NAPISZ DO NAS →
-            </Link>
-          </div>
+          </button>
         </div>
       </div>
 

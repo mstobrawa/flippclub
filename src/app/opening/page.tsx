@@ -261,36 +261,6 @@ export default function OpeningPage() {
                   aria-hidden="true"
                   className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
                 />
-
-                <Link
-                  href="/contact"
-                  className="
-                    relative
-                    inline-flex
-                    min-h-14
-                    items-center
-                    justify-center
-                    bg-primary
-                    px-7
-                    py-4
-                    font-mono
-                    text-sm
-                    font-bold
-                    uppercase
-                    tracking-[0.12em]
-                    text-white
-                    transition
-                    duration-200
-                    hover:-translate-y-1
-                    focus-visible:outline
-                    focus-visible:outline-2
-                    focus-visible:outline-offset-4
-                    focus-visible:outline-accent
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  "
-                >
-                  NAPISZ DO NAS →
-                </Link>
               </div>
             </div>
           </Reveal>

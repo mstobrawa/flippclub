@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
@@ -18,6 +17,51 @@ export default function ArcadesPage() {
       {/* ================================================== */}
 
       <TetrisDecorations />
+
+      {/* ================================================== */}
+      {/* ARCADE DECORATIONS */}
+      {/* ================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[5] hidden overflow-hidden lg:block"
+      >
+        {/* 1UP — lewy górny bok */}
+        <Image
+          src="/images/arcade/1up.webp"
+          alt=""
+          width={150}
+          height={100}
+          className="absolute left-25 top-30 h-auto w-27.5 -rotate-6 opacity-90 xl:w-33.75"
+        />
+
+        {/* UFO / Galaga — prawy środkowy bok */}
+        <Image
+          src="/images/arcade/gal.webp"
+          alt=""
+          width={180}
+          height={120}
+          className="absolute right-50 top-30 h-auto w-31.25 rotate-6 opacity-90 xl:w-[155px]"
+        />
+
+        {/* Alien — lewy dolny bok */}
+        <Image
+          src="/images/arcade/alien.webp"
+          alt=""
+          width={160}
+          height={120}
+          className="absolute bottom-172 left-40 h-auto w-26.25 rotate-6 opacity-90 xl:w-[130px]"
+        />
+
+        {/* Automat — prawy dolny bok */}
+        <Image
+          src="/images/arcade/cab.webp"
+          alt=""
+          width={150}
+          height={180}
+          className="absolute bottom-80 right-70 h-auto w-26.25 -rotate-6 opacity-90 xl:w-[130px]"
+        />
+      </div>
 
       {/* ================================================== */}
       {/* MAIN CONTENT */}
@@ -194,59 +238,6 @@ export default function ArcadesPage() {
                 arcade.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* ================================================== */}
-        {/* CTA */}
-        {/* ================================================== */}
-
-        <div
-          className="
-            page-reveal-up
-            mt-14
-            flex
-            flex-col
-            items-center
-            sm:mt-16
-          "
-          style={{ animationDelay: "800ms" }}
-        >
-          <div className="relative inline-flex">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-            />
-
-            <Link
-              href="/contact"
-              className="
-                relative
-                inline-flex
-                min-h-14
-                items-center
-                justify-center
-                bg-primary
-                px-7
-                py-4
-                font-mono
-                text-sm
-                font-bold
-                uppercase
-                tracking-[0.12em]
-                text-white
-                transition
-                duration-200
-                hover:-translate-y-1
-                focus-visible:outline
-                focus-visible:outline-2
-                focus-visible:outline-offset-4
-                focus-visible:outline-accent
-                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-              "
-            >
-              NAPISZ DO NAS →
-            </Link>
           </div>
         </div>
       </div>
