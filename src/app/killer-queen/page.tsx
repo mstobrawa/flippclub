@@ -18,12 +18,11 @@ export default function KillerQueenPage() {
         aria-hidden="true"
         className="pointer-events-none fixed left-30 top-1/2 z-10 -translate-y-1/2"
       >
-        <Image
+        <img
           src="/images/arcade/flippclub_ufok_skrzydla_60ms.webp"
           alt=""
           width={168}
           height={152}
-          priority
           className="h-auto w-[95px] sm:w-[120px] lg:w-[145px]"
         />
       </div>
