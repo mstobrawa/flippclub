@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 type PriceBlock = {
   top: string;

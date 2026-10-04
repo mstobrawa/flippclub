@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 export default function BarPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);

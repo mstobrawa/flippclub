@@ -1,154 +1,227 @@
-import Link from "next/link";
-import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+import Image from "next/image";
+import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
-const machines = [
-  {
-    name: "The Addams Family",
-    type: "Flipper",
-    year: "1992",
-    manufacturer: "Bally",
-    description: "Klasyczny flipper inspirowany rodziną Addamsów.",
-    status: "DOSTĘPNY",
-  },
-  {
-    name: "Attack from Mars",
-    type: "Flipper",
-    year: "1995",
-    manufacturer: "Bally",
-    description:
-      "Kosmiczna inwazja, dużo akcji i charakterystyczny klimat retro.",
-    status: "DOSTĘPNY",
-  },
-  {
-    name: "Medieval Madness",
-    type: "Flipper",
-    year: "1997",
-    manufacturer: "Williams",
-    description:
-      "Średniowieczne zamki, rycerze i jedna z najbardziej kultowych maszyn.",
-    status: "DOSTĘPNY",
-  },
-  {
-    name: "The Mandalorian",
-    type: "Flipper",
-    year: "2021",
-    manufacturer: "Stern",
-    description: "Nowoczesny flipper osadzony w świecie Star Wars.",
-    status: "DOSTĘPNY",
-  },
-  {
-    name: "Street Fighter II",
-    type: "Arcade",
-    year: "1991",
-    manufacturer: "Capcom",
-    description:
-      "Klasyczna bijatyka arcade. Ryu, Ken i cała ekipa czekają na pojedynek.",
-    status: "DOSTĘPNY",
-  },
-  {
-    name: "Metal Slug",
-    type: "Arcade",
-    year: "1996",
-    manufacturer: "SNK",
-    description:
-      "Dynamiczna klasyka arcade z charakterystyczną pixel-artową oprawą.",
-    status: "DOSTĘPNY",
-  },
-  {
-    name: "Time Crisis",
-    type: "Arcade",
-    year: "1995",
-    manufacturer: "Namco",
-    description:
-      "Klasyczny shooter arcade z pistoletem i charakterystycznym systemem osłon.",
-    status: "DOSTĘPNY",
-  },
-  {
-    name: "Mario Kart Arcade GP",
-    type: "Arcade",
-    year: "2005",
-    manufacturer: "Namco",
-    description:
-      "Wyścigi Mario w wersji stworzonej specjalnie z myślą o salonach arcade.",
-    status: "WKRÓTCE",
-  },
+const flippers = [
+  "Guns n Roses JJP",
+  "The Walking Dead STERN",
+  "Stranger Things STERN",
+  "Pacman BALLY",
+  "Ghostbusters STERN",
+  "Star trek STERN",
+  "Metallica STERN",
+  "Terminator 3 STERN",
+  "Jaws STERN",
+  "Jurassic Park STERN",
+  "Godzilla STERN",
+  "Deadpool STERN",
+  "Black Knight STERN",
+  "Foo Fighters STERN",
+  "Teenage Mutant Ninja Turtles DATA EAST",
+  "Fish Tales WILLIAMS",
+  "Terminator 2 Williams",
+  "Creature from Black Lagoon Williams",
+  "The Bride of Pinbot Williams",
+  "Attack from Mars BALLY",
+  "Hot Wheels AMERICAN PINBALL",
+  "Starship troopers SEGA",
+  "Revenge From Mars",
 ];
 
-export default function MachineListPage() {
+const arcade = [
+  "Killer Queen",
+  "Wacky Racers x2",
+  "SNK VS CAPCOM",
+  "Metal Slug",
+  "Street Hoop",
+  "Donkey Kong",
+  "Punisher",
+  "Captain Commando",
+  "Cadillacs and Dinosaurs",
+  "Mercs",
+  "Golden Axe",
+  "Tapper",
+  "Subway Surfer",
+  "ATARI Arcade",
+  "Commodore 64 Arcade",
+  "Tekken 3",
+  "Donkey Kong junior / Burger time",
+  "Boubble Booble",
+  "Mortal Kombat 3",
+  "Altus",
+  "Tetris",
+  "Bomb Jack / 1942",
+  "Time Pilot / Scramble",
+  "Final fight",
+  "Frogger / Dig Doug",
+  "Galaga / Galaxian",
+  "Pacman / Poojan",
+  "Mario / Tanki",
+  "Terminator Salvation DX",
+  "Terratoma DX",
+  "Transformers Human Aliance DX",
+  "Ghost Squad DX",
+  "The house of Dead 3 DX",
+  "Subsoccer - piłka",
+  "Piłkarzyki Garlando",
+  "1UP Arcade Mortal Kombat 2",
+  "Crane - łapa",
+  "HOKKEY - Bubble Hokej",
+  "MAGIC Arcade",
+  "Sponge Bob arcade auto",
+];
+
+const other = ["Piaskownica RC - 5 stanowisk", "4 x PC LAN", "4 x konsole"];
+
+const flipperInDevelopment = new Set([
+  "Starship troopers SEGA",
+  "Revenge From Mars",
+]);
+
+const arcadeInDevelopment = new Set(["MAGIC Arcade", "Sponge Bob arcade auto"]);
+
+const otherInDevelopment = new Set(["4 x PC LAN", "4 x konsole"]);
+
+function MachineCard({
+  number,
+  name,
+  inDevelopment = false,
+}: {
+  number: number;
+  name: string;
+  inDevelopment?: boolean;
+}) {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] py-16 sm:py-20">
+    <div className="relative">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+      />
+
+      <div className="relative flex min-h-[82px] items-center gap-4 bg-[#f1f1ee] px-5 py-4 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]">
+        <span className="shrink-0 text-2xl font-black text-[#007ff7]">
+          {String(number).padStart(2, "0")}
+        </span>
+
+        <div className="min-w-0">
+          <p className="text-base font-bold leading-tight text-[#30303a] sm:text-lg">
+            {name}
+          </p>
+
+          {inDevelopment && (
+            <span className="mt-2 inline-block text-xs font-black tracking-[0.12em] text-[#007ff7]">
+              W OPRACOWANIU
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SectionTitle({
+  children,
+  subtitle,
+}: {
+  children: React.ReactNode;
+  subtitle?: string;
+}) {
+  return (
+    <div className="mb-7">
+      <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl lg:text-5xl">
+        {children}
+      </h2>
+
+      {subtitle && (
+        <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-accent sm:text-sm">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  );
+}
+
+export default function MachineListPage() {
+  let number = 1;
+
+  return (
+    <main className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)]">
       <TetrisDecorations />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
+      <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+        {/* Header */}
+        <div className="mb-14 text-center">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
             FLIPPCLUB
           </p>
 
-          <h1 className="mt-3 font-display text-4xl font-extrabold uppercase leading-none tracking-tight text-accent sm:text-5xl lg:text-6xl">
-            NASZE MASZYNY
+          <h1 className="mt-3 font-display text-[clamp(3.5rem,12vw,7rem)] font-extrabold uppercase leading-[0.85] tracking-tight text-primary">
+            Lista maszyn
           </h1>
 
-          <div className="relative mx-auto mt-6 max-w-2xl">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-            />
+          <p className="mx-auto mt-5 max-w-2xl text-base font-medium leading-relaxed text-white/70 sm:text-lg">
+            Flippery, automaty arcade i pozostałe atrakcje dostępne w klubie.
+          </p>
+        </div>
 
-            <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
-              <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                Sprawdź, jakie flippery i automaty arcade znajdziesz w
-                FlippClubie. Lista jest aktualnie wersją roboczą i będzie
-                uzupełniana wraz z kolejnymi maszynami.
-              </p>
-            </div>
+        {/* Flippery */}
+        <section>
+          <SectionTitle subtitle="23 maszyny">Flippery</SectionTitle>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {flippers.map((machine) => {
+              const currentNumber = number++;
+
+              return (
+                <MachineCard
+                  key={machine}
+                  number={currentNumber}
+                  name={machine}
+                  inDevelopment={flipperInDevelopment.has(machine)}
+                />
+              );
+            })}
           </div>
-        </div>
+        </section>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {machines.map((machine, index) => (
-            <article
-              key={`${machine.name}-${index}`}
-              className="relative border-2 border-white/15 bg-[#010522]/90 p-5 shadow-[6px_7px_0_var(--color-primary)]"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                  {machine.type}
-                </span>
+        {/* Arcade */}
+        <section className="mt-20">
+          <SectionTitle subtitle="40 pozycji">Arcade</SectionTitle>
 
-                <span
-                  className={`shrink-0 border px-2 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.12em] ${
-                    machine.status === "DOSTĘPNY"
-                      ? "border-accent/60 text-accent"
-                      : "border-primary/60 text-primary"
-                  }`}
-                >
-                  {machine.status}
-                </span>
-              </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            {arcade.map((machine) => {
+              const currentNumber = number++;
 
-              <h2 className="mt-5 font-display text-2xl font-extrabold uppercase leading-tight text-white">
-                {machine.name}
-              </h2>
+              return (
+                <MachineCard
+                  key={machine}
+                  number={currentNumber}
+                  name={machine}
+                  inDevelopment={arcadeInDevelopment.has(machine)}
+                />
+              );
+            })}
+          </div>
+        </section>
 
-              <div className="mt-3 flex gap-3 font-mono text-[10px] uppercase tracking-[0.12em] text-white/45">
-                <span>{machine.manufacturer}</span>
-                <span>•</span>
-                <span>{machine.year}</span>
-              </div>
+        {/* Inne */}
+        <section className="mt-20">
+          <SectionTitle subtitle="3 pozycje">Inne</SectionTitle>
 
-              <p className="mt-5 min-h-[72px] text-sm leading-relaxed text-white/65">
-                {machine.description}
-              </p>
+          <div className="grid gap-5 md:grid-cols-2">
+            {other.map((machine) => {
+              const currentNumber = number++;
 
-              <div className="mt-5 border-t border-white/10 pt-4">
-                <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">
-                  FLIPPCLUB • SIEMIANOWICE ŚLĄSKIE
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
+              return (
+                <MachineCard
+                  key={machine}
+                  number={currentNumber}
+                  name={machine}
+                  inDevelopment={otherInDevelopment.has(machine)}
+                />
+              );
+            })}
+          </div>
+        </section>
       </div>
     </main>
   );

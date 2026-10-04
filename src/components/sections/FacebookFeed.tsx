@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import { useEffect, useRef, useState } from "react";
 
 import {
@@ -11,9 +12,10 @@ import {
   setExternalContentConsent,
 } from "@/lib/externalContentConsent";
 
-import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+import TetrisDecoration from "@/components/layout/TetrisDecoration";
 
 const facebookSdkId = "facebook-jssdk";
+
 const facebookSdkUrl =
   "https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v25.0";
 
@@ -155,6 +157,7 @@ function loadFacebookSdk(): Promise<void> {
       script.async = true;
       script.defer = true;
       script.crossOrigin = "anonymous";
+
       document.body.appendChild(script);
     }
   });
@@ -427,7 +430,7 @@ export function FacebookFeed() {
       id="news"
       className="relative overflow-hidden bg-transparent pb-8 pt-0 sm:pb-10 lg:pb-12"
     >
-      <TetrisDecorations />
+      <TetrisDecoration />
 
       <div className="relative z-20 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* PRICING / OPENING HOURS */}
@@ -533,7 +536,10 @@ export function FacebookFeed() {
 
         {/* DESKTOP SOCIAL AREA */}
 
-        <Reveal delay={180} className="mx-auto mt-10 max-w-6xl lg:mt-14">
+        <Reveal
+          delay={180}
+          className="mx-auto mt-10 hidden max-w-6xl lg:mt-14 lg:block"
+        >
           <div className="grid items-center gap-12 lg:grid-cols-[3fr_2fr] lg:gap-14">
             {/* FACEBOOK CABINET - DESKTOP ONLY */}
 
@@ -650,7 +656,7 @@ export function FacebookFeed() {
           </div>
         </Reveal>
 
-        {/* MOBILE SOCIAL CONTENT */}
+        {/* MOBILE SOCIAL CONTENT — ONLY BELOW FACEBOOK */}
 
         <Reveal delay={260} className="mx-auto mt-10 w-full max-w-xl lg:hidden">
           <div className="text-center">

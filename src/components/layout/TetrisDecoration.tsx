@@ -135,16 +135,9 @@ function generatePieces(viewportCount: number, seed: number): TetrisPiece[] {
   );
 }
 
-export function TetrisDecorations() {
+export default function TetrisDecorations() {
   const [viewportCount, setViewportCount] = useState(1);
 
-  /*
-   * SSR:
-   * zawsze ten sam seed.
-   *
-   * Client:
-   * losowy seed wygenerowany tylko raz.
-   */
   const seed = useSyncExternalStore(subscribe, getClientSeed, getServerSeed);
 
   useEffect(() => {

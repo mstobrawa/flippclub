@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+import TetrisDecoration from "@/components/layout/TetrisDecoration";
 
 export default function FlippersPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -16,7 +16,7 @@ export default function FlippersPage() {
       {/* TETRIS DECORATIONS */}
       {/* ================================================== */}
 
-      <TetrisDecorations />
+      <TetrisDecoration />
 
       {/* ================================================== */}
       {/* FLIPPER BALLS */}

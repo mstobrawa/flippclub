@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
   children: React.ReactNode;

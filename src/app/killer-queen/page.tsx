@@ -23,7 +23,7 @@ export default function KillerQueenPage() {
           alt=""
           width={168}
           height={152}
-          className="h-auto w-[95px] sm:w-[120px] lg:w-[145px]"
+          className="h-auto w-23.75 sm:w-30 lg:w-36.25"
         />
       </div>
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { SocialLinks } from "@/components/layout/SocialLinks";
-import { TetrisDecorations } from "@/components/layout/TetrisDecoration";
+import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
   children: React.ReactNode;
