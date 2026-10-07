@@ -271,7 +271,7 @@ export default function PricingPage() {
 
               <div className="relative w-28 shrink-0 sm:w-36">
                 <Image
-                  src="/images/coins.png"
+                  src="/images/coins.webp"
                   alt="Monety FlippClub"
                   width={500}
                   height={300}

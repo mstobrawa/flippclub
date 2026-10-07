@@ -546,7 +546,7 @@ export function FacebookFeed() {
             <div className="relative mx-auto hidden w-full max-w-[680px] lg:block">
               <div className="relative z-10">
                 <Image
-                  src="/images/facebook-frame.png"
+                  src="/images/facebook-frame.webp"
                   alt=""
                   width={1024}
                   height={1536}

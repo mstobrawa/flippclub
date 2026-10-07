@@ -6,7 +6,12 @@ import { useState } from "react";
 export default function KillerQueenPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const images = [1, 2, 3, 4];
+  const images = [
+    "/images/killer_queen/kq1.webp",
+    "/images/killer_queen/kq2.webp",
+    "/images/killer_queen/kq3.webp",
+    "/images/killer_queen/kq4.webp",
+  ];
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
@@ -43,7 +48,7 @@ export default function KillerQueenPage() {
               style={{ animationDelay: "100ms" }}
             >
               <Image
-                src="/images/killer_queen/logo-kq.png"
+                src="/images/killer_queen/logo-kq.webp"
                 alt="Killer Queen"
                 width={1200}
                 height={300}
@@ -91,7 +96,7 @@ export default function KillerQueenPage() {
                 style={{ animationDelay: "450ms" }}
               >
                 <Image
-                  src="/images/killer_queen/gteam.png"
+                  src="/images/killer_queen/gteam.webp"
                   alt="The Gold Team"
                   width={600}
                   height={500}
@@ -116,7 +121,7 @@ export default function KillerQueenPage() {
                 style={{ animationDelay: "650ms" }}
               >
                 <Image
-                  src="/images/killer_queen/bteam.png"
+                  src="/images/killer_queen/bteam.webp"
                   alt="The Blue Team"
                   width={600}
                   height={500}
@@ -145,25 +150,25 @@ export default function KillerQueenPage() {
                 <button
                   key={item}
                   type="button"
-                  onClick={() => setSelectedImage(item)}
-                  aria-label={`Powiększ zdjęcie ${item}`}
+                  onClick={() => setSelectedImage(imageIndex)}
+                  aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
                   style={{
                     animationDelay: `${850 + imageIndex * 110}ms`,
                   }}
                   className={`page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
-                    item === 1
+                    imageIndex === 0
                       ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
                       : ""
                   }`}
                 >
                   <div
                     className={`relative overflow-hidden ${
-                      item === 1 ? "aspect-[4/3]" : "aspect-square"
+                      imageIndex === 0 ? "aspect-[4/3]" : "aspect-square"
                     }`}
                   >
                     <Image
-                      src="/images/placeholders/placeholder.png"
-                      alt={`Killer Queen ${item}`}
+                      src={item}
+                      alt={`Killer Queen ${imageIndex + 1}`}
                       fill
                       className="object-cover transition duration-300 group-hover:scale-105"
                     />
@@ -216,7 +221,6 @@ export default function KillerQueenPage() {
               hover:bg-primary
               hover:text-white
               focus-visible:outline
-              focus-visible:outline-2
               focus-visible:outline-offset-2
               focus-visible:outline-accent
               sm:right-8
@@ -231,8 +235,8 @@ export default function KillerQueenPage() {
             onClick={() => setSelectedImage(null)}
           >
             <Image
-              src="/images/placeholders/placeholder.png"
-              alt={`Killer Queen ${selectedImage}`}
+              src={images[selectedImage]}
+              alt={`Killer Queen ${selectedImage + 1}`}
               width={1600}
               height={1200}
               className="h-auto max-h-[85vh] w-full object-contain"

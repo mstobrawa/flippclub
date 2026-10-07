@@ -1,4 +1,8 @@
-export type SlideLabel = "Nowość" | "Popularne" | "Wkrótce";
+export type SlideLabel =
+  | "Nowość"
+  | "Popularne"
+  | "Wkrótce"
+  | "Jedyny w Europie";
 
 export type Slide = {
   id: string;
@@ -27,7 +31,7 @@ export const slides: Slide[] = [
     accent: "",
     titleColor: "text-primary",
     accentColor: "text-accent",
-    labelColor: "bg-primary text-ink",
+    labelColor: "bg-primary text-white",
   },
   {
     id: "arcade-zone",
@@ -36,7 +40,7 @@ export const slides: Slide[] = [
     href: "/zones/arcades",
     imageDesktop: "/images/slider/slider_arcade.webp",
     imageMobile: "/images/slider/slider_arcade.webp",
-    accent: "20+ automatów",
+    accent: "40 automatów",
     titleColor: "text-accent",
     accentColor: "text-primary",
     labelColor: "bg-accent text-ink",
@@ -47,13 +51,13 @@ export const slides: Slide[] = [
     description:
       "Wyjątkowa, wieloosobowa maszyna arcade, przy której liczy się współpraca.",
     href: "/killer-queen",
-    imageDesktop: "/images/placeholders/placeholder.png",
-    imageMobile: "/images/placeholders/placeholder.png",
-    label: "Nowość",
+    imageDesktop: "/images/slider/slider_killerqueen.webp",
+    imageMobile: "/images/slider/slider_killerqueen.webp",
+    label: "Jedyny w Europie",
     accent: "10 graczy",
     titleColor: "text-primary",
     accentColor: "text-accent",
-    labelColor: "bg-primary text-ink",
+    labelColor: "bg-accent text-primary",
   },
   {
     id: "excavator-zone",
@@ -61,8 +65,8 @@ export const slides: Slide[] = [
     description:
       "Sprawdź swoją precyzję i spróbuj zdobyć nagrodę w automatach z chwytakami.",
     href: "/excavators",
-    imageDesktop: "/images/placeholders/placeholder.png",
-    imageMobile: "/images/placeholders/placeholder.png",
+    imageDesktop: "/images/slider/slider_koparki.webp",
+    imageMobile: "/images/slider/slider_koparki.webp",
     titleColor: "text-accent",
     accentColor: "text-primary",
     labelColor: "bg-accent text-ink",
@@ -73,8 +77,8 @@ export const slides: Slide[] = [
     description:
       "Urodziny, spotkania ze znajomymi i prywatne wydarzenia w wyjątkowej atmosferze.",
     href: "/events",
-    imageDesktop: "/images/placeholders/placeholder.png",
-    imageMobile: "/images/placeholders/placeholder.png",
+    imageDesktop: "/images/slider/slider_events.webp",
+    imageMobile: "/images/slider/slider_events.webp",
     accent: "Zarezerwuj termin",
     titleColor: "text-primary",
     accentColor: "text-accent",
@@ -86,24 +90,24 @@ export const slides: Slide[] = [
     description:
       "Zrób przerwę od gry, napij się czegoś i złap chwilę oddechu między kolejnymi rozgrywkami.",
     href: "/zones/bar",
-    imageDesktop: "/images/placeholders/placeholder.png",
-    imageMobile: "/images/placeholders/placeholder.png",
+    imageDesktop: "/images/slider/slider_bar.webp",
+    imageMobile: "/images/slider/slider_bar.webp",
     titleColor: "text-accent",
     accentColor: "text-primary",
     labelColor: "bg-accent text-ink",
   },
 
-  {
-    id: "coming-soon",
-    title: "WKRÓTCE WIĘCEJ",
-    description:
-      "Nowe maszyny, kolejne atrakcje i jeszcze więcej powodów, żeby do nas wracać.",
-    href: "/about",
-    imageDesktop: "/images/placeholders/placeholder.png",
-    imageMobile: "/images/placeholders/placeholder.png",
-    label: "Wkrótce",
-    titleColor: "text-primary",
-    accentColor: "text-accent",
-    labelColor: "bg-accent text-ink",
-  },
+  // {
+  //   id: "coming-soon",
+  //   title: "WKRÓTCE WIĘCEJ",
+  //   description:
+  //     "Nowe maszyny, kolejne atrakcje i jeszcze więcej powodów, żeby do nas wracać.",
+  //   href: "/about",
+  //   imageDesktop: "/images/placeholders/placeholder.png",
+  //   imageMobile: "/images/placeholders/placeholder.png",
+  //   label: "Wkrótce",
+  //   titleColor: "text-primary",
+  //   accentColor: "text-accent",
+  //   labelColor: "bg-accent text-ink",
+  // },
 ];

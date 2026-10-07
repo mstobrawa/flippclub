@@ -8,7 +8,13 @@ import TetrisDecorations from "@/components/layout/TetrisDecoration";
 export default function BarPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const images = [1, 2, 3, 4];
+  const images = [
+    "/images/bar/bar1.webp",
+    "/images/bar/bar2.webp",
+    "/images/bar/bar3.webp",
+    "/images/bar/bar4.webp",
+    "/images/bar/bar5.webp",
+  ];
 
   return (
     <section
@@ -109,7 +115,7 @@ export default function BarPage() {
 
             <div className="relative overflow-hidden rounded-3xl border-2 border-accent bg-surface">
               <Image
-                src="/images/bar/bar1.png"
+                src="/images/bar/bar.webp"
                 alt="Bar FlippClub"
                 width={900}
                 height={700}
@@ -185,12 +191,12 @@ export default function BarPage() {
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {images.map((item, imageIndex) => (
+            {images.slice(0, 4).map((item, imageIndex) => (
               <button
                 key={item}
                 type="button"
-                onClick={() => setSelectedImage(item)}
-                aria-label={`Powiększ zdjęcie ${item}`}
+                onClick={() => setSelectedImage(imageIndex)}
+                aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
                 style={{
                   animationDelay: `${750 + imageIndex * 110}ms`,
                 }}
@@ -217,8 +223,8 @@ export default function BarPage() {
               >
                 <div className="relative aspect-square overflow-hidden">
                   <Image
-                    src="/images/placeholders/placeholder.png"
-                    alt={`Bar FlippClub ${item}`}
+                    src={item}
+                    alt={`Bar FlippClub ${imageIndex + 1}`}
                     fill
                     className="object-cover transition duration-300 group-hover:scale-105"
                   />
@@ -289,7 +295,7 @@ export default function BarPage() {
           {/* Image */}
           <button
             type="button"
-            onClick={() => setSelectedImage(5)}
+            onClick={() => setSelectedImage(4)}
             aria-label="Powiększ zdjęcie przekąsek i napojów"
             className="page-image-reveal group relative order-1 w-full text-left md:order-2"
             style={{ animationDelay: "1100ms" }}
@@ -301,7 +307,7 @@ export default function BarPage() {
 
             <div className="relative overflow-hidden rounded-3xl border-2 border-primary bg-surface">
               <Image
-                src="/images/placeholders/placeholder.png"
+                src={images[4]}
                 alt="Przekąski i napoje w barze FlippClub"
                 width={900}
                 height={700}
@@ -364,8 +370,8 @@ export default function BarPage() {
             onClick={(event) => event.stopPropagation()}
           >
             <Image
-              src="/images/placeholders/placeholder.png"
-              alt={`Bar FlippClub ${selectedImage}`}
+              src={images[selectedImage]}
+              alt={`Bar FlippClub ${selectedImage + 1}`}
               width={1400}
               height={1000}
               className="max-h-[90vh] w-auto object-contain"

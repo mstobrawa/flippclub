@@ -7,7 +7,15 @@ import { useState } from "react";
 export default function ExcavatorsPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const images = [1, 2, 3, 4];
+  const images = [
+    "/images/koparki/kop1.webp",
+    "/images/koparki/kop2.webp",
+    "/images/koparki/kop3.webp",
+    "/images/koparki/kop4.webp",
+    "/images/koparki/kop5.webp",
+    "/images/koparki/kop6.webp",
+    "/images/koparki/kop7.webp",
+  ];
 
   return (
     <section
@@ -42,7 +50,7 @@ export default function ExcavatorsPage() {
         style={{ animationDelay: "150ms" }}
       >
         <Image
-          src="/images/tapev2.png"
+          src="/images/tapev2.webp"
           alt=""
           width={2100}
           height={600}
@@ -67,7 +75,7 @@ export default function ExcavatorsPage() {
         style={{ animationDelay: "300ms" }}
       >
         <Image
-          src="/images/tapev2.png"
+          src="/images/tapev2.webp"
           alt=""
           width={2100}
           height={600}
@@ -93,7 +101,7 @@ export default function ExcavatorsPage() {
         style={{ animationDelay: "450ms" }}
       >
         <Image
-          src="/images/tapev2.png"
+          src="/images/tapev2.webp"
           alt=""
           width={2100}
           height={600}
@@ -198,8 +206,8 @@ export default function ExcavatorsPage() {
                 <button
                   key={item}
                   type="button"
-                  onClick={() => setSelectedImage(item)}
-                  aria-label={`Powiększ zdjęcie ${item}`}
+                  onClick={() => setSelectedImage(imageIndex)}
+                  aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
                   style={{
                     animationDelay: `${350 + imageIndex * 110}ms`,
                   }}
@@ -224,7 +232,7 @@ export default function ExcavatorsPage() {
                     focus-visible:outline-offset-4
                     focus-visible:outline-accent
                     ${
-                      item === 1
+                      imageIndex === 0
                         ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
                         : ""
                     }
@@ -232,12 +240,12 @@ export default function ExcavatorsPage() {
                 >
                   <div
                     className={`relative overflow-hidden ${
-                      item === 1 ? "aspect-[4/3]" : "aspect-square"
+                      imageIndex === 0 ? "aspect-[4/3]" : "aspect-square"
                     }`}
                   >
                     <Image
-                      src="/images/placeholders/placeholder.png"
-                      alt={`Strefa koparek ${item}`}
+                      src={item}
+                      alt={`Strefa koparek ${imageIndex + 1}`}
                       fill
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
@@ -345,8 +353,8 @@ export default function ExcavatorsPage() {
             onClick={() => setSelectedImage(null)}
           >
             <Image
-              src="/images/placeholders/placeholder.png"
-              alt={`Strefa koparek ${selectedImage}`}
+              src={images[selectedImage]}
+              alt={`Strefa koparek ${selectedImage + 1}`}
               width={1600}
               height={1200}
               className="h-auto max-h-[85vh] w-full object-contain"

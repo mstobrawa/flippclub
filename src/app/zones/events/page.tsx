@@ -54,7 +54,7 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 export default function EventsPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const images = [1, 2, 3, 4, 5, 6, 7, 8];
+  const images = [1];
 
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
@@ -117,7 +117,7 @@ export default function EventsPage() {
 
                 <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-accent bg-[#010522]">
                   <Image
-                    src="/images/placeholders/placeholder.png"
+                    src="/images/events/events.webp"
                     alt="Prywatny room FlippClub"
                     width={1000}
                     height={750}
@@ -202,7 +202,6 @@ export default function EventsPage() {
           hover:-translate-y-1
           hover:border-accent
           focus-visible:outline
-          focus-visible:outline-2
           focus-visible:outline-offset-4
           focus-visible:outline-accent
         "

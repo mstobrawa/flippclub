@@ -163,7 +163,7 @@ export default function AboutPage() {
               >
                 <div className="relative aspect-4/3 bg-dark-gray">
                   <Image
-                    src="/images/placeholders/placeholder.png"
+                    src="/images/club.webp"
                     alt="FlippClub"
                     fill
                     className="object-cover"

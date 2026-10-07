@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
@@ -42,9 +41,7 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`${
-        visible ? "page-reveal-visible" : "page-reveal-hidden"
-      } ${className}`}
+      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -55,7 +52,23 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const images = Array.from({ length: 12 }, (_, index) => index + 1);
+  const images = [
+    "/images/gallery/gal1.webp",
+    "/images/gallery/gal2.webp",
+    "/images/gallery/gal3.webp",
+    "/images/gallery/gal4.webp",
+    "/images/gallery/gal5.webp",
+    "/images/gallery/gal6.webp",
+    "/images/gallery/gal7.webp",
+    "/images/gallery/gal8.webp",
+    "/images/gallery/gal9.webp",
+    "/images/gallery/gal10.webp",
+    "/images/gallery/gal11.webp",
+    "/images/gallery/gal12.webp",
+    "/images/gallery/gal13.webp",
+    "/images/gallery/gal14.webp",
+    "/images/gallery/gal15.webp",
+  ];
 
   const layoutClasses = [
     "col-span-2 row-span-2",
@@ -67,6 +80,9 @@ export default function GalleryPage() {
     "col-span-1 row-span-1",
     "col-span-1 row-span-1",
     "col-span-2 row-span-2",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-2",
+    "col-span-2 row-span-1",
     "col-span-1 row-span-1",
     "col-span-1 row-span-2",
     "col-span-2 row-span-1",
@@ -163,8 +179,8 @@ export default function GalleryPage() {
                 >
                   <button
                     type="button"
-                    onClick={() => setSelectedImage(item)}
-                    aria-label={`Powiększ zdjęcie ${item}`}
+                    onClick={() => setSelectedImage(index)}
+                    aria-label={`Powiększ zdjęcie ${index + 1}`}
                     className="
                       group
                       relative
@@ -189,9 +205,10 @@ export default function GalleryPage() {
                     "
                   >
                     <Image
-                      src="/images/placeholders/placeholder.png"
-                      alt={`FlippClub galeria ${item}`}
+                      src={item}
+                      alt={`FlippClub galeria ${index + 1}`}
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw, 1200px"
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
 
@@ -202,7 +219,7 @@ export default function GalleryPage() {
                     </div>
 
                     <span className="absolute bottom-3 left-3 bg-ink/80 px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-0 transition duration-200 group-hover:opacity-100">
-                      #{String(item).padStart(2, "0")}
+                      #{String(index + 1).padStart(2, "0")}
                     </span>
                   </button>
                 </Reveal>
@@ -396,8 +413,8 @@ export default function GalleryPage() {
             onClick={() => setSelectedImage(null)}
           >
             <Image
-              src="/images/placeholders/placeholder.png"
-              alt={`FlippClub galeria ${selectedImage}`}
+              src={images[selectedImage]}
+              alt={`FlippClub galeria ${selectedImage + 1}`}
               width={1600}
               height={1200}
               className="h-auto max-h-[85vh] w-full object-contain"

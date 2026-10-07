@@ -8,7 +8,12 @@ import TetrisDecoration from "@/components/layout/TetrisDecoration";
 export default function ArcadesPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const images = [1, 2, 3, 4];
+  const images = [
+    "/images/arcade/arc1.webp",
+    "/images/arcade/arc2.webp",
+    "/images/arcade/arc3.webp",
+    "/images/arcade/arc4.webp",
+  ];
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
@@ -159,8 +164,8 @@ export default function ArcadesPage() {
               <button
                 key={item}
                 type="button"
-                onClick={() => setSelectedImage(item)}
-                aria-label={`Powiększ zdjęcie ${item}`}
+                onClick={() => setSelectedImage(imageIndex)}
+                aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
                 style={{
                   animationDelay: `${350 + imageIndex * 110}ms`,
                 }}
@@ -185,7 +190,7 @@ export default function ArcadesPage() {
                   focus-visible:outline-offset-4
                   focus-visible:outline-primary
                   ${
-                    item === 1
+                    imageIndex === 0
                       ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
                       : ""
                   }
@@ -193,12 +198,12 @@ export default function ArcadesPage() {
               >
                 <div
                   className={`relative overflow-hidden ${
-                    item === 1 ? "aspect-[4/3]" : "aspect-square"
+                    imageIndex === 0 ? "aspect-[4/3]" : "aspect-square"
                   }`}
                 >
                   <Image
-                    src="/images/placeholders/placeholder.png"
-                    alt={`Automat arcade ${item}`}
+                    src={item}
+                    alt={`Automat arcade ${imageIndex + 1}`}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
@@ -302,8 +307,8 @@ export default function ArcadesPage() {
             onClick={() => setSelectedImage(null)}
           >
             <Image
-              src="/images/placeholders/placeholder.png"
-              alt={`Automat arcade ${selectedImage}`}
+              src={images[selectedImage]}
+              alt={`Automat arcade ${selectedImage + 1}`}
               width={1600}
               height={1200}
               className="h-auto max-h-[85vh] w-full object-contain"

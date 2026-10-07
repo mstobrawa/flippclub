@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
@@ -63,22 +64,22 @@ export default function BuyExchangePage() {
             </Reveal>
           </div>
 
-          {/* COMING SOON */}
-          <Reveal className="mx-auto mt-16 max-w-4xl sm:mt-20" delay={200}>
+          {/* UNDER CONSTRUCTION */}
+          <Reveal className="mx-auto mt-16 max-w-5xl sm:mt-20" delay={200}>
             <div className="relative">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
               />
 
-              <div className="relative bg-[#f1f1ee] px-8 py-16 text-center shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-12 sm:py-20 lg:py-24">
-                <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-[#45454d] sm:text-base">
-                  COMING SOON
-                </p>
-
-                <h2 className="mt-4 font-display text-4xl font-extrabold uppercase tracking-tight text-[#1c1420] sm:text-5xl lg:text-6xl">
-                  Wkrótce
-                </h2>
+              <div className="relative overflow-hidden bg-[#010522] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]">
+                <Image
+                  src="/images/under.webp"
+                  alt="FlippClub — Under Construction"
+                  width={1600}
+                  height={900}
+                  className="h-auto w-full object-cover"
+                />
               </div>
             </div>
           </Reveal>
