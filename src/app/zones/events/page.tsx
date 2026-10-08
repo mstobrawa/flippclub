@@ -17,7 +17,6 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 
   useEffect(() => {
     const element = ref.current;
-
     if (!element) return;
 
     const observer = new IntersectionObserver(
@@ -41,9 +40,7 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`${
-        visible ? "page-reveal-visible" : "page-reveal-hidden"
-      } ${className}`}
+      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -60,16 +57,8 @@ export default function EventsPage() {
     <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
       <TetrisDecorations />
 
-      {/* ================================================== */}
-      {/* MAIN CONTENT */}
-      {/* ================================================== */}
-
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-30">
-          {/* ================================================== */}
-          {/* HEADER */}
-          {/* ================================================== */}
-
           <div className="mx-auto max-w-4xl text-center">
             <Reveal>
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
@@ -102,10 +91,6 @@ export default function EventsPage() {
               </div>
             </Reveal>
           </div>
-
-          {/* ================================================== */}
-          {/* HERO ROOM */}
-          {/* ================================================== */}
 
           <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 sm:mt-20 md:grid-cols-2 md:gap-16">
             <Reveal>
@@ -162,10 +147,6 @@ export default function EventsPage() {
             </Reveal>
           </div>
 
-          {/* ================================================== */}
-          {/* GALLERY */}
-          {/* ================================================== */}
-
           <div className="mx-auto mt-24 max-w-5xl sm:mt-28">
             <Reveal>
               <div className="mb-8 text-center">
@@ -187,30 +168,31 @@ export default function EventsPage() {
                     onClick={() => setSelectedImage(item)}
                     aria-label={`Powiększ zdjęcie ${item}`}
                     className="
-          group
-          relative
-          w-full
-          overflow-hidden
-          rounded-2xl
-          border-2
-          border-primary/30
-          bg-dark-gray
-          text-left
-          shadow-[6px_7px_0_var(--color-primary)]
-          transition
-          duration-200
-          hover:-translate-y-1
-          hover:border-accent
-          focus-visible:outline
-          focus-visible:outline-offset-4
-          focus-visible:outline-accent
-        "
+                      group
+                      relative
+                      w-full
+                      overflow-hidden
+                      rounded-2xl
+                      border-2
+                      border-primary/30
+                      bg-dark-gray
+                      text-left
+                      shadow-[6px_7px_0_var(--color-primary)]
+                      transition
+                      duration-200
+                      hover:-translate-y-1
+                      hover:border-accent
+                      focus-visible:outline
+                      focus-visible:outline-offset-4
+                      focus-visible:outline-accent
+                    "
                   >
                     <div className="relative aspect-square overflow-hidden">
                       <Image
                         src="/images/placeholders/placeholder.png"
                         alt={`Imprezy FlippClub ${item}`}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover transition duration-300 group-hover:scale-105"
                       />
 
@@ -225,10 +207,6 @@ export default function EventsPage() {
               ))}
             </div>
           </div>
-
-          {/* ================================================== */}
-          {/* PARTY TYPES */}
-          {/* ================================================== */}
 
           <div className="mx-auto mt-24 max-w-5xl sm:mt-28">
             <Reveal>
@@ -304,10 +282,6 @@ export default function EventsPage() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* READY */}
-          {/* ================================================== */}
-
           <Reveal>
             <div className="mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
               <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-accent">
@@ -343,13 +317,9 @@ export default function EventsPage() {
         </div>
       </div>
 
-      {/* ================================================== */}
-      {/* LIGHTBOX */}
-      {/* ================================================== */}
-
       {selectedImage !== null ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"
@@ -378,7 +348,6 @@ export default function EventsPage() {
               hover:bg-primary
               hover:text-white
               focus-visible:outline
-              focus-visible:outline-2
               focus-visible:outline-offset-2
               focus-visible:outline-accent
             "

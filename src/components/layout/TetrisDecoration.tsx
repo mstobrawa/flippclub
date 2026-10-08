@@ -212,10 +212,10 @@ export default function TetrisDecorations() {
             className="
               tetris-piece
               absolute
-              w-[120px]
-              sm:w-[145px]
-              lg:w-[175px]
-              xl:w-[200px]
+              w-30
+              sm:w-36.25
+              lg:w-43.75
+              xl:w-50
             "
             style={{
               top: `calc(${viewportIndex * 100 + piece.top}svh)`,
@@ -247,6 +247,7 @@ export default function TetrisDecorations() {
                 opacity-55
                 sm:opacity-65
                 lg:opacity-75
+                loading-eager
               "
             />
           </div>

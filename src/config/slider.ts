@@ -76,7 +76,7 @@ export const slides: Slide[] = [
     title: "IMPREZY I WYDARZENIA",
     description:
       "Urodziny, spotkania ze znajomymi i prywatne wydarzenia w wyjątkowej atmosferze.",
-    href: "/events",
+    href: "/zones/events",
     imageDesktop: "/images/slider/slider_events.webp",
     imageMobile: "/images/slider/slider_events.webp",
     accent: "Zarezerwuj termin",

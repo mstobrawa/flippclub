@@ -52,7 +52,7 @@ export function FeaturedSlider() {
       onMouseLeave={() => setIsPaused(false)}
       className="relative z-10 overflow-hidden bg-transparent"
     >
-      <div className="relative h-[250px] overflow-hidden bg-transparent sm:h-[280px] lg:h-[300px]">
+      <div className="relative h-62.5 overflow-hidden bg-transparent sm:h-70 lg:h-75">
         {slides.map((slide, i) => {
           const isActive = i === index;
 
@@ -76,10 +76,10 @@ export function FeaturedSlider() {
                   fill
                   priority={i === 0}
                   className="object-cover"
-                  sizes="100vw"
+                  sizes="(max-width: 1280px) 100vw, 1280px"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-r from-[#010522]/95 via-[#010522]/75 to-[#010522]/25" />
+                <div className="absolute inset-0 bg-linear-to-r from-[#010522]/95 via-[#010522]/75 to-[#010522]/25" />
               </div>
 
               <div className="mx-auto grid h-full max-w-7xl lg:grid-cols-[0.9fr_1.1fr]">

@@ -1,4 +1,21 @@
+import type { Metadata } from "next";
 import TetrisDecoration from "@/components/layout/TetrisDecoration";
+
+export const metadata: Metadata = {
+  title: "Regulamin — FLIPPCLUB",
+  description:
+    "Regulamin Klubu Flipperowego FLIPPCLUB w Siemianowicach Śląskich. Zasady korzystania z urządzeń, wejściówek i pobytu w klubie.",
+  alternates: {
+    canonical: "/regulamin",
+  },
+  openGraph: {
+    title: "Regulamin — FLIPPCLUB",
+    description:
+      "Regulamin Klubu Flipperowego FLIPPCLUB w Siemianowicach Śląskich.",
+    url: "/regulamin",
+    type: "website",
+  },
+};
 
 const sections = [
   {
@@ -140,7 +157,7 @@ export default function RegulaminPage() {
           ))}
         </div>
 
-        <div className="mt-10 relative mx-auto max-w-3xl">
+        <div className="relative mx-auto mt-10 max-w-3xl">
           <div
             aria-hidden="true"
             className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"

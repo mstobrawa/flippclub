@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {

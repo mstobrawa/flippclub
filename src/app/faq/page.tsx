@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 type FaqItem = {
@@ -46,9 +44,7 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`${
-        visible ? "page-reveal-visible" : "page-reveal-hidden"
-      } ${className}`}
+      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -119,34 +115,11 @@ const accentStyles = [
 
 export default function FaqPage() {
   return (
-    <section
-      className="
-        relative
-        z-0
-        min-h-screen
-        overflow-hidden
-        bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)]
-        pb-16
-        sm:pb-20
-        lg:pb-24
-      "
-    >
-      {/* ================================================== */}
-      {/* TETRIS DECORATIONS */}
-      {/* ================================================== */}
-
+    <section className="relative z-0 min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
       <TetrisDecorations />
-
-      {/* ================================================== */}
-      {/* CONTENT */}
-      {/* ================================================== */}
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         <div className="relative z-30">
-          {/* ================================================== */}
-          {/* HEADER */}
-          {/* ================================================== */}
-
           <div className="mx-auto max-w-4xl text-center">
             <Reveal>
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
@@ -164,28 +137,10 @@ export default function FaqPage() {
               <div className="relative mx-auto mt-7 max-w-3xl">
                 <div
                   aria-hidden="true"
-                  className="
-                    absolute
-                    inset-0
-                    translate-x-2
-                    translate-y-2
-                    bg-primary
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  "
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
                 />
 
-                <div
-                  className="
-                    relative
-                    bg-[#f1f1ee]
-                    px-5
-                    py-5
-                    shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                    sm:px-8
-                    sm:py-6
-                  "
-                >
+                <div className="relative bg-[#f1f1ee] px-5 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
                   <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
                     Masz pytanie? Tu znajdziesz odpowiedzi na najczęstsze
                     pytania dotyczące wizyty w FlippClub.
@@ -195,10 +150,6 @@ export default function FaqPage() {
             </Reveal>
           </div>
 
-          {/* ================================================== */}
-          {/* FAQ */}
-          {/* ================================================== */}
-
           <div className="mx-auto mt-16 max-w-4xl sm:mt-20">
             <div className="grid gap-5">
               {faqItems.map((item, index) => {
@@ -207,59 +158,12 @@ export default function FaqPage() {
                 return (
                   <Reveal key={item.question} delay={(index % 4) * 100}>
                     <details
-                      className={`
-                        group
-                        relative
-                        border-2
-                        bg-[#010522]
-                        p-5
-                        text-center
-                        transition
-                        duration-200
-                        hover:-translate-y-1
-                        sm:p-6
-                        ${styles.border}
-                        shadow-[5px_6px_0_var(--color-primary)]
-                      `}
+                      className={`group relative border-2 bg-[#010522] p-5 text-center transition duration-200 hover:-translate-y-1 sm:p-6 ${styles.border} shadow-[5px_6px_0_var(--color-primary)]`}
                     >
-                      <summary
-                        className="
-                          flex
-                          cursor-pointer
-                          list-none
-                          items-center
-                          justify-center
-                          gap-5
-                          font-display
-                          text-lg
-                          font-extrabold
-                          uppercase
-                          tracking-tight
-                          text-white
-                          sm:text-xl
-                          [&::-webkit-details-marker]:hidden
-                        "
-                      >
+                      <summary className="flex cursor-pointer list-none items-center justify-center gap-5 font-display text-lg font-extrabold uppercase tracking-tight text-white sm:text-xl [&::-webkit-details-marker]:hidden">
                         <span>{item.question}</span>
 
-                        <span
-                          className="
-                            flex
-                            h-9
-                            w-9
-                            shrink-0
-                            items-center
-                            justify-center
-                            bg-accent
-                            font-mono
-                            text-xl
-                            font-bold
-                            text-ink
-                            transition-transform
-                            duration-200
-                            group-open:rotate-45
-                          "
-                        >
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-accent font-mono text-xl font-bold text-ink transition-transform duration-200 group-open:rotate-45">
                           +
                         </span>
                       </summary>
@@ -267,29 +171,10 @@ export default function FaqPage() {
                       <div className="relative mx-auto mt-6 max-w-3xl">
                         <div
                           aria-hidden="true"
-                          className={`
-                            absolute
-                            inset-0
-                            translate-x-2
-                            translate-y-2
-                            ${styles.offset}
-                            [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                          `}
+                          className={`absolute inset-0 translate-x-2 translate-y-2 ${styles.offset} [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]`}
                         />
 
-                        <div
-                          className="
-                            relative
-                            bg-[#f1f1ee]
-                            px-5
-                            py-5
-                            text-left
-                            shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
-                            [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                            sm:px-7
-                            sm:py-6
-                          "
-                        >
+                        <div className="relative bg-[#f1f1ee] px-5 py-5 text-left shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-7 sm:py-6">
                           <p className="text-sm leading-relaxed text-[#45454d] sm:text-base">
                             {item.answer}
                           </p>

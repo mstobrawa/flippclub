@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-
 import { SocialLinks } from "@/components/layout/SocialLinks";
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
@@ -41,9 +40,7 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`${
-        visible ? "page-reveal-visible" : "page-reveal-hidden"
-      } ${className}`}
+      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -58,7 +55,6 @@ export default function ContactPage() {
 
       <section className="relative z-20 px-4 pb-20 pt-24 sm:px-6 sm:pb-24 sm:pt-28 lg:px-8 lg:pb-32 lg:pt-32">
         <div className="mx-auto max-w-7xl">
-          {/* HEADER */}
           <Reveal className="flex flex-col items-center text-center">
             <p className="font-mono text-sm font-bold uppercase tracking-[0.22em] text-accent sm:text-base">
               PLAYER SUPPORT
@@ -84,9 +80,7 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
-          {/* CONTACT + MAP */}
           <div className="mx-auto mt-14 grid max-w-6xl gap-8 lg:grid-cols-2 lg:gap-10">
-            {/* CONTACT DATA */}
             <Reveal delay={100}>
               <div className="h-full border-2 border-accent bg-[#010522] p-6 text-center shadow-[8px_8px_0_var(--color-primary)] sm:p-8">
                 <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-accent">
@@ -98,7 +92,6 @@ export default function ContactPage() {
                 </h2>
 
                 <div className="mt-8 space-y-6">
-                  {/* ADDRESS */}
                   <div>
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
                       ADRES
@@ -111,7 +104,6 @@ export default function ContactPage() {
                     </p>
                   </div>
 
-                  {/* PHONE */}
                   <div>
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
                       TELEFON
@@ -125,7 +117,6 @@ export default function ContactPage() {
                     </a>
                   </div>
 
-                  {/* EMAIL */}
                   <div>
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
                       E-MAIL
@@ -139,7 +130,6 @@ export default function ContactPage() {
                     </a>
                   </div>
 
-                  {/* SOCIAL */}
                   <div>
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-white/50">
                       SOCIAL MEDIA
@@ -153,13 +143,12 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            {/* MAP */}
             <Reveal delay={180}>
-              <div className="h-full min-h-[420px] overflow-hidden border-2 border-accent bg-[#010522] shadow-[8px_8px_0_var(--color-primary)] sm:min-h-[500px]">
+              <div className="h-full min-h-105 overflow-hidden border-2 border-accent bg-[#010522] shadow-[8px_8px_0_var(--color-primary)] sm:min-h-125">
                 <iframe
                   title="Lokalizacja FlippClub"
                   src="https://www.google.com/maps?q=Orzeszkowej%202B,%2041-103%20Siemianowice%20Śląskie&output=embed"
-                  className="h-full min-h-[420px] w-full border-0 sm:min-h-[500px]"
+                  className="h-full min-h-105 w-full border-0 sm:min-h-125"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -167,7 +156,6 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          {/* CLUB PHOTO */}
           <Reveal
             className="mx-auto mt-14 w-full max-w-5xl sm:mt-18 lg:mt-20"
             delay={260}
@@ -175,27 +163,10 @@ export default function ContactPage() {
             <div className="relative">
               <div
                 aria-hidden="true"
-                className="
-                  absolute
-                  inset-0
-                  translate-x-3
-                  translate-y-3
-                  rounded-3xl
-                  bg-accent
-                "
+                className="absolute inset-0 translate-x-3 translate-y-3 rounded-3xl bg-accent"
               />
 
-              <div
-                className="
-                  relative
-                  z-10
-                  overflow-hidden
-                  rounded-3xl
-                  border-4
-                  border-accent
-                  bg-[#010522]
-                "
-              >
+              <div className="relative z-10 overflow-hidden rounded-3xl border-4 border-accent bg-[#010522]">
                 <Image
                   src="/images/club.webp"
                   alt="FlippClub - klub flipperowy w Siemianowicach Śląskich"

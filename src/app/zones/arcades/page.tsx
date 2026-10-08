@@ -17,21 +17,12 @@ export default function ArcadesPage() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
-      {/* ================================================== */}
-      {/* TETRIS */}
-      {/* ================================================== */}
-
       <TetrisDecoration />
-
-      {/* ================================================== */}
-      {/* ARCADE DECORATIONS */}
-      {/* ================================================== */}
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[5] hidden overflow-hidden lg:block"
+        className="pointer-events-none absolute inset-0 z-5 hidden overflow-hidden lg:block"
       >
-        {/* 1UP — lewy górny bok */}
         <Image
           src="/images/arcade/1up.webp"
           alt=""
@@ -40,43 +31,32 @@ export default function ArcadesPage() {
           className="absolute left-25 top-30 h-auto w-27.5 -rotate-6 opacity-90 xl:w-33.75"
         />
 
-        {/* UFO / Galaga — prawy środkowy bok */}
         <Image
           src="/images/arcade/gal.webp"
           alt=""
           width={180}
           height={120}
-          className="absolute right-50 top-30 h-auto w-31.25 rotate-6 opacity-90 xl:w-[155px]"
+          className="absolute right-50 top-30 h-auto w-31.25 rotate-6 opacity-90 xl:w-38.75"
         />
 
-        {/* Alien — lewy dolny bok */}
         <Image
           src="/images/arcade/alien.webp"
           alt=""
           width={160}
           height={120}
-          className="absolute bottom-172 left-40 h-auto w-26.25 rotate-6 opacity-90 xl:w-[130px]"
+          className="absolute bottom-172 left-40 h-auto w-26.25 rotate-6 opacity-90 xl:w-32.5"
         />
 
-        {/* Automat — prawy dolny bok */}
         <Image
           src="/images/arcade/cab.webp"
           alt=""
           width={150}
           height={180}
-          className="absolute bottom-80 right-70 h-auto w-26.25 -rotate-6 opacity-90 xl:w-[130px]"
+          className="absolute bottom-80 right-70 h-auto w-26.25 -rotate-6 opacity-90 xl:w-32.5"
         />
       </div>
 
-      {/* ================================================== */}
-      {/* MAIN CONTENT */}
-      {/* ================================================== */}
-
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
-        {/* ================================================== */}
-        {/* HEADING */}
-        {/* ================================================== */}
-
         <div className="mx-auto max-w-4xl text-center">
           <h1
             className="
@@ -112,10 +92,6 @@ export default function ArcadesPage() {
             </div>
           </div>
         </div>
-
-        {/* ================================================== */}
-        {/* ARCADE INTRO */}
-        {/* ================================================== */}
 
         <div className="mx-auto mt-14 max-w-5xl sm:mt-18 lg:mt-20">
           <div className="relative">
@@ -154,10 +130,6 @@ export default function ArcadesPage() {
           </div>
         </div>
 
-        {/* ================================================== */}
-        {/* GALLERY */}
-        {/* ================================================== */}
-
         <div className="mx-auto mt-14 max-w-6xl sm:mt-18 lg:mt-20">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {images.map((item, imageIndex) => (
@@ -186,7 +158,6 @@ export default function ArcadesPage() {
                   hover:border-primary
                   hover:shadow-[8px_10px_0_var(--color-primary)]
                   focus-visible:outline
-                  focus-visible:outline-2
                   focus-visible:outline-offset-4
                   focus-visible:outline-primary
                   ${
@@ -198,13 +169,18 @@ export default function ArcadesPage() {
               >
                 <div
                   className={`relative overflow-hidden ${
-                    imageIndex === 0 ? "aspect-[4/3]" : "aspect-square"
+                    imageIndex === 0 ? "aspect-4/3" : "aspect-square"
                   }`}
                 >
                   <Image
                     src={item}
                     alt={`Automat arcade ${imageIndex + 1}`}
                     fill
+                    sizes={
+                      imageIndex === 0
+                        ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                        : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    }
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
 
@@ -218,10 +194,6 @@ export default function ArcadesPage() {
             ))}
           </div>
         </div>
-
-        {/* ================================================== */}
-        {/* ARCADE MESSAGE */}
-        {/* ================================================== */}
 
         <div
           className="page-reveal-up mx-auto mt-16 max-w-4xl sm:mt-20"
@@ -247,13 +219,9 @@ export default function ArcadesPage() {
         </div>
       </div>
 
-      {/* ================================================== */}
-      {/* LIGHTBOX */}
-      {/* ================================================== */}
-
       {selectedImage !== null ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"
@@ -282,7 +250,6 @@ export default function ArcadesPage() {
               hover:bg-primary
               hover:text-on-ink
               focus-visible:outline
-              focus-visible:outline-2
               focus-visible:outline-offset-2
               focus-visible:outline-accent
             "

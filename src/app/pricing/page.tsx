@@ -120,10 +120,6 @@ export default function PricingPage() {
 
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-20">
-          {/* ================================================== */}
-          {/* HEADER */}
-          {/* ================================================== */}
-
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
@@ -154,10 +150,6 @@ export default function PricingPage() {
             </Reveal>
           </div>
 
-          {/* ================================================== */}
-          {/* PRICING */}
-          {/* ================================================== */}
-
           <div className="relative mx-auto mt-16 max-w-6xl sm:mt-20">
             <div className="relative z-10 grid gap-7 md:grid-cols-3">
               {prices.map((price, index) => {
@@ -168,8 +160,6 @@ export default function PricingPage() {
                     <article
                       className={`group relative h-full overflow-hidden rounded-3xl border-2 bg-[#010522] p-6 transition duration-200 hover:-translate-y-1 ${styles.border} ${styles.shadow}`}
                     >
-                      {/* Card header */}
-
                       <div className="border-b-2 border-white/15 pb-5">
                         <p
                           className={`font-display ${
@@ -185,8 +175,6 @@ export default function PricingPage() {
                           {price.blocks[0].top}
                         </p>
                       </div>
-
-                      {/* Prices */}
 
                       <div className="mt-2">
                         {price.blocks.slice(1).map((block) => (
@@ -207,8 +195,6 @@ export default function PricingPage() {
                         ))}
                       </div>
 
-                      {/* Hover detail */}
-
                       <div className="mt-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 opacity-0 transition duration-200 group-hover:opacity-100">
                         INSERT COIN • PLAY
                       </div>
@@ -217,10 +203,6 @@ export default function PricingPage() {
                 );
               })}
             </div>
-
-            {/* ================================================== */}
-            {/* KARNET */}
-            {/* ================================================== */}
 
             <Reveal delay={250} className="mt-8">
               <article
@@ -259,29 +241,25 @@ export default function PricingPage() {
                 </div>
               </article>
             </Reveal>
-          </div>
 
-          {/* ================================================== */}
-          {/* COINS */}
-          {/* ================================================== */}
+            <Reveal delay={350}>
+              <div className="mx-auto mt-20 flex max-w-3xl items-center justify-center gap-6 sm:mt-24">
+                <div className="hidden h-px flex-1 bg-white/15 sm:block" />
 
-          <Reveal delay={350}>
-            <div className="mx-auto mt-20 flex max-w-3xl items-center justify-center gap-6 sm:mt-24">
-              <div className="hidden h-px flex-1 bg-white/15 sm:block" />
+                <div className="relative w-28 shrink-0 sm:w-36">
+                  <Image
+                    src="/images/coins.webp"
+                    alt="Monety FlippClub"
+                    width={500}
+                    height={300}
+                    className="h-auto w-full"
+                  />
+                </div>
 
-              <div className="relative w-28 shrink-0 sm:w-36">
-                <Image
-                  src="/images/coins.webp"
-                  alt="Monety FlippClub"
-                  width={500}
-                  height={300}
-                  className="h-auto w-full"
-                />
+                <div className="hidden h-px flex-1 bg-white/15 sm:block" />
               </div>
-
-              <div className="hidden h-px flex-1 bg-white/15 sm:block" />
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

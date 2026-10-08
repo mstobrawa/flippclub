@@ -55,7 +55,6 @@ export default function BuyExchangePage() {
 
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-20">
-          {/* HEADER */}
           <div className="mx-auto max-w-4xl text-center">
             <Reveal delay={100}>
               <h1 className="mt-3 font-display text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-6xl lg:text-8xl">
@@ -64,7 +63,6 @@ export default function BuyExchangePage() {
             </Reveal>
           </div>
 
-          {/* UNDER CONSTRUCTION */}
           <Reveal className="mx-auto mt-16 max-w-5xl sm:mt-20" delay={200}>
             <div className="relative">
               <div

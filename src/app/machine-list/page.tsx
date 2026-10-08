@@ -1,4 +1,3 @@
-import Image from "next/image";
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 const flippers = [
@@ -97,7 +96,7 @@ function MachineCard({
         className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
       />
 
-      <div className="relative flex min-h-[82px] items-center gap-4 bg-[#f1f1ee] px-5 py-4 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]">
+      <div className="relative flex min-h-20.5 items-center gap-4 bg-[#f1f1ee] px-5 py-4 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]">
         <span className="shrink-0 text-2xl font-black text-[#007ff7]">
           {String(number).padStart(2, "0")}
         </span>
@@ -148,7 +147,6 @@ export default function MachineListPage() {
       <TetrisDecorations />
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
-        {/* Header */}
         <div className="mb-14 text-center">
           <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
             FLIPPCLUB
@@ -163,7 +161,6 @@ export default function MachineListPage() {
           </p>
         </div>
 
-        {/* Flippery */}
         <section>
           <SectionTitle subtitle="23 maszyny">Flippery</SectionTitle>
 
@@ -183,7 +180,6 @@ export default function MachineListPage() {
           </div>
         </section>
 
-        {/* Arcade */}
         <section className="mt-20">
           <SectionTitle subtitle="40 pozycji">Arcade</SectionTitle>
 
@@ -203,7 +199,6 @@ export default function MachineListPage() {
           </div>
         </section>
 
-        {/* Inne */}
         <section className="mt-20">
           <SectionTitle subtitle="3 pozycje">Inne</SectionTitle>
 

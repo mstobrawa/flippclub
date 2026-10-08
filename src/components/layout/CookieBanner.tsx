@@ -36,7 +36,8 @@ export function CookieBanner() {
 
     window.addEventListener(cookieSettingsOpenEvent, showSettings);
 
-    return () => window.removeEventListener(cookieSettingsOpenEvent, showSettings);
+    return () =>
+      window.removeEventListener(cookieSettingsOpenEvent, showSettings);
   }, []);
 
   useEffect(() => {
@@ -79,7 +80,7 @@ export function CookieBanner() {
           buttons[nextIndex]?.focus();
         }
       }}
-      className="fixed inset-x-0 bottom-0 z-[60] p-4 sm:p-6 lg:p-8"
+      className="fixed inset-x-0 bottom-0 z-60 p-4 sm:p-6 lg:p-8"
     >
       <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-3xl border-2 border-primary bg-surface p-5 shadow-[8px_9px_0_var(--color-accent)] sm:p-7">
         <div
@@ -107,9 +108,8 @@ export function CookieBanner() {
               className="mt-3 text-sm leading-relaxed text-muted sm:text-base"
             >
               Ta strona korzysta z niezbędnych plików potrzebnych do jej
-              prawidłowego działania. Korzystamy również z osadzonego
-              Facebook Feed, który może wykorzystywać pliki cookies podmiotów
-              trzecich.
+              prawidłowego działania. Korzystamy również z osadzonego Facebook
+              Feed, który może wykorzystywać pliki cookies podmiotów trzecich.
             </p>
           </div>
 
@@ -118,7 +118,7 @@ export function CookieBanner() {
               ref={necessaryButtonRef}
               type="button"
               onClick={() => chooseConsent("necessary")}
-              className="inline-flex items-center justify-center rounded-pill border-2 border-primary px-6 py-3 font-display text-sm font-extrabold uppercase tracking-[0.1em] text-primary transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              className="inline-flex items-center justify-center rounded-pill border-2 border-primary px-6 py-3 font-display text-sm font-extrabold uppercase tracking-widest text-primary transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
               Tylko niezbędne
             </button>
@@ -126,7 +126,7 @@ export function CookieBanner() {
               ref={declineButtonRef}
               type="button"
               onClick={() => chooseConsent("declined")}
-              className="inline-flex items-center justify-center rounded-pill border-2 border-border px-6 py-3 font-display text-sm font-extrabold uppercase tracking-[0.1em] text-text transition hover:-translate-y-0.5 hover:border-primary hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              className="inline-flex items-center justify-center rounded-pill border-2 border-border px-6 py-3 font-display text-sm font-extrabold uppercase tracking-widest text-text transition hover:-translate-y-0.5 hover:border-primary hover:text-primary focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
               Nie zgadzam się
             </button>
@@ -134,7 +134,7 @@ export function CookieBanner() {
               ref={acceptButtonRef}
               type="button"
               onClick={() => chooseConsent("accepted")}
-              className="group inline-flex items-center justify-center gap-2 rounded-pill bg-accent px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.1em] text-ink transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              className="group inline-flex items-center justify-center gap-2 rounded-pill bg-accent px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-widest text-ink transition hover:-translate-y-0.5 hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
               Akceptuję
               <span

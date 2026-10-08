@@ -1,5 +1,22 @@
+import type { Metadata } from "next";
 import { FeaturedSlider } from "@/components/sections/FeaturedSlider";
 import { FacebookFeed } from "@/components/sections/FacebookFeed";
+
+export const metadata: Metadata = {
+  title: "FLIPPCLUB — Flippery, Retro Arcade & Bar",
+  description:
+    "FLIPPCLUB w Siemianowicach Śląskich — flippery, retro arcade, gry, bar i wydarzenia. Odkryj nasze maszyny i sprawdź, co dzieje się w klubie.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "FLIPPCLUB — Flippery, Retro Arcade & Bar",
+    description:
+      "FLIPPCLUB w Siemianowicach Śląskich — flippery, retro arcade, gry, bar i wydarzenia.",
+    url: "/",
+    type: "website",
+  },
+};
 
 export default function Home() {
   return (

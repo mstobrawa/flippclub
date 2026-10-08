@@ -32,6 +32,25 @@ export const siteConfig = {
   name: "FLIPPCLUB",
   shortName: "FLIPPCLUB",
   description:
-    "FLIPPCLUB — flippery, retro arcade games, drinks and events in one place.",
-  locale: "en",
+    "FLIPPCLUB w Siemianowicach Śląskich — flippery, retro arcade, gry, bar i wydarzenia.",
+  url: "https://flippclub.pl",
+  locale: "pl_PL",
+
+  contact: {
+    phone: "+48 508 465 061",
+    email: "flippclubsiemianowice@gmail.com",
+  },
+
+  address: {
+    street: "ul. E. Orzeszkowej 2B",
+    postalCode: "41-103",
+    city: "Siemianowice Śląskie",
+    country: "PL",
+  },
+
+  social: {
+    facebook: "https://www.facebook.com/flippclub",
+    instagram: "https://www.instagram.com/flippclub",
+    tiktok: "https://www.tiktok.com/@flippclub",
+  },
 } as const;

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
@@ -130,21 +129,9 @@ export default function AccessibilityPage() {
         lg:pb-24
       "
     >
-      {/* ================================================== */}
-      {/* TETRIS DECORATIONS */}
-      {/* ================================================== */}
-
       <TetrisDecorations />
 
-      {/* ================================================== */}
-      {/* CONTENT */}
-      {/* ================================================== */}
-
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        {/* ================================================== */}
-        {/* HEADER */}
-        {/* ================================================== */}
-
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
@@ -193,10 +180,6 @@ export default function AccessibilityPage() {
             </div>
           </Reveal>
         </div>
-
-        {/* ================================================== */}
-        {/* MAIN INFO */}
-        {/* ================================================== */}
 
         <Reveal className="mx-auto mt-16 max-w-5xl sm:mt-20">
           <div className="text-center">
@@ -268,10 +251,6 @@ export default function AccessibilityPage() {
             </div>
           </div>
         </Reveal>
-
-        {/* ================================================== */}
-        {/* ACCESSIBILITY FEATURES */}
-        {/* ================================================== */}
 
         <div className="mx-auto mt-24 max-w-5xl sm:mt-28">
           <Reveal>
@@ -363,10 +342,6 @@ export default function AccessibilityPage() {
           </div>
         </div>
 
-        {/* ================================================== */}
-        {/* IMPORTANT NOTE */}
-        {/* ================================================== */}
-
         <Reveal className="mx-auto mt-24 max-w-4xl sm:mt-28">
           <div className="text-center">
             <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
@@ -413,10 +388,6 @@ export default function AccessibilityPage() {
             </div>
           </div>
         </Reveal>
-
-        {/* ================================================== */}
-        {/* CTA */}
-        {/* ================================================== */}
       </div>
     </section>
   );

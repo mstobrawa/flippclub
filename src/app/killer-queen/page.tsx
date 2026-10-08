@@ -15,10 +15,6 @@ export default function KillerQueenPage() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
-      {/* ================================================== */}
-      {/* UFO DECORATION */}
-      {/* ================================================== */}
-
       <div
         aria-hidden="true"
         className="pointer-events-none fixed left-30 top-1/2 z-10 -translate-y-1/2"
@@ -32,16 +28,8 @@ export default function KillerQueenPage() {
         />
       </div>
 
-      {/* ================================================== */}
-      {/* MAIN CONTENT */}
-      {/* ================================================== */}
-
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-20">
-          {/* ================================================== */}
-          {/* LOGO + INTRO */}
-          {/* ================================================== */}
-
           <div className="mx-auto max-w-4xl text-center">
             <div
               className="page-image-reveal mx-auto max-w-4xl"
@@ -72,9 +60,8 @@ export default function KillerQueenPage() {
                     Jedyna taka atrakcja w Europie. Dziesięciu graczy, dwie
                     drużyny i jedna arena. Killer Queen to szybka, pełna chaosu
                     gra 5 vs 5, w której liczy się refleks, współpraca i dobra
-                    strategia.
+                    strategia.{" "}
                     <span className="font-semibold text-[#1c1420]">
-                      {" "}
                       5 na 5. Szał pał. Zero taryfy ulgowej.
                     </span>
                   </p>
@@ -83,14 +70,8 @@ export default function KillerQueenPage() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* TEAMS */}
-          {/* ================================================== */}
-
           <div className="mx-auto mt-14 max-w-5xl sm:mt-16">
             <div className="grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
-              {/* Gold Team */}
-
               <div
                 className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent"
                 style={{ animationDelay: "450ms" }}
@@ -104,8 +85,6 @@ export default function KillerQueenPage() {
                 />
               </div>
 
-              {/* VS */}
-
               <div
                 aria-hidden="true"
                 className="page-reveal relative flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-ink font-display text-xl font-extrabold uppercase text-accent shadow-[5px_6px_0_var(--color-primary)]"
@@ -113,8 +92,6 @@ export default function KillerQueenPage() {
               >
                 VS
               </div>
-
-              {/* Blue Team */}
 
               <div
                 className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue"
@@ -130,10 +107,6 @@ export default function KillerQueenPage() {
               </div>
             </div>
           </div>
-
-          {/* ================================================== */}
-          {/* GALLERY */}
-          {/* ================================================== */}
 
           <div className="mx-auto mt-16 max-w-5xl sm:mt-20">
             <div
@@ -155,7 +128,7 @@ export default function KillerQueenPage() {
                   style={{
                     animationDelay: `${850 + imageIndex * 110}ms`,
                   }}
-                  className={`page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+                  className={`page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-accent ${
                     imageIndex === 0
                       ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
                       : ""
@@ -163,13 +136,18 @@ export default function KillerQueenPage() {
                 >
                   <div
                     className={`relative overflow-hidden ${
-                      imageIndex === 0 ? "aspect-[4/3]" : "aspect-square"
+                      imageIndex === 0 ? "aspect-4/3" : "aspect-square"
                     }`}
                   >
                     <Image
                       src={item}
                       alt={`Killer Queen ${imageIndex + 1}`}
                       fill
+                      sizes={
+                        imageIndex === 0
+                          ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                          : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      }
                       className="object-cover transition duration-300 group-hover:scale-105"
                     />
 
@@ -186,13 +164,9 @@ export default function KillerQueenPage() {
         </div>
       </div>
 
-      {/* ================================================== */}
-      {/* LIGHTBOX */}
-      {/* ================================================== */}
-
       {selectedImage !== null ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"

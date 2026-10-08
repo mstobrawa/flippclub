@@ -29,21 +29,9 @@ export default function BarPage() {
         lg:pb-24
       "
     >
-      {/* ================================================== */}
-      {/* TETRIS DECORATIONS */}
-      {/* ================================================== */}
-
       <TetrisDecorations />
 
-      {/* ================================================== */}
-      {/* CONTENT */}
-      {/* ================================================== */}
-
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-        {/* ================================================== */}
-        {/* HEADER */}
-        {/* ================================================== */}
-
         <div className="mx-auto max-w-4xl text-center">
           <p
             className="page-reveal font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm"
@@ -98,12 +86,7 @@ export default function BarPage() {
           </div>
         </div>
 
-        {/* ================================================== */}
-        {/* BAR SECTION 1 */}
-        {/* ================================================== */}
-
         <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16">
-          {/* Image */}
           <div
             className="page-image-reveal relative"
             style={{ animationDelay: "350ms" }}
@@ -124,7 +107,6 @@ export default function BarPage() {
             </div>
           </div>
 
-          {/* Text */}
           <div
             className="page-reveal-up mx-auto max-w-xl md:mx-0"
             style={{ animationDelay: "500ms" }}
@@ -176,10 +158,6 @@ export default function BarPage() {
           </div>
         </div>
 
-        {/* ================================================== */}
-        {/* GALLERY */}
-        {/* ================================================== */}
-
         <div className="mx-auto mt-20 max-w-5xl sm:mt-24">
           <div
             className="page-reveal-up mb-8 text-center"
@@ -226,6 +204,7 @@ export default function BarPage() {
                     src={item}
                     alt={`Bar FlippClub ${imageIndex + 1}`}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover transition duration-300 group-hover:scale-105"
                   />
 
@@ -240,12 +219,7 @@ export default function BarPage() {
           </div>
         </div>
 
-        {/* ================================================== */}
-        {/* BAR SECTION 2 */}
-        {/* ================================================== */}
-
         <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 sm:mt-24 md:grid-cols-2 md:gap-16">
-          {/* Text */}
           <div
             className="page-reveal-up order-2 mx-auto max-w-xl md:order-1 md:mx-0"
             style={{ animationDelay: "1200ms" }}
@@ -292,7 +266,6 @@ export default function BarPage() {
             </div>
           </div>
 
-          {/* Image */}
           <button
             type="button"
             onClick={() => setSelectedImage(4)}
@@ -323,10 +296,6 @@ export default function BarPage() {
           </button>
         </div>
       </div>
-
-      {/* ================================================== */}
-      {/* LIGHTBOX */}
-      {/* ================================================== */}
 
       {selectedImage !== null && (
         <div

@@ -55,7 +55,6 @@ export default function RentalPage() {
 
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-20">
-          {/* HEADER */}
           <div className="mx-auto max-w-4xl text-center">
             <Reveal>
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
@@ -70,7 +69,6 @@ export default function RentalPage() {
             </Reveal>
           </div>
 
-          {/* UNDER CONSTRUCTION */}
           <Reveal className="mx-auto mt-16 max-w-5xl sm:mt-20" delay={200}>
             <div className="relative">
               <div

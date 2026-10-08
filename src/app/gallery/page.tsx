@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
 type RevealProps = {
@@ -101,22 +100,10 @@ export default function GalleryPage() {
         lg:pb-24
       "
     >
-      {/* ================================================== */}
-      {/* TETRIS DECORATIONS */}
-      {/* ================================================== */}
-
       <TetrisDecorations />
-
-      {/* ================================================== */}
-      {/* CONTENT */}
-      {/* ================================================== */}
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         <div className="relative z-30">
-          {/* ================================================== */}
-          {/* HEADER */}
-          {/* ================================================== */}
-
           <div className="mx-auto max-w-4xl text-center">
             <Reveal>
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
@@ -165,12 +152,8 @@ export default function GalleryPage() {
             </Reveal>
           </div>
 
-          {/* ================================================== */}
-          {/* GALLERY */}
-          {/* ================================================== */}
-
           <div className="mx-auto mt-14 max-w-6xl sm:mt-20">
-            <div className="grid auto-rows-[180px] grid-cols-2 gap-4 sm:auto-rows-[220px] sm:gap-5 md:grid-cols-4 lg:auto-rows-[240px]">
+            <div className="grid auto-rows-45 grid-cols-2 gap-4 sm:auto-rows-55 sm:gap-5 md:grid-cols-4 lg:auto-rows-60">
               {images.map((item, index) => (
                 <Reveal
                   key={item}
@@ -199,7 +182,6 @@ export default function GalleryPage() {
                       hover:border-accent
                       hover:shadow-[7px_8px_0_var(--color-accent)]
                       focus-visible:outline
-                      focus-visible:outline-2
                       focus-visible:outline-offset-4
                       focus-visible:outline-accent
                     "
@@ -226,10 +208,6 @@ export default function GalleryPage() {
               ))}
             </div>
           </div>
-
-          {/* ================================================== */}
-          {/* GALLERY FOOTER */}
-          {/* ================================================== */}
 
           <Reveal>
             <div className="mx-auto mt-16 max-w-3xl text-center sm:mt-20">
@@ -276,80 +254,15 @@ export default function GalleryPage() {
               </div>
             </div>
           </Reveal>
-
-          {/* ================================================== */}
-          {/* CTA */}
-          {/* ================================================== */}
-
-          <Reveal>
-            <div className="relative z-30 mx-auto mt-24 flex max-w-3xl flex-col items-center text-center sm:mt-28">
-              <p className="font-mono text-sm font-bold uppercase tracking-[0.3em] text-accent">
-                READY?
-              </p>
-
-              <h2 className="mt-3 font-display text-[clamp(3rem,10vw,5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-primary">
-                GAME ON.
-              </h2>
-
-              <div className="relative mt-6 max-w-xl">
-                <div
-                  aria-hidden="true"
-                  className="
-                    absolute
-                    inset-0
-                    translate-x-2
-                    translate-y-2
-                    bg-accent
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  "
-                />
-
-                <div
-                  className="
-                    relative
-                    bg-[#f1f1ee]
-                    px-5
-                    py-5
-                    shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                    sm:px-7
-                    sm:py-6
-                  "
-                >
-                  <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
-                    Zobaczyłeś już wszystko. Teraz czas wpaść i zagrać.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative mt-8 inline-flex">
-                <div
-                  aria-hidden="true"
-                  className="
-                    absolute
-                    inset-0
-                    translate-x-2
-                    translate-y-2
-                    bg-accent
-                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  "
-                />
-              </div>
-            </div>
-          </Reveal>
         </div>
       </div>
-
-      {/* ================================================== */}
-      {/* LIGHTBOX */}
-      {/* ================================================== */}
 
       {selectedImage !== null ? (
         <div
           className="
             fixed
             inset-0
-            z-[100]
+            z-100
             flex
             items-center
             justify-center
@@ -386,7 +299,6 @@ export default function GalleryPage() {
               hover:bg-primary
               hover:text-white
               focus-visible:outline
-              focus-visible:outline-2
               focus-visible:outline-offset-2
               focus-visible:outline-accent
               sm:right-8

@@ -17,15 +17,7 @@ export default function FlippersPage() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#0d0b54_0%,#00053b_12%,#010533_30%,#010522_60%,#010522_100%)] pb-16 sm:pb-20 lg:pb-24">
-      {/* ================================================== */}
-      {/* TETRIS DECORATIONS */}
-      {/* ================================================== */}
-
       <TetrisDecoration />
-
-      {/* ================================================== */}
-      {/* FLIPPER BALLS */}
-      {/* ================================================== */}
 
       <Image
         src="/images/flipper-ball.webp"
@@ -90,15 +82,7 @@ export default function FlippersPage() {
         "
       />
 
-      {/* ================================================== */}
-      {/* MAIN CONTENT */}
-      {/* ================================================== */}
-
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
-        {/* ================================================== */}
-        {/* HEADING */}
-        {/* ================================================== */}
-
         <div className="mx-auto max-w-4xl text-center">
           <h1
             className="
@@ -131,10 +115,6 @@ export default function FlippersPage() {
             </div>
           </div>
         </div>
-
-        {/* ================================================== */}
-        {/* GALLERY */}
-        {/* ================================================== */}
 
         <div className="mx-auto mt-14 max-w-6xl sm:mt-18 lg:mt-20">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -182,6 +162,11 @@ export default function FlippersPage() {
                     src={item}
                     alt={`Flipper ${imageIndex + 1}`}
                     fill
+                    sizes={
+                      imageIndex === 0
+                        ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                        : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    }
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
 
@@ -195,10 +180,6 @@ export default function FlippersPage() {
             ))}
           </div>
         </div>
-
-        {/* ================================================== */}
-        {/* INTRO / PINBALL VIBE */}
-        {/* ================================================== */}
 
         <div className="mx-auto mt-16 max-w-4xl sm:mt-20">
           <div className="relative">
@@ -220,35 +201,7 @@ export default function FlippersPage() {
             </div>
           </div>
         </div>
-
-        {/* ================================================== */}
-        {/* CTA */}
-        {/* ================================================== */}
-
-        <div
-          className="
-            page-reveal-up
-            mt-14
-            flex
-            flex-col
-            items-center
-            gap-6
-            sm:mt-16
-          "
-          style={{ animationDelay: "750ms" }}
-        >
-          <div className="relative inline-flex">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-            />
-          </div>
-        </div>
       </div>
-
-      {/* ================================================== */}
-      {/* LIGHTBOX */}
-      {/* ================================================== */}
 
       {selectedImage !== null ? (
         <div
