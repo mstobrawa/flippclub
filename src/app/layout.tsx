@@ -40,6 +40,14 @@ export const metadata: Metadata = {
     siteName: "FLIPPCLUB",
     title: "FLIPPCLUB — Flippery, Retro Arcade & Bar",
     description: siteConfig.description,
+    images: [
+      {
+        url: "/images/og/flippclub-og.webp",
+        width: 1200,
+        height: 630,
+        alt: "FLIPPCLUB — Flippery, Arcade, Koparki RC i Killer Queen",
+      },
+    ],
   },
 
   twitter: {
