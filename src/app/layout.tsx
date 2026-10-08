@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://flippclub.pl"),
+  metadataBase: new URL("https://flippclub.stobrawa-m.workers.dev"),
 
   title: {
     default: "FLIPPCLUB — Flippery, Retro Arcade & Bar",
