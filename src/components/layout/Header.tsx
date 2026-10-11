@@ -98,7 +98,7 @@ export function Header() {
           </Link>
 
           {/* Desktop navigation */}
-          <div className="ml-[8.5rem] flex flex-1 lg:ml-[10rem]">
+          <div className="ml-34 flex flex-1 lg:ml-40">
             <Navigation />
           </div>
 
@@ -133,7 +133,6 @@ export function Header() {
                 hover:bg-ink
                 hover:text-accent
                 focus-visible:outline
-                focus-visible:outline-2
                 focus-visible:outline-offset-2
                 focus-visible:outline-primary
                 lg:hidden
@@ -146,19 +145,19 @@ export function Header() {
               <span className="relative block h-4 w-5" aria-hidden="true">
                 <span
                   className={`absolute left-0 top-0 h-0.5 w-5 bg-current transition-transform duration-200 ${
-                    menuOpen ? "translate-y-[7px] rotate-45" : ""
+                    menuOpen ? "translate-y-1.75 rotate-45" : ""
                   }`}
                 />
 
                 <span
-                  className={`absolute left-0 top-[7px] h-0.5 w-5 bg-current transition-opacity duration-200 ${
+                  className={`absolute left-0 top-1.75 h-0.5 w-5 bg-current transition-opacity duration-200 ${
                     menuOpen ? "opacity-0" : "opacity-100"
                   }`}
                 />
 
                 <span
-                  className={`absolute left-0 top-[14px] h-0.5 w-5 bg-current transition-transform duration-200 ${
-                    menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                  className={`absolute left-0 top-3.5 h-0.5 w-5 bg-current transition-transform duration-200 ${
+                    menuOpen ? "-translate-y-1.75 -rotate-45" : ""
                   }`}
                 />
               </span>

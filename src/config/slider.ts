@@ -49,7 +49,7 @@ export const slides: Slide[] = [
     id: "killer-queen",
     title: "KILLER QUEEN",
     description:
-      "Wyjątkowa, wieloosobowa maszyna arcade, przy której liczy się współpraca.",
+      "Jedyna w Europie, wieloosobowa maszyna arcade, przy której liczy się współpraca.",
     href: "/killer-queen",
     imageDesktop: "/images/slider/slider_killerqueen.webp",
     imageMobile: "/images/slider/slider_killerqueen.webp",
@@ -62,8 +62,7 @@ export const slides: Slide[] = [
   {
     id: "excavator-zone",
     title: "KOPARKI RC",
-    description:
-      "Sprawdź swoją precyzję i spróbuj zdobyć nagrodę w automatach z chwytakami.",
+    description: "Koparka, spychacz, wywrotka? Poczuj klimat palcu budowy!",
     href: "/excavators",
     imageDesktop: "/images/slider/slider_koparki.webp",
     imageMobile: "/images/slider/slider_koparki.webp",

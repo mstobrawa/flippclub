@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-
-import { useEffect, useRef, useState } from "react";
+import Reveal from "@/components/ui/Reveal";
+import { useEffect, useState } from "react";
 
 import {
   type ExternalContentConsent,
@@ -80,54 +80,6 @@ const slides = [
   },
 ];
 
-type RevealProps = {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-};
-
-function Reveal({ children, className = "", delay = 0 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-
-    if (!element) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -60px 0px",
-      },
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`${
-        visible ? "page-reveal-visible" : "page-reveal-hidden"
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
-
 function loadFacebookSdk(): Promise<void> {
   const existingScript = document.getElementById(
     facebookSdkId,
@@ -174,7 +126,7 @@ function FacebookConsentPlaceholder({
 
   return (
     <div
-      className={`flex h-full min-h-[360px] flex-col items-center justify-center bg-[#010522] px-6 py-10 text-center ${className}`}
+      className={`flex h-full min-h-90 flex-col items-center justify-center bg-[#010522] px-6 py-10 text-center ${className}`}
     >
       <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
         Aktualności z Facebooka
@@ -201,13 +153,12 @@ function FacebookConsentPlaceholder({
           text-xs
           font-extrabold
           uppercase
-          tracking-[0.1em]
+          tracking-widest
           text-ink
           transition
           hover:bg-primary
           hover:text-white
           focus-visible:outline
-          focus-visible:outline-2
           focus-visible:outline-offset-4
           focus-visible:outline-primary
         "
@@ -543,7 +494,7 @@ export function FacebookFeed() {
           <div className="grid items-center gap-12 lg:grid-cols-[3fr_2fr] lg:gap-14">
             {/* FACEBOOK CABINET - DESKTOP ONLY */}
 
-            <div className="relative mx-auto hidden w-full max-w-[680px] lg:block">
+            <div className="relative mx-auto hidden w-full max-w-170 lg:block">
               <div className="relative z-10">
                 <Image
                   src="/images/facebook-frame.webp"
@@ -631,10 +582,7 @@ export function FacebookFeed() {
 
         {/* MOBILE FACEBOOK */}
 
-        <Reveal
-          delay={220}
-          className="mx-auto mt-8 w-full max-w-[520px] lg:hidden"
-        >
+        <Reveal delay={220} className="mx-auto mt-8 w-full max-w-130 lg:hidden">
           <div className="relative z-10 border-2 border-accent bg-[#010522] p-2 shadow-[6px_8px_0_var(--color-primary)]">
             <div className="overflow-hidden border-2 border-accent bg-[#010522]">
               {consent === "accepted" ? (

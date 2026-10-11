@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import Reveal from "@/components/ui/Reveal";
 
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
 
@@ -15,52 +15,6 @@ type PriceCard = {
   blocks: PriceBlock[];
   accent: "primary" | "accent" | "pink";
 };
-
-type RevealProps = {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-};
-
-function Reveal({ children, className = "", delay = 0 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -60px 0px",
-      },
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`${
-        visible ? "page-reveal-visible" : "page-reveal-hidden"
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
 
 const prices: PriceCard[] = [
   {
@@ -142,8 +96,8 @@ export default function PricingPage() {
 
                 <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
                   <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                    Wybierz swój czas gry, wrzuć monetę i baw się ile chcesz.
-                    Prosto, bez kombinowania.
+                    Wybierz swój czas gry i baw się jak chcesz. Prosto, bez
+                    kombinowania.
                   </p>
                 </div>
               </div>

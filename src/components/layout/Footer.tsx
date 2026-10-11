@@ -52,7 +52,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   O nas
                 </Link>
@@ -61,7 +61,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/dostepnosc"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Dostępność
                 </Link>
@@ -70,7 +70,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   FAQ
                 </Link>
@@ -79,7 +79,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/gallery"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Galeria
                 </Link>
@@ -88,7 +88,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/regulamin"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Regulamin
                 </Link>
@@ -96,7 +96,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/machine-list"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Lista maszyn
                 </Link>
@@ -105,7 +105,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/polityka-prywatnosci"
-                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Polityka prywatności
                 </Link>
@@ -131,14 +131,14 @@ export function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <a
                 href="tel:+48508465061"
-                className="w-fit text-on-ink/75 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="w-fit text-on-ink/75 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 508 465 061
               </a>
 
               <a
                 href="mailto:flippclubsiemianowice@gmail.com"
-                className="break-all text-on-ink/75 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="break-all text-on-ink/75 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 flippclubsiemianowice@gmail.com
               </a>
@@ -160,7 +160,7 @@ export function Footer() {
                 href="https://mikewebworks.dev"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold text-on-ink/70 transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="font-semibold text-on-ink/70 transition-colors hover:text-accent focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 Mike Webworks
               </a>

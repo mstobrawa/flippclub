@@ -1,7 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Image from "next/image";
 import { useState } from "react";
+
+import Reveal from "@/components/ui/Reveal";
 
 export default function KillerQueenPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -11,6 +14,9 @@ export default function KillerQueenPage() {
     "/images/killer_queen/kq2.webp",
     "/images/killer_queen/kq3.webp",
     "/images/killer_queen/kq4.webp",
+    "/images/killer_queen/kq5.webp",
+    "/images/killer_queen/kq6.webp",
+    "/images/killer_queen/kq7.webp",
   ];
 
   return (
@@ -31,133 +37,125 @@ export default function KillerQueenPage() {
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="relative z-20">
           <div className="mx-auto max-w-4xl text-center">
-            <div
-              className="page-image-reveal mx-auto max-w-4xl"
-              style={{ animationDelay: "100ms" }}
-            >
-              <Image
-                src="/images/killer_queen/logo-kq.webp"
-                alt="Killer Queen"
-                width={1200}
-                height={300}
-                priority
-                className="mx-auto h-auto w-full rounded-4xl"
-              />
-            </div>
-
-            <div
-              className="page-reveal-up mx-auto mt-7 max-w-3xl"
-              style={{ animationDelay: "300ms" }}
-            >
-              <div className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+            <Reveal delay={100}>
+              <div className="mx-auto max-w-4xl">
+                <Image
+                  src="/images/killer_queen/logo-kq.webp"
+                  alt="Killer Queen"
+                  width={1200}
+                  height={300}
+                  priority
+                  className="mx-auto h-auto w-full rounded-4xl"
                 />
+              </div>
+            </Reveal>
 
-                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
-                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                    Jedyna taka atrakcja w Europie. Dziesięciu graczy, dwie
-                    drużyny i jedna arena. Killer Queen to szybka, pełna chaosu
-                    gra 5 vs 5, w której liczy się refleks, współpraca i dobra
-                    strategia.{" "}
-                    <span className="font-semibold text-[#1c1420]">
-                      5 na 5. Szał pał. Zero taryfy ulgowej.
-                    </span>
-                  </p>
+            <Reveal delay={300}>
+              <div className="mx-auto mt-7 max-w-3xl">
+                <div className="relative">
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                  />
+
+                  <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                    <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                      Jedyna taka atrakcja w Europie. Dziesięciu graczy, dwie
+                      drużyny i jedna arena. Killer Queen to szybka, pełna
+                      chaosu gra 5 vs 5, w której liczy się refleks, współpraca
+                      i dobra strategia.{" "}
+                      <span className="font-semibold text-[#1c1420]">
+                        5 na 5. Szał pał. Zero taryfy ulgowej.
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={450}>
+            <div className="mx-auto mt-14 max-w-5xl sm:mt-16">
+              <div className="grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
+                <div className="group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent">
+                  <Image
+                    src="/images/killer_queen/gteam.webp"
+                    alt="The Gold Team"
+                    width={600}
+                    height={500}
+                    className="mx-auto h-auto max-h-64 w-auto object-contain transition duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <Reveal delay={550}>
+                  <div
+                    aria-hidden="true"
+                    className="relative flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-ink font-display text-xl font-extrabold uppercase text-accent shadow-[5px_6px_0_var(--color-primary)]"
+                  >
+                    VS
+                  </div>
+                </Reveal>
+
+                <div className="group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue">
+                  <Image
+                    src="/images/killer_queen/bteam.webp"
+                    alt="The Blue Team"
+                    width={600}
+                    height={500}
+                    className="mx-auto h-auto max-h-64 w-auto object-contain transition duration-300 group-hover:scale-105"
+                  />
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="mx-auto mt-14 max-w-5xl sm:mt-16">
-            <div className="grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
-              <div
-                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-accent/50 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-accent)] transition duration-200 hover:-translate-y-1 hover:border-accent"
-                style={{ animationDelay: "450ms" }}
-              >
-                <Image
-                  src="/images/killer_queen/gteam.webp"
-                  alt="The Gold Team"
-                  width={600}
-                  height={500}
-                  className="mx-auto h-auto max-h-64 w-auto object-contain transition duration-300 group-hover:scale-105"
-                />
-              </div>
-
-              <div
-                aria-hidden="true"
-                className="page-reveal relative flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-ink font-display text-xl font-extrabold uppercase text-accent shadow-[5px_6px_0_var(--color-primary)]"
-                style={{ animationDelay: "550ms" }}
-              >
-                VS
-              </div>
-
-              <div
-                className="page-image-reveal group relative overflow-hidden rounded-3xl border-2 border-blue/40 bg-[#010522] p-6 text-center shadow-[6px_7px_0_var(--color-blue)] transition duration-200 hover:-translate-y-1 hover:border-blue"
-                style={{ animationDelay: "650ms" }}
-              >
-                <Image
-                  src="/images/killer_queen/bteam.webp"
-                  alt="The Blue Team"
-                  width={600}
-                  height={500}
-                  className="mx-auto h-auto max-h-64 w-auto object-contain transition duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-          </div>
+          </Reveal>
 
           <div className="mx-auto mt-16 max-w-5xl sm:mt-20">
-            <div
-              className="page-reveal-up mb-7 text-center"
-              style={{ animationDelay: "750ms" }}
-            >
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
-                ZOBACZ AKCJĘ
-              </p>
-            </div>
+            <Reveal delay={750}>
+              <div className="mb-7 text-center">
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
+                  ZOBACZ AKCJĘ
+                </p>
+              </div>
+            </Reveal>
 
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {images.map((item, imageIndex) => (
-                <button
-                  key={item}
-                  type="button"
-                  onClick={() => setSelectedImage(imageIndex)}
-                  aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
-                  style={{
-                    animationDelay: `${850 + imageIndex * 110}ms`,
-                  }}
-                  className={`page-image-reveal group relative z-30 overflow-hidden rounded-2xl border-2 border-primary/30 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-accent ${
-                    imageIndex === 0
-                      ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
-                      : ""
-                  }`}
-                >
-                  <div
-                    className={`relative overflow-hidden ${
-                      imageIndex === 0 ? "aspect-4/3" : "aspect-square"
+                <Reveal key={item} delay={imageIndex * 80}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage(imageIndex)}
+                    aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
+                    className={`group relative z-30 h-full w-full overflow-hidden rounded-2xl border-2 border-primary/30 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-accent ${
+                      imageIndex === 0
+                        ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
+                        : ""
                     }`}
                   >
-                    <Image
-                      src={item}
-                      alt={`Killer Queen ${imageIndex + 1}`}
-                      fill
-                      sizes={
-                        imageIndex === 0
-                          ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                          : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      }
-                      className="object-cover transition duration-300 group-hover:scale-105"
-                    />
+                    <div
+                      className={`relative overflow-hidden ${
+                        imageIndex === 0 ? "aspect-4/3" : "aspect-square"
+                      }`}
+                    >
+                      <Image
+                        src={item}
+                        alt={`Killer Queen ${imageIndex + 1}`}
+                        fill
+                        sizes={
+                          imageIndex === 0
+                            ? "(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(50vw - 34px), 560px"
+                            : "(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(50vw - 34px), 270px"
+                        }
+                        className="object-cover transition duration-300 group-hover:scale-105"
+                      />
 
-                    <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
-                      <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
-                        Powiększ
-                      </span>
+                      <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
+                        <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
+                          Powiększ
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </button>
+                  </button>
+                </Reveal>
               ))}
             </div>
           </div>

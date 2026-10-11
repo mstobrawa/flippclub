@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TetrisDecoration from "@/components/layout/TetrisDecoration";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "Regulamin — FLIPPCLUB",
@@ -98,6 +99,7 @@ export default function RegulaminPage() {
       <TetrisDecoration />
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <Reveal>
         <header className="text-center">
           <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
             FLIPPCLUB
@@ -127,10 +129,12 @@ export default function RegulaminPage() {
             </div>
           </div>
         </header>
+        </Reveal>
 
         <div className="mt-12 space-y-6 sm:mt-16">
           {sections.map((section) => (
-            <section key={section.number} className="relative">
+            <Reveal key={section.number}>
+            <section className="relative">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(2%_0,100%_0,98%_100%,0_100%)]"
@@ -154,10 +158,11 @@ export default function RegulaminPage() {
                 </div>
               </div>
             </section>
+            </Reveal>
           ))}
         </div>
 
-        <div className="relative mx-auto mt-10 max-w-3xl">
+        <Reveal className="relative mx-auto mt-10 max-w-3xl">
           <div
             aria-hidden="true"
             className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
@@ -172,7 +177,7 @@ export default function RegulaminPage() {
               ul. Orzeszkowej 2B, 41-103 Siemianowice Śląskie
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </main>
   );

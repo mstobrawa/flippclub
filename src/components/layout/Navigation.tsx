@@ -49,7 +49,6 @@ export function Navigation() {
                 transition-all
                 duration-200
                 focus-visible:outline
-                focus-visible:outline-2
                 focus-visible:outline-offset-2
                 focus-visible:outline-primary
                 ${
@@ -119,8 +118,7 @@ export function Navigation() {
                             tracking-tight
                             transition
                             focus-visible:outline
-                            focus-visible:outline-2
-                            focus-visible:outline-offset-[-2px]
+                            focus-visible:-outline-offset-2
                             focus-visible:outline-ink
                             ${
                               isActive
@@ -170,7 +168,6 @@ export function Navigation() {
           transition-all
           duration-200
           focus-visible:outline
-          focus-visible:outline-2
           focus-visible:outline-offset-2
           focus-visible:outline-primary
           ${

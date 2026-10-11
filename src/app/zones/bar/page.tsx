@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
+import Reveal from "@/components/ui/Reveal";
 
 export default function BarPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -33,93 +34,22 @@ export default function BarPage() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         <div className="mx-auto max-w-4xl text-center">
-          <p
-            className="page-reveal font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm"
-            style={{ animationDelay: "0ms" }}
-          >
-            STREFA RELAKSU
-          </p>
-
-          <h1
-            className="page-reveal mt-3 font-display text-[clamp(3.5rem,16vw,9rem)] font-extrabold uppercase leading-[0.85] tracking-tight"
-            style={{ animationDelay: "100ms" }}
-          >
-            <span className="text-primary">B</span>
-            <span className="text-accent">A</span>
-            <span className="text-pink">R</span>
-          </h1>
-
-          <div
-            className="page-reveal-up relative mx-auto mt-7 max-w-3xl"
-            style={{ animationDelay: "220ms" }}
-          >
-            <div
-              aria-hidden="true"
-              className="
-                absolute
-                inset-0
-                translate-x-2
-                translate-y-2
-                bg-primary
-                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-              "
-            />
-
-            <div
-              className="
-                relative
-                bg-[#f1f1ee]
-                px-5
-                py-5
-                shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
-                [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                sm:px-8
-                sm:py-6
-              "
-            >
-              <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                Uzupełnij życie i manę. Złap przekąskę, napój i wracaj do gry. W
-                naszym barze znajdziesz klasyki, które znasz od lat — od
-                legendarnych gum Turbo po oranżadę w woreczku i wiele innych.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16">
-          <div
-            className="page-image-reveal relative"
-            style={{ animationDelay: "350ms" }}
-          >
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-3 -right-3 h-full w-full rounded-3xl bg-primary"
-            />
-
-            <div className="relative overflow-hidden rounded-3xl border-2 border-accent bg-surface">
-              <Image
-                src="/images/bar/bar.webp"
-                alt="Bar FlippClub"
-                width={900}
-                height={700}
-                className="mx-auto h-auto w-full -rotate-2 object-contain transition duration-300 hover:rotate-0"
-              />
-            </div>
-          </div>
-
-          <div
-            className="page-reveal-up mx-auto max-w-xl md:mx-0"
-            style={{ animationDelay: "500ms" }}
-          >
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
-              POWER UP
+          <Reveal>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
+              STREFA RELAKSU
             </p>
+          </Reveal>
 
-            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
-              Złap coś na ząb
-            </h2>
+          <Reveal delay={100}>
+            <h1 className="mt-3 font-display text-[clamp(3.5rem,16vw,9rem)] font-extrabold uppercase leading-[0.85] tracking-tight">
+              <span className="text-primary">B</span>
+              <span className="text-accent">A</span>
+              <span className="text-pink">R</span>
+            </h1>
+          </Reveal>
 
-            <div className="relative mt-6">
+          <Reveal delay={220}>
+            <div className="relative mx-auto mt-7 max-w-3xl">
               <div
                 aria-hidden="true"
                 className="
@@ -127,7 +57,7 @@ export default function BarPage() {
                   inset-0
                   translate-x-2
                   translate-y-2
-                  bg-accent
+                  bg-primary
                   [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
                 "
               />
@@ -144,156 +74,200 @@ export default function BarPage() {
                   sm:py-6
                 "
               >
-                <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
-                  Między jedną rundą a drugą trzeba czasem naładować baterie.
-                  Wpadnij do baru po coś zimnego, słodkiego albo chrupiącego i
-                  wracaj do zabawy.
+                <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                  Uzupełnij życie i manę. Złap przekąskę, napój i wracaj do gry.
+                  W naszym barze znajdziesz klasyki, które znasz od lat — od
+                  legendarnych gum Turbo po oranżadę w woreczku i wiele innych.
                 </p>
               </div>
             </div>
+          </Reveal>
+        </div>
 
-            <p className="mt-5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-primary sm:text-sm">
-              TURBO • ORANŻADA • PRZEKĄSKI • I WIELE WIĘCEJ
-            </p>
-          </div>
+        <div className="mx-auto mt-16 grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16">
+          <Reveal delay={350}>
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute -bottom-3 -right-3 h-full w-full rounded-3xl bg-primary"
+              />
+
+              <div className="relative overflow-hidden rounded-3xl border-2 border-accent bg-surface">
+                <Image
+                  src="/images/bar/bar.webp"
+                  alt="Bar FlippClub"
+                  width={900}
+                  height={700}
+                  className="mx-auto h-auto w-full -rotate-2 object-contain transition duration-300 hover:rotate-0"
+                />
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={500}>
+            <div className="mx-auto max-w-xl md:mx-0">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                POWER UP
+              </p>
+
+              <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
+                Złap coś na ząb
+              </h2>
+
+              <div className="relative mt-6">
+                <div
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    inset-0
+                    translate-x-2
+                    translate-y-2
+                    bg-accent
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                />
+
+                <div
+                  className="
+                    relative
+                    bg-[#f1f1ee]
+                    px-5
+                    py-5
+                    shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                    sm:px-8
+                    sm:py-6
+                  "
+                >
+                  <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                    Między jedną rundą a drugą trzeba czasem naładować baterie.
+                    Wpadnij do baru po coś zimnego, słodkiego albo chrupiącego i
+                    wracaj do zabawy.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-primary sm:text-sm">
+                TURBO • ORANŻADA • PRZEKĄSKI • I WIELE WIĘCEJ
+              </p>
+            </div>
+          </Reveal>
         </div>
 
         <div className="mx-auto mt-20 max-w-5xl sm:mt-24">
-          <div
-            className="page-reveal-up mb-8 text-center"
-            style={{ animationDelay: "650ms" }}
-          >
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
-              CO CZAI SIĘ ZA LADĄ?
-            </p>
-          </div>
+          <Reveal delay={650}>
+            <div className="mb-8 text-center">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
+                CO CZAI SIĘ ZA LADĄ?
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {images.slice(0, 4).map((item, imageIndex) => (
-              <button
-                key={item}
-                type="button"
-                onClick={() => setSelectedImage(imageIndex)}
-                aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
-                style={{
-                  animationDelay: `${750 + imageIndex * 110}ms`,
-                }}
-                className="
-                  page-image-reveal
-                  group
-                  relative
-                  z-30
-                  overflow-hidden
-                  rounded-2xl
-                  border-2
-                  border-primary/30
-                  bg-dark-gray
-                  text-left
-                  shadow-[6px_7px_0_var(--color-primary)]
-                  transition
-                  duration-200
-                  hover:-translate-y-1
-                  hover:border-accent
-                  focus-visible:outline
-                  focus-visible:outline-offset-4
-                  focus-visible:outline-accent
-                "
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src={item}
-                    alt={`Bar FlippClub ${imageIndex + 1}`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition duration-300 group-hover:scale-105"
-                  />
+              <Reveal key={item} delay={imageIndex * 80}>
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage(imageIndex)}
+                  aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
+                  className="group relative z-30 h-full w-full overflow-hidden rounded-2xl border-2 border-primary/30 bg-dark-gray text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-200 hover:-translate-y-1 hover:border-accent focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image
+                      src={item}
+                      alt={`Bar FlippClub ${imageIndex + 1}`}
+                      fill
+                      sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(50vw - 34px), 270px"
+                      className="object-cover transition duration-300 group-hover:scale-105"
+                    />
 
-                  <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
-                    <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
-                      Powiększ
-                    </span>
+                    <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
+                      <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
+                        Powiększ
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </button>
+              </Reveal>
             ))}
           </div>
         </div>
 
         <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 sm:mt-24 md:grid-cols-2 md:gap-16">
-          <div
-            className="page-reveal-up order-2 mx-auto max-w-xl md:order-1 md:mx-0"
-            style={{ animationDelay: "1200ms" }}
-          >
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              INSERT COIN
-            </p>
+          <Reveal delay={100}>
+            <div className="order-2 mx-auto max-w-xl md:order-1 md:mx-0">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                INSERT COIN
+              </p>
 
-            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
-              Klasyki, które znasz
-            </h2>
+              <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,2.5rem)] font-extrabold uppercase leading-tight tracking-tight text-primary">
+                Klasyki, które znasz
+              </h2>
 
-            <div className="relative mt-6">
+              <div className="relative mt-6">
+                <div
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    inset-0
+                    translate-x-2
+                    translate-y-2
+                    bg-blue
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                  "
+                />
+
+                <div
+                  className="
+                    relative
+                    bg-[#f1f1ee]
+                    px-5
+                    py-5
+                    shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
+                    [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
+                    sm:px-8
+                    sm:py-6
+                  "
+                >
+                  <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
+                    Są rzeczy, które smakują najlepiej właśnie tutaj. Retro
+                    przekąski, kultowe napoje i małe powroty do dzieciństwa.
+                    Uzupełnij życie, manę i ruszaj po kolejny rekord.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <button
+              type="button"
+              onClick={() => setSelectedImage(4)}
+              aria-label="Powiększ zdjęcie przekąsek i napojów"
+              className="group relative order-1 w-full text-left md:order-2"
+            >
               <div
                 aria-hidden="true"
-                className="
-                  absolute
-                  inset-0
-                  translate-x-2
-                  translate-y-2
-                  bg-blue
-                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                "
+                className="absolute -bottom-3 -left-3 h-full w-full rounded-3xl bg-accent"
               />
 
-              <div
-                className="
-                  relative
-                  bg-[#f1f1ee]
-                  px-5
-                  py-5
-                  shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
-                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  sm:px-8
-                  sm:py-6
-                "
-              >
-                <p className="text-base leading-relaxed text-[#45454d] sm:text-lg">
-                  Są rzeczy, które smakują najlepiej właśnie tutaj. Retro
-                  przekąski, kultowe napoje i małe powroty do dzieciństwa.
-                  Uzupełnij życie, manę i ruszaj po kolejny rekord.
-                </p>
+              <div className="relative overflow-hidden rounded-3xl border-2 border-primary bg-surface">
+                <Image
+                  src={images[4]}
+                  alt="Przekąski i napoje w barze FlippClub"
+                  width={900}
+                  height={700}
+                  className="mx-auto h-auto w-full object-cover"
+                />
+
+                <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
+                  <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
+                    Powiększ
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setSelectedImage(4)}
-            aria-label="Powiększ zdjęcie przekąsek i napojów"
-            className="page-image-reveal group relative order-1 w-full text-left md:order-2"
-            style={{ animationDelay: "1100ms" }}
-          >
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-3 -left-3 h-full w-full rounded-3xl bg-accent"
-            />
-
-            <div className="relative overflow-hidden rounded-3xl border-2 border-primary bg-surface">
-              <Image
-                src={images[4]}
-                alt="Przekąski i napoje w barze FlippClub"
-                width={900}
-                height={700}
-                className="mx-auto h-auto w-full object-cover"
-              />
-
-              <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover:bg-ink/20">
-                <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition group-hover:opacity-100">
-                  Powiększ
-                </span>
-              </div>
-            </div>
-          </button>
+            </button>
+          </Reveal>
         </div>
       </div>
 

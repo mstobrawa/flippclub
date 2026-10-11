@@ -237,18 +237,20 @@ export default function TetrisDecorations() {
           >
             <Image
               src={piece.src}
-              alt={piece.alt}
+              alt=""
               width={300}
               height={300}
+              loading="lazy"
+              fetchPriority="low"
+              sizes="(max-width: 639px) 120px, (max-width: 1023px) 145px, (max-width: 1279px) 175px, 200px"
               className="
-                h-auto
-                w-full
-                object-contain
-                opacity-55
-                sm:opacity-65
-                lg:opacity-75
-                loading-eager
-              "
+    h-auto
+    w-full
+    object-contain
+    opacity-55
+    sm:opacity-65
+    lg:opacity-75
+  "
             />
           </div>
         );

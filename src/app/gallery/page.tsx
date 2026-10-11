@@ -1,52 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import Reveal from "@/components/ui/Reveal";
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
-
-type RevealProps = {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-};
-
-function Reveal({ children, className = "", delay = 0 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -60px 0px",
-      },
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`${visible ? "page-reveal-visible" : "page-reveal-hidden"} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -67,6 +24,15 @@ export default function GalleryPage() {
     "/images/gallery/gal13.webp",
     "/images/gallery/gal14.webp",
     "/images/gallery/gal15.webp",
+    "/images/gallery/gal16.webp",
+    "/images/gallery/gal17.webp",
+    "/images/gallery/gal18.webp",
+    "/images/gallery/gal19.webp",
+    "/images/gallery/gal20.webp",
+    "/images/gallery/gal21.webp",
+    "/images/gallery/gal22.webp",
+    "/images/gallery/gal23.webp",
+    "/images/gallery/gal24.webp",
   ];
 
   const layoutClasses = [

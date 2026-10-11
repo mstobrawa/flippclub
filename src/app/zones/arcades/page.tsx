@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import TetrisDecoration from "@/components/layout/TetrisDecoration";
+import Reveal from "@/components/ui/Reveal";
 
 export default function ArcadesPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -13,6 +14,9 @@ export default function ArcadesPage() {
     "/images/arcade/arc2.webp",
     "/images/arcade/arc3.webp",
     "/images/arcade/arc4.webp",
+    "/images/arcade/arc5.webp",
+    "/images/arcade/arc6.webp",
+    "/images/arcade/arc7.webp",
   ];
 
   return (
@@ -58,165 +62,144 @@ export default function ArcadesPage() {
 
       <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-14 sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
         <div className="mx-auto max-w-4xl text-center">
-          <h1
-            className="
-              page-reveal
-              font-display
-              text-[clamp(3.5rem,14vw,9rem)]
-              font-extrabold
-              uppercase
-              leading-[0.85]
-              tracking-tight
-              text-primary
-            "
-          >
-            ARCADE
-          </h1>
+          <Reveal>
+            <h1
+              className="
+                font-display
+                text-[clamp(3.5rem,14vw,9rem)]
+                font-extrabold
+                uppercase
+                leading-[0.85]
+                tracking-tight
+                text-primary
+              "
+            >
+              ARCADE
+            </h1>
+          </Reveal>
 
-          <div
-            className="page-reveal-up mx-auto mt-7 max-w-2xl"
-            style={{ animationDelay: "180ms" }}
-          >
+          <Reveal delay={180}>
+            <div className="mx-auto mt-7 max-w-2xl">
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                />
+
+                <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                  <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                    Klasyczne automaty arcade, kultowe gry i mnóstwo dobrej
+                    zabawy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={100}>
+          <div className="mx-auto mt-14 max-w-5xl sm:mt-18 lg:mt-20">
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(2%_0,100%_0,98%_100%,0_100%)]"
+              />
+
+              <div className="relative bg-[#010522] px-6 py-7 shadow-[0_0_30px_rgba(202,97,241,0.18)] [clip-path:polygon(2%_0,100%_0,98%_100%,0_100%)] sm:px-10 sm:py-9">
+                <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+                  <div>
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
+                      PLAYER 01
+                    </p>
+
+                    <h2 className="mt-2 font-display text-2xl font-extrabold uppercase tracking-tight text-white sm:text-3xl">
+                      Wybierz swoją grę
+                    </h2>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="h-3 w-3 animate-pulse rounded-full bg-accent" />
+
+                    <span className="font-mono text-xs font-bold uppercase tracking-[0.15em] text-white/70">
+                      READY
+                    </span>
+                  </div>
+                </div>
+
+                <p className="mt-5 max-w-3xl text-sm leading-relaxed text-white/70 sm:text-base">
+                  Od klasycznych automatów po najbardziej charakterystyczne
+                  arcade&apos;owe tytuły. Wybierz maszynę, wrzuć monetę i
+                  sprawdź, ile punktów uda Ci się zdobyć.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mx-auto mt-14 max-w-6xl sm:mt-18 lg:mt-20">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {images.map((item, imageIndex) => (
+              <Reveal key={item} delay={imageIndex * 80}>
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage(imageIndex)}
+                  aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
+                  className={`group relative h-full w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary ${
+                    imageIndex === 0
+                      ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
+                      : ""
+                  }`}
+                >
+                  <div
+                    className={`relative overflow-hidden ${
+                      imageIndex === 0 ? "aspect-4/3" : "aspect-square"
+                    }`}
+                  >
+                    <Image
+                      src={item}
+                      alt={`Automat arcade ${imageIndex + 1}`}
+                      fill
+                      sizes={
+                        imageIndex === 0
+                          ? "(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(50vw - 34px), 560px"
+                          : "(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(50vw - 34px), 270px"
+                      }
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+
+                    <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition duration-300 group-hover:bg-ink/20">
+                      <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition duration-300 group-hover:opacity-100">
+                        Powiększ
+                      </span>
+                    </div>
+                  </div>
+                </button>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <Reveal delay={180}>
+          <div className="mx-auto mt-16 max-w-4xl sm:mt-20">
             <div className="relative">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
               />
 
-              <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
-                <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                  Klasyczne automaty arcade, kultowe gry i mnóstwo dobrej
-                  zabawy.
+              <div className="relative bg-[#f1f1ee] px-6 py-7 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-10 sm:py-8">
+                <p className="text-center font-display text-xl font-extrabold uppercase leading-tight tracking-tight text-ink sm:text-2xl">
+                  HIGH SCORE?
+                </p>
+
+                <p className="mx-auto mt-4 max-w-2xl text-center text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                  Zbierz ekipę, wybierz automat i sprawdź, kto zostanie królem
+                  arcade.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mx-auto mt-14 max-w-5xl sm:mt-18 lg:mt-20">
-          <div className="relative">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(2%_0,100%_0,98%_100%,0_100%)]"
-            />
-
-            <div className="relative bg-[#010522] px-6 py-7 shadow-[0_0_30px_rgba(202,97,241,0.18)] [clip-path:polygon(2%_0,100%_0,98%_100%,0_100%)] sm:px-10 sm:py-9">
-              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-                <div>
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
-                    PLAYER 01
-                  </p>
-
-                  <h2 className="mt-2 font-display text-2xl font-extrabold uppercase tracking-tight text-white sm:text-3xl">
-                    Wybierz swoją grę
-                  </h2>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 animate-pulse rounded-full bg-accent" />
-
-                  <span className="font-mono text-xs font-bold uppercase tracking-[0.15em] text-white/70">
-                    READY
-                  </span>
-                </div>
-              </div>
-
-              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-white/70 sm:text-base">
-                Od klasycznych automatów po najbardziej charakterystyczne
-                arcade&apos;owe tytuły. Wybierz maszynę, wrzuć monetę i sprawdź,
-                ile punktów uda Ci się zdobyć.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-14 max-w-6xl sm:mt-18 lg:mt-20">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {images.map((item, imageIndex) => (
-              <button
-                key={item}
-                type="button"
-                onClick={() => setSelectedImage(imageIndex)}
-                aria-label={`Powiększ zdjęcie ${imageIndex + 1}`}
-                style={{
-                  animationDelay: `${350 + imageIndex * 110}ms`,
-                }}
-                className={`
-                  page-image-reveal
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-2xl
-                  border-2
-                  border-primary/50
-                  bg-[#010522]
-                  text-left
-                  shadow-[6px_7px_0_var(--color-primary)]
-                  transition
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-primary
-                  hover:shadow-[8px_10px_0_var(--color-primary)]
-                  focus-visible:outline
-                  focus-visible:outline-offset-4
-                  focus-visible:outline-primary
-                  ${
-                    imageIndex === 0
-                      ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
-                      : ""
-                  }
-                `}
-              >
-                <div
-                  className={`relative overflow-hidden ${
-                    imageIndex === 0 ? "aspect-4/3" : "aspect-square"
-                  }`}
-                >
-                  <Image
-                    src={item}
-                    alt={`Automat arcade ${imageIndex + 1}`}
-                    fill
-                    sizes={
-                      imageIndex === 0
-                        ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                        : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    }
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition duration-300 group-hover:bg-ink/20">
-                    <span className="rounded-full bg-accent px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-ink opacity-0 transition duration-300 group-hover:opacity-100">
-                      Powiększ
-                    </span>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div
-          className="page-reveal-up mx-auto mt-16 max-w-4xl sm:mt-20"
-          style={{ animationDelay: "650ms" }}
-        >
-          <div className="relative">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
-            />
-
-            <div className="relative bg-[#f1f1ee] px-6 py-7 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-10 sm:py-8">
-              <p className="text-center font-display text-xl font-extrabold uppercase leading-tight tracking-tight text-ink sm:text-2xl">
-                HIGH SCORE?
-              </p>
-
-              <p className="mx-auto mt-4 max-w-2xl text-center text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                Zbierz ekipę, wybierz automat i sprawdź, kto zostanie królem
-                arcade.
-              </p>
-            </div>
-          </div>
-        </div>
+        </Reveal>
       </div>
 
       {selectedImage !== null ? (

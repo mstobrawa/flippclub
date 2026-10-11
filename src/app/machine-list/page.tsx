@@ -1,4 +1,5 @@
 import TetrisDecorations from "@/components/layout/TetrisDecoration";
+import Reveal from "@/components/ui/Reveal";
 
 const flippers = [
   "Guns n Roses JJP",
@@ -147,7 +148,7 @@ export default function MachineListPage() {
       <TetrisDecorations />
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
-        <div className="mb-14 text-center">
+        <Reveal className="mb-14 text-center">
           <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent sm:text-sm">
             FLIPPCLUB
           </p>
@@ -159,8 +160,9 @@ export default function MachineListPage() {
           <p className="mx-auto mt-5 max-w-2xl text-base font-medium leading-relaxed text-white/70 sm:text-lg">
             Flippery, automaty arcade i pozostałe atrakcje dostępne w klubie.
           </p>
-        </div>
+        </Reveal>
 
+        <Reveal>
         <section>
           <SectionTitle subtitle="23 maszyny">Flippery</SectionTitle>
 
@@ -179,8 +181,10 @@ export default function MachineListPage() {
             })}
           </div>
         </section>
+        </Reveal>
 
-        <section className="mt-20">
+        <Reveal className="mt-20">
+        <section>
           <SectionTitle subtitle="40 pozycji">Arcade</SectionTitle>
 
           <div className="grid gap-5 md:grid-cols-2">
@@ -198,8 +202,10 @@ export default function MachineListPage() {
             })}
           </div>
         </section>
+        </Reveal>
 
-        <section className="mt-20">
+        <Reveal className="mt-20">
+        <section>
           <SectionTitle subtitle="3 pozycje">Inne</SectionTitle>
 
           <div className="grid gap-5 md:grid-cols-2">
@@ -217,6 +223,7 @@ export default function MachineListPage() {
             })}
           </div>
         </section>
+        </Reveal>
       </div>
     </main>
   );
