@@ -74,7 +74,6 @@ export function FeaturedSlider() {
                   src={slide.imageMobile}
                   alt=""
                   fill
-                  priority={i === 0}
                   className="object-cover"
                   sizes="(max-width: 1280px) 100vw, 1280px"
                 />
