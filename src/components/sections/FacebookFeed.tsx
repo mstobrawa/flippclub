@@ -349,6 +349,11 @@ export function FacebookFeed() {
       return;
     }
 
+    console.info(
+      '%cℹ️ Błędy w konsoli z "facebook.com", "fbcdn" i "Permissions-Policy" pochodzą z wtyczki Facebooka (iframe), a nie z kodu tej strony. Można je zignorować.',
+      "background:#1877f2;color:#fff;padding:4px 8px;border-radius:4px;font-weight:bold",
+    );
+
     let cancelled = false;
 
     loadFacebookSdk()

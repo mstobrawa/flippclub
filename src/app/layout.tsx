@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieBanner } from "@/components/layout/CookieBanner";
+import { MusicPlayer } from "@/components/layout/MusicPlayer";
 import { siteConfig } from "@/config/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://flippclub.stobrawa-m.workers.dev"),
+  metadataBase: new URL("https://flippclub.pl"),
 
   title: {
     default: "FLIPPCLUB — Flippery, Retro Arcade & Bar",
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
+        <MusicPlayer />
       </body>
     </html>
   );
