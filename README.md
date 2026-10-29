@@ -4,86 +4,105 @@
 
 ### ARCADE. FLIPPERS. GOOD TIMES.
 
-**Strona internetowa klubu arcade i flipperów w Siemianowicach Śląskich.**
+**Official website of FLIPPCLUB — an arcade and pinball club in Siemianowice Śląskie, Poland.**
 
-![FLIPPCLUB — podgląd strony](docs/screenshot.jpg)
+![FLIPPCLUB website preview](docs/screenshot.jpg)
 
 </div>
 
 ---
 
-## O projekcie
+## 🎮 About the Project
 
-FLIPPCLUB to strona internetowa miejsca, w którym spotykają się klasyczne flippery, automaty arcade i wspólna rozrywka. Projekt łączy wyrazisty, inspirowany salonami gier styl wizualny z czytelną prezentacją oferty klubu.
+FLIPPCLUB is a website for an entertainment venue bringing together classic pinball machines, arcade games and social experiences.
 
-Ciemne granatowe tło, żółte akcenty, fioletowe neony i mocna typografia budują rozpoznawalny klimat, a osobne podstrony ułatwiają znalezienie najważniejszych informacji.
+The website combines a distinctive visual identity inspired by retro gaming with clear navigation and easy access to essential visitor information. A dark navy background, bold yellow accents, neon purple details and expressive typography reflect the atmosphere of the club.
 
-## 🎮 Co znajdziesz na stronie?
+## ✨ Key Features
 
-- **Atrakcje** — automaty arcade, flippery, Killer Queen i koparki RC.
-- **Informacje dla odwiedzających** — cennik, godziny otwarcia i kontakt.
-- **Urodziny i imprezy** — prezentacja dostępnych przestrzeni i oferty.
-- **Pozostałe usługi** — bar, wypożyczalnia oraz kupno i wymiana.
-- **Galeria i aktualności** — zdjęcia klubu oraz sekcja treści społecznościowych.
-- **Responsywny interfejs** — układ dostosowany do różnych rozmiarów ekranu.
+- **Arcade & Pinball** — dedicated pages showcasing the club's attractions.
+- **Killer Queen** — a dedicated section for the team-based arcade game.
+- **Pricing & Opening Hours** — quick access to essential visitor information.
+- **Birthdays & Events** — a presentation of spaces available for celebrations.
+- **Club Services** — information about the bar, rentals, and buying and exchanging machines.
+- **Gallery & Social Media** — visual content and a Facebook feed section.
+- **Responsive Design** — layouts adapted to desktop and mobile devices.
+- **SEO Foundations** — dedicated routes, page metadata and a sitemap.
 
-## 🛠️ Technologie
+## 🛠️ Tech Stack
 
-| Technologia | Rola |
-|---|---|
-| Next.js 16 | Framework aplikacji i routing |
-| React 19 | Interfejs użytkownika |
-| TypeScript | Typowanie kodu |
-| Tailwind CSS 4 | Stylowanie |
-| ESLint 9 | Analiza statyczna kodu |
-| Git & GitHub | Kontrola wersji |
-| Cloudflare Pages | Wdrożenie |
+| Technology       | Purpose                           |
+| ---------------- | --------------------------------- |
+| Next.js 16       | Application framework and routing |
+| React 19         | User interface                    |
+| TypeScript       | Static typing                     |
+| Tailwind CSS 4   | Styling                           |
+| ESLint 9         | Code quality                      |
+| Git & GitHub     | Version control                   |
+| Cloudflare Pages | Production deployment             |
 
-### Typografia
+### Typography
+
+The project uses locally installed fonts:
 
 `Archivo` · `Archivo Black` · `IBM Plex Mono` · `Inter` · `Space Grotesk`
 
-## 💻 Uruchomienie lokalne
+## 🚀 Getting Started
 
-Wymagane: Node.js oraz npm.
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/mstobrawa/flippclub.git
 cd flippclub
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Aplikacja będzie dostępna pod adresem `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Przydatne komendy
+## 📜 Available Scripts
 
-```bash
-npm run dev      # uruchomienie środowiska developerskiego
-npm run build    # build produkcyjny
-npm run start    # uruchomienie serwera Next.js
-npm run lint     # analiza ESLint
-```
+| Command         | Description                         |
+| --------------- | ----------------------------------- |
+| `npm run dev`   | Start the development server        |
+| `npm run build` | Create a production build           |
+| `npm run start` | Start the Next.js production server |
+| `npm run lint`  | Run ESLint                          |
 
-## 📁 Struktura projektu
+## 📁 Project Structure
 
 ```text
 flippclub/
-├── public/           # Grafiki i zasoby statyczne
+├── public/             # Static assets and images
+├── docs/               # README screenshots
 ├── src/
-│   ├── app/          # Strony i routing
-│   ├── components/   # Komponenty interfejsu
-│   └── config/       # Konfiguracja nawigacji i slidera
+│   ├── app/            # Pages and application routing
+│   ├── components/     # Reusable UI components
+│   └── config/         # Navigation and slider configuration
 ├── next.config.ts
 ├── package.json
 └── README.md
 ```
 
-## 🚀 Wdrożenie
+## 🌐 Deployment
 
-Projekt jest przechowywany na GitHubie, a wersja produkcyjna wdrażana przez **Cloudflare Pages** z gałęzi `main` zgodnie z konfiguracją projektu.
+The project is stored in a GitHub repository and deployed to **Cloudflare Pages**.
 
-Przed publikacją zmian sprawdź build:
+The production branch is `main`. Deployments are triggered according to the project's Cloudflare Pages configuration.
+
+Before pushing changes, verify the production build:
 
 ```bash
 npm run build
