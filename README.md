@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# 🕹️ FLIPPCLUB
 
-First, run the development server:
+### ARCADE. FLIPPERS. GOOD TIMES.
+
+**Strona internetowa klubu arcade i flipperów w Siemianowicach Śląskich.**
+
+![FLIPPCLUB — podgląd strony](docs/screenshot.jpg)
+
+</div>
+
+---
+
+## O projekcie
+
+FLIPPCLUB to strona internetowa miejsca, w którym spotykają się klasyczne flippery, automaty arcade i wspólna rozrywka. Projekt łączy wyrazisty, inspirowany salonami gier styl wizualny z czytelną prezentacją oferty klubu.
+
+Ciemne granatowe tło, żółte akcenty, fioletowe neony i mocna typografia budują rozpoznawalny klimat, a osobne podstrony ułatwiają znalezienie najważniejszych informacji.
+
+## 🎮 Co znajdziesz na stronie?
+
+- **Atrakcje** — automaty arcade, flippery, Killer Queen i koparki RC.
+- **Informacje dla odwiedzających** — cennik, godziny otwarcia i kontakt.
+- **Urodziny i imprezy** — prezentacja dostępnych przestrzeni i oferty.
+- **Pozostałe usługi** — bar, wypożyczalnia oraz kupno i wymiana.
+- **Galeria i aktualności** — zdjęcia klubu oraz sekcja treści społecznościowych.
+- **Responsywny interfejs** — układ dostosowany do różnych rozmiarów ekranu.
+
+## 🛠️ Technologie
+
+| Technologia | Rola |
+|---|---|
+| Next.js 16 | Framework aplikacji i routing |
+| React 19 | Interfejs użytkownika |
+| TypeScript | Typowanie kodu |
+| Tailwind CSS 4 | Stylowanie |
+| ESLint 9 | Analiza statyczna kodu |
+| Git & GitHub | Kontrola wersji |
+| Cloudflare Pages | Wdrożenie |
+
+### Typografia
+
+`Archivo` · `Archivo Black` · `IBM Plex Mono` · `Inter` · `Space Grotesk`
+
+## 💻 Uruchomienie lokalne
+
+Wymagane: Node.js oraz npm.
 
 ```bash
+git clone https://github.com/mstobrawa/flippclub.git
+cd flippclub
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja będzie dostępna pod adresem `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Przydatne komendy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev      # uruchomienie środowiska developerskiego
+npm run build    # build produkcyjny
+npm run start    # uruchomienie serwera Next.js
+npm run lint     # analiza ESLint
+```
 
-## Learn More
+## 📁 Struktura projektu
 
-To learn more about Next.js, take a look at the following resources:
+```text
+flippclub/
+├── public/           # Grafiki i zasoby statyczne
+├── src/
+│   ├── app/          # Strony i routing
+│   ├── components/   # Komponenty interfejsu
+│   └── config/       # Konfiguracja nawigacji i slidera
+├── next.config.ts
+├── package.json
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Wdrożenie
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Projekt jest przechowywany na GitHubie, a wersja produkcyjna wdrażana przez **Cloudflare Pages** z gałęzi `main` zgodnie z konfiguracją projektu.
 
-## Deploy on Vercel
+Przed publikacją zmian sprawdź build:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+<div align="center">
+
+**Designed & developed by Mike Webworks**
+
+</div>
