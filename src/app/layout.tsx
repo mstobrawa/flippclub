@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     title: "FLIPPCLUB — Flippery, Retro Arcade & Bar",
     description: siteConfig.description,
   },
+  verification: {
+    google: "UkuQsIYe75C4xGfpfGIand8k2A3JAIe4J25hNCAsk8s",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
