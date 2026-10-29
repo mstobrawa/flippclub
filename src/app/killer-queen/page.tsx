@@ -60,7 +60,7 @@ export default function KillerQueenPage() {
 
                   <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
                     <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                      Jedyna taka atrakcja w Europie. Dziesięciu graczy, dwie
+                      Jedyna taka atrakcja poza USA. Dziesięciu graczy, dwie
                       drużyny i jedna arena. Killer Queen to szybka, pełna
                       chaosu gra 5 vs 5, w której liczy się refleks, współpraca
                       i dobra strategia.{" "}

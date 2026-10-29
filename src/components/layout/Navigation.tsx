@@ -160,6 +160,7 @@ export function Navigation() {
           items-center
           px-3
           py-2.5
+          text-center
           font-display
           text-[14px]
           font-extrabold

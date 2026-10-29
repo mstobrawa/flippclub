@@ -31,8 +31,8 @@ export function Footer() {
             </Link>
 
             <p className="max-w-xs text-sm leading-relaxed text-on-ink/65">
-              Flippery, arcade, retro gry i dobra zabawa. 300 m² rozrywki w
-              Siemianowicach Śląskich.
+              Flippery, arcade, koparki RC, retro gry i dobra zabawa. 300 m²
+              rozrywki w Siemianowicach Śląskich.
             </p>
 
             <SocialLinks />
@@ -51,7 +51,7 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               <li>
                 <Link
-                  href="/about"
+                  href="/o-nas"
                   className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   O nas
@@ -78,7 +78,7 @@ export function Footer() {
 
               <li>
                 <Link
-                  href="/gallery"
+                  href="/galeria"
                   className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Galeria
@@ -95,7 +95,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/machine-list"
+                  href="/lista-maszyn"
                   className="text-sm text-on-ink/70 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Lista maszyn

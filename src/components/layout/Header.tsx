@@ -98,7 +98,7 @@ export function Header() {
           </Link>
 
           {/* Desktop navigation */}
-          <div className="ml-34 flex flex-1 lg:ml-40">
+          <div className="ml-34 flex flex-1 justify-center lg:ml-40">
             <Navigation />
           </div>
 

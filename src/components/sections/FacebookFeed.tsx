@@ -374,12 +374,22 @@ export function FacebookFeed() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((current) => (current + 1) % slides.length);
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   const slide = slides[index];
+
+  // ZMIANA: osobne kolory tekstu dla każdego slajdu.
+  const slideColors: Record<string, [string, string]> = {
+    adult: ["text-accent", "text-primary"],
+    youth: ["text-primary", "text-accent"],
+    special: ["text-accent", "text-primary"],
+    hours: ["text-accent", "text-primary"],
+  };
+
+  const colors = slideColors[slide.id] ?? ["text-primary", "text-accent"];
 
   return (
     <section
@@ -397,7 +407,7 @@ export function FacebookFeed() {
             className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
           >
             {slide.blocks.map((block, blockIndex) => {
-              const isPurple = blockIndex % 2 === 0;
+              const headingColor = colors[blockIndex % 2];
               const isFirstBlock = blockIndex === 0;
 
               return (
@@ -441,7 +451,7 @@ export function FacebookFeed() {
                         uppercase
                         leading-none
                         tracking-[0.08em]
-                        ${isPurple ? "text-primary" : "text-accent"}
+                        ${headingColor}
                         ${
                           isFirstBlock
                             ? "text-2xl sm:text-4xl"
@@ -570,13 +580,13 @@ export function FacebookFeed() {
                 />
 
                 <SocialLink
-                  href="https://www.instagram.com/flippclub"
+                  href="https://www.instagram.com/flippclub.pl"
                   label="Instagram"
                   icon={<InstagramIcon />}
                 />
 
                 <SocialLink
-                  href="https://www.tiktok.com/@flippclub"
+                  href="https://www.tiktok.com/@flippclubsiemianowice"
                   label="TikTok"
                   icon={<TikTokIcon />}
                 />
@@ -637,13 +647,13 @@ export function FacebookFeed() {
               />
 
               <SocialLink
-                href="https://www.instagram.com/flippclub"
+                href="https://www.instagram.com/flippclub.pl"
                 label="Instagram"
                 icon={<InstagramIcon />}
               />
 
               <SocialLink
-                href="https://www.tiktok.com/@flippclub"
+                href="https://www.tiktok.com/@flippclubsiemianowice"
                 label="TikTok"
                 icon={<TikTokIcon />}
               />

@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
                 <p className="mt-4">
                   <strong>Waap Filtrowentylacja Jakub Dziura</strong>
                   <br />
-                  ul. Oświęcimska 10
+                  ul. Tarnogórska 17
                   <br />
                   41-106 Siemianowice Śląskie
                   <br />

@@ -16,15 +16,15 @@ export const navItems: NavItem[] = [
     children: [
       {
         label: "Flippery",
-        href: "/zones/flippers",
+        href: "/flippery",
       },
       {
         label: "Arcade",
-        href: "/zones/arcades",
+        href: "/arcade",
       },
       {
         label: "Koparki",
-        href: "/excavators",
+        href: "/koparki",
       },
       {
         label: "Killer Queen",
@@ -34,31 +34,31 @@ export const navItems: NavItem[] = [
   },
   {
     label: "Cennik",
-    href: "/pricing",
+    href: "/cennik",
   },
   {
     label: "Godziny otwarcia",
-    href: "/opening",
+    href: "/godziny-otwarcia",
   },
   {
     label: "Mini bar",
-    href: "/zones/bar",
+    href: "/bar",
   },
   {
-    label: "Imprezy",
-    href: "/zones/events",
+    label: "Urodziny / imprezy",
+    href: "/urodziny",
   },
   {
     label: "Wypożyczalnia",
     href: "/wypozyczalnia",
   },
   {
-    label: "Kup/Wymień",
+    label: "Kup / Wymień",
     href: "/kup-wymien",
   },
   {
     label: "Kontakt",
-    href: "/contact",
+    href: "/kontakt",
   },
 ];
 

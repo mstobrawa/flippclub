@@ -24,7 +24,7 @@ export const slides: Slide[] = [
     title: "FLIPPERY",
     description:
       "Klasyczne i nowoczesne flippery, które możesz odkrywać i rozgrywać bez końca.",
-    href: "/zones/flippers",
+    href: "/flippery",
     imageDesktop: "/images/slider/slider_flippery.webp",
     imageMobile: "/images/slider/slider_flippery.webp",
     label: "Popularne",
@@ -37,7 +37,7 @@ export const slides: Slide[] = [
     id: "arcade-zone",
     title: "ARCADE",
     description: "Retro automaty i współczesne gry arcade w jednym miejscu.",
-    href: "/zones/arcades",
+    href: "/arcade",
     imageDesktop: "/images/slider/slider_arcade.webp",
     imageMobile: "/images/slider/slider_arcade.webp",
     accent: "40 automatów",
@@ -49,7 +49,7 @@ export const slides: Slide[] = [
     id: "killer-queen",
     title: "KILLER QUEEN",
     description:
-      "Jedyna w Europie, wieloosobowa maszyna arcade, przy której liczy się współpraca.",
+      "Jedyna poza USA, wieloosobowa maszyna arcade, przy której liczy się współpraca.",
     href: "/killer-queen",
     imageDesktop: "/images/slider/slider_killerqueen.webp",
     imageMobile: "/images/slider/slider_killerqueen.webp",
@@ -63,7 +63,7 @@ export const slides: Slide[] = [
     id: "excavator-zone",
     title: "KOPARKI RC",
     description: "Koparka, spychacz, wywrotka? Poczuj klimat palcu budowy!",
-    href: "/excavators",
+    href: "/koparki",
     imageDesktop: "/images/slider/slider_koparki.webp",
     imageMobile: "/images/slider/slider_koparki.webp",
     titleColor: "text-accent",
@@ -72,10 +72,10 @@ export const slides: Slide[] = [
   },
   {
     id: "events",
-    title: "IMPREZY I WYDARZENIA",
+    title: "URODZINY I IMPREZY",
     description:
       "Urodziny, spotkania ze znajomymi i prywatne wydarzenia w wyjątkowej atmosferze.",
-    href: "/zones/events",
+    href: "/urodziny",
     imageDesktop: "/images/slider/slider_events.webp",
     imageMobile: "/images/slider/slider_events.webp",
     accent: "Zarezerwuj termin",
@@ -88,7 +88,7 @@ export const slides: Slide[] = [
     title: "BAR",
     description:
       "Zrób przerwę od gry, napij się czegoś i złap chwilę oddechu między kolejnymi rozgrywkami.",
-    href: "/zones/bar",
+    href: "/bar",
     imageDesktop: "/images/slider/slider_bar.webp",
     imageMobile: "/images/slider/slider_bar.webp",
     titleColor: "text-accent",
@@ -101,7 +101,7 @@ export const slides: Slide[] = [
   //   title: "WKRÓTCE WIĘCEJ",
   //   description:
   //     "Nowe maszyny, kolejne atrakcje i jeszcze więcej powodów, żeby do nas wracać.",
-  //   href: "/about",
+  //   href: "/o-nas",
   //   imageDesktop: "/images/placeholders/placeholder.png",
   //   imageMobile: "/images/placeholders/placeholder.png",
   //   label: "Wkrótce",

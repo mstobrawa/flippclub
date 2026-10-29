@@ -4,76 +4,43 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const manuallyDisabledRef = useRef(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [blocked, setBlocked] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
 
     const audio = new Audio("/audio/theme.mp3");
     audio.loop = true;
-    audio.preload = "auto";
+    audio.preload = "none";
     audioRef.current = audio;
+    audio.volume = 0.25;
 
-    let active = false;
+    const syncDesktop = () => {
+      setIsDesktop(media.matches);
 
-    const playMusic = async () => {
-      if (
-        !media.matches ||
-        !active ||
-        manuallyDisabledRef.current ||
-        !audio.paused
-      ) {
-        return;
-      }
-
-      try {
-        await audio.play();
-        setBlocked(false);
-      } catch {
-        setBlocked(true);
-      }
-    };
-
-    const handleInteraction = () => {
-      void playMusic();
-    };
-
-    const syncPlayback = () => {
-      const desktop = media.matches;
-      active = desktop;
-      setIsDesktop(desktop);
-
-      if (!desktop) {
+      if (!media.matches) {
         audio.pause();
         audio.currentTime = 0;
-        setIsPlaying(false);
-        setBlocked(false);
-        return;
       }
-
-      void playMusic();
     };
 
-    const handlePlay = () => setIsPlaying(true);
+    const handlePlay = () => {
+      setIsPlaying(true);
+      setError(false);
+    };
+
     const handlePause = () => setIsPlaying(false);
 
     audio.addEventListener("play", handlePlay);
     audio.addEventListener("pause", handlePause);
+    media.addEventListener("change", syncDesktop);
 
-    window.addEventListener("pointerdown", handleInteraction);
-    window.addEventListener("keydown", handleInteraction);
-    media.addEventListener("change", syncPlayback);
-
-    syncPlayback();
+    syncDesktop();
 
     return () => {
-      active = false;
-      window.removeEventListener("pointerdown", handleInteraction);
-      window.removeEventListener("keydown", handleInteraction);
-      media.removeEventListener("change", syncPlayback);
+      media.removeEventListener("change", syncDesktop);
       audio.removeEventListener("play", handlePlay);
       audio.removeEventListener("pause", handlePause);
       audio.pause();
@@ -86,19 +53,15 @@ export function MusicPlayer() {
     if (!audio) return;
 
     if (!audio.paused) {
-      manuallyDisabledRef.current = true;
       audio.pause();
-      setBlocked(false);
       return;
     }
 
-    manuallyDisabledRef.current = false;
-
     try {
       await audio.play();
-      setBlocked(false);
+      setError(false);
     } catch {
-      setBlocked(true);
+      setError(true);
     }
   }, []);
 
@@ -107,16 +70,29 @@ export function MusicPlayer() {
   return (
     <button
       type="button"
-      data-music-toggle
       onClick={togglePlayback}
       aria-label={isPlaying ? "Zatrzymaj muzykę" : "Włącz muzykę"}
       aria-pressed={isPlaying}
-      className="fixed bottom-5 right-5 z-100 flex items-center gap-2 rounded-full border border-white/20 bg-[#08082b]/90 px-4 py-3 font-mono text-xs text-white shadow-lg shadow-purple-950/40 backdrop-blur-md transition hover:border-[#fdc302] hover:text-[#fdc302] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fdc302]"
+      className={`music-toggle fixed bottom-5 right-5 z-100 flex items-center gap-3 rounded-full border-2 px-5 py-4 font-mono text-sm font-bold uppercase tracking-wider transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#fdc302] ${
+        isPlaying
+          ? "border-[#fdc302] bg-[#08082b]/95 text-[#fdc302] shadow-[0_0_20px_rgba(253,195,2,0.25)]"
+          : "music-toggle-idle border-[#fdc302] bg-[#fdc302] text-[#08082b] shadow-[0_0_25px_rgba(253,195,2,0.55)] hover:scale-105 hover:bg-[#ffe36a]"
+      }`}
     >
-      <span aria-hidden="true">{isPlaying ? "♫" : "▶"}</span>
-      <span>
-        {blocked ? "Włącz muzykę" : isPlaying ? "Muzyka ON" : "Muzyka OFF"}
+      <span className="text-xl" aria-hidden="true">
+        {isPlaying ? "♫" : "▶"}
       </span>
+
+      <span>
+        {error ? "Spróbuj ponownie" : isPlaying ? "Muzyka ON" : "Włącz muzykę"}
+      </span>
+
+      {!isPlaying && (
+        <span
+          className="h-2 w-2 rounded-full bg-[#08082b]"
+          aria-hidden="true"
+        />
+      )}
     </button>
   );
 }
