@@ -47,47 +47,12 @@ export default function BarPage() {
               <span className="text-pink">R</span>
             </h1>
           </Reveal>
-
-          <Reveal delay={220}>
-            <div className="relative mx-auto mt-7 max-w-3xl">
-              <div
-                aria-hidden="true"
-                className="
-                  absolute
-                  inset-0
-                  translate-x-2
-                  translate-y-2
-                  bg-primary
-                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                "
-              />
-
-              <div
-                className="
-                  relative
-                  bg-[#f1f1ee]
-                  px-5
-                  py-5
-                  shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)]
-                  [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]
-                  sm:px-8
-                  sm:py-6
-                "
-              >
-                <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                  Uzupełnij życie i manę. Złap przekąskę, napój i wracaj do gry.
-                  W naszym barze znajdziesz klasyki, które znasz od lat — od
-                  legendarnych gum Turbo po oranżadę w woreczku i wiele innych.
-                </p>
-              </div>
-            </div>
-          </Reveal>
         </div>
 
         <div className="mx-auto mt-20 max-w-5xl sm:mt-24">
           <Reveal delay={650}>
             <div className="mb-8 text-center">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">
+              <p className="font-mono text-s font-bold uppercase tracking-[0.2em] text-accent">
                 CO CZAI SIĘ ZA LADĄ? TURBO • ORANŻADA • PRZEKĄSKI • PIWA
                 KRAFTOWE • I WIĘCEJ
               </p>

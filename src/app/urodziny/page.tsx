@@ -20,12 +20,8 @@ const eventInfo = [
     title: "ILE TO KOSZTUJE?",
     content: (
       <>
-        Cena urodzinek zależy od Was – wybieracie czas jaki chcecie spędzić w
-        klubie i mnożycie go przez ilość uczestników. (Sprawdź dział cennik)
-        <br />
-        <br />
         Najczęstszym wyborem jest czas 2 godzin, który kosztuje od osoby
-        dorosłej (18 + lat) 49 zł a od dziecka (- 18 lat) 45 zł za 2 pełne
+        dorosłej (18+ lat) 49 zł, a od dziecka (poniżej 18 lat) 45 zł za 2 pełne
         godziny zabawy w klubie z bezpłatną rezerwacją miejsc siedzących.
       </>
     ),
@@ -34,7 +30,7 @@ const eventInfo = [
     title: "Od jakiego wieku dzieci można rezerwować urodziny?",
     content: (
       <>
-        Rekomendujemy wiek 10 + lat. Flippery, koparki RC i niektóre automaty
+        Rekomendujemy wiek 10+ lat. Flippery, koparki RC i niektóre automaty
         wymagają większego skupienia, z którymi młodsi mogą mieć problemy.
         Decyzja o młodszej grupie należy oczywiście do Państwa.
       </>
@@ -44,30 +40,18 @@ const eventInfo = [
     title: "Czy można zorganizować urodziny dla dorosłych?",
     content: (
       <>
-        TAK! 😊 Jak najbardziej – czasami zastanawiamy się, kto się lepiej
-        bawił, dziecko czy dorosły? Zapraszamy – wrócicie wspomnieniami do
+        TAK! 😊 Jak najbardziej, zapraszamy – wrócicie wspomnieniami do
         przeszłości.
       </>
     ),
   },
   {
     title: "Czy trzeba rezerwować termin?",
-    content: (
-      <>
-        TAK – bez tego może się okazać, że mamy już zarezerwowane miejsce –
-        zawsze zadzwoń i umów imprezę pod numerem:
-      </>
-    ),
+    content: null,
     phones: true,
   },
   {
     title: "Jakie miejsce dostaniemy i czy jest to dodatkowo płatne?",
-    content: (
-      <>
-        NIE – udostępnimy Wam bezpłatnie miejsca siedzące w klubie zgodnie z
-        poniższą ilością:
-      </>
-    ),
     bullets: [
       "Jeśli będzie mniej niż 5 gości – bezpłatnie udostępnimy dla Was kanapy",
       "Jeśli będzie mniej niż 10 gości – bezpłatnie udostępnimy dla Was lożę na parterze",
@@ -77,33 +61,20 @@ const eventInfo = [
   {
     title: "Czy wymagany jest opiekun?",
     content: (
-      <>
-        TAK – impreza osób niepełnoletnich ZAWSZE wymaga obecności opiekuna,
-        który na miejscu wypełnia i podpisuje „zasady odpowiedzialności
-        uczestnictwa w imprezie”.
-      </>
+      <>TAK – impreza osób niepełnoletnich ZAWSZE wymaga obecności opiekuna.</>
     ),
   },
   {
     title: "Czy opiekun płaci za wstęp?",
-    content: (
-      <>
-        JEDEN (1) wymagany opiekun nie musi wykupować biletu, jeśli nie chce
-        korzystać z naszych atrakcji – jest po to, aby zwrócić uwagę na
-        uczestników. KAŻDA dodatkowa osoba towarzysząca (opiekun nr. 2 itd.,
-        rodzic, wujek, ciocia, koleżanka itp.) MUSI WYKUPIĆ bilet zgodny z
-        czasem trwania imprezy urodzinowej.
-      </>
-    ),
+    content: <>JEDEN (1) wymagany opiekun nie musi wykupować biletu.</>,
   },
   {
     title: "Co zawiera impreza urodzinowa:",
     content: (
       <>
-        Zabawę przez wybrany i opłacony w.g. standardowego cennika czas,
-        bezpłatną rezerwację i udostępnienie miejsc siedzących (wg. ilości
-        osób), bezpłatne zaproszenia elektroniczne, prezent od klubu – voucher
-        dla solenizanta.
+        Zabawę przez wybrany i opłacony wg standardowego cennika czas, bezpłatną
+        rezerwację i udostępnienie miejsc siedzących (wg ilości osób), bezpłatne
+        zaproszenia elektroniczne, prezent od klubu.
       </>
     ),
   },
@@ -112,7 +83,7 @@ const eventInfo = [
     content: (
       <>
         Oferta naszego minibaru jest dla Państwa dostępna podczas trwania
-        imprezy. Nasza oferta jest bardzo dobra cenowo. Zakupujecie Państwo to
+        imprezy. Nasza oferta jest bardzo dobra cenowo. Zakupujecie Państwo to,
         co chcecie i ile chcecie. Nie ma możliwości przyniesienia i spożywania
         własnych produktów.
       </>
@@ -122,22 +93,37 @@ const eventInfo = [
     title: "Tort, babeczki, ciasto",
     content: (
       <>
-        Istnieje możliwość dodatkowego zamówienia u nas okolicznościowego tortu
-        lub innych słodkości – Prosimy o kontakt pod numerem telefonu:
+        Tort lub inne słodkości można zamówić dodatkowo. Szczegóły pod numerem:{" "}
+        <a
+          href="tel:606414973"
+          className="whitespace-nowrap font-bold text-primary underline decoration-accent decoration-2 underline-offset-4"
+        >
+          606-414-973
+        </a>{" "}
+        – Lucyna.
+        <span className="block">
+          Studio tortów Babeczka z Michałkowic:{" "}
+          <a
+            href="https://www.facebook.com/BabeczkaSiemianowice"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold text-primary underline decoration-accent decoration-2 underline-offset-4"
+          >
+            www.facebook.com/BabeczkaSiemianowice
+          </a>
+        </span>
       </>
     ),
-    cake: true,
   },
   {
-    title: "PIZZA, fastfoody i inne jedzenie.",
+    title: "PIZZA, fast foody i inne jedzenie.",
     content: (
       <>
-        Niechętnie podchodzimy do tematu spożywania fastfoodów w klubie.
+        Niechętnie podchodzimy do tematu spożywania fast foodów w klubie.
         Flippery nie lubią sosu i sera. JEŚLI jednak Wasza impreza zdecydowanie
         nie może się odbyć bez pizzy czy sałatki od cioci – zorganizujemy Wam
-        papierowe talerzyki, pozbędziemy się kartonów i ogarniemy sprzątanie.
-        Prosimy o ustalenie własnego jedzenia w trakcie rezerwowania urodzin –
-        Pobieramy wtedy dodatkową opłatę 50 zł tzw. „talerzykowe”
+        jednorazowe talerzyki i sztućce. Pobieramy wtedy dodatkową opłatę 50 zł
+        tzw. „talerzykowe”.
       </>
     ),
   },
@@ -173,9 +159,9 @@ export default function EventsPage() {
           </Reveal>
 
           <Reveal delay={100}>
-            <h1 className="mt-3 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
-              URODZINY
-              <span className="mt-2 block text-accent sm:mt-3">/ IMPREZY</span>
+            <h1 className="mt-3 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
+              IMPREZY
+              <span className="mt-1 block text-accent sm:mt-2">/ URODZINY</span>
             </h1>
           </Reveal>
 
@@ -186,14 +172,31 @@ export default function EventsPage() {
                 className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
               />
 
-              <div className="relative bg-[#f1f1ee] px-6 py-5 shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.55)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
-                <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                  Urodziny? Integracja? Wieczór kawalerski?{" "}
-                  <span className="font-extrabold text-primary">
-                    Say no more.
-                  </span>{" "}
-                  Wiemy, czego Ci trzeba, skontaktuj się z nami i zorganizujmy
-                  niezapomnianą imprezę.
+              <div className="relative bg-accent px-6 py-5 text-ink shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.35)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                <p className="text-base font-bold leading-relaxed sm:text-lg">
+                  Integracje, wieczór kawalerski, wycieczka szkolna — zadzwoń i
+                  poznaj szczegóły:{" "}
+                  <a
+                    href="tel:509555123"
+                    className="font-extrabold underline decoration-primary decoration-2 underline-offset-4"
+                  >
+                    509-555-123
+                  </a>
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div className="relative mx-auto mt-12 max-w-3xl">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+              />
+
+              <div className="relative bg-blue px-6 py-5 text-white [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+                <p className="mt-3 text-base font-medium leading-relaxed sm:text-lg">
+                  Planujesz u nas urodziny? Zapoznaj się ze szczegółami poniżej.
                 </p>
               </div>
             </div>
@@ -202,22 +205,11 @@ export default function EventsPage() {
 
         {/* Informacje o imprezach */}
         <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
-          <Reveal>
-            <div className="mb-8 text-center">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent sm:text-sm">
-                PLAYER GUIDE
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl">
-                Informacje o imprezach
-              </h2>
-            </div>
-          </Reveal>
-
           <div className="space-y-6">
             {eventInfo.map((item, index) => (
               <Reveal key={item.title} delay={Math.min((index % 3) * 70, 140)}>
                 <article
-                  className={`relative p-[3px] ${
+                  className={`relative p-0.75 ${
                     index % 3 === 0
                       ? "bg-accent"
                       : index % 3 === 1
@@ -236,9 +228,11 @@ export default function EventsPage() {
                           {item.title}
                         </h3>
 
-                        <div className="mt-4 text-sm font-medium leading-relaxed text-[#45454d] sm:text-base">
-                          {item.content}
-                        </div>
+                        {"content" in item && item.content && (
+                          <div className="mt-4 text-sm font-medium leading-relaxed text-[#45454d] sm:text-base">
+                            {item.content}
+                          </div>
+                        )}
 
                         {"bullets" in item && item.bullets && (
                           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#45454d] sm:text-base">
@@ -249,35 +243,26 @@ export default function EventsPage() {
                         )}
 
                         {"phones" in item && item.phones && (
-                          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-mono text-base font-extrabold text-primary sm:text-lg">
-                            <a
-                              href="tel:606414973"
-                              className="underline decoration-accent decoration-2 underline-offset-4"
-                            >
-                              606-414-973
-                            </a>
+                          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium leading-relaxed text-[#45454d] sm:text-base">
+                            <span>
+                              TAK – zawsze zadzwoń i umów imprezę pod numerami:
+                            </span>
 
-                            <a
-                              href="tel:509555123"
-                              className="underline decoration-accent decoration-2 underline-offset-4"
-                            >
-                              509-555-123
-                            </a>
-                          </div>
-                        )}
+                            <div className="flex flex-nowrap items-center gap-x-4 whitespace-nowrap font-mono text-xs font-extrabold text-primary sm:gap-x-5 sm:text-base">
+                              <a
+                                href="tel:606414973"
+                                className="underline decoration-accent decoration-2 underline-offset-4"
+                              >
+                                606-414-973
+                              </a>
 
-                        {"cake" in item && item.cake && (
-                          <div className="mt-4 space-y-2 text-sm font-medium leading-relaxed text-[#45454d] sm:text-base">
-                            <p>606-414-973 – Lucyna.</p>
-                            <p>Studio tortów Babeczka z Michałkowic:</p>
-                            <a
-                              href="https://www.facebook.com/BabeczkaSiemianowice"
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-block break-all font-bold text-primary underline decoration-accent decoration-2 underline-offset-4"
-                            >
-                              https://www.facebook.com/BabeczkaSiemianowice
-                            </a>
+                              <a
+                                href="tel:509555123"
+                                className="underline decoration-accent decoration-2 underline-offset-4"
+                              >
+                                509-555-123
+                              </a>
+                            </div>
                           </div>
                         )}
                       </div>
@@ -302,7 +287,7 @@ export default function EventsPage() {
                   aria-label="Powiększ zdjęcie kanap"
                   className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
                 >
-                  <div className="relative aspect-[16/9] overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src="/images/events/ur1.webp"
                       alt="Kanapy dla uczestników imprezy urodzinowej we FlippClub"
@@ -319,7 +304,7 @@ export default function EventsPage() {
             {/* Opis */}
             <div className="order-1 md:order-2">
               <Reveal delay={120}>
-                <div className="relative bg-primary p-[3px] [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
+                <div className="relative bg-primary p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
                   <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
                       STREFA 01
@@ -342,7 +327,7 @@ export default function EventsPage() {
             {/* Opis */}
             <div className="order-1">
               <Reveal>
-                <div className="relative bg-pink p-[3px] [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
+                <div className="relative bg-pink p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
                   <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
                       STREFA 02
@@ -368,7 +353,7 @@ export default function EventsPage() {
                   aria-label="Powiększ zdjęcie loży na parterze"
                   className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
                 >
-                  <div className="relative aspect-[16/9] overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src="/images/events/ur2.webp"
                       alt="Loża na parterze we FlippClub"
@@ -394,7 +379,7 @@ export default function EventsPage() {
                   aria-label="Powiększ zdjęcie pokoju VIP"
                   className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
                 >
-                  <div className="relative aspect-[16/9] overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src="/images/events/ur3.webp"
                       alt="Pokój VIP na piętrze we FlippClub"
@@ -411,7 +396,7 @@ export default function EventsPage() {
             {/* Opis */}
             <div className="order-1 md:order-2">
               <Reveal delay={120}>
-                <div className="relative bg-accent p-[3px] [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
+                <div className="relative bg-accent p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
                   <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
                       STREFA 03
@@ -428,72 +413,6 @@ export default function EventsPage() {
                 </div>
               </Reveal>
             </div>
-          </div>
-        </div>
-
-        {/* GAME MODE SELECT */}
-        <div className="mx-auto mt-24 max-w-5xl sm:mt-28">
-          <Reveal>
-            <div className="text-center">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">
-                GAME MODE SELECT
-              </p>
-              <h2 className="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-primary sm:text-5xl">
-                Wybierz swój tryb
-              </h2>
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            <Reveal>
-              <div className="h-full border-2 border-accent bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-primary)]">
-                <p className="font-mono text-xs font-bold text-accent">01</p>
-                <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
-                  Urodziny
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  Zbierz ekipę i zróbcie urodzinową rundę, której nie
-                  zapomnicie.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={90}>
-              <div className="h-full border-2 border-primary bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-accent)]">
-                <p className="font-mono text-xs font-bold text-primary">02</p>
-                <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
-                  Integracja
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  Oderwijcie się od biurek i spędźcie razem trochę czasu poza
-                  pracą.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={180}>
-              <div className="h-full border-2 border-pink bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-primary)]">
-                <p className="font-mono text-xs font-bold text-pink">03</p>
-                <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
-                  Wieczór
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  Kawalerski, panieński albo po prostu wieczór ze znajomymi.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={270}>
-              <div className="h-full border-2 border-blue bg-[#010522] p-6 shadow-[5px_6px_0_var(--color-blue)]">
-                <p className="font-mono text-xs font-bold text-blue">04</p>
-                <h3 className="mt-3 font-display text-xl font-extrabold uppercase text-white">
-                  Wycieczka klasowa
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  Wyjście ze szkoły nie musi byc nudne. Wpadnijcie całą klasą.
-                </p>
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>
