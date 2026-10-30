@@ -61,12 +61,23 @@ const eventInfo = [
   {
     title: "Czy wymagany jest opiekun?",
     content: (
-      <>TAK – impreza osób niepełnoletnich ZAWSZE wymaga obecności opiekuna.</>
+      <>
+        TAK – impreza osób niepełnoletnich ZAWSZE wymaga obecności jednego (1)
+        opiekuna.
+      </>
     ),
   },
   {
     title: "Czy opiekun płaci za wstęp?",
-    content: <>JEDEN (1) wymagany opiekun nie musi wykupować biletu.</>,
+    content: (
+      <>
+        JJEDEN (1) wymagany opiekun nie musi wykupować biletu, jeśli nie chce
+        korzystać z naszych atrakcji – jest po to, aby zwrócić uwagę na
+        uczestników. KAŻDA dodatkowa osoba towarzysząca (opiekun nr. 2 itd.,
+        rodzic, wujek, ciocia, koleżanka itp.) MUSI WYKUPIĆ bilet zgodny z
+        czasem trwania imprezy urodzinowej.
+      </>
+    ),
   },
   {
     title: "Co zawiera impreza urodzinowa:",
@@ -119,11 +130,11 @@ const eventInfo = [
     title: "PIZZA, fast foody i inne jedzenie.",
     content: (
       <>
-        Niechętnie podchodzimy do tematu spożywania fast foodów w klubie.
         Flippery nie lubią sosu i sera. JEŚLI jednak Wasza impreza zdecydowanie
         nie może się odbyć bez pizzy czy sałatki od cioci – zorganizujemy Wam
-        jednorazowe talerzyki i sztućce. Pobieramy wtedy dodatkową opłatę 50 zł
-        tzw. „talerzykowe”.
+        jednorazowe talerzyki i sztućce, pozbędziemy się kartonów i ogarniemy
+        sprzątanie. Prosimy o ustalenie własnego jedzenia w trakcie rezerwowania
+        urodzin – Pobieramy wtedy dodatkową opłatę 50 zł tzw. „talerzykowe”
       </>
     ),
   },
@@ -169,13 +180,13 @@ export default function EventsPage() {
             <div className="relative mx-auto mt-7 max-w-3xl">
               <div
                 aria-hidden="true"
-                className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
               />
 
-              <div className="relative bg-accent px-6 py-5 text-ink shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.35)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+              <div className="relative bg-primary px-6 py-5 text-on-ink shadow-[inset_5px_5px_10px_0px_rgba(0,0,0,0.35)] [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
                 <p className="text-base font-bold leading-relaxed sm:text-lg">
                   Integracje, wieczór kawalerski, wycieczka szkolna — zadzwoń i
-                  poznaj szczegóły:{" "}
+                  omów szczegóły:{" "}
                   <a
                     href="tel:509555123"
                     className="font-extrabold underline decoration-primary decoration-2 underline-offset-4"
@@ -191,10 +202,10 @@ export default function EventsPage() {
             <div className="relative mx-auto mt-12 max-w-3xl">
               <div
                 aria-hidden="true"
-                className="absolute inset-0 translate-x-2 translate-y-2 bg-accent [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
+                className="absolute inset-0 translate-x-2 translate-y-2 bg-primary [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)]"
               />
 
-              <div className="relative bg-blue px-6 py-5 text-white [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
+              <div className="relative bg-accent px-6 py-5 text-ink [clip-path:polygon(3%_0,100%_0,97%_100%,0_100%)] sm:px-8 sm:py-6">
                 <p className="mt-3 text-base font-medium leading-relaxed sm:text-lg">
                   Planujesz u nas urodziny? Zapoznaj się ze szczegółami poniżej.
                 </p>
