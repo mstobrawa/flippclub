@@ -88,7 +88,7 @@ export function Header() {
 "
           >
             <Image
-              src="/images/logoh.webp"
+              src="/images/logo.webp"
               alt="FLIPPCLUB"
               width={320}
               height={160}
