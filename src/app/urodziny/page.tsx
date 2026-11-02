@@ -71,11 +71,10 @@ const eventInfo = [
     title: "Czy opiekun płaci za wstęp?",
     content: (
       <>
-        JJEDEN (1) wymagany opiekun nie musi wykupować biletu, jeśli nie chce
-        korzystać z naszych atrakcji – jest po to, aby zwrócić uwagę na
-        uczestników. KAŻDA dodatkowa osoba towarzysząca (opiekun nr. 2 itd.,
-        rodzic, wujek, ciocia, koleżanka itp.) MUSI WYKUPIĆ bilet zgodny z
-        czasem trwania imprezy urodzinowej.
+        JEDEN (1) wymagany opiekun nie musi wykupować biletu – jest po to, aby
+        zwrócić uwagę na uczestników. KAŻDA dodatkowa osoba towarzysząca
+        (opiekun nr. 2 itd., rodzic, wujek, ciocia, koleżanka itp.) MUSI WYKUPIĆ
+        bilet zgodny z czasem trwania imprezy urodzinowej.
       </>
     ),
   },
