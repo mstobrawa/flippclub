@@ -80,7 +80,8 @@ export default function OpeningPage() {
                   <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
                     Sprawdź, kiedy jesteśmy otwarci i zaplanuj swoją kolejną
                     wizytę. Wpadaj wtedy, kiedy Ci pasuje. Nie trzeba rezerwować
-                    miejsca, zawsze jest na czym pograć.
+                    miejsca, zawsze jest na czym pograć. Bez żetonów, bez
+                    dodatkowych opłat.
                   </p>
                 </div>
               </div>

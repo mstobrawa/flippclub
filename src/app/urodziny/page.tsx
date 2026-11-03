@@ -22,7 +22,8 @@ const eventInfo = [
       <>
         Najczęstszym wyborem jest czas 2 godzin, który kosztuje od osoby
         dorosłej (18+ lat) 49 zł, a od dziecka (poniżej 18 lat) 45 zł za 2 pełne
-        godziny zabawy w klubie z bezpłatną rezerwacją miejsc siedzących.
+        godziny zabawy w klubie z bezpłatną rezerwacją miejsc siedzących. Bez
+        żetonów, bez dodatkowych opłat.
       </>
     ),
   },

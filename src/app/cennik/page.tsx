@@ -98,7 +98,7 @@ export default function PricingPage() {
                   <p className="text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
                     Wybierz swój pakiet i baw się jak chcesz. Prosto, bez
                     kombinowania. Nie trzeba rezerwować miejsca, zawsze jest na
-                    czym pograć.
+                    czym pograć. Bez żetonów, bez dodatkowych opłat.
                   </p>
                 </div>
               </div>
