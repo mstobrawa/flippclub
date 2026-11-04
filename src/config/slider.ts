@@ -62,7 +62,7 @@ export const slides: Slide[] = [
   {
     id: "excavator-zone",
     title: "KOPARKI RC",
-    description: "Koparka, spychacz, wywrotka? Poczuj klimat palcu budowy!",
+    description: "Koparka, spychacz, wywrotka? Poczuj klimat placu budowy!",
     href: "/koparki",
     imageDesktop: "/images/slider/slider_koparki.webp",
     imageMobile: "/images/slider/slider_koparki.webp",
