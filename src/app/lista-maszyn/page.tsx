@@ -66,6 +66,7 @@ const arcade = [
   "1UP Arcade Mortal Kombat 2",
   "Crane - łapa",
   "HOKKEY - Bubble Hokej",
+  "ATARI - Pong Coctail table",
   "MAGIC Arcade",
   "Sponge Bob arcade auto",
 ];
@@ -163,66 +164,66 @@ export default function MachineListPage() {
         </Reveal>
 
         <Reveal>
-        <section>
-          <SectionTitle subtitle="23 maszyny">Flippery</SectionTitle>
+          <section>
+            <SectionTitle subtitle="23 maszyny">Flippery</SectionTitle>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {flippers.map((machine) => {
-              const currentNumber = number++;
+            <div className="grid gap-5 md:grid-cols-2">
+              {flippers.map((machine) => {
+                const currentNumber = number++;
 
-              return (
-                <MachineCard
-                  key={machine}
-                  number={currentNumber}
-                  name={machine}
-                  inDevelopment={flipperInDevelopment.has(machine)}
-                />
-              );
-            })}
-          </div>
-        </section>
+                return (
+                  <MachineCard
+                    key={machine}
+                    number={currentNumber}
+                    name={machine}
+                    inDevelopment={flipperInDevelopment.has(machine)}
+                  />
+                );
+              })}
+            </div>
+          </section>
         </Reveal>
 
         <Reveal className="mt-20">
-        <section>
-          <SectionTitle subtitle="40 pozycji">Arcade</SectionTitle>
+          <section>
+            <SectionTitle subtitle="40 pozycji">Arcade</SectionTitle>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {arcade.map((machine) => {
-              const currentNumber = number++;
+            <div className="grid gap-5 md:grid-cols-2">
+              {arcade.map((machine) => {
+                const currentNumber = number++;
 
-              return (
-                <MachineCard
-                  key={machine}
-                  number={currentNumber}
-                  name={machine}
-                  inDevelopment={arcadeInDevelopment.has(machine)}
-                />
-              );
-            })}
-          </div>
-        </section>
+                return (
+                  <MachineCard
+                    key={machine}
+                    number={currentNumber}
+                    name={machine}
+                    inDevelopment={arcadeInDevelopment.has(machine)}
+                  />
+                );
+              })}
+            </div>
+          </section>
         </Reveal>
 
         <Reveal className="mt-20">
-        <section>
-          <SectionTitle subtitle="3 pozycje">Inne</SectionTitle>
+          <section>
+            <SectionTitle subtitle="3 pozycje">Inne</SectionTitle>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {other.map((machine) => {
-              const currentNumber = number++;
+            <div className="grid gap-5 md:grid-cols-2">
+              {other.map((machine) => {
+                const currentNumber = number++;
 
-              return (
-                <MachineCard
-                  key={machine}
-                  number={currentNumber}
-                  name={machine}
-                  inDevelopment={otherInDevelopment.has(machine)}
-                />
-              );
-            })}
-          </div>
-        </section>
+                return (
+                  <MachineCard
+                    key={machine}
+                    number={currentNumber}
+                    name={machine}
+                    inDevelopment={otherInDevelopment.has(machine)}
+                  />
+                );
+              })}
+            </div>
+          </section>
         </Reveal>
       </div>
     </main>

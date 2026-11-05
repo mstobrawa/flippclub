@@ -138,6 +138,17 @@ const eventInfo = [
       </>
     ),
   },
+  {
+    title: "W jakie dni możemy zorganizować urodziny?",
+    content: (
+      <>
+        Standardowo organizujemy urodziny w dniach i godzinach otwarcia klubu.
+        Jeśli jednak masz dużą liczbę gości (min. 12) i chcesz żebyśmy
+        udostępnili klub wyłącznie dla Was, skontaktuj się z nami i ustalmy
+        szczegóły Waszej imprezy.
+      </>
+    ),
+  },
 ];
 
 export default function EventsPage() {
