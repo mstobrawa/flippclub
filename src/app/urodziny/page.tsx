@@ -149,6 +149,10 @@ const eventInfo = [
       </>
     ),
   },
+  {
+    title: "Mam rezerwację. O której mam być?",
+    content: <>Prosimy być około 10 minut przed zarezerwowanym czasem.</>,
+  },
 ];
 
 export default function EventsPage() {

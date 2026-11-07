@@ -49,6 +49,10 @@ const faqItems: FaqItem[] = [
     answer:
       "Znajdziesz nas przy ul. E. Orzeszkowej 2B w Siemianowicach Śląskich.",
   },
+  {
+    question: "Gdzie mogę zaparkować?",
+    answer: "Parkuj śmiało w okolicach klubu. Parking jest bezpłatny.",
+  },
 ];
 
 const accentStyles = [

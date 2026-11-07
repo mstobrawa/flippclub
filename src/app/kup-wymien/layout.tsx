@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kup / Wymień — FLIPPCLUB",
+  title: "Flipper do Pubu — FLIPPCLUB",
   description:
-    "Kup lub wymień flippery i automaty w FLIPPCLUB. Oferta jest obecnie w przygotowaniu.",
+    "Wypożycz flipper do Twojego pubu w FLIPPCLUB. Oferta jest obecnie w przygotowaniu.",
   alternates: {
-    canonical: "/kup-wymien",
+    canonical: "/flipper-do-pubu",
   },
   openGraph: {
-    title: "Kup / Wymień — FLIPPCLUB",
+    title: "Flipper do Pubu — FLIPPCLUB",
     description:
-      "Oferta kupna i wymiany flipperów oraz automatów w FLIPPCLUB jest obecnie w przygotowaniu.",
-    url: "/kup-wymien",
+      "Wypożycz flipper do Twojego pubu w FLIPPCLUB jest obecnie w przygotowaniu.",
+    url: "/flipper-do-pubu",
     type: "website",
   },
 };

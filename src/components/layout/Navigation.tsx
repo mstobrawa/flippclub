@@ -178,7 +178,14 @@ export function Navigation() {
           }
         `}
               >
-                {item.label}
+                {item.label === "Flipper do Pubu" ? (
+                  <span className="flex flex-col items-center leading-tight">
+                    <span>FLIPPER</span>
+                    <span className="whitespace-nowrap">DO PUBU</span>
+                  </span>
+                ) : (
+                  item.label
+                )}
               </Link>
             </li>
           );
