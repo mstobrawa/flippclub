@@ -53,6 +53,11 @@ const faqItems: FaqItem[] = [
     question: "Gdzie mogę zaparkować?",
     answer: "Parkuj śmiało w okolicach klubu. Parking jest bezpłatny.",
   },
+  {
+    question: "Czy mogę przyjść z psem/zwierzakiem?",
+    answer:
+      "Niestety nie. Kochamy zwierzaki, jednak bardzo duża ilość ruchu, świateł i dźwięków nie jest dla nich komfortowa.",
+  },
 ];
 
 const accentStyles = [
