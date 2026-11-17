@@ -49,16 +49,16 @@ export const navItems: NavItem[] = [
     href: "/urodziny",
   },
   {
-    label: "Flipper do Pubu",
-    href: "/flipper-do-pubu",
-  },
-  {
     label: "Wypożyczalnia",
     href: "/wypozyczalnia",
   },
   {
     label: "Kup / Wymień",
     href: "/kup-wymien",
+  },
+  {
+    label: "Flipper do Pubu",
+    href: "/flipper-do-pubu",
   },
   {
     label: "Kontakt",
