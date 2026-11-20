@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import TetrisDecoration from "@/components/layout/TetrisDecoration";
 import Reveal from "@/components/ui/Reveal";
 
@@ -269,26 +270,17 @@ export default function EventsPage() {
                         )}
 
                         {"phones" in item && item.phones && (
-                          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium leading-relaxed text-[#45454d] sm:text-base">
-                            <span>
-                              TAK – zawsze zadzwoń i umów imprezę pod numerami:
-                            </span>
-
-                            <div className="flex flex-nowrap items-center gap-x-4 whitespace-nowrap font-mono text-xs font-extrabold text-primary sm:gap-x-5 sm:text-base">
-                              <a
-                                href="tel:606414973"
-                                className="underline decoration-accent decoration-2 underline-offset-4"
-                              >
-                                606-414-973
-                              </a>
-
-                              <a
-                                href="tel:509555123"
-                                className="underline decoration-accent decoration-2 underline-offset-4"
-                              >
-                                509-555-123
-                              </a>
-                            </div>
+                          <div className="mt-4 flex flex-col gap-2 text-sm font-medium leading-relaxed text-[#45454d] sm:text-base">
+                            <p>
+                              Prosimy o kontakt telefoniczny w celu ustalenia
+                              terminu imprezy:
+                            </p>
+                            <a
+                              href="tel:509555123"
+                              className="font-bold text-primary underline decoration-accent decoration-2 underline-offset-4"
+                            >
+                              509-555-123
+                            </a>
                           </div>
                         )}
                       </div>
@@ -300,144 +292,157 @@ export default function EventsPage() {
           </div>
         </div>
 
-        {/* Miejsca na imprezy urodzinowe */}
-        <div className="mx-auto mt-16 max-w-6xl space-y-12 sm:mt-20 sm:space-y-16 lg:space-y-20">
-          {/* Kanapy: mobile opis → zdjęcie; desktop zdjęcie → opis */}
-          <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-10 lg:gap-14">
-            {/* Zdjęcie — wrapper jest bezpośrednim dzieckiem grida */}
-            <div className="order-2 md:order-1">
-              <Reveal>
-                <button
-                  type="button"
-                  onClick={() => setSelectedImage("/images/events/ur1.webp")}
-                  aria-label="Powiększ zdjęcie kanap"
-                  className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src="/images/events/ur1.webp"
-                      alt="Kanapy dla uczestników imprezy urodzinowej we FlippClub"
-                      fill
-                      sizes="(max-width: 767px) calc(100vw - 40px), 50vw"
-                      className="object-cover transition duration-500 group-hover:scale-105"
-                    />
-                    <ImageHover />
+        {/* Strefy urodzinowe */}
+        <div className="mx-auto mt-20 max-w-6xl sm:mt-24">
+          <Reveal>
+            <div className="mb-10 text-center">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent sm:text-sm">
+                WYBIERZ SWOJĄ STREFĘ
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl md:text-5xl">
+                Miejsce na Twoje urodziny
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="space-y-16 sm:space-y-20">
+            {/* Kanapy */}
+            <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-10 lg:gap-14">
+              {/* Opis */}
+              <div className="order-1">
+                <Reveal>
+                  <div className="relative bg-accent p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
+                    <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
+                      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                        STREFA 01
+                      </p>
+                      <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+                        Kanapy
+                      </h2>
+                      <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                        Jeśli będzie mniej niż 5 gości – bezpłatnie udostępnimy
+                        dla Was kanapy.
+                      </p>
+                    </div>
                   </div>
-                </button>
-              </Reveal>
+                </Reveal>
+              </div>
+
+              {/* Zdjęcie */}
+              <div className="order-2">
+                <Reveal delay={120}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage("/images/events/ur1.webp")}
+                    aria-label="Powiększ zdjęcie kanap"
+                    className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
+                  >
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src="/images/events/ur1.webp"
+                        alt="Kanapy w strefie urodzinowej FlippClub"
+                        fill
+                        sizes="(max-width: 767px) calc(100vw - 40px), 50vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <ImageHover />
+                    </div>
+                  </button>
+                </Reveal>
+              </div>
             </div>
 
-            {/* Opis */}
-            <div className="order-1 md:order-2">
-              <Reveal delay={120}>
-                <div className="relative bg-primary p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
-                  <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
-                    <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                      STREFA 01
-                    </p>
-                    <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
-                      Kanapy
-                    </h2>
-                    <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                      Jeśli będzie mniej niż 5 gości – bezpłatnie udostępnimy
-                      dla Was kanapy.
-                    </p>
+            {/* Loża */}
+            <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-10 lg:gap-14">
+              {/* Opis */}
+              <div className="order-1 md:order-2">
+                <Reveal delay={120}>
+                  <div className="relative bg-primary p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
+                    <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
+                      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                        STREFA 02
+                      </p>
+                      <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+                        Loża na parterze
+                      </h2>
+                      <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                        Jeśli będzie mniej niż 10 gości – bezpłatnie udostępnimy
+                        dla Was lożę na parterze.
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
+                </Reveal>
+              </div>
 
-          {/* Loża: mobile opis → zdjęcie; desktop opis → zdjęcie */}
-          <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-10 lg:gap-14">
-            {/* Opis */}
-            <div className="order-1">
-              <Reveal>
-                <div className="relative bg-pink p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
-                  <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
-                    <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                      STREFA 02
-                    </p>
-                    <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
-                      Loża na parterze
-                    </h2>
-                    <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                      Jeśli będzie mniej niż 10 gości – bezpłatnie udostępnimy
-                      dla Was lożę na parterze.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Zdjęcie */}
-            <div className="order-2">
-              <Reveal delay={120}>
-                <button
-                  type="button"
-                  onClick={() => setSelectedImage("/images/events/ur2.webp")}
-                  aria-label="Powiększ zdjęcie loży na parterze"
-                  className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src="/images/events/ur2.webp"
-                      alt="Loża na parterze we FlippClub"
-                      fill
-                      sizes="(max-width: 767px) calc(100vw - 40px), 50vw"
-                      className="object-cover transition duration-500 group-hover:scale-105"
-                    />
-                    <ImageHover />
-                  </div>
-                </button>
-              </Reveal>
-            </div>
-          </div>
-
-          {/* VIP: mobile opis → zdjęcie; desktop zdjęcie → opis */}
-          <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-10 lg:gap-14">
-            {/* Zdjęcie */}
-            <div className="order-2 md:order-1">
-              <Reveal>
-                <button
-                  type="button"
-                  onClick={() => setSelectedImage("/images/events/ur3.webp")}
-                  aria-label="Powiększ zdjęcie pokoju VIP"
-                  className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src="/images/events/ur3.webp"
-                      alt="Pokój VIP na piętrze we FlippClub"
-                      fill
-                      sizes="(max-width: 767px) calc(100vw - 40px), 50vw"
-                      className="object-cover transition duration-500 group-hover:scale-105"
-                    />
-                    <ImageHover />
-                  </div>
-                </button>
-              </Reveal>
+              {/* Zdjęcie */}
+              <div className="order-2 md:order-1">
+                <Reveal>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage("/images/events/ur2.webp")}
+                    aria-label="Powiększ zdjęcie loży na parterze"
+                    className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
+                  >
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src="/images/events/ur2.webp"
+                        alt="Loża na parterze we FlippClub"
+                        fill
+                        sizes="(max-width: 767px) calc(100vw - 40px), 50vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <ImageHover />
+                    </div>
+                  </button>
+                </Reveal>
+              </div>
             </div>
 
-            {/* Opis */}
-            <div className="order-1 md:order-2">
-              <Reveal delay={120}>
-                <div className="relative bg-accent p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
-                  <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
-                    <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                      STREFA 03
-                    </p>
-                    <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
-                      Pokój VIP
-                    </h2>
-                    <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
-                      Jeśli będzie 10 lub powyżej gości – bezpłatnie udostępnimy
-                      dla Was pokój VIP na piętrze. Pokój VIP pomieści ok. 15
-                      osób.
-                    </p>
+            {/* VIP */}
+            <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-10 lg:gap-14">
+              {/* Zdjęcie */}
+              <div className="order-2 md:order-1">
+                <Reveal>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage("/images/events/ur3.webp")}
+                    aria-label="Powiększ zdjęcie pokoju VIP"
+                    className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
+                  >
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src="/images/events/ur3.webp"
+                        alt="Pokój VIP na piętrze we FlippClub"
+                        fill
+                        sizes="(max-width: 767px) calc(100vw - 40px), 50vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <ImageHover />
+                    </div>
+                  </button>
+                </Reveal>
+              </div>
+
+              {/* Opis */}
+              <div className="order-1 md:order-2">
+                <Reveal delay={120}>
+                  <div className="relative bg-accent p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
+                    <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9 lg:px-10">
+                      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                        STREFA 03
+                      </p>
+                      <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+                        Pokój VIP
+                      </h2>
+                      <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d] sm:text-lg">
+                        Jeśli będzie 10 lub powyżej gości – bezpłatnie
+                        udostępnimy dla Was pokój VIP na piętrze. Pokój VIP
+                        pomieści ok. 15 osób.
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
+                </Reveal>
+              </div>
             </div>
           </div>
         </div>
@@ -459,11 +464,11 @@ export default function EventsPage() {
             <Reveal>
               <button
                 type="button"
-                onClick={() => setSelectedImage("/images/events/bar1.webp")}
+                onClick={() => setSelectedImage("/images/bar/bar6.webp")}
                 aria-label="Powiększ zdjęcie cennika baru"
                 className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
-                <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative aspect-3/4 overflow-hidden">
                   <Image
                     src="/images/bar/bar6.webp"
                     alt="Cennik produktów w barze FlippClub"
@@ -480,7 +485,7 @@ export default function EventsPage() {
               <div className="flex flex-col">
                 <button
                   type="button"
-                  onClick={() => setSelectedImage("/images/events/bar2.webp")}
+                  onClick={() => setSelectedImage("/images/bar/bar7.webp")}
                   aria-label="Powiększ zdjęcie cennika napojów"
                   className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
                 >
@@ -508,9 +513,8 @@ export default function EventsPage() {
                     </h3>
 
                     <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d]">
-                      Nie musicie organizować prowiantu na imprezę. W naszym
-                      barze znajdziecie napoje, słodycze i przekąski dla małych
-                      i dużych.
+                      W naszym barze znajdziecie napoje, słodycze i przekąski
+                      dla małych i dużych. W dobrym klubie mamy dobre ceny.
                     </p>
 
                     <p className="mt-5 border-t-2 border-primary/20 pt-4 font-mono text-xs font-extrabold uppercase leading-relaxed tracking-wider text-primary sm:text-sm">
@@ -525,37 +529,42 @@ export default function EventsPage() {
       </div>
 
       {/* Lightbox */}
-      {selectedImage !== null ? (
-        <div
-          className="fixed inset-0 z-100 flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
-          onClick={() => setSelectedImage(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Podgląd zdjęcia"
-        >
-          <button
-            type="button"
-            onClick={() => setSelectedImage(null)}
-            aria-label="Zamknij podgląd"
-            className="absolute right-5 top-5 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl font-bold text-ink transition hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            ×
-          </button>
+      {selectedImage !== null && typeof document !== "undefined"
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-9999 flex items-center justify-center bg-ink/90 p-5 backdrop-blur-sm sm:p-8"
+              onClick={() => setSelectedImage(null)}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Podgląd zdjęcia"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedImage(null)}
+                aria-label="Zamknij podgląd"
+                className="absolute right-5 top-5 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl font-bold text-ink transition hover:bg-primary hover:text-on-ink focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                ×
+              </button>
 
-          <div
-            className="relative max-h-[90vh] w-full max-w-5xl cursor-pointer overflow-hidden rounded-2xl border-4 border-accent bg-dark-gray shadow-[8px_10px_0_var(--color-primary)]"
-            onClick={() => setSelectedImage(null)}
-          >
-            <Image
-              src={selectedImage}
-              alt="Powiększone zdjęcie z FlippClub"
-              width={1600}
-              height={1200}
-              className="h-auto max-h-[85vh] w-full object-contain"
-            />
-          </div>
-        </div>
-      ) : null}
+              <div
+                className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-2xl border-4 border-accent bg-dark-gray shadow-[8px_10px_0_var(--color-primary)]"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <Image
+                  src={selectedImage}
+                  alt="Powiększone zdjęcie z FlippClub"
+                  width={1600}
+                  height={1200}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1024px"
+                  className="block h-auto max-h-[85vh] w-full object-contain"
+                  priority
+                />
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </section>
   );
 }
