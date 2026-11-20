@@ -10,11 +10,11 @@ export default function BarPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
+    "/images/bar/bar6.webp",
     "/images/bar/bar1.webp",
     "/images/bar/bar2.webp",
     "/images/bar/bar3.webp",
-    "/images/bar/bar4.webp",
-    "/images/bar/bar5.webp",
+    "/images/bar/bar7.webp",
   ];
 
   return (

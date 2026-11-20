@@ -441,6 +441,87 @@ export default function EventsPage() {
             </div>
           </div>
         </div>
+
+        {/* Ceny w naszym barze */}
+        <div className="mx-auto mt-20 max-w-6xl sm:mt-24">
+          <Reveal>
+            <div className="mb-8 text-center">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent sm:text-sm">
+                BAR / MENU
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl md:text-5xl">
+                Ceny w naszym barze
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 items-start gap-7 md:grid-cols-2 md:gap-10">
+            <Reveal>
+              <button
+                type="button"
+                onClick={() => setSelectedImage("/images/events/bar1.webp")}
+                aria-label="Powiększ zdjęcie cennika baru"
+                className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image
+                    src="/images/bar/bar6.webp"
+                    alt="Cennik produktów w barze FlippClub"
+                    fill
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <ImageHover />
+                </div>
+              </button>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="flex flex-col">
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage("/images/events/bar2.webp")}
+                  aria-label="Powiększ zdjęcie cennika napojów"
+                  className="group relative block w-full overflow-hidden rounded-2xl border-2 border-primary/50 bg-[#010522] text-left shadow-[6px_7px_0_var(--color-primary)] transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[8px_10px_0_var(--color-primary)] focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-primary"
+                >
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src="/images/bar/bar7.webp"
+                      alt="Cennik napojów w barze FlippClub"
+                      fill
+                      sizes="(max-width: 767px) 100vw, 50vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <ImageHover />
+                  </div>
+                </button>
+
+                {/* Informacyjny box baru */}
+                <div className="relative mt-20 bg-accent p-0.75 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)]">
+                  <div className="bg-[#f1f1ee] px-6 py-7 [clip-path:polygon(4%_0,100%_0,96%_100%,0_100%)] sm:px-8 sm:py-9">
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                      BAR / INFO
+                    </p>
+
+                    <h3 className="mt-3 font-display text-2xl font-extrabold uppercase leading-tight text-primary sm:text-3xl">
+                      Coś na mały głód?
+                    </h3>
+
+                    <p className="mt-5 text-base font-medium leading-relaxed text-[#45454d]">
+                      Nie musicie organizować prowiantu na imprezę. W naszym
+                      barze znajdziecie napoje, słodycze i przekąski dla małych
+                      i dużych.
+                    </p>
+
+                    <p className="mt-5 border-t-2 border-primary/20 pt-4 font-mono text-xs font-extrabold uppercase leading-relaxed tracking-wider text-primary sm:text-sm">
+                      Wszystko na miejscu. Dobra zabawa bez przerwy!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </div>
 
       {/* Lightbox */}
